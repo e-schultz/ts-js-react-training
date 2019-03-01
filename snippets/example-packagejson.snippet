@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start": "mdx-deck demo-advanced.mdx",
+    "build": "npm run now-build",
+    "build:presentation": "mdx-deck build demo-advanced.mdx --no-html",
+    "build:images": "cp -r images dist/",
+    "build:assets": "cp -r snippets dist/",
+    "now-build": "npm run build:presentation && npm run build:images && npm run build:assets",
+    "deploy": "now"
+  },
+  "devDependencies": {
+    "ajv": "6.8.1",
+    "mdx-deck": "1.8.2",
+    "mdx-deck-code-surfer": "0.5.5",
+    "raw-loader": "1.0.0"
+  }
+}
