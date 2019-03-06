@@ -4,6 +4,6 @@ export function MyThing({input}: {input: Number}) {
     return <div>Hi {input}</div>
 }
 
-export function App() {
+export default function App() {
     return (<MyThing input={1}/>)
 }
