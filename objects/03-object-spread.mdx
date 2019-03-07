@@ -21,6 +21,8 @@ console.log(year);
 console.log(carWithoutYear)
 ```
 
+* I think a simpler example might be better to start with
+
 ```notes
 This is useful when are passing a number of properties into a function,
 and want to 'pluck off' a few to be used - and pass the rest down
@@ -48,6 +50,8 @@ Notice how we have not modified the initial car object,
 by usinfg the `...spread` operator - we have created a
 shallow copy of the object.
 ```
+
+* Worth mentioning here that this is property-order sensitive and `year` will be overwritten if first?
 
 ---
 
