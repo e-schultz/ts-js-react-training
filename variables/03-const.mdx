@@ -1,0 +1,26 @@
+import { FullScreenCode } from "mdx-deck/layouts";
+import { Appear, Notes } from "mdx-deck";
+import { CodeSurfer } from "mdx-deck-code-surfer"
+
+# JavaScript - const
+
+- follows the same block scope rules as `let`
+- can not be re-assigned after it has a value
+- do not confuse this with immutability
+
+---
+<CodeSurfer
+  code={require("raw-loader!../snippets/const-example.snippet")}
+  lang="javascript"
+  title="Const Overview"
+  showNumbers
+  steps={[
+    {}, // First step should be an overview of the snippet
+    {lines: [1], notes: "Primitives can't be changed after"},
+    {lines: [2], notes: "Unable to change value - this will give an error"},
+    {range: [3,4], notes: "Can assign an object to const"},
+    {lines: [6], notes: "We can mutate this"},
+    {range: [7,8], notes: "But can not change the assignment"},
+    {}
+  ]}
+/>

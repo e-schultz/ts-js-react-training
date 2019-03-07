@@ -1,0 +1,81 @@
+# Object Spread/Rest 
+
+---
+
+- ES2015 introduced the `...rest/...spread` operator
+- Can allow us to construct new objects while omitting properties
+- Can allow us to create new objects and merge in new properties
+- Can create shallow copies of objects 
+
+---
+
+## Object Rest
+
+- This will assign `2018` to the variable `year`
+- Creates a new object with properties: `make`, `model`
+    
+```js
+let car = { make: 'Toyota', model: 'Camery', year: '2018'};
+const { year, ...carWithoutYear} = car;
+console.log(year);
+console.log(carWithoutYear)
+```
+
+```notes
+This is useful when are passing a number of properties into a function,
+and want to 'pluck off' a few to be used - and pass the rest down
+to another function. 
+```
+
+---
+## Object Spread 
+
+```js
+function createCar(make,model, year) {
+    return { make, model, year}
+}
+function updateYear(car,year) { 
+    return { ...car, year}
+}
+let car = createCar('Toyota','Camery','2018')
+let newCar = updateYear(car,'2019');
+console.log('car', car);
+console.log('newCar', newCar)
+```
+
+```notes
+Notice how we have not modified the initial car object,
+by usinfg the `...spread` operator - we have created a
+shallow copy of the object.
+```
+
+---
+
+## Accidental Mutation
+
+```js
+function createCar(make,model, year) {
+    return { make, model, year}
+}
+function updateYear(car,year) { 
+    car.year = year;
+    return car;
+}
+let car = createCar('Toyota','Camery','2018')
+let newCar = updateYear(car,'2019');
+console.log('car', car);
+console.log('newCar', newCar)
+```
+
+```notes
+Notice how in this case - both car, and newCar 
+have the updated year.
+* note: might have a few code pens setup 
+or goto live-coding to talk about mutation of objects,
+shallow vs deep clone, etc
+```
+---
+
+## Exercise
+
+TODO

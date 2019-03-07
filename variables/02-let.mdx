@@ -1,0 +1,123 @@
+import { FullScreenCode } from "mdx-deck/layouts";
+import { Appear, Notes } from "mdx-deck";
+import Code from 'mdx-code';
+
+# JavaScript - let
+
+- let is `block` scoped 
+- let can not be redeclared 
+- let is not hoisted 
+- can not use let before it's declared 
+
+---
+export default Code 
+
+```javascript No longer valid
+function example1() {
+  let firstName = "Evan";
+  lastName = "Schultz";
+  console.log("Name", firstName, lastName);
+  let lastName;
+  console.log("Name", firstName, lastName);
+}
+example1();
+```
+
+---
+
+* Let does not get hoisted to the top
+* Avoids the temporal deadzone 
+* Help avoid sneaky bugs
+
+---
+export default Code
+
+```javascript What Will the Sum Be?
+function sumMatrix(matrix) {
+  var sum = 0;
+  for (var i = 0; i < matrix.length; i++) {
+    var currentRow = matrix[i];
+    for (var i = 0; i < currentRow.length; i++) {
+      sum += currentRow[i];
+    }
+  }
+
+  return sum;
+}
+var input = [[1, 1], [1, 1]];
+sumMatrix(input);
+```
+
+---
+
+## Whats going on?
+
+* var is scoped to the function
+* `var i` ends up getting redeclared in the inner loop
+
+---
+export default Code
+
+```javascript lets fix this
+function sumMatrix(matrix) {
+  var sum = 0;
+  // what if we change from let i;
+  // to var i, and var ii?
+  for (let i = 0; i < matrix.length; i++) {
+    var currentRow = matrix[i];
+    for (let i = 0; i < currentRow.length; i++) {
+      sum += currentRow[i];
+    }
+  }
+
+  return sum;
+}
+var input = [[1, 1], [1, 1]];
+sumMatrix(input);
+```
+
+---
+export default Code
+
+```javascript What do you expect the output to be?
+function run() {
+// change var to let and see what happens
+  for (var i = 0; i < 10; i++) {
+    setTimeout(function() {
+      console.log(i);
+    }, 100 * i);
+  }
+}
+run();  
+```
+---
+## What does block scope mean?
+
+* A block scope is defined by `{ brackets }` 
+* Can access `let` declared in a scope above
+* Can **not** access a `let` declared in an inner scope
+
+---
+
+export default Code
+
+```javascript Block Scope Example
+// Try:
+// * uncomment line 6
+// * comment out line 10
+// * remove let from line 9
+function test(lastName) {
+    let firstName = 'Evan'
+    // let fullName = firstName + '';
+    if(typeof lastName === 'string') {
+        // this scope can access firstName
+        let fullName = firstName + ' ' + lastName;
+        return fullName;
+    }
+    // this can not access fullName 
+    // as fullName not in this scope
+    return fullName;
+}
+console.log(test());
+console.log(test('Schultz'));
+```

@@ -1,0 +1,145 @@
+import { FullScreenCode } from "mdx-deck/layouts";
+import { Appear, Notes } from "mdx-deck";
+
+import Code from 'mdx-code';
+
+# JavaScript - Variable Declarations
+
+- var 
+- let 
+- const 
+
+---
+
+## var 
+
+- declares a variable 
+- gets hoisted to the top of the scope
+- can be declared more than once
+
+```notes
+* Generally speaking we will want to use `let` or `const` instead of var
+* Still worth talking a bit about var here - and how it is scoped 
+* This will give us a better understanding to why we prefer let and const
+```
+---
+export default Code 
+
+```javascript Variable Declaration
+function example1() {
+  var firstName = "Evan";
+  console.log("Name", firstName, lastName);
+  var lastName = "Schultz";
+  console.log("Name", firstName, lastName);
+}
+
+example1();
+```
+---
+
+### Hoisting and the Temporal Dead Zone
+
+- Declarations are hoisted 
+- Assignments are not 
+
+---
+export default Code 
+
+```javascript Previous example is equivalent to
+function example1() {
+  var firstName;
+  firstName  = "Evan";
+  var lastName; // declaration
+  
+  console.log("lastName", lastName);
+  lastName = "Schultz"; // assignment
+  console.log(lastName);
+}
+
+example1();
+```
+
+---
+
+### Why is hoisting useful?
+
+- Useful for Function Declarations
+- Can use them before they are defined in your code
+- [Read More About Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
+
+```notes
+If hoisting can introduce weird problems, when can it be useful?
+
+When declaring functions - it can allow them to be used/called before they are
+declared in the code. 
+
+However, be mindful of function declaration vs function assignment
+```
+---
+export default Code 
+
+```javascript Function Declaration
+doFirstThing();
+doSecondThing();
+doThirdThing();
+
+function doFirstThing() {
+    console.log("I am the first thing");
+}
+
+function doSecondThing() {
+    console.log("I am the second thing");
+}
+
+function doThirdThing() {
+    console.log("I am the third thing");
+}
+```
+
+---
+
+### Function Declaration vs Function Assignment
+
+---
+export default Code
+
+```javascript Will this work?
+doFirstThing();
+
+function doFirstThing() {
+    console.log("I am the first thing");
+    doSecondThing();
+}
+
+var doSecondThing = function() {
+    console.log("I am the second thing");
+}
+
+
+function doThirdThing() {
+    console.log("I am the third thing");
+}
+```
+
+---
+
+export default Code
+
+```javascript Why does this work?
+function doFirstThing() {
+    console.log("I am the first thing");
+    doSecondThing();
+}
+
+var doSecondThing = function() {
+    console.log("I am the second thing");
+}
+
+
+function doThirdThing() {
+    console.log("I am the third thing");
+}
+
+doFirstThing();
+```
+

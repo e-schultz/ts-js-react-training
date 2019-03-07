@@ -1,0 +1,67 @@
+import { FullScreenCode } from "mdx-deck/layouts";
+
+# Object Literals
+
+---
+
+## What are they?
+
+- Key name becomes property name
+- Short hand for creating objects
+- Can use computed key names
+
+---
+
+## The Old Way
+
+```javascript
+function createCar(make, model, year) {
+    return {
+        make: make,
+        model: model,
+        year: year
+    }
+}
+```
+
+---
+
+## Shorthand
+
+```javascript
+function createComputer(make, model, year) {
+    return {
+        make,
+        model,
+        year,
+    }
+}
+
+console.log(createCar('Toyota','Camery','2018'))
+// { make: 'Toyota', model: 'Camery', year: '2018'}
+```
+
+---
+
+## Dynamic / Computed Keys
+
+```javascript
+function createCar(make, model, year, key, value) {
+    return {
+        make,
+        model,
+        year,
+        [key]: value
+    }
+}
+console.log(createCar('Toyota','Camery','2018','trimLevel','Standard'))
+/*
+{ make: 'Toyota', model: 'Camery', year: '2018', trimLevel: 'Standard' }
+*/
+```
+
+---
+
+## Exercise
+
+TODO
