@@ -1,0 +1,111 @@
+## CSS approaches
+
+* CSS is all in the global scope by default
+* CSS-in-JS approaches with React let you scope your CSS to individual components
+* Functional CSS approaches let you avoid writing redundant CSS
+
+---
+
+## CSS-in-JS
+
+* Approaches that move some part of the CSS process into JavaScript
+* Normally try to solve the problem of CSS being in the global scope
+* Can require more set up, but end up more flexible in the long term
+* Read into CSS Modules and Styled Components if this method is of interest
+
+---
+
+## Functional CSS
+
+* AKA Atomic CSS
+* Many small, single-purpose classes
+* Write less CSS and stay more consistent by using what already exists
+* Libraries like Tachyons, Tailwind and Bulma
+
+---
+
+## Tachyons
+
+```css
+.flex {
+    display: flex;
+}
+.flex-row {
+    flex-direction: flex-row;
+}
+.pl4 {
+    padding-left: 4rem;
+}
+.f3 {
+    font-size: 3rem;
+}
+```
+
+```notes
+https://tachyons.io/#style
+```
+---
+
+```javascript
+
+const Menu = ({ items }) => (
+    <ul className="flex flex-row f3">
+        {items.map((item, i) => (
+            <li className="pl4" key={i}>{item.name}</li>
+        ))
+    </ul>
+)
+
+```
+
+---
+
+## Benefits
+
+* "Base" styles like font, type scale, space scale are all in one place and become consistent
+* Many components will not need any additional stylesheet to be written at all
+* Can be extended easily or combined with more traditional CSS approaches
+* Minimal set up
+
+---
+
+## Drawbacks
+* Still requires additional CSS styles for more advanced CSS selection techniques
+* Learning curve involved with learning to read the terse class names and HTML
+* Doesn't solve issues with global scope
+* No way to ensure specificity of classes setting the same property
+
+---
+
+## Nanostyled
+
+* A library that solves specificity issue of atomic CSS libraries
+* Automatically creates props for your component to accept that make it customizable
+
+
+---
+
+```javascript
+import nanostyled from 'nanostyled';
+// This example uses CSS classes from Tachyons
+import 'tachyons/css/tachyons.css';
+
+// A Button via three style props:
+const Button = nanostyled('button', {
+  color: 'white',
+  bg: 'bg-blue',
+  base: 'fw7 br3 pa2 sans-serif f4 bn input-reset',
+});
+
+---
+
+```javascript
+const App = () => (
+  <div>
+    <Button>Base Button</Button>
+    <Button bg="bg-yellow">Yellow Button</Button>
+  </div>
+);
+```
+
+---
