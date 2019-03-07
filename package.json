@@ -6,7 +6,9 @@
     "build:images": "cp -r images dist/",
     "build:assets": "cp -r snippets dist/",
     "now-build": "npm run build:presentation && npm run build:images && npm run build:assets",
-    "deploy": "now"
+    "deploy": "now",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
   },
   "devDependencies": {
     "ajv": "6.8.1",
@@ -19,6 +21,8 @@
     "unified-ui": "0.0.3"
   },
   "dependencies": {
+    "docz": "^0.13.7",
+    "docz-theme-default": "^0.13.7",
     "mdx-code": "^1.1.3",
     "mdx-deck-live-code": "^1.0.1",
     "react-syntax-highlighter": "^10.1.3"

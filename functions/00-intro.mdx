@@ -1,0 +1,81 @@
+# Functions
+
+---
+
+# Parameters
+
+- 0 or many items that are passed into a function for its use
+- A function defines the parameters it expects
+- The order of the parameters passed in should match the order expected by the function
+
+---
+
+```javascript
+function addNumbers(number1, number2) {
+  return number1 + number2;
+}
+
+// number1 recieves the value of 5
+// number2 recieves the value of 7
+const total = addNumbers(5, 7);
+```
+
+---
+
+# Parameters
+
+- In ES6, you can assign default parameter values to be used when an argument is not passed in
+- You can also use the rest operator to group the parameters together as an array
+- It's important to name your parameters well to help with readability
+
+---
+
+```javascript
+// we can see that number2 has an assignment, = 8
+// this assignment is only applied if a second argument isn't passed in
+function addNumbers(number1, number2 = 8) {
+  return number1 + number2;
+}
+
+// number1 gets the value of 5
+// Without a second argument, number2 is set to 8
+const total = addNumbers(5); // resolves to 13
+
+// we can also use the spread operator (...) in the parameter definition
+// this will take all arguments passed in and put them into a single array
+function keepTheLastItem(...items) {
+  return items[items.length - 1];
+}
+
+keepTheLastItem(3, 1, 66, 21, 15); // this returns 15
+```
+
+
+---
+
+# Returns
+
+- A return statement is something you should have in almost all of your functions
+- Without a return, a function resolves to 'undefined'
+- You can be very creative about what is returned - for example, you can return another function
+- The result of a function return can be used immediately after that function has finished its business
+
+---
+
+```javascript
+function return10() {
+  return 10;
+}
+
+function returnTen() {
+  10;
+}
+
+const result = return10(); // the value is the number 10
+const result2 = returnTen(); // the value is undefined
+```
+
+---
+
+TODO:  Return Exercise
+
