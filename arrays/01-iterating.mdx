@@ -1,0 +1,74 @@
+## Iterating Arrays
+
+* In ES6, we mainly use array methods to iterate and transform array data
+* Many of these methods avoid mutation issues
+
+
+---
+
+## Mapping
+
+* Steps over each item in the array
+* Gives you access to the current item in the array and optionally the index
+* Writes whatever you return to that position in the new array
+
+---
+
+export default Code
+
+```javascript Mapping Arrays
+
+const leia = { firstName: 'Carrie', lastName: 'Fisher' };
+const luke = { firstName: 'Mark', lastName: 'Hamill' };
+const han = { firstName: 'Harrison', lastName: 'Ford' };
+
+const cast = [leia, luke, han];
+
+const castFirstNames = cast.map(castMember => castMember.firstName);
+const castWithIds = cast.map((castMember, i) => ({...castMember, id: i }))
+
+console.log(cast);
+console.log(castFirstNames);
+console.log(castWithIds);
+```
+
+---
+
+## Reducing
+
+* Steps over each item in the array
+* Gives you access to the current item, the index, and an accumulator
+* Performs an operation and returns the accumulated value
+* The accumulated value can be of any type and length, which makes reduce very flexible
+
+---
+
+```javascript Reducing Arrays
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue);
+
+console.log(sum);
+```
+
+---
+
+## ForEach
+
+* Steps over each item in the array
+* Has no return value, but executes a block of code for each item in the array
+* Not as suitable for transforming data as `.map`
+
+---
+
+```javascript ForEach Arrays
+
+function logItem(item) {
+    console.log(item);
+}
+
+const items = ['Cat', 'Hat', 'Chat', 'Chapeau'];
+
+items.forEach(item => logItem(item))
+```
+
+---
