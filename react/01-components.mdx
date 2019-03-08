@@ -1,0 +1,131 @@
+import { FullScreenCode } from "mdx-deck/layouts";
+
+## React Components
+
+- The core building blocks of React applications
+- Pieces of UI that represent some chunk of the element tree
+- Generate elements during rendering - don't exist in the real DOM
+- Can take inputs from parent components, called props
+
+---
+
+## JSX
+
+- "HTML" in JavaScript
+- The standard way to write React components
+- Can contain JavaScript which will be evaluated upon compilation
+- Will be compiled to template literals and `React.createElement` calls
+
+---
+
+export default FullScreenCode
+
+```javascript JSX Example
+const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);
+
+const sameElement = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+```
+
+---
+
+export default FullScreenCode
+
+```javascript JSX Will Be Interpreted
+function tick() {
+  const element = (
+    <div>
+      <h1>Hello, world!</h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>
+  );
+  ReactDOM.render(element, document.getElementById('root'));
+}
+
+setInterval(tick, 1000);
+```
+
+```notes
+https://reactjs.org/redirect-to-codepen/rendering-elements/update-rendered-element
+```
+
+---
+
+## Creating a Component
+
+- Components are functions
+- To be rendered, they should return a single JSX tag
+- Any number of children can be contained in the root tag
+
+---
+
+export default FullScreenCode
+
+```js
+import React from 'react';
+
+function HelloWorld() {
+  return (<header>
+    <h1>
+        Hello World!
+    </h1>
+  </header>);
+}
+```
+---
+
+## ES6 Component Shorthands
+
+- A "fat arrow" function (which has more sensible treatment of `this`)
+- Which is assigned to a name
+- Which is a constant rather than a variable
+
+---
+
+export default FullScreenCode
+
+```js
+const HelloWorld = () => {
+  return <div>Hello world!</div>;
+}
+
+// You can also use implicit returns
+const HelloWorld = () => <div>Hello world!</div>;
+```
+
+---
+
+## What Happened?
+
+- HelloWorld is the same in all cases - a function that will show text
+- JSX-to-JavaScript compilation translates `<div>...</div>` into return value
+
+---
+
+## Making Components Usable Anywhere
+
+- Add an `export` statement at the bottom to make `HelloWorld` visible to other modules
+- Part of the new-style ES6 module syntax
+- Which isn't yet supported by Node for server-side applications...
+
+---
+
+export default FullScreenCode
+
+```js
+export default HelloWorld;
+```
+
+---
+
+## React Conventions
+
+- Using a default export for components is a React convention
+- `HelloWorld.js` will (almost always) export `HelloWorld` and only `HelloWorld`
