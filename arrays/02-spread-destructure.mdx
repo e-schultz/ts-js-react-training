@@ -1,0 +1,68 @@
+import Code from 'mdx-code';
+
+## Spread, Rest, and Destructure
+
+* Same syntax as with Objects
+* Can create shallow copies of arrays
+* Can be used to assign multiple values from an array
+
+---
+
+export default Code
+
+```javascript Destructuring assignment
+const [width, height] = [20, 40]
+console.log(width);
+console.log(height);
+```
+
+---
+
+## Rest
+
+* Gathers any remaining elements in an array
+* Useful especially when dealing with unknown quantities
+
+---
+
+export default Code
+
+```javascript Array Rest and Function Arguments
+function addAllNumbers(...args) {
+    return args.reduce((sum, number) => sum + number);
+}
+
+console.log(addAllNumbers(10, 5));
+console.log(addAllNumbers(3, 3, 3));
+console.log(addAllNumbers(1, 2, 3, 4, 5, 6));
+```
+
+---
+
+## Spread
+
+* Expands the values within an array
+* Useful for combining arrays or creating shallow copies
+* Useful for safely using mutating array methods
+
+---
+
+export default Code
+
+```javascript Array Spread
+const vegetables = ['Carrots', 'Spinach', 'Pumpkin'];
+const meat = ['Beef', 'Chicken', 'Pork'];
+
+const food = [...vegetables, ...meat];
+console.log(food);
+
+const meatAndAlternatives = [...meat, 'Tofu'];
+console.log(meat); // Unaltered
+console.log(meatAndAlternatives);
+```
+
+---
+
+EXERCISE
+
+Todo

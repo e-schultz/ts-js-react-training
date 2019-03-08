@@ -1,0 +1,86 @@
+import Code from 'mdx-code';
+
+# Arrays
+
+---
+
+## What we will cover
+
+* Array Basics
+* Iterating Arrays
+* Array Spreading/Destructuring
+
+---
+
+## Arrays are
+
+* Collections of any other type, including other arrays
+* The main interable in JavaScript
+* Always indexed with integers, starting from 0
+* Mutated by some methods, but not others
+* Truthy even when empty
+
+---
+
+export default Code
+
+```javascript Creating Arrays
+const fruits = [];
+
+fruits.push('Apples');
+console.log(fruits);
+
+fruits.unshift('Oranges');
+console.log(fruits);
+
+fruits[2] = 'Bananas';
+console.log(fruits);
+```
+
+---
+
+## What happened?
+
+* `push` mutates the array by adding a value to the end
+* `unshift` mutates the array by adding a value to the beginning
+* Arrays can be directly assigned values at particular instances
+
+---
+
+export default Code
+
+```javascript Accessing from arrays
+const numbers = [1, 2, 3, 4, 5];
+
+console.log(
+    numbers[0], // First element
+    numbers[numbers.length - 1], // Last element
+    numbers['1'], // Second element
+    numbers.find(number => number > 3), // First element greater than 3
+    numbers.filter(number => number % 2 === 0) // All even numbers
+);
+```
+
+---
+
+## What happened?
+
+* Arrays can be accessed directly by their index using bracket notation
+* We can also use array methods to search through arrays for values
+* These array methods take a function as an argument
+
+---
+
+export default Code
+
+```javascript Arrays and mutation
+const numbers = [1, 2, 3, 4, 5];
+const numbersTwo = numbers;
+const numbersThree = numbers.slice(numbers);
+
+numbers.push(6);
+
+console.log(numbers);
+console.log(numbersTwo);
+console.log(numbersThree);
+```
