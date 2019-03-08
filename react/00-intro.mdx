@@ -1,0 +1,26 @@
+# React
+
+---
+
+## Key Concepts in React
+
+- The UI (aka view) is composed entirely of components
+- Components themselves are just JavaScript functions
+- Component data drives changes in the rendered UI
+- Since the app is data-driven, data should be managed in only a few places
+
+```notes
+React is different from jQuery because the source of truth is your components and your application state.
+Compare with jQuery, where the source of truth is the DOM itself, and you access it directly.
+In React, we work with the DOM indirectly.
+```
+
+---
+
+## React and the DOM
+
+- In React, you avoid directly manipulating the DOM
+- Internally, React keeps track of a "copy" called the Virtual DOM
+- React knows to wait for your components to change, then re-render where appropriate
+- Allows for greater speed
+
