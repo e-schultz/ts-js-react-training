@@ -1,0 +1,63 @@
+# Styling in React
+
+---
+
+## What we will cover
+
+* Stying React components
+* Conditional styling
+* CSS approaches
+
+---
+
+##  Stying React components
+
+- You can use CSS the way you normally would
+- "Class" is a reserved name in JavaScript
+- Apply classes using the "className" attribute
+
+---
+
+## className
+
+```css
+.red-title {
+    color: red;
+}
+```
+
+```javascript
+const RedTitle = ({ text }) => (
+    <h1 className="red-title">{ text } </h1>
+)
+```
+
+---
+
+## Inline Styling
+
+* This approach should be avoided, but it is possible
+
+```javascript
+const RedTitle = ({ text }) => (
+    <h1 style={{ color: 'red' }}>{ text }</h1>
+)
+```
+
+---
+
+## Conditional Styling
+
+```javascript
+const DropDown = ({ visible }) => {
+    const visibleClass = visible ? 'show' : 'hide';
+    return (
+        <div className="{`drop-down ${visibleClass}`}"></div>
+    )
+}
+```
+
+```notes
+* className can be interpreted, so we can combine classes based on a variable created earlier in the block, or even using an inline ternary
+* The classnames library can simplify conditional classes https://www.npmjs.com/package/classnames#usage-with-reactjs
+```
