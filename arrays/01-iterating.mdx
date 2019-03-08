@@ -1,3 +1,5 @@
+import Code from 'mdx-code';
+
 ## Iterating Arrays
 
 * In ES6, we mainly use array methods to iterate and transform array data
@@ -25,7 +27,7 @@ const han = { firstName: 'Harrison', lastName: 'Ford' };
 const cast = [leia, luke, han];
 
 const castFirstNames = cast.map(castMember => castMember.firstName);
-const castWithIds = cast.map((castMember, i) => ({...castMember, id: i }))
+const castWithIds = cast.map((castMember, i) => ({...castMember, id: i }));
 
 console.log(cast);
 console.log(castFirstNames);
@@ -43,6 +45,8 @@ console.log(castWithIds);
 
 ---
 
+export default Code
+
 ```javascript Reducing Arrays
 const numbers = [1, 2, 3, 4];
 const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue);
@@ -56,9 +60,11 @@ console.log(sum);
 
 * Steps over each item in the array
 * Has no return value, but executes a block of code for each item in the array
-* Not as suitable for transforming data as `.map`
+* Not as suitable for transforming data as `map`
 
 ---
+
+export default Code
 
 ```javascript ForEach Arrays
 
@@ -68,7 +74,5 @@ function logItem(item) {
 
 const items = ['Cat', 'Hat', 'Chat', 'Chapeau'];
 
-items.forEach(item => logItem(item))
+items.forEach(item => logItem(item));
 ```
-
----

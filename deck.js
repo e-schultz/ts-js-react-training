@@ -11,6 +11,6 @@ export default [
     ...variables,
     ...templateLiterals,
     ...objects,
-    ...styles,
-    ...arrays
+    ...arrays,
+    ...styles
 ]
