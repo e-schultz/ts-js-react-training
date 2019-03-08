@@ -2,11 +2,11 @@ import {yellow as theme } from 'mdx-deck/themes'
 import {
     future
 } from 'mdx-deck/themes'
-import atomDark from 'react-syntax-highlighter/styles/prism/atom-dark'
-import javascript from 'react-syntax-highlighter/languages/prism/javascript'
-import jsx from 'react-syntax-highlighter/languages/prism/jsx'
-import tsx from 'react-syntax-highlighter/languages/prism/tsx'
-import typescript from 'react-syntax-highlighter/languages/prism/typescript'
+import atomDark from 'react-syntax-highlighter/dist/styles/prism/atom-dark'
+import javascript from 'react-syntax-highlighter/dist/languages/prism/javascript'
+import jsx from 'react-syntax-highlighter/dist/languages/prism/jsx'
+import tsx from 'react-syntax-highlighter/dist/languages/prism/tsx'
+import typescript from 'react-syntax-highlighter/dist/languages/prism/typescript'
 
 
 export default {

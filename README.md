@@ -86,3 +86,38 @@ We are now ready to deploy the app.
 ```
 now
 ```
+
+---
+misc notes
+
+* Format:
+
+- Will have some talking to concepts/slides 
+    - Slides will cover high level points
+    - Will be 'talked to' more than read
+    - Typically followed by live-coding some examples to explore the concept
+    - Can answer questions people have during this time,
+    - Can also code examples as part of answering questions 
+- Other sections will have some exercises / examples setup
+    - will use various online tools such as
+        * repl.it
+        * codesandbox
+        * stackblitz
+- Will aim for most large sections to have a larger exercise to work with
+    - Will have initial online enviornment setup
+    - Some initial code
+    - Clear instructions / Requirements 
+- For Days 3 & 4
+    - Will have basic setup of an application 
+    - Set of features to be built out that will leverage the concepts taught
+    - Features can have 'stretch goals' 
+        - Allow for basic implementation
+        - Allow for room for refactoring, or usage of more advanced patterns
+- Link to Slides / Material will be provided before hand
+    - Slides will contain teaching Material
+    - Links to online tools
+    - Links to other useful learning / reading resources that cover topics more in depth
+    
+    
+
+

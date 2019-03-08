@@ -1,0 +1,36 @@
+# Arrow Function
+
+- A shorthand for a regular function
+- Must be defined on a variable - can't use the 'function' keyword
+- Can be written as a single line!
+- Can have implicit return
+---
+
+## Single Line can have implicit return
+
+---
+
+```javascript
+function addTwo(number1, number2) {
+  return number1 + number2;
+}
+// explicit return
+const addTow = (number1, number2) => {
+    return number1 + number2;
+}
+// implicit return
+const addTwo = (number1, number2) => number1 + number2;
+```
+
+---
+### If returning an object - wrap in `()`
+
+```javascript
+const makePerson = (firstName, lastName) => {
+    return { firstName, lastName }
+}
+
+// implicit return of an object needs to be wrapped in ()
+
+const makePerson = (firstName, lastName) => ({ firstName, lastName })
+```

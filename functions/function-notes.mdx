@@ -1,0 +1,111 @@
+
+# Function Overview
+
+* functions
+* scope
+* nested scope
+* context
+* execution context 
+* this 
+* I think maybe also adding the important thing to know about this is that the order in which functions are registered is not necessarily the order in which they are called or completed
+
+# Event Loop
+
+* even though JavaScript is an async language, it is single threaded
+* every time a function is called - it is added to the call stack
+* if that function calls another function - it is added to the stack
+* functions are run until completion - last in, first out
+* if the function does an async operation, ie: network requests, setTimeout - those are pushed to the "WebApi"
+* the stack will keep executing until it's empty 
+* once the webAPI completes - the callback is pushed onto the task que
+* the event loop checks to see that the stack is empty
+* if so - pushes items from task que onto the stack
+
+
+Tool to Visualize:
+
+-- loup tool to visualize: http://latentflip.com/loupe/
+
+Articles:
+-- https://blog.bitsrc.io/understanding-asynchronous-javascript-the-event-loop-74cd408419ff
+
+Videos:
+-- https://www.youtube.com/watch?v=8aGhZQkoFbQ
+
+# Type Coercion
+
+* aka - part of why JavaScript is weird
+* JavaScript will try to convert one value type to another 
+* If you are using `==` double equals - it will try to convert the types based on the rules in [this](https://dorey.github.io/JavaScript-Equality-Table/) table
+* `1 == "1"` - true
+* objects/arrays that are defined - even if empty can be 'truthy'
+
+```
+if([]) {
+    console.log('truthy')
+}
+
+if(true == []) {
+    console.log('not true == []')
+}
+
+if(true === []) {
+    console.log('not true === []')
+}
+
+if(true === ![]) {
+    console.log('![] is converted to false')
+}
+
+if(true === !![]) {
+    console.log('!![] converts it to true')
+}
+
+if(true == ![]) {
+    console.log()
+    console.log('x1 but not true')
+}
+
+if(true == !![]) {
+    console.log('y1 but not true')
+}
+```
+
+> Type coercion is the process of converting value from one type to another (such as string to number, object to boolean, and so on). Any type, be it primitive or an object, is a valid subject for type coercion. To recall, primitives are: number, string, boolean, null, undefined + Symbol (added in ES6).
+
+* When comparing values with '==' will try and convert them to the same type - sometimes with unpredictable results
+* `truthy/falsy` values --- when something is defined, but not true, e.g) 
+
+```js
+function check(input) {
+    console.log('coercion demo on:', input)
+    if(!input) {
+        console.log('input is fale, or falsy)');
+    if (!!input) {
+        console.log('input is true, or truthy');
+    if(input == true) {
+        console.log('input == true');
+    }
+    if(input == false) {
+        console.log('input == false');
+    }
+    if(input === true) {
+        console.log('input === true');
+    }
+    if(input === false) {
+        console.log('input === false');
+    }
+}
+check();
+check([]);
+check({});
+check(true);
+check(false);
+
+```
+
+[source](https://medium.freecodecamp.org/js-type-coercion-explained-27ba3d9a2839#93f3)
+
+## Articles
+- https://medium.freecodecamp.org/js-type-coercion-explained-27ba3d9a2839#93f3
+- https://codeburst.io/one-rule-and-three-exceptions-to-understand-javascript-coercion-35289365c449

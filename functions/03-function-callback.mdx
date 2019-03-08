@@ -1,0 +1,105 @@
+import { FullScreenCode } from "mdx-deck/layouts";
+import Code from 'mdx-code';
+
+# Function Callback
+
+- Functions can be assigned to variables
+- Functions that are assigned to variables can be invoked like you would expect
+
+---
+export default FullScreenCode
+
+## Function Assignment 
+
+```javascript
+// here is a normal function declaration
+function myRegularFunction(a, b) {
+  return a + b;
+}
+
+// here we are creating a new variable, and assigning myRegular
+const copiedRegFunction = myRegularFunction;
+
+// assigns the RESULT (return statement) of an invoked function
+const resultOf3Plus4 = myRegularFunction(3, 4);
+
+// invokes the myRegularFunction
+copiedRegFunction(5, 10);
+```
+
+---
+
+## Function Callback
+
+- If we can assign a function to a variable, this means we can assign a function as an argument
+- Parameters that are functions are often referred to as callbacks
+
+---
+export default Code 
+
+```javascript Function Callbacks
+// accept a number, and a ballback
+function basicCallback(number, callback) {
+  // I am passing the number into the callback, and assigning the result
+  const result = callback(number);
+  // and here I return the result
+  return result;
+}
+
+// a little function that doubles a number and returns the result
+const double = (number) => number * 2;
+const tripple = (number) => number * 3;
+
+const doubled = basicCallback(5, double);
+const trippled = basicCallback(6, tripple);
+console.log({doubled, trippled})
+```
+
+---
+
+TODO: Exercise
+
+```notes
+https://repl.it/student/classrooms/111559
+```
+
+---
+
+# Pure Functions
+
+- Minimalistic and explicit 
+- No side effects! 
+- Should have a return statement
+
+---
+
+### Minimalistic 
+
+- Should be small and clear
+- Do one thing, and one thing well
+- Composable into larger operations
+
+---
+
+### Avoid Side Effects
+
+- Don't access or change something that exists outside the function; 
+- Only use values passed into the function 
+- Avoid mutation of objects passed into the function 
+
+---
+
+### Should have a return statement
+
+- think of a pure function like a small factory. 
+- you give it the supplies and it outputs the product. 
+- Calling with the same inputs, should result in the same result.
+
+```javascript
+  const add = (a,b)=>a+b;
+  add(1,2); // should return 3 every time.
+```
+
+---
+
+TODO: Exercise
