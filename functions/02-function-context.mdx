@@ -120,11 +120,14 @@ and the output with and without `bind`
 
 # Closures 
 
+> A closure is a function having access to the parent scope, even after the parent function has closed.
+[source](https://www.w3schools.com/js/js_function_closures.asp)
+
+---
+
+# Closures - Short Example
+
 ```javascript
-
-function outerB() {
-
-}
 function outerA(input) {
     let inputA = input;
     outerB(); // B is in global 
@@ -132,7 +135,6 @@ function outerA(input) {
         // has access to outer 
         console.log(inputA); 
     }
-
 }
 ```
 
@@ -140,3 +142,12 @@ function outerA(input) {
 - https://medium.freecodecamp.org/javascript-closures-simplified-d0d23fa06ba4
 - https://www.w3schools.com/js/js_function_closures.asp
 ```
+
+---
+
+## Closures - Counter Example
+
+<div style={{height: '80vh', display: 'block'}}>
+    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Exploring-Closures?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+    </iframe>
+</div>
