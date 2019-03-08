@@ -41,21 +41,55 @@
 }
 ```
 
-```notes
-https://tachyons.io/#style
-```
 ---
 
-```javascript
+### Traditional Approach
 
+```javascript
 const Menu = ({ items }) => (
-    <ul className="flex flex-row f3">
+    <ul className="menu">
         {items.map((item, i) => (
-            <li className="pl4" key={i}>{item.name}</li>
+            <li className="menu-item" key={i}>{item.name}</li>
         ))
     </ul>
 )
 
+```
+
+```notes
+All the styles would be written under the menu class
+```
+
+---
+
+### With Tachyons
+
+```javascript
+const Menu = ({ items }) => (
+    <ul className="flex flex-row f3">
+        {items.map((item, i) => (
+            <li className="pl4 blue flex-auto" key={i}>{item.name}</li>
+        ))
+    </ul>
+)
+```
+
+---
+
+
+### Abstract to Components
+
+```javascript
+const MenuContainer = ({ children }) => <ul className="flex flex-row f3">{children}</ul>
+const MenuItem = ({ children }) => <li className="blue pl4 flex-auto">{children}</li>
+
+const Menu = ({ items }) => (
+    <MenuContainer>
+        {items.map((item, i) => (
+            <MenuItem key={i}>{item.name}</MenuItem>
+        ))
+    </MenuContainer>
+)
 ```
 
 ---
