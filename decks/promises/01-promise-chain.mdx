@@ -70,21 +70,19 @@ import nightOwl from "prism-react-renderer/themes/nightOwl"
 - Another request needs the result of a previous 
 
 ---
-
 ## Promise Parallel - Promise.all
 
 * Waits for all promises to resolve
 * Gets passed into the handler as an array
 
 ```javascript
-let promiseA = someRequest('A');
-let promiseB = someRequest('B');
-let PromiseC = someRequest('C');
+let promiseA = someRequest("A");
+let promiseB = someRequest("B");
+let PromiseC = someRequest("C");
 
-Promise.all([promiseA,promiseB,promiseC])
-    .then(results=>{
-        console.log('Hello Results',results)
-    })
+Promise.all([promiseA, promiseB, promiseC]).then(results => {
+  console.log("Hello Results", results);
+});
 ```
 
 ---
@@ -94,16 +92,15 @@ Promise.all([promiseA,promiseB,promiseC])
 * Gets passed into the handler as an array
 
 ```javascript
-let promiseA = someRequest('A');
-let promiseB = someRequest('B');
-let PromiseC = someRequest('C');
+let promiseA = someRequest("A");
+let promiseB = someRequest("B");
+let PromiseC = someRequest("C");
 
-Promise.all([promiseA,promiseB,promiseC])
-    .then(([resultA, resultB, resultC])=>{
-        console.log('Result A',resultA)
-        console.log('Result B',resultB)
-        console.log('Result C',resultC)
-    })
+Promise.all([promiseA, promiseB, promiseC]).then(
+  ([resultA, resultB, resultC]) => {
+    console.log(resultA, resultB, resultC);
+  }
+);
 ```
 
 ---
