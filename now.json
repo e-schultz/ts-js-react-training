@@ -1,6 +1,9 @@
 {
   "version": 2,
   "name": "mdx-deck-advanced",
+  "github": {
+    "autoJobCancelation": true
+  },
   "builds": [
     {
       "src": "package.json",
