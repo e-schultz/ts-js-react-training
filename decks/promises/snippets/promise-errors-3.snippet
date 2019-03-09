@@ -1,0 +1,8 @@
+getData()
+  .then(function successA() { })
+  .then(function successB() { })
+  .then(function successC() { })
+  .catch((err)=>{
+    console.log('error logging');
+    throw err;
+  })
