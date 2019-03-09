@@ -1,0 +1,79 @@
+import { FullScreenCode } from "mdx-deck/layouts";
+
+## Props
+
+- Data input from other components within the application
+- The central mechanism by which components communicate with each other
+- `props` is the name of the argument the component will receive
+- Props are used to create dynamic behaviour
+
+---
+
+export default FullScreenCode
+
+```javascript Props Example
+const Greeting = props => <h1>Hello, {props.name}!</h1>
+
+<Greeting name="Evan" />
+```
+
+---
+
+## Props
+- A prop can be anything, including a function
+- You can pass raw values or variables
+
+---
+
+export default FullScreenCode
+
+```js Evaluated Props
+const names = ['Evan', 'Renee', 'Stranger'];
+
+const ManyGreetings = props =>
+(<div>
+     { props.names.map((name, key) =>
+        <Greeting name={name} />
+     )}
+</div>)
+
+```
+
+---
+
+## Destructuring Props
+
+- Since components may have multiple props, destructuring is a common pattern
+
+```js
+// These components are identical
+const Greeting = (props) => <h1>{props.greeting}, {props.name}!</h1>
+
+const GreetingDestructured = ({greeting, name}) => <h1>{greeting}, {name}!</h1>
+```
+
+---
+
+## Static Checking with PropTypes
+- The React prop-types package allows you to check props being passed into a component
+
+```js
+Card.propTypes = {
+    id: React.PropTypes.number.isRequired,
+    name: React.PropTypes.shape({ firstName: string, lastName: string })
+    email: React.PropTypes.string.isRequired
+};
+```
+
+---
+
+## Default Values
+
+- The prop-types package also lets you specify defaults
+- Specifying defaults can help you avoid null checking
+
+```
+ManyGreetings.defaultProps = {
+  names: []
+};
+```
