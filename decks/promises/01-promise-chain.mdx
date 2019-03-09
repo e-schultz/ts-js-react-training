@@ -1,0 +1,198 @@
+import { Head, Appear, Image, withDeck } from 'mdx-deck'  // https://github.com/jxnblk/mdx-deck
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import { FullScreenCode } from "mdx-deck/layouts";
+import nightOwl from "prism-react-renderer/themes/nightOwl"
+
+## Promise Chaining
+
+- A `Promise` returns a `Promise`
+- Once inside of a `.then` - the return value is turned into a promise, if it isn't already
+- You can chain as many `.then` as you need 
+
+---
+<CodeSurfer
+  code={require("raw-loader!./snippets/promise-chain.snippet")}
+  theme={nightOwl}
+  lang="javascript"
+  title="Promise Chains"
+  showNumbers
+  steps={[
+    {}, // First step should be an overview of the snippet
+    {lines: [2], notes: "This returns a promise"},
+    {range: [6,8], notes: "Once inside a then - it wraps the result in a promise"},
+    {range: [9,11], notes: "Allowing us to chain operations together"},
+    {range: [13,21], notes: "Similar to the managers"},
+    {range: [17,18], notes: "But easy to add new features / requirements"},
+    {}
+  ]}
+/>
+---
+
+### Keeping these functions simple can help identify reusable patterns
+
+<ul style={{listStyle: 'none'}}>
+<Appear>
+    <li>Filtering by a user type</li>
+    <li>Calculating the total of a value</li>
+</Appear>
+</ul>
+
+---
+<CodeSurfer
+  code={require("raw-loader!./snippets/promise-chain-2.snippet")}
+  theme={nightOwl}
+  lang="javascript"
+  title="Extracting Reusability"
+  showNumbers
+  steps={[
+    {range: [5,8], notes: 'Extract Reusable Logic'}, 
+    {range: [11,12], notes: 'Use in Promise Chain'}, 
+    {range: [15,17], notes: 'Reuse same functions in new context'}, 
+    {}
+  ]}
+/>
+
+---
+# Promise Patterns  
+---
+
+## Promise Patterns - Parallel
+
+- Finish in any order
+- Promises do not depend on the success of another 
+- Only care once they all finish 
+
+---
+
+## Promise Patterns - Waterfall
+
+- Order matters
+- Another request needs the result of a previous 
+
+---
+
+## Promise Parallel - Promise.all
+
+* Waits for all promises to resolve
+* Gets passed into the handler as an array
+
+```javascript
+let promiseA = someRequest('A');
+let promiseB = someRequest('B');
+let PromiseC = someRequest('C');
+
+Promise.all([promiseA,promiseB,promiseC])
+    .then(results=>{
+        console.log('Hello Results',results)
+    })
+```
+
+---
+## Promise.all - can also use destructuring
+
+* Waits for all promises to resolve
+* Gets passed into the handler as an array
+
+```javascript
+let promiseA = someRequest('A');
+let promiseB = someRequest('B');
+let PromiseC = someRequest('C');
+
+Promise.all([promiseA,promiseB,promiseC])
+    .then(([resultA, resultB, resultC])=>{
+        console.log('Result A',resultA)
+        console.log('Result B',resultB)
+        console.log('Result C',resultC)
+    })
+```
+
+---
+## API Consideration 
+
+<a href="https://js-ts-training.now.sh/" target="_blank">Simple API</a>
+---
+
+## Exersice Time: 
+
+* Get a game by ID
+* Get a list of Platforms 
+* Create a game object with the game name, and the platform name
+
+```js
+let expected = {
+    id: 3,
+    name: "Dragon Quest XI: Echoes of an Elusive Age",
+    platformId: 1,
+    platFormName: "PS4"
+  }
+
+```
+---
+export default FullScreenCode
+
+# Promise.all the things
+
+<div style={{height: '80vh', display: 'block'}}>
+    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Promise-Parallel-Start?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+    </iframe>
+</div>
+
+---
+export default FullScreenCode
+
+# Promise.all the solution
+
+<div style={{height: '80vh', display: 'block'}}>
+    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Promise-Parallel-Solution?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+    </iframe>
+</div>
+
+---
+# Promise - waterfall 
+
+* Same API as last time
+* Maybe the Platform list is massive - and we want to get it by id
+* Instead of returning all platforms
+* Request a Game
+* Request the Platform for that Game
+* Display similar result.
+
+---
+export default FullScreenCode
+
+## Promise - One Request then Another
+
+<div style={{height: '80vh', display: 'block'}}>
+    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Promise-Waterfall-Start?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+    </iframe>
+</div>
+
+---
+export default FullScreenCode
+
+## Promise - One Request then Another Solution
+
+<div style={{height: '80vh', display: 'block'}}>
+    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Promise-Waterfall-Solution?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+    </iframe>
+</div>
+
+---
+## Flattening The Chain .... take 1
+
+<div style={{height: '80vh', display: 'block'}}>
+    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Promise-Waterfall-Solution-Flat-Solution?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+    </iframe>
+</div>
+
+---
+## Flattening The Chain .... take 2 
+
+<div style={{height: '80vh', display: 'block'}}>
+    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Promise-Waterfall-Solution-Flat-Solution-Alt?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+    </iframe>
+</div>
+---
+## Promise Error Handling 
+
+

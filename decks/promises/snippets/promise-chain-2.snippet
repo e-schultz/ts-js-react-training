@@ -1,0 +1,17 @@
+function getData(url) {
+  return fetch.get(url).then(response => response.json());
+}
+
+let filterTitle = (title, arr) => arr.filter((item) => item.title === title);
+let filterByYears = (years, arr) =>
+  arr.filter(n => n.yearsAtCompany >= years);
+let getSalary = arr => arr.reduce((acc, {salary}) => acc + salary, 0);
+
+let managersSalary = getData("/users")
+  .then(users => filterTitle('Manager', users))
+  .then(managers => getSalary(managers));
+
+let developersSalary = getData("/users")
+  .then(users => filterTitle('Developer', users))
+  .then(users => filterByYears(3, users))
+  .then(users => getSalary(users));

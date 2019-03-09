@@ -64,6 +64,17 @@ a task such as an HTTP request. Our baseline solution is callbacks:
 
 ---
 
+## Could become 
+
+```js
+queryTheDataBase(query)
+  .then((result)=>request(result.url))
+  .then((result)=>doSomethingElse(result))
+  .then((result)=>doAnotherThing(result))
+  .then((result)=>request(anotherUrl))
+```
+---
+
 # We have larger problems
 
 - Hard to decompose.
@@ -77,7 +88,7 @@ specify and dispatch the request in one place:</p>
 
 ---
 
-> promises allow us to specify and dispatch the request in one place:
+> Promises allow us to specify and dispatch the request in one place:
 
 ---
 
@@ -91,7 +102,7 @@ specify and dispatch the request in one place:</p>
     {}, // First step should be an overview of the snippet
     {lines: [1], notes: "Start the request"},
     {range: [5,7], notes: "Handle the response in another location"},
-    {range: [11,12], notes: "Have multipul handlers"},
+    {range: [11,12], notes: "Have multiple handlers"},
     {}
   ]}
 />
@@ -174,41 +185,5 @@ export default FullScreenCode
     </iframe>
 </div>
 
----
 
-## Promise Chaining
 
-- TODO 
-
----
-
-## Promise Error Handling 
-
-- TODO 
-
----
-
-## Promise Patterns - Parallel
-
-- Parallel
-    - Finish in any order 
-    - Only care once they all finish 
-
----
-
-## Promise Patterns - Waterfall
-
-- Waterfall 
-    - One request depends on the value of another 
-
----
-
-## Promise Patterns - Parallel 
-
-- TODO 
-
----
-
-## Promise Patterns - Waterfall 
-
-- TODO
