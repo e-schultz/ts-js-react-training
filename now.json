@@ -5,6 +5,34 @@
     {
       "src": "package.json",
       "use": "@now/static-build"
+    },
+    {
+      "src": "decks/arrays/package.json",
+      "use": "@now/static-build"
+    },
+    {
+      "src": "decks/functions/package.json",
+      "use": "@now/static-build"
+    },
+    {
+      "src": "decks/objects/package.json",
+      "use": "@now/static-build"
+    },
+    {
+      "src": "decks/promises/package.json",
+      "use": "@now/static-build"
+    },
+    {
+      "src": "decks/react/package.json",
+      "use": "@now/static-build"
+    },
+    {
+      "src": "decks/template-literals/package.json",
+      "use": "@now/static-build"
+    },
+    {
+      "src": "decks/variables/package.json",
+      "use": "@now/static-build"
     }
   ]
 }

@@ -1,0 +1,15 @@
+{
+    "private": true,
+    "name": "functions-deck",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "mdx-deck index.js",
+      "build": "yarn run now-build",
+      "build:presentation": "mdx-deck build index.js --no-html ",
+      "build:images": "cp -r images dist/",
+      "build:assets": "cp -r snippets dist/",
+      "now-build": "yarn run build:presentation && yarn run build:images && yarn run build:assets",
+      "deploy": "now"
+    }
+  }
+  
