@@ -5,6 +5,8 @@ import objects from './decks/objects';
 import react from './decks/react';
 import arrays from './decks/arrays';
 import functions from './decks/functions'
+import promises from './decks/promises';
+
 export { default as theme } from './theme'
 
 export default [
@@ -14,5 +16,6 @@ export default [
     ...functions,
     ...objects,
     ...arrays,
+    ...promises,
     ...react
 ]

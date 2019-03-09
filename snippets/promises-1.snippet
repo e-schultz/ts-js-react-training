@@ -1,0 +1,13 @@
+promise = fetch.get(url);
+
+// and then to add the callback later, and in a different place:
+
+promise.then(function(response) {
+  // handle the response.
+});
+
+// This also allows us to attach multiple handlers to the same task:
+
+promise.then(function(response) {
+  // do something else with the response.
+});
