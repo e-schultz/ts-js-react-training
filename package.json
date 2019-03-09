@@ -1,7 +1,9 @@
 {
+  "private": true,
+  "workspaces": ["decks/*"],
   "scripts": {
     "start": "mdx-deck deck.js",
-    "build": "npm run now-build",
+    "build": "",
     "build:arrays": "mdx-deck build decks/arrays/index.js -d dist/arrays --no-html",
     "build:functions": "mdx-deck build decks/functions/index.js -d dist/functions --no-html",
     "build:objects": "mdx-deck build decks/objects/index.js -d dist/objects --no-html",
@@ -9,10 +11,10 @@
     "build:react": "mdx-deck build decks/react/index.js -d dist/react --no-html",
     "build:templates": "mdx-deck build decks/template-literals/index.js -d dist/template-literals --no-html",
     "build:variables": "mdx-deck build decks/variables/index.js -d dist/variables --no-html",
-    "build:presentation": "npm run build:arrays && npm run build:functions && npm run build:objects && npm run build:react && npm run build:templates && npm run build:variables && npm run build:promises",
+    "build:presentation": "yarn run build:arrays && yarn run build:functions && yarn run build:objects && yarn run build:react && yarn run build:templates && yarn run build:variables && yarn run build:promises",
     "build:images": "cp -r images dist/",
     "build:assets": "cp -r snippets dist/",
-    "now-build": "npm run build:presentation && npm run build:images && npm run build:assets",
+    "now-build": "yarn run build:presentation && yarn run build:images && yarn run build:assets",
     "deploy": "now",
     "docz:dev": "docz dev",
     "docz:build": "docz build"

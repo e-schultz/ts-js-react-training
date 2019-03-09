@@ -1,0 +1,74 @@
+Arguments: 
+  /Users/evan/.nvm/versions/node/v11.7.0/bin/node /Users/evan/.yvm/versions/v1.13.0/bin/yarn.js
+
+PATH: 
+  /Users/evan/.nvm/versions/node/v11.7.0/bin:/Users/evan/.nvm/versions/node/v11.7.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/evan/.yvm/versions/v1.13.0/bin:/Users/evan/.nvm/versions/node/v11.7.0/bin
+
+Yarn version: 
+  1.13.0
+
+Node version: 
+  11.7.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  TypeError: Invalid Version: 1
+      at new SemVer (/Users/evan/.yvm/versions/v1.13.0/lib/cli.js:3474:11)
+      at Range.module.exports.Range.test (/Users/evan/.yvm/versions/v1.13.0/lib/cli.js:4281:15)
+      at Function.satisfies (/Users/evan/.yvm/versions/v1.13.0/lib/cli.js:4330:16)
+      at WorkspaceLayout.getManifestByPattern (/Users/evan/.yvm/versions/v1.13.0/lib/cli.js:32168:31)
+      at Function.isWorkspace (/Users/evan/.yvm/versions/v1.13.0/lib/cli.js:97457:51)
+      at PackageRequest.<anonymous> (/Users/evan/.yvm/versions/v1.13.0/lib/cli.js:35819:76)
+      at Generator.next (<anonymous>)
+      at step (/Users/evan/.yvm/versions/v1.13.0/lib/cli.js:304:30)
+      at /Users/evan/.yvm/versions/v1.13.0/lib/cli.js:322:14
+      at new Promise (<anonymous>)
+
+npm manifest: 
+  {
+    "private": true,
+    "workspaces": ["decks/*"],
+    "scripts": {
+      "start": "mdx-deck deck.js",
+      "build": "npm run now-build",
+      "build:arrays": "mdx-deck build decks/arrays/index.js -d dist/arrays --no-html",
+      "build:functions": "mdx-deck build decks/functions/index.js -d dist/functions --no-html",
+      "build:objects": "mdx-deck build decks/objects/index.js -d dist/objects --no-html",
+      "build:promises": "mdx-deck build decks/promises/index.js -d dist/promises --no-html",
+      "build:react": "mdx-deck build decks/react/index.js -d dist/react --no-html",
+      "build:templates": "mdx-deck build decks/template-literals/index.js -d dist/template-literals --no-html",
+      "build:variables": "mdx-deck build decks/variables/index.js -d dist/variables --no-html",
+      "build:presentation": "npm run build:arrays && npm run build:functions && npm run build:objects && npm run build:react && npm run build:templates && npm run build:variables && npm run build:promises",
+      "build:images": "cp -r images dist/",
+      "build:assets": "cp -r snippets dist/",
+      "now-build": "npm run build:presentation && npm run build:images && npm run build:assets",
+      "deploy": "now",
+      "docz:dev": "docz dev",
+      "docz:build": "docz build"
+    },
+    "devDependencies": {
+      "ajv": "6.8.1",
+      "mdx-deck": "1.8.2",
+      "mdx-deck-code-surfer": "0.5.5",
+      "raw-loader": "1.0.0",
+      "prism-react-renderer": "^0.1.6",
+      "react-codesandboxer": "^3.1.3",
+      "react-live": "^1.12.0",
+      "unified-ui": "0.0.3"
+    },
+    "dependencies": {
+      "docz": "^0.13.7",
+      "docz-theme-default": "^0.13.7",
+      "mdx-code": "^1.1.3",
+      "mdx-deck-live-code": "^1.0.1",
+      "react-syntax-highlighter": "^10.1.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

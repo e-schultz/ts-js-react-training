@@ -3,7 +3,11 @@
   "name": "mdx-deck-advanced",
   "builds": [
     {
-      "src": "package.json",
+      "src": "decks/arrays/package.json",
+      "use": "@now/static-build"
+    },
+    {
+      "src": "decks/functions/package.json",
       "use": "@now/static-build"
     }
   ]
