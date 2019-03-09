@@ -2,6 +2,7 @@ import { Head, Appear, Image, withDeck } from 'mdx-deck'
 import { FullScreenCode } from "mdx-deck/layouts";
 import { CodeSurfer } from "mdx-deck-code-surfer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
+import ReplIt from "../../components/replit";
 
 # Promises
 
@@ -113,10 +114,7 @@ export default FullScreenCode
 
 ### Promise Exercises - even and odd
 
-<div style={{height: '80vh', display: 'block'}}>
-    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Simple-Promise-start?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
-    </iframe>
-</div>
+<ReplIt src="https://repl.it/@e_schultz/Simple-Promise-start?lite=true"/>
 
 ---
 
@@ -124,10 +122,7 @@ export default FullScreenCode
 
 ### Promise Exercises - even and odd - solution
 
-<div style={{height: '80vh', display: 'block'}}>
-    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Simple-Promise-Solution?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
-    </iframe>
-</div>
+<ReplIt src="https://repl.it/@e_schultz/Simple-Promise-Solution?lite=true"/>
 
 ---
 
@@ -152,7 +147,7 @@ A key point to remember: unless your promise library is buggy, `.then()` always 
     results => transformData(results));
 ```
 
-* `p2` is now a promise regardless of what transformData() returned. Even if
+`p2` is now a promise regardless of what transformData() returned. Even if
 something fails.
 
 ---
@@ -180,10 +175,5 @@ export default FullScreenCode
 
 ### Anti-Pattern Demo
 
-<div style={{height: '80vh', display: 'block'}}>
-    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Promises-deferred-anti-pattern?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
-    </iframe>
-</div>
-
-
+<ReplIt src="https://repl.it/@e_schultz/Promises-deferred-anti-pattern?lite=true"/>
 
