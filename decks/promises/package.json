@@ -3,30 +3,13 @@
     "name": "promises-deck",
     "version": "1.0.0",
     "scripts": {
-      "start": "mdx-deck deck.js",
+      "start": "mdx-deck index.js",
       "build": "yarn run now-build",
       "build:presentation": "mdx-deck build index.js --no-html ",
       "build:images": "cp -r images dist/",
       "build:assets": "cp -r snippets dist/",
       "now-build": "yarn run build:presentation && yarn run build:images && yarn run build:assets",
       "deploy": "now"
-    },
-    "devDependencies": {
-      "ajv": "6.8.1",
-      "mdx-deck": "1.8.2",
-      "mdx-deck-code-surfer": "0.5.5",
-      "raw-loader": "1.0.0",
-      "prism-react-renderer": "^0.1.6",
-      "react-codesandboxer": "^3.1.3",
-      "react-live": "^1.12.0",
-      "unified-ui": "0.0.3"
-    },
-    "dependencies": {
-      "docz": "^0.13.7",
-      "docz-theme-default": "^0.13.7",
-      "mdx-code": "^1.1.3",
-      "mdx-deck-live-code": "^1.0.1",
-      "react-syntax-highlighter": "^10.1.3"
     }
   }
   
