@@ -109,18 +109,52 @@ const HelloWorld = () => <div>Hello world!</div>;
 
 ---
 
-## Making Components Usable Anywhere
+## JavaScript in the UI
 
-- Add an `export` statement at the bottom to make `HelloWorld` visible to other modules
-- Part of the new-style ES6 module syntax
-- Which isn't yet supported by Node for server-side applications...
+- You can use any kind of JavaScript in a component
+- Any code in JSX between `{ }` braces will be evaluated
 
 ---
 
 export default FullScreenCode
 
 ```js
-export default HelloWorld;
+const MenuList = () => {
+    const locations = ['Home', 'About', 'Contact'];
+
+    return (<ul>
+        { locations.map((item, i) => <li key={i}>{item.name}</li>) }
+    </ul>)
+}
+```
+
+---
+
+## Making Components Usable Anywhere
+
+- Add an `export default` statement at the bottom to make `HelloWorld` visible to other modules
+- Part of the new-style ES6 module syntax
+- Which isn't yet supported by Node for server-side applications
+
+```js
+export default HelloWorld
+```
+
+---
+
+export default FullScreenCode
+
+```js Use Components Inside Components
+import HelloWorld from './HelloWorld'
+
+const App = () => (
+<div>
+    <h1>My First React App</h1>
+    <HelloWorld />
+</div>
+)
+
+export default App
 ```
 
 ---

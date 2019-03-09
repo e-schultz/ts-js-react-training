@@ -1,0 +1,40 @@
+import { FullScreenCode } from "mdx-deck/layouts";
+
+## The "Children" Prop
+
+- A special type of prop
+- This represents whatever is passed inside of the tags of a React component
+- Think of it like a "slot" that something can be placed into later
+
+---
+
+export default FullScreenCode
+
+```
+const PageHeader = ({children}) =>
+(<header>
+    <h1>Welcome!</h1>
+    {children}
+</header>)
+
+<PageHeader>
+    // This list will be displayed in our header, below "Welcome"
+    <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+</PageHeader>
+```
+
+---
+
+## Why is it important?
+
+- Components stay flexible when we can switch out their contents
+- We can make many small components to use where we need them
+- Allows for greater component re-use
+
+---
+
+## Compare and Contrast...
