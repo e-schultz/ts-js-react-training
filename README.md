@@ -1,6 +1,7 @@
 # Advanced MDX-deck
 
 In this example we will be deploying an [mdx-deck](https://github.com/jxnblk/mdx-deck) presentation which will also contain:
+
 + Images that we want to be available offline
 + Custom MDX-deck layouts
 + Code snippets that we want to be available offline
@@ -8,6 +9,7 @@ In this example we will be deploying an [mdx-deck](https://github.com/jxnblk/mdx
 ![images/demo.gif](images/demo.gif)
 
 ## Getting started with Advanced MDX-deck
+
 A sample presentation has been created at `demo-advanced.mdx`
 
 ### Deploy with Now
@@ -88,36 +90,101 @@ now
 ```
 
 ---
-misc notes
 
-* Format:
+## Setting up a new deck
 
-- Will have some talking to concepts/slides 
-    - Slides will cover high level points
-    - Will be 'talked to' more than read
-    - Typically followed by live-coding some examples to explore the concept
-    - Can answer questions people have during this time,
-    - Can also code examples as part of answering questions 
-- Other sections will have some exercises / examples setup
-    - will use various online tools such as
-        * repl.it
-        * codesandbox
-        * stackblitz
-- Will aim for most large sections to have a larger exercise to work with
-    - Will have initial online enviornment setup
-    - Some initial code
-    - Clear instructions / Requirements 
-- For Days 3 & 4
-    - Will have basic setup of an application 
-    - Set of features to be built out that will leverage the concepts taught
-    - Features can have 'stretch goals' 
-        - Allow for basic implementation
-        - Allow for room for refactoring, or usage of more advanced patterns
-- Link to Slides / Material will be provided before hand
-    - Slides will contain teaching Material
-    - Links to online tools
-    - Links to other useful learning / reading resources that cover topics more in depth
-    
-    
+### Template for Creating a new Deck
+
++ Copy folder - decks/_empty_deck_template
++ Give new name
++ Edit package.json of deck
+
+### Update the JSON with deck name
+
+```json
+{
+    "private": true,
+    "name": "empty-deck-template", // change name
+    "version": "1.0.0",
+    "scripts": {
+     // can stay the same
+    }
+  }
+```
+
+### Configure Now deployment
+
+Edit root now.json to include build for new deck:
+
+```json
+  { "version": 2,
+  "name": "mdx-deck-advanced",
+  "builds": [
+   // ...
+    {
+      "src": "decks/your-new-deck/package.json",
+      "use": "@now/static-build"
+    }
+  ]
+}
+```
+
+### Include in "Master Deck" if you want
+
+```js
+// /deck.js
+import intro from './intro.mdx'
+// ...
+import yourNewDeck from './decks/yourNewDeck';
+
+export { default as theme } from './theme'
+
+export default [
+    ...intro,
+ // ...
+    ...yourNewDeck
+]
+```
 
 
+### Run Deck in Isolation
+
+```shell
+yarn workspace run nameYouGaveInPackage serve
+```
+
+### Run Master Deck
+
+```shell
+yarn run serve 
+```
+
+## misc notes
+
+**Format**
+
++ Will have some talking to concepts/slides 
+  + Slides will cover high level points
+  + Will be 'talked to' more than read
+  + Typically followed by live+coding some examples to explore the concept
+  + Can answer questions people have during this time,
+  + Can also code examples as part of answering questions 
++ Other sections will have some exercises / examples setup
+  + will use various online tools such as
+    + repl.it
+    + codesandbox
+    + stackblitz
++ Will aim for most large sections to have a larger exercise to work with
+  + Will have initial online enviornment setup
+  + Some initial code
+  + Clear instructions / Requirements 
++ For Days 3 & 4
+  + Will have basic setup of an application 
+  + Set of features to be built out that will leverage the concepts taught
+  + Features can have 'stretch goals' 
+    + Allow for basic implementation
+    + Allow for room for refactoring, or usage of more advanced patterns
++ Link to Slides / Material will be provided before hand
+  + Slides will contain teaching Material
+  + Links to online tools
+  + Links to other useful learning / reading resources that cover topics more in depth    
