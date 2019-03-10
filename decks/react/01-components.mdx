@@ -1,4 +1,5 @@
 import { FullScreenCode } from "mdx-deck/layouts";
+import { LiveCode } from 'mdx-deck-live-code';
 
 ## React Components
 
@@ -88,19 +89,22 @@ function HelloWorld() {
 - Which is a constant rather than a variable
 
 ---
-
-export default FullScreenCode
-
-```js
-const HelloWorld = () => {
-  return <div>Hello world!</div>;
-}
-
-// You can also use implicit returns
-const HelloWorld = () => <div>Hello world!</div>;
-```
-
+<LiveCode
+	code={require('!raw-loader!./snippets/hello-world-1.snippet.js')}
+	size="large"
+	previewProps={{ style: { fontSize: '0.8em' } }}
+	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
+/>
 ---
+
+<LiveCode
+	code={require('!raw-loader!./snippets/hello-world-2.snippet.js')}
+	size="large"
+	previewProps={{ style: { fontSize: '0.8em' } }}
+	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
+/>
+---
+
 
 ## What Happened?
 
