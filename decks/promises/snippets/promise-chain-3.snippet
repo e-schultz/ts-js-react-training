@@ -1,0 +1,10 @@
+import { filterTitle, filterByYears, getSalary } from './some-place';
+
+function getData(url) {
+  return fetch.get(url).then(response => response.json());
+}
+
+let developersSalary = getData("/users")
+  .then(users => filterTitle('Developer', users))
+  .then(users => filterByYears(3, users))
+  .then(users => getSalary(users));

@@ -1,5 +1,6 @@
 import Code from 'mdx-code';
 import { FullScreenCode } from "mdx-deck/layouts";
+import ReplIt from "../../components/replit";
 
 # Function - Scope and Context 
 
@@ -71,10 +72,14 @@ export default FullScreenCode
 
 ## Example - `this` on an object
 
+<ReplIt src="https://repl.it/@e_schultz/01-Exploring-Context-of-This?lite=true"/>
+
+<!--
 <div style={{height: '80vh', display: 'block'}}>
     <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/01-Exploring-Context-of-This?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
     </iframe>
 </div>
+-->
 
 ```notes
 * Go through things like 
@@ -91,20 +96,28 @@ export default FullScreenCode
 
 ## Example - `this` on an class
 
+<ReplIt src="https://repl.it/@e_schultz/02-Exploring-Context-of-This-class?lite=true"/>
+
+<!--
 <div style={{height: '80vh', display: 'block'}}>
     <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/02-Exploring-Context-of-This-class?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
     </iframe>
 </div>
-
+-->
 ---
 
 export default FullScreenCode
 
 ## Example - Changing the context of `this`
+
+<ReplIt src="https://repl.it/@e_schultz/03-Exploring-Context-of-This-class-and-binding-context?lite=true"/>
+
+<!--
 <div style={{height: '80vh', display: 'block'}}>
     <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/03-Exploring-Context-of-This-class-and-binding-context?lite=true" scrolling="no" frameBorder="no" allowFullScreen={true}  sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
     </iframe>
 </div>
+-->
 
 ```notes
 can also walk through something like:
@@ -144,10 +157,15 @@ function outerA(input) {
 ```
 
 ---
+export default FullScreenCode
 
-## Closures - Counter Example
+# Closures - Counter Example
 
+<ReplIt src="https://repl.it/@e_schultz/Exploring-Closures?lite=true"/>
+
+<!--
 <div style={{height: '80vh', display: 'block'}}>
     <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Exploring-Closures?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
     </iframe>
 </div>
+-->

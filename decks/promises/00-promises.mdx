@@ -2,6 +2,7 @@ import { Head, Appear, Image, withDeck } from 'mdx-deck'
 import { FullScreenCode } from "mdx-deck/layouts";
 import { CodeSurfer } from "mdx-deck-code-surfer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
+import ReplIt from "../../components/replit";
 
 # Promises
 
@@ -14,7 +15,7 @@ import nightOwl from "prism-react-renderer/themes/nightOwl"
 * Promises Return Promises
 * Chaining Promises
 * Handling Errors
-* Advanced Promises 
+* Promise Patterns
 
 ---
 ## ES6 Promises
@@ -64,6 +65,17 @@ a task such as an HTTP request. Our baseline solution is callbacks:
 
 ---
 
+## Could become 
+
+```js
+queryTheDataBase(query)
+  .then((result)=>request(result.url))
+  .then((result)=>doSomethingElse(result))
+  .then((result)=>doAnotherThing(result))
+  .then((result)=>request(anotherUrl))
+```
+---
+
 # We have larger problems
 
 - Hard to decompose.
@@ -77,7 +89,7 @@ specify and dispatch the request in one place:</p>
 
 ---
 
-> promises allow us to specify and dispatch the request in one place:
+> Promises allow us to specify and dispatch the request in one place:
 
 ---
 
@@ -91,7 +103,7 @@ specify and dispatch the request in one place:</p>
     {}, // First step should be an overview of the snippet
     {lines: [1], notes: "Start the request"},
     {range: [5,7], notes: "Handle the response in another location"},
-    {range: [11,12], notes: "Have multipul handlers"},
+    {range: [11,12], notes: "Have multiple handlers"},
     {}
   ]}
 />
@@ -102,10 +114,7 @@ export default FullScreenCode
 
 ### Promise Exercises - even and odd
 
-<div style={{height: '80vh', display: 'block'}}>
-    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Simple-Promise-start?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
-    </iframe>
-</div>
+<ReplIt src="https://repl.it/@e_schultz/Simple-Promise-start?lite=true"/>
 
 ---
 
@@ -113,10 +122,7 @@ export default FullScreenCode
 
 ### Promise Exercises - even and odd - solution
 
-<div style={{height: '80vh', display: 'block'}}>
-    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Simple-Promise-Solution?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
-    </iframe>
-</div>
+<ReplIt src="https://repl.it/@e_schultz/Simple-Promise-Solution?lite=true"/>
 
 ---
 
@@ -141,7 +147,7 @@ A key point to remember: unless your promise library is buggy, `.then()` always 
     results => transformData(results));
 ```
 
-* `p2` is now a promise regardless of what transformData() returned. Even if
+`p2` is now a promise regardless of what transformData() returned. Even if
 something fails.
 
 ---
@@ -159,7 +165,7 @@ something fails.
 
 ## The deferred anti-pattern
 
-* [Blue Blue explanation](https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns)
+* [Bluebird explanation](https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns)
 * If a `thenable` returns a promise
 * We don't need to construct a new promise 
 
@@ -169,46 +175,5 @@ export default FullScreenCode
 
 ### Anti-Pattern Demo
 
-<div style={{height: '80vh', display: 'block'}}>
-    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Promises-deferred-anti-pattern?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
-    </iframe>
-</div>
+<ReplIt src="https://repl.it/@e_schultz/Promises-deferred-anti-pattern?lite=true"/>
 
----
-
-## Promise Chaining
-
-- TODO 
-
----
-
-## Promise Error Handling 
-
-- TODO 
-
----
-
-## Promise Patterns - Parallel
-
-- Parallel
-    - Finish in any order 
-    - Only care once they all finish 
-
----
-
-## Promise Patterns - Waterfall
-
-- Waterfall 
-    - One request depends on the value of another 
-
----
-
-## Promise Patterns - Parallel 
-
-- TODO 
-
----
-
-## Promise Patterns - Waterfall 
-
-- TODO

@@ -1,0 +1,10 @@
+getUsers()
+  .then(function successA() { }, function(err) {
+    return getUsersFromCache();
+   })
+  .then(function successB() { })
+  .then(function successC() { })
+  .catch((err)=>{
+    console.log('error logging');
+    throw err;
+  })

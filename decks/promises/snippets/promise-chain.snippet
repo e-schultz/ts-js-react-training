@@ -1,0 +1,23 @@
+function getData(url) {
+    return fetch.get(url).then(response => response.json());
+  }
+  
+  let managersSalary = getData("/users")
+    .then(users => {
+      return users.filter(user => user.title === "Manager");
+    })
+    .then(managers => {
+      return managers.reduce((acc, value) => (acc += value.salary), 0);
+    });
+  
+  let developersSalary = getData("/users")
+    .then(users => {
+      return users.filter(user => user.title === "Developer");
+    })
+    .then(users => {
+      return users.filter(user => user.yearsAtCompany >= 3);
+    })
+    .then(users => {
+      return users.reduce((acc, value) => (acc += value.salary), 0);
+    });
+  
