@@ -1,43 +1,22 @@
 import { FullScreenCode } from "mdx-deck/layouts";
+import { LiveCode } from 'mdx-deck-live-code';
 
 ## Props
 
-- Data input from other components within the application
-- The central mechanism by which components communicate with each other
-- `props` is the name of the argument the component will receive
-- Props are used to create dynamic behaviour
+- Props define the 'API' of the component and how it interacts within your application
+- Props become the attributes on your component that you use to pass in data
+- Components are just functions, that receive the props object
 
 ---
 
-export default FullScreenCode
+import { props1 } from './snippets/02-props'
 
-```javascript Props Example
-const Greeting = props => <h1>Hello, {props.name}!</h1>
-
-<Greeting name="Evan" />
-```
-
----
-
-## Props
-- A prop can be anything, including a function
-- You can pass raw values or variables
-
----
-
-export default FullScreenCode
-
-```js Evaluated Props
-const names = ['Evan', 'Renee', 'Stranger'];
-
-const ManyGreetings = props =>
-(<div>
-     { props.names.map((name, key) =>
-        <Greeting name={name} />
-     )}
-</div>)
-
-```
+<LiveCode
+	code={props1}
+	size="large"
+	previewProps={{ style: { fontSize: '0.8em' } }}
+	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
+/>
 
 ---
 
@@ -45,22 +24,54 @@ const ManyGreetings = props =>
 
 - Since components may have multiple props, destructuring is a common pattern
 
+---
+
+export default FullScreenCode
+
 ```js
 // These components are identical
-const Greeting = (props) => <h1>{props.greeting}, {props.name}!</h1>
+const Greeting = (props) =>
+    <h1>{props.greeting}, {props.name}!</h1>
 
-const GreetingDestructured = ({greeting, name}) => <h1>{greeting}, {name}!</h1>
+const GreetingDestructured = ({greeting, name}) =>
+    <h1>{greeting}, {name}!</h1>
 ```
+
+---
+
+## Props
+- A prop can be anything, including a function
+- You can pass raw values or variables
+- This makes your component dynamic
+
+---
+
+import { manyNames } from './snippets/02-props'
+
+
+<LiveCode
+	code={manyNames}
+	size="large"
+	previewProps={{ style: { fontSize: '0.8em' } }}
+	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
+/>
 
 ---
 
 ## Static Checking with PropTypes
 - The React prop-types package allows you to check props being passed into a component
 
-```js
+---
+
+export default FullScreenCode
+
+```javascript
 Card.propTypes = {
     id: React.PropTypes.number.isRequired,
-    name: React.PropTypes.shape({ firstName: string, lastName: string })
+    name: React.PropTypes.shape({
+      firstName: string,
+      lastName: string
+    })
     email: React.PropTypes.string.isRequired
 };
 ```
