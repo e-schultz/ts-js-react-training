@@ -1,10 +1,11 @@
-
+import { Split, SplitRight } from 'mdx-deck/layouts'
+import { Head, Appear, Image, withDeck } from 'mdx-deck' 
 import { FullScreenCode } from "mdx-deck/layouts";
+import ReplIt from "../../components/replit";
 import { CodeSurfer } from "mdx-deck-code-surfer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
 
 # ES6 Classes
-
 
 ```notes
 We will cover classes a bit more once we gcdet into TypeScript,
@@ -23,6 +24,7 @@ class Person {
     }
 }
 ```
+---
 ## Hoisting 
 
 Class declarations do not get hoisted.
@@ -39,10 +41,9 @@ class Person {
     }
 }
 ```
-## Class Methods 
-
+---
 <CodeSurfer
-  code={require("raw-loader!./snippets/es6-class-methods.snippet)}
+  code={require("raw-loader!./snippets/es6-class-methods.snippet")}
   theme={nightOwl}
   lang="javascript"
   title="ES6 Class Methods"
@@ -53,9 +54,132 @@ class Person {
     {lines: [4], notes: "What properties we need to construct with the class with"},
     {range: [8,10], notes: "Method Declaration - can fall into issues with `this`"},
     {lines: [11], notes: "Method Assignment - this will point to what we expect"},
-    {ranges: [13,21], notes: "Can define getters and setters"},
-    {}
+    {range: [13,21], notes: "Can define getters and setters"},
+    {notes: 'Lets explore this in a repl....'}
   ]}
 />
+---
+export default FullScreenCode
 
+### ES6 Classes - Exploring Methods
 
+<ReplIt src="https://repl.it/@e_schultz/ES6-Class-Methods-1?lite=true"/>
+---
+export default FullScreenCode
+
+### ES6 Classes - will this always work as we expected?
+
+<ReplIt src="https://repl.it/@e_schultz/ES6-Class-Methods-2?lite=true"/>
+---
+
+## Whats going on?
+
+- `greet` is added to the prototype 
+- `this` is bound to the context of which it is called 
+- When passing it as a callback, that context gets lost
+- `sayHello` is getting declared and assigned wen a new instance is created
+- it is not on the prototype
+- `this` will point to the instance of the person 
+
+---
+export default Split
+
+<Image src="./images/person-prototype.png"  size="contain" css={{backgroundPosition:'left'}}/>
+
+### Person Prototype
+
+* `greet` is on the prototype
+* `sayHello` is not 
+
+---
+
+### How can we fix this?
+
+- Prefer `fatArrow () =>`
+- Bind `this` in the constructor 
+
+---
+
+### Prefer `fatArrow () =>`
+
+```javascript
+class Person {
+    firstName;
+    lastName;
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    greet = (greeting) => {
+        console.log(`${this.firstName} ${this.lastName}`)
+    }
+```    
+---
+### Bind this in the constructor
+
+```javascript
+class Person {
+    firstName;
+    lastName;
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.greet = this.greet.bind(this);
+    }
+    greet(greeting) {
+        console.log(`${this.firstName} ${this.lastName}`)
+    }
+``` 
+---
+
+### Trade Offs?
+
+- When using `()=>` - a new function is created for every new instance of `Person`
+- Generally this is not a problem, and has minimal performance impact
+- Ensuring that you bind all of the methods in the constructor is easy to forget
+- The bugs that can crop up due to `this` not being what you expect can be more costly
+- When binding in the constructor - you are creating a new copy of greet 
+
+---
+export default FullScreenCode
+
+### Fix The Greeting
+
+<ReplIt src="https://repl.it/@e_schultz/ES6-Class-Methods-fix-greet-start?lite=true"/>
+
+---
+
+## Subclassing 
+
+- TODO 
+
+```notes
+- Generally should avoid it
+- Keep the hirearchy shallow 
+- talk about prototype vs other inheritance?
+```
+
+---
+
+## Mental Model 
+
+* I do not use Classes often in my code 
+* Usually for framework specific 
+* Prefer to have Objects that contain data
+* Prefer to have functions that operate on data 
+* Seperate behaviour from Data
+
+```notes
+eventual todo: C# class vs ES6/TypeScript class?
+```
+
+---
+
+### Extra Reading
+
+- [Exploring ES6 - Classes](http://exploringjs.com/es6/ch_classes.html)
+- [MDN - Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+- [MDN - Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+- [What’s the Difference Between Class & Prototypal Inheritance?](https://medium.com/javascript-scene/master-the-javascript-interview-what-s-the-difference-between-class-prototypal-inheritance-e4cd0a7562e9)
+- [A guide to prototype-based class inheritance in JavaScript](https://medium.freecodecamp.org/a-guide-to-prototype-based-class-inheritance-in-javascript-84953db26df0)
+- [Demystifying ES6 Classes And Prototypal Inheritance](https://scotch.io/tutorials/demystifying-es6-classes-and-prototypal-inheritance)
