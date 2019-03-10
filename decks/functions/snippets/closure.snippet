@@ -1,0 +1,16 @@
+function outer(initialValue = 0) {
+  /*.------------closure--------------.*/
+  /*|*/ let count = initialValue;   /*|*/
+  /*|*/ function c() {              /*|*/              
+  /*|*/  return ++count;            /*|*/
+  /*|*/ }                           /*|*/
+  /*`---------------------------------`*/ 
+   return c;
+}
+
+let count = outer(0);
+console.log(count()); // 1
+console.log(count()); // 2
+let count2 = outer(10);
+console.log(count2()); // 11
+console.log(count()); // 12

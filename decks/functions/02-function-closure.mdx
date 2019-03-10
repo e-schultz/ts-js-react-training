@@ -1,0 +1,77 @@
+import Code from 'mdx-code';
+import { Head, Appear, Image, withDeck } from 'mdx-deck' 
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import nightOwl from "prism-react-renderer/themes/nightOwl"
+import { FullScreenCode } from "mdx-deck/layouts";
+import ReplIt from "../../components/replit";
+
+# Closures 
+
+---
+
+## Closures 
+
+> A closure is a function having access to the parent scope, even after the parent function has closed.
+[source](https://www.w3schools.com/js/js_function_closures.asp)
+
+---
+
+### Important thing to remember 
+
+<Appear>
+    <h3>Functions can return Functions</h3>
+    <h3>Functions can be passed to functions</h3>
+</Appear>
+
+---
+
+<CodeSurfer
+  code={require("raw-loader!./snippets/closure.snippet")}
+  theme={nightOwl}
+  lang="javascript"
+  title="Exploring Closures"
+  showNumbers
+  steps={[
+    {range: [1,9], notes: "Closures captures what is in scope at the time of execution"}, // First step should be an overview of the snippet
+    {lines: [4,5], notes: "This function can access variables and functions in the scope above it"},
+    {lines: [8], notes: "Even after the parent execution is done"},
+    {range: [11,13], notes: "Captures 0 as the initial value"},
+    {range: [15,16], notes: "Captures 10 as the initial value"},
+    {}
+  ]}
+/>
+
+```notes
+- https://medium.freecodecamp.org/javascript-closures-simplified-d0d23fa06ba4
+- https://www.w3schools.com/js/js_function_closures.asp
+```
+
+---
+export default FullScreenCode
+
+### Closures - Counter Example
+
+<ReplIt src="https://repl.it/@e_schultz/Exploring-Closures?lite=true"/>
+
+<!--
+<div style={{height: '80vh', display: 'block'}}>
+    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Exploring-Closures?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+    </iframe>
+</div>
+-->
+---
+export default FullScreenCode
+
+### Closure Exercise 1 - Create Logger 
+
+<ReplIt src="https://repl.it/@e_schultz/01-Closure-Exercises-create-logger-start?lite=true"/>
+
+---
+export default FullScreenCode
+
+### Closure Exercise 1 - Create Solution 
+
+<ReplIt src="https://repl.it/@e_schultz/01-Closure-Exercises-create-logger-solution?lite=true"/>
+
+
+
