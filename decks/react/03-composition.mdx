@@ -1,0 +1,64 @@
+import { CodeSurfer } from "mdx-deck-code-surfer";
+import nightOwl from "prism-react-renderer/themes/nightOwl";
+import { LiveCode } from 'mdx-deck-live-code';
+
+## The "Children" Prop
+
+- A special type of prop
+- This represents whatever is passed inside of the tags of a React component
+- Think of it like a "slot" that something can be placed into later
+
+---
+
+import { childrenOne } from './snippets/03-composition'
+
+<LiveCode
+	code={childrenOne}
+	size="large"
+	previewProps={{ style: { fontSize: '0.8em' } }}
+	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
+/>
+
+---
+
+## Why is it important?
+
+- Components stay flexible when we can switch out their contents
+- We can make many small components to use where we need them
+- Allows for greater component re-use
+
+---
+
+## Compare and Contrast...
+
+---
+
+<CodeSurfer
+  code={require("raw-loader!./snippets/article-layout.snippet")}
+  theme={nightOwl}
+  lang="javascript"
+  title="ArticleLayout With Props"
+  showNumbers
+  steps={[
+    {}, // This component lays out a blog article
+    {lines: [1], notes: "Takes props for title and copy"},
+    {lines: [7], notes: "But what if we want more than one paragraph?" },
+    {}
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  code={require("raw-loader!./snippets/article-layout-composed.snippet")}
+  theme={nightOwl}
+  lang="javascript"
+  title="ArticleLayout With Composition"
+  showNumbers
+  steps={[
+    {}, // This component lays out a blog article
+    {lines: [1, 7], notes: "Replace the copy prop with children"},
+    {lines: [10,11,12,13], notes: "And we can use whatever copy we want" },
+    {}
+  ]}
+/>

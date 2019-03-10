@@ -1,0 +1,116 @@
+import { FullScreenCode } from "mdx-deck/layouts";
+import { LiveCode } from 'mdx-deck-live-code';
+
+## Props
+
+- Props define the 'API' of the component and how it interacts within your application
+- Props become the attributes on your component that you use to pass in data
+- Components are just functions, that receive the props object
+
+---
+
+import { props1 } from './snippets/02-props'
+
+<LiveCode
+	code={props1}
+	size="large"
+	previewProps={{ style: { fontSize: '0.8em' } }}
+	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
+/>
+
+---
+
+## Destructuring Props
+
+- Since components may have multiple props, destructuring is a common pattern
+
+---
+
+export default FullScreenCode
+
+```js
+// These components are identical
+const Greeting = (props) =>
+    <h1>{props.greeting}, {props.name}!</h1>
+
+const GreetingDestructured = ({greeting, name}) =>
+    <h1>{greeting}, {name}!</h1>
+```
+
+---
+
+## Props
+- A prop can be anything, including a function
+- You can pass raw values or variables
+- This makes your component dynamic
+
+---
+
+import { manyNames } from './snippets/02-props'
+
+
+<LiveCode
+	code={manyNames}
+	size="large"
+	previewProps={{ style: { fontSize: '0.8em' } }}
+	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
+/>
+
+---
+
+## Static Checking with PropTypes
+- The React prop-types package allows you to check props being passed into a component
+
+---
+
+export default FullScreenCode
+
+```javascript
+Card.propTypes = {
+    id: React.PropTypes.number.isRequired,
+    name: React.PropTypes.shape({
+      firstName: string,
+      lastName: string
+    })
+    email: React.PropTypes.string.isRequired
+};
+```
+
+---
+
+## Default Values
+
+- The prop-types package also lets you specify defaults
+- Specifying defaults can help you avoid null checking
+
+```
+ManyGreetings.defaultProps = {
+  names: []
+};
+```
+
+---
+
+## Exercise
+
+---
+
+import { exercise } from './snippets/02-props'
+
+<LiveCode
+	code={exercise}
+	size="large"
+	previewProps={{ style: { fontSize: '0.8em' } }}
+	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
+/>
+
+---
+
+import { solvedExercise } from './snippets/02-props'
+
+<LiveCode
+	code={solvedExercise}
+	size="large"
+	previewProps={{ style: { fontSize: '0.8em' } }}
+	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
+/>

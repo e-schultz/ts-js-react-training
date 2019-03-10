@@ -32,7 +32,7 @@ As an added bonus, if you look at line forty-three (43) of `demo-advanced.mdx` t
 
 ```jsx
 <CodeSurfer
-  code={require("raw-loader!./snippets/example-dockerfile.snippet")} 
+  code={require("raw-loader!./snippets/example-dockerfile.snippet")}
   title="Dockerfile for photo-share-api"
   showNumbers
   steps={[
@@ -150,25 +150,25 @@ export default [
 ### Run Deck in Isolation
 
 ```shell
-yarn workspace run nameYouGaveInPackage serve
+yarn workspace nameYouGaveInPackage packageServeCommand
 ```
 
 ### Run Master Deck
 
 ```shell
-yarn run serve 
+yarn run serve
 ```
 
 ## misc notes
 
 **Format**
 
-+ Will have some talking to concepts/slides 
++ Will have some talking to concepts/slides
   + Slides will cover high level points
   + Will be 'talked to' more than read
   + Typically followed by live+coding some examples to explore the concept
   + Can answer questions people have during this time,
-  + Can also code examples as part of answering questions 
+  + Can also code examples as part of answering questions
 + Other sections will have some exercises / examples setup
   + will use various online tools such as
     + repl.it
@@ -177,14 +177,14 @@ yarn run serve
 + Will aim for most large sections to have a larger exercise to work with
   + Will have initial online enviornment setup
   + Some initial code
-  + Clear instructions / Requirements 
+  + Clear instructions / Requirements
 + For Days 3 & 4
-  + Will have basic setup of an application 
+  + Will have basic setup of an application
   + Set of features to be built out that will leverage the concepts taught
-  + Features can have 'stretch goals' 
+  + Features can have 'stretch goals'
     + Allow for basic implementation
     + Allow for room for refactoring, or usage of more advanced patterns
 + Link to Slides / Material will be provided before hand
   + Slides will contain teaching Material
   + Links to online tools
-  + Links to other useful learning / reading resources that cover topics more in depth    
+  + Links to other useful learning / reading resources that cover topics more in depth
