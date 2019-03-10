@@ -1,0 +1,61 @@
+
+import { FullScreenCode } from "mdx-deck/layouts";
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import nightOwl from "prism-react-renderer/themes/nightOwl"
+
+# ES6 Classes
+
+
+```notes
+We will cover classes a bit more once we gcdet into TypeScript,
+for now we will look at the ES6 constructs
+```
+---
+## Class Declarations
+
+```js
+class Person {
+    firstName;
+    lastName;
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+}
+```
+## Hoisting 
+
+Class declarations do not get hoisted.
+
+```js
+let evan = new Person('Evan','Schultz');
+
+class Person {
+    firstName;
+    lastName;
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+}
+```
+## Class Methods 
+
+<CodeSurfer
+  code={require("raw-loader!./snippets/es6-class-methods.snippet)}
+  theme={nightOwl}
+  lang="javascript"
+  title="ES6 Class Methods"
+  showNumbers
+  steps={[
+    {},
+    {range: [1,3], notes: "Makes it clear what public properties there are"}, 
+    {lines: [4], notes: "What properties we need to construct with the class with"},
+    {range: [8,10], notes: "Method Declaration - can fall into issues with `this`"},
+    {lines: [11], notes: "Method Assignment - this will point to what we expect"},
+    {ranges: [13,21], notes: "Can define getters and setters"},
+    {}
+  ]}
+/>
+
+
