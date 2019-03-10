@@ -32,7 +32,7 @@ As an added bonus, if you look at line forty-three (43) of `demo-advanced.mdx` t
 
 ```jsx
 <CodeSurfer
-  code={require("raw-loader!./snippets/example-dockerfile.snippet")}
+  code={require("!raw-loader!./snippets/example-dockerfile.snippet")}
   title="Dockerfile for photo-share-api"
   showNumbers
   steps={[
