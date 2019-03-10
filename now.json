@@ -11,6 +11,10 @@
       "use": "@now/static-build"
     },
     {
+      "src": "decks/home/package.json",
+      "use": "@now/static-build"
+    },
+    {
       "src": "decks/arrays/package.json",
       "use": "@now/static-build"
     },
