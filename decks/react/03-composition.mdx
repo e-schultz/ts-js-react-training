@@ -1,4 +1,5 @@
-import { FullScreenCode } from "mdx-deck/layouts";
+import { CodeSurfer } from "mdx-deck-code-surfer";
+import nightOwl from "prism-react-renderer/themes/nightOwl";
 import { LiveCode } from 'mdx-deck-live-code';
 
 ## The "Children" Prop
@@ -29,3 +30,39 @@ import { childrenOne } from './snippets/03-composition'
 ---
 
 ## Compare and Contrast...
+
+---
+
+import {articleLayoutOne} from './snippets/03-composition'
+
+<CodeSurfer
+  code={articleLayoutOne}
+  theme={nightOwl}
+  lang="javascript"
+  title="ArticleLayout"
+  showNumbers
+  steps={[
+    {}, // This component lays out a blog article
+    {lines: [2], notes: "Takes props for title and copy"},
+    {lines: [8], notes: "But what if we want more than one paragraph?" },
+    {}
+  ]}
+/>
+
+---
+
+import {articleLayoutComposed} from './snippets/03-composition'
+
+<CodeSurfer
+  code={articleLayoutComposed}
+  theme={nightOwl}
+  lang="javascript"
+  title="ArticleLayout"
+  showNumbers
+  steps={[
+    {}, // This component lays out a blog article
+    {lines: [2, 8], notes: "Replace the copy prop with children"},
+    {lines: [11,12,13,14], notes: "And we can use whatever copy we want" },
+    {}
+  ]}
+/>

@@ -14,3 +14,31 @@ export const childrenOne = `() => {
     </PageHeader>
   )
 }`
+
+
+export const articleLayoutOne = `
+const ArticleLayout = ({title, copy}) =>
+  <section>
+    <ArticleHeader />
+    <AuthorInfo />
+    
+    <h2>{title}</h2>
+    <p>{copy}</p>
+  </section>`
+
+
+export const articleLayoutComposed = `
+const ArticleLayout = ({title}) =>
+  <section>
+    <ArticleHeader />
+    <AuthorInfo />
+    
+    <h2>{title}</h2>
+    {children}
+  </section>
+
+<ArticleLayout title="My First Article">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p>Nullam est risus, tempus id arcu nec, aliquet varius diam.</p>
+</ArticleLayout>
+`
