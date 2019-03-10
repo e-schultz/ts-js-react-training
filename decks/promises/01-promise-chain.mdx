@@ -54,267 +54,36 @@ import ReplIt from "../../components/replit";
 />
 
 ---
+## Those functions can live in another file
 
-## Promise Error Handling 
-
-* doSomethingAsync().then(onSuccess,onError)
-* the `onError` will catch errors in `doSomethingAsync` not in `onSuccess`
-
----
-
-## Promise Error Handling
-
-```javascript
-getData().then(function onSuccess() {
-    // executes if getData resolves
- }, function onError(errors) { 
-     // executes if getData rejects, or throws an error
- })
-```
-
----
-
-## How do handle an error if something breaks in onSuccess?
-
-```javascript
-getData().then(function onSuccess() {
-    // executes if getData resolves
- }).then(null, function onError(error) {
-     // if something fails in getData,
-     // or onSuccess - then it will be captured here
- })
-```
----
-
-<CodeSurfer
-  code={require("raw-loader!./snippets/promise-errors-1.snippet")}
-  theme={nightOwl}
-  lang="javascript"
-  title="Promise Errors"
-  showNumbers
-  steps={[
-    { notes: "Lets look at how errors flow through" },
-    { lines: [2], notes: "Handles success or error of getData" },
-    {
-      tokens: {
-        3: [15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-        2: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-      },
-      notes: "Handles error from the then above"
-    },
-    {
-      tokens: {
-        4: [15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-        3: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-      },
-      notes: "Handles error from the successB above"
-    },
-    {
-      tokens: {
-        2: [15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-       
-      },
-      notes: "If this resolves"
-    },
-    {
-      tokens: { 
-          2: [15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-          3: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13] },
-      notes: "successB gets the value"
-    },
-    {
-      tokens: {
-        2: [15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-       
-      },
-      notes: "If this rejects or throws"
-    },
-    {
-      tokens: { 
-          2: [15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-          3: [15, 16, 17, 18, 19, 20, 21, 22, 23, 24]},
-      notes: "successAError gets called"
-    },
-    { notes: "This is generally not a good pattern" }
-  ]}
-/>;
-
----
-
-# What do we do then?
+- Easier to reuse 
+- Easier to test 
+- Test synchronously
 
 ---
 <CodeSurfer
-  code={require("raw-loader!./snippets/promise-errors-2.snippet")}
+  code={require("raw-loader!./snippets/promise-chain-4.snippet")}
   theme={nightOwl}
   lang="javascript"
-  title="Single error handler"
+  title="Can live in a shared location"
   showNumbers
   steps={[
-    { notes: "Let errors fall through" },
-    { lines: [5], notes: "Gets any errors that happen above" },
-  ]}
-/>;
-
----
-
-<CodeSurfer
-  code={require("raw-loader!./snippets/promise-errors-3.snippet")}
-  theme={nightOwl}
-  lang="javascript"
-  title="Catch and Release"
-  showNumbers
-  steps={[
-    { notes: "Let errors fall through" },
-    { range: [5,8], notes: "Catch and Release" },
-    { lines: [6], notes: "Can do localized error handling" },
-    { lines: [7], notes: "Pass it onto consumers if needed" },
+    {range: [1,4], notes: 'Pure, Simple, Synchronous'}, 
+    {lines: [6], notes: 'Export for reuse'}, 
     {}
   ]}
-/>;
-
----
-### When would you want to handle other than at the end?
-
-#### If you have a fall-back value that can continue the chain
-
+/>
 ---
 <CodeSurfer
-  code={require("raw-loader!./snippets/promise-errors-4.snippet")}
+  code={require("raw-loader!./snippets/promise-chain-3.snippet")}
   theme={nightOwl}
   lang="javascript"
-  title="Graceful Errors"
+  title="Improved Reuse"
   showNumbers
   steps={[
-    { notes: "If you can gracefully recover" },
-    { lines: [3], notes: "Could return a cached value" },
-    { range: [5,6], notes: "And continue the chain with the value" },
+    {},
+    {lines: [1], notes: "Import where you need"},
+    {range: [8,10], notes: "Cleans up your code"}, 
     {}
   ]}
-/>;
-
----
-# Promise Patterns  
----
-
-## Promise Patterns - Parallel
-
-- Finish in any order
-- Promises do not depend on the success of another 
-- Only care once they all finish 
-
----
-
-## Promise Patterns - Waterfall
-
-- Order matters
-- Another request needs the result of a previous 
-
----
-## Promise Parallel - Promise.all
-
-* Waits for all promises to resolve
-* Gets passed into the handler as an array
-
-```javascript
-let promiseA = someRequest("A");
-let promiseB = someRequest("B");
-let PromiseC = someRequest("C");
-
-Promise.all([promiseA, promiseB, promiseC]).then(results => {
-  console.log("Hello Results", results);
-});
-```
-
----
-## Promise.all - can also use destructuring
-
-* Waits for all promises to resolve
-* Gets passed into the handler as an array
-
-```javascript
-let promiseA = someRequest("A");
-let promiseB = someRequest("B");
-let PromiseC = someRequest("C");
-
-Promise.all([promiseA, promiseB, promiseC]).then(
-  ([resultA, resultB, resultC]) => {
-    console.log(resultA, resultB, resultC);
-  }
-);
-```
-
----
-## API Consideration 
-
-<a href="https://js-ts-training.now.sh/" target="_blank">Simple API</a>
----
-
-## Exercise Time: 
-
-* Get a game by ID
-* Get a list of Platforms 
-* Create a game object with the game name, and the platform name
-
-```js
-let expected = {
-    id: 3,
-    name: "Dragon Quest XI: Echoes of an Elusive Age",
-    platformId: 1,
-    platformName: "PS4"
-  }
-
-```
----
-export default FullScreenCode
-
-# Promise.all the things
-
-<ReplIt src="https://repl.it/@e_schultz/Promise-Parallel-Start?lite=true"/>
-
----
-export default FullScreenCode
-
-# Promise.all the solution
-
-<ReplIt src="https://repl.it/@e_schultz/Promise-Parallel-Solution?lite=true"/>
-
-```notes
-<div style={{height: '80vh', display: 'block'}}>
-    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Promise-Parallel-Solution?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
-    </iframe>
-</div>
-```
----
-# Promise - waterfall 
-
-* Same API as last time
-* Maybe the Platform list is massive - and we want to get it by id
-* Instead of returning all platforms
-* Request a Game
-* Request the Platform for that Game
-* Display similar result.
-
----
-export default FullScreenCode
-
-## Promise - One Request then Another
-
-<ReplIt src="https://repl.it/@e_schultz/Promise-Waterfall-Start?lite=true"/>
-
----
-export default FullScreenCode
-
-## Promise - One Request then Another Solution
-
-<ReplIt src="https://repl.it/@e_schultz/Promise-Waterfall-Solution?lite=true"/>
-
----
-## Flattening The Chain .... take 1
-
-<ReplIt src="https://repl.it/@e_schultz/Promise-Waterfall-Solution-Flat-Solution?lite=true"/>
-
----
-## Flattening The Chain .... take 2 
-
-<ReplIt src="https://repl.it/@e_schultz/Promise-Waterfall-Solution-Flat-Solution-Alt?lite=true"/>
+/>

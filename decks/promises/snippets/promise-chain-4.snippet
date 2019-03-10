@@ -1,0 +1,6 @@
+let filterTitle = (title, arr) => arr.filter((item) => item.title === title);
+let filterByYears = (years, arr) =>
+  arr.filter(n => n.yearsAtCompany >= years);
+let getSalary = arr => arr.reduce((acc, {salary}) => acc + salary, 0);
+
+export { filterTitle, filterByYears, getSalary }
