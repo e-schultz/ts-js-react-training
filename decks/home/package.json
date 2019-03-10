@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "homes-deck",
+  "name": "home-deck",
   "version": "1.0.0",
   "scripts": {
     "start": "mdx-deck index.js",
@@ -8,8 +8,7 @@
     "build:presentation": "mdx-deck build index.js --no-html ",
     "build:images": "cp -r images dist/",
     "build:assets": "cp -r snippets dist/",
-    "now-build": "yarn run build:presentation && yarn run build:images && yarn run build:assets && yarn run build:dist",
-    "build:dist": "cpy 'dist/**' ../../dist/decks/home",
+    "now-build": "yarn run build:presentation && yarn run build:images && yarn run build:assets",
     "deploy": "now"
   }
 }
