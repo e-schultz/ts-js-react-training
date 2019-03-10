@@ -1,6 +1,7 @@
 {
   "version": 2,
-  "name": "mdx-deck-advanced",
+  "name": "js-ts-react-training",
+  "alias": "rio-react-training",
   "github": {
     "autoJobCancelation": true
   },
