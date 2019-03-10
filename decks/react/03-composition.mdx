@@ -32,9 +32,8 @@ import { childrenOne } from './snippets/03-composition'
 ## Compare and Contrast...
 
 ---
-
 <CodeSurfer
-  code={require("raw-loader!./snippets/article-layout.snippet")}
+  code={require("!raw-loader!./snippets/article-layout.snippet")}
   theme={nightOwl}
   lang="javascript"
   title="ArticleLayout With Props"
@@ -46,11 +45,10 @@ import { childrenOne } from './snippets/03-composition'
     {}
   ]}
 />
-
 ---
 
 <CodeSurfer
-  code={require("raw-loader!./snippets/article-layout-composed.snippet")}
+  code={require("!raw-loader!./snippets/article-layout-composed.snippet")}
   theme={nightOwl}
   lang="javascript"
   title="ArticleLayout With Composition"
