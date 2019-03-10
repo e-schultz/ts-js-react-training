@@ -80,15 +80,17 @@ const Menu = ({ items }) => (
 ### Abstract to Components
 
 ```javascript
-const MenuContainer = ({ children }) => <ul className="flex flex-row f3">{children}</ul>
-const MenuItem = ({ children }) => <li className="blue pl4 flex-auto">{children}</li>
+const MenuContainer = ({ children }) =>
+  <ul className="flex flex-row f3">{children}</ul>
+const MenuItem = ({ children }) =>
+  <li className="blue pl4 flex-auto">{children}</li>
 
 const Menu = ({ items }) => (
-    <MenuContainer>
-        {items.map((item, i) => (
-            <MenuItem key={i}>{item.name}</MenuItem>
-        ))
-    </MenuContainer>
+  <MenuContainer>
+    {items.map((item, i) => (
+      <MenuItem key={i}>{item.name}</MenuItem>
+    ))
+  </MenuContainer>
 )
 ```
 
@@ -141,5 +143,3 @@ const App = () => (
   </div>
 );
 ```
-
----

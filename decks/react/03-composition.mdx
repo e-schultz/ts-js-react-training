@@ -33,36 +33,32 @@ import { childrenOne } from './snippets/03-composition'
 
 ---
 
-import {articleLayoutOne} from './snippets/03-composition'
-
 <CodeSurfer
-  code={articleLayoutOne}
+  code={require("raw-loader!./snippets/article-layout.snippet")}
   theme={nightOwl}
   lang="javascript"
-  title="ArticleLayout"
+  title="ArticleLayout With Props"
   showNumbers
   steps={[
     {}, // This component lays out a blog article
-    {lines: [2], notes: "Takes props for title and copy"},
-    {lines: [8], notes: "But what if we want more than one paragraph?" },
+    {lines: [1], notes: "Takes props for title and copy"},
+    {lines: [7], notes: "But what if we want more than one paragraph?" },
     {}
   ]}
 />
 
 ---
 
-import {articleLayoutComposed} from './snippets/03-composition'
-
 <CodeSurfer
-  code={articleLayoutComposed}
+  code={require("raw-loader!./snippets/article-layout-composed.snippet")}
   theme={nightOwl}
   lang="javascript"
-  title="ArticleLayout"
+  title="ArticleLayout With Composition"
   showNumbers
   steps={[
     {}, // This component lays out a blog article
-    {lines: [2, 8], notes: "Replace the copy prop with children"},
-    {lines: [11,12,13,14], notes: "And we can use whatever copy we want" },
+    {lines: [1, 7], notes: "Replace the copy prop with children"},
+    {lines: [10,11,12,13], notes: "And we can use whatever copy we want" },
     {}
   ]}
 />
