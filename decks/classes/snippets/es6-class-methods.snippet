@@ -1,0 +1,28 @@
+class Person {
+    firstName;
+    lastName;
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    greet(greeting) {
+        console.log(`${this.firstName} ${this.lastName}`)
+    }
+    sayHello = () => console.log(`${this.firstName} ${this.lastName}`)
+
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`
+    }
+    set fullName(value) {
+        
+        let [first,last] = value.split(' ')
+        this.firstName = first;
+        this.lastName = last;
+    }
+    get first() {
+        return this.firstName;
+    }
+    get last() {
+        return this.lastName;
+    }
+}

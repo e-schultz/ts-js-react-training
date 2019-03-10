@@ -4,6 +4,7 @@ import templateLiterals from './decks/template-literals';
 import objects from './decks/objects';
 import react from './decks/react';
 import arrays from './decks/arrays';
+import classes from './decks/classes';
 import functions from './decks/functions'
 import promises from './decks/promises';
 
@@ -16,6 +17,7 @@ export default [
     ...functions,
     ...objects,
     ...arrays,
+    ...classes,
     ...promises,
     ...react
 ]
