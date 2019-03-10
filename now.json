@@ -1,7 +1,7 @@
 {
   "version": 2,
   "name": "js-ts-react-training",
-  "alias": "rio-react-training",
+  "alias": ["rio-react-training"],
   "github": {
     "autoJobCancelation": true
   },
