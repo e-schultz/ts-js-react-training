@@ -14,7 +14,7 @@ export default function CodeSandbox({ src, allowFullScreen = true }) {
           overflow: "hidden"
         }}
         width="100%"
-        src={src}
+        src={`${src}&runonclick=1&codemirror=1`}
         sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
       />
     </div>
