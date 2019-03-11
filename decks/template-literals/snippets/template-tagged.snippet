@@ -1,0 +1,13 @@
+function greet(template, firstName, lastName, age) {
+  console.log(template)
+  template.raw.forEach((item,index) =>{
+    console.log(`template[${index}] = ${item}`)
+  })
+  return `not there yet`
+}
+
+let x = 'Evan';
+let y = 'Schultz';
+let z = 36;
+
+greet`Why hello there ${x} ${y}, I hear you are ${z} today`;
