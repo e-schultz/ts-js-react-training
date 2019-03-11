@@ -50,7 +50,7 @@ const Menu = ({ items }) => (
     <ul className="menu">
         {items.map((item, i) => (
             <li className="menu-item" key={i}>{item.name}</li>
-        ))
+        ))}
     </ul>
 )
 
@@ -69,7 +69,7 @@ const Menu = ({ items }) => (
     <ul className="flex flex-row f3">
         {items.map((item, i) => (
             <li className="pl4 blue flex-auto" key={i}>{item.name}</li>
-        ))
+        ))}
     </ul>
 )
 ```
@@ -89,7 +89,7 @@ const Menu = ({ items }) => (
   <MenuContainer>
     {items.map((item, i) => (
       <MenuItem key={i}>{item.name}</MenuItem>
-    ))
+    ))}
   </MenuContainer>
 )
 ```
@@ -132,6 +132,7 @@ const Button = nanostyled('button', {
   bg: 'bg-blue',
   base: 'fw7 br3 pa2 sans-serif f4 bn input-reset',
 });
+```
 
 ---
 

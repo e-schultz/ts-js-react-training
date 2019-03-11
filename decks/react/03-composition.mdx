@@ -1,6 +1,9 @@
+import { FullScreenCode } from "mdx-deck/layouts";
+import ReplIt from "../../components/replit";
+import CodeSandbox from "../../components/codesandbox";
+import { Head, Appear, Image, withDeck } from 'mdx-deck' 
 import { CodeSurfer } from "mdx-deck-code-surfer";
 import nightOwl from "prism-react-renderer/themes/nightOwl";
-import { LiveCode } from 'mdx-deck-live-code';
 
 ## The "Children" Prop
 
@@ -9,15 +12,11 @@ import { LiveCode } from 'mdx-deck-live-code';
 - Think of it like a "slot" that something can be placed into later
 
 ---
+export default FullScreenCode
 
-import { childrenOne } from './snippets/03-composition'
+# Rendering Children
 
-<LiveCode
-	code={childrenOne}
-	size="large"
-	previewProps={{ style: { fontSize: '0.8em' } }}
-	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
-/>
+<CodeSandbox src="https://codesandbox.io/embed/ql21r7nq6q?autoresize=1&fontsize=14"/>
 
 ---
 

@@ -1,5 +1,9 @@
 import { FullScreenCode } from "mdx-deck/layouts";
-import { LiveCode } from 'mdx-deck-live-code';
+import { Head, Appear, Image, withDeck } from 'mdx-deck' 
+import { CodeSurfer } from "mdx-deck-code-surfer";
+import nightOwl from "prism-react-renderer/themes/nightOwl";
+import ReplIt from "../../components/replit";
+import CodeSandbox from "../../components/codesandbox";
 
 ## Props
 
@@ -8,16 +12,25 @@ import { LiveCode } from 'mdx-deck-live-code';
 - Components are just functions, that receive the props object
 
 ---
-
-import { props1 } from './snippets/02-props'
-
-<LiveCode
-	code={props1}
-	size="large"
-	previewProps={{ style: { fontSize: '0.8em' } }}
-	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
+<CodeSurfer
+  code={require("raw-loader!./snippets/props.snippet")}
+  theme={nightOwl}
+  lang="jsx"
+  title="Prop Basics"
+  showNumbers
+  steps={[
+    {},
+    {lines: [1], notes: "Each function is called with a single property: `props`"}, 
+    {lines: [4], notes: "Attributes become keys on the prop object"},
+     {
+      tokens: {
+        1: [5,15,16,17],
+        4: [5,6]
+      },
+      notes: "name attribute becomes props.name"
+    },{}
+  ]}
 />
-
 ---
 
 ## Destructuring Props
@@ -46,15 +59,9 @@ const GreetingDestructured = ({greeting, name}) =>
 
 ---
 
-import { manyNames } from './snippets/02-props'
+# Passing Prop Data 
 
-
-<LiveCode
-	code={manyNames}
-	size="large"
-	previewProps={{ style: { fontSize: '0.8em' } }}
-	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
-/>
+<CodeSandbox src="https://codesandbox.io/embed/3kv214881q?fontsize=14&hidenavigation=1"/>
 
 ---
 
@@ -95,22 +102,13 @@ ManyGreetings.defaultProps = {
 
 ---
 
-import { exercise } from './snippets/02-props'
+# Props - Start
 
-<LiveCode
-	code={exercise}
-	size="large"
-	previewProps={{ style: { fontSize: '0.8em' } }}
-	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
-/>
+<CodeSandbox src="https://codesandbox.io/embed/9lnz3x7o1p?autoresize=1&fontsize=14&hidenavigation=1"/>
+
 
 ---
 
-import { solvedExercise } from './snippets/02-props'
+# Props - Solution
 
-<LiveCode
-	code={solvedExercise}
-	size="large"
-	previewProps={{ style: { fontSize: '0.8em' } }}
-	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
-/>
+<CodeSandbox src="https://codesandbox.io/embed/4qz761yz49?fontsize=14"/>
