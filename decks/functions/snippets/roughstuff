@@ -1,13 +1,12 @@
 import Code from 'mdx-code';	
 import { FullScreenCode } from "mdx-deck/layouts";	
 import ReplIt from "../../components/replit";
-
-
 	
+    
 # What `this` Context?	
 
 ---
-## `this` gets confusing 	
+# `this` gets confusing 	
 
 * `this` has been the source of many errors	
 * `this` context can change 	
@@ -15,13 +14,13 @@ import ReplIt from "../../components/replit";
 
 ---
 
-> Context is always the value of the `this` keyword which is a reference to the object that “owns” the currently executing code.	
+ > Context is always the value of the `this` keyword which is a reference to the object that “owns” the currently executing code.	
 
 ---
 
-## A simple way of thinking about it ....	
+# A simple way of thinking about it ....	
 
-* `owner.method();`	
+ * `owner.method();`	
 * The thing that is left of the `.` is the context owner 	
 * If it is just `method()` - it is unbound, and the context is global	
 * Unless it is a arrow function `() =>` - and `this` is the function it's called in	
@@ -29,17 +28,23 @@ import ReplIt from "../../components/replit";
 ```notes	
 this is a useful lie ....	
 ```	
----
+---	
 
 # Lets explore this with some examples ...	
 
 ---
 export default FullScreenCode	
 
-## Example - `this` on an object	
+ ## Example - `this` on an object	
 
-<ReplIt src="https://repl.it/@e_schultz/01-Exploring-Context-of-This?lite=true"/>	
+ <ReplIt src="https://repl.it/@e_schultz/01-Exploring-Context-of-This?lite=true"/>	
 
+ <!--	
+<div style={{height: '80vh', display: 'block'}}>	
+    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/01-Exploring-Context-of-This?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">	
+    </iframe>	
+</div>	
+-->	
 
 ```notes	
 * Go through things like 	
@@ -58,7 +63,13 @@ export default FullScreenCode
 
 <ReplIt src="https://repl.it/@e_schultz/02-Exploring-Context-of-This-class?lite=true"/>	
 
----
+ <!--	
+<div style={{height: '80vh', display: 'block'}}>	
+    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/02-Exploring-Context-of-This-class?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">	
+    </iframe>	
+</div>	
+-->	
+---	
 
 export default FullScreenCode	
 

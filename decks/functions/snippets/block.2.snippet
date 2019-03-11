@@ -1,0 +1,17 @@
+function outer(input) {
+  let canVote = "who knows";
+  setTimeout(function() {
+    console.log("could they vote?", canVote);
+  }, 500);
+
+  if (input > 18) {
+    canVote = true;
+  } else if (input < 18) {
+    canVote = false;
+  }
+  return canVote;
+}
+outer(10);
+outer(17);
+outer(18);
+outer(20);
