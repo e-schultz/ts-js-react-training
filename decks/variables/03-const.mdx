@@ -1,6 +1,7 @@
 import { FullScreenCode } from "mdx-deck/layouts";
 import { Appear, Notes } from "mdx-deck";
 import { CodeSurfer } from "mdx-deck-code-surfer"
+import nightOwl from "prism-react-renderer/themes/nightOwl"
 
 # JavaScript - const
 
@@ -13,6 +14,7 @@ import { CodeSurfer } from "mdx-deck-code-surfer"
   code={require("!raw-loader!../../snippets/const-example.snippet")}
   lang="javascript"
   title="Const Overview"
+  theme={nightOwl}
   showNumbers
   steps={[
     {}, // First step should be an overview of the snippet
