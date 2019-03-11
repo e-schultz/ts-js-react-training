@@ -2,6 +2,8 @@ import { FullScreenCode } from "mdx-deck/layouts";
 import { Appear, Notes } from "mdx-deck";
 import { CodeSurfer } from "mdx-deck-code-surfer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
+import Code from 'mdx-code';
+import ReplIt from "../../components/replit";
 
 # Template Literals
 
@@ -17,13 +19,13 @@ import nightOwl from "prism-react-renderer/themes/nightOwl"
 
 ## String Interpolation
 
-- Use backtick `` ` `` instead of normal quotes `"` or `'`
+- Use backtick `` ` `` instead of single or double quotes
 - Use can use `${var}` or `${expression}`
 - Easier to concat strings
 
 ---
 <CodeSurfer
-  code={require("!raw-loader!../../snippets/template-ex-1.snippet")}
+  code={require("!raw-loader!./snippets/template-ex-1.snippet")}
   theme={nightOwl}
   lang="javascript"
   title="Previous String Concat"
@@ -37,7 +39,7 @@ import nightOwl from "prism-react-renderer/themes/nightOwl"
 
 ---
 <CodeSurfer
-  code={require("!raw-loader!../../snippets/template-ex-2.snippet")}
+  code={require("!raw-loader!./snippets/template-ex-2.snippet")}
   theme={nightOwl}
   lang="javascript"
   title="Template Literals"
@@ -50,7 +52,7 @@ import nightOwl from "prism-react-renderer/themes/nightOwl"
 />
 ---
 <CodeSurfer
-  code={require("!raw-loader!../../snippets/template-ex-3.snippet")}
+  code={require("!raw-loader!./snippets/template-ex-3.snippet")}
   theme={nightOwl}
   lang="javascript"
   title="Multiline and Expressions"
@@ -62,4 +64,91 @@ import nightOwl from "prism-react-renderer/themes/nightOwl"
   ]}
 />
 ---
-TODO: Exercise / Challenge Time
+
+## Tagged Template Literals
+
+* Instead of browser immediatly assigning a value, we can tag it and pass it through a function
+* Gives us control over how the string is formed.
+
+---
+export default Code
+
+```javascript Nothing Special Here 
+function greet(greeting, firstName, lastName, age) {
+  return `${greeting} ${firstName} ${lastName} ${age}`
+}
+greet('Hello','Evan','Schultz',36);
+```
+
+---
+# What if we wanted to provide the template? 
+## tag it!
+---
+export default Code
+
+```javascript Lets Examine This
+function greet(template, first, second, third) {
+  console.log(template)
+  template.raw.forEach((item,index) =>{
+    console.log(`template[${index}] = ${item}`)
+  })
+  return `not there yet`
+}
+
+let x = 'Evan';
+let y = 'Schultz';
+let z = 36;
+
+greet`Why hello there ${x} ${y}, I hear you are ${z} today`;
+```
+---
+<CodeSurfer
+  code={require("!raw-loader!./snippets/template-tagged.snippet")}
+  theme={nightOwl}
+  lang="javascript"
+  title="Breaking It Down"
+  showNumbers
+  steps={[
+    { },
+    { lines: [2], notes: "This is an array of all of the string parts passed in" },
+    { lines: [13], notes: "x, y, z get passed in as the remaining values" },
+    { lines: [6], notes: "This lets is manipulate the template before it gets returned"}
+  ]}
+/>
+---
+export default Code
+
+```javascript Can Use It to Transform Values
+let convert = {
+  string: input => input.toUpperCase(),
+  number: input => input.toFixed(2),
+  boolean: input => (input ? "yes" : "no")
+};
+
+function greet(template, ...vars) {
+  return template.raw.reduce((acc, value, index) => {
+    let templateValue = vars[index - 1];
+    let displayValue;
+
+    displayValue = convert[typeof templateValue](templateValue);
+    return `${acc}${displayValue}${value}`;
+  });
+}
+let helloTemplate = (greeting, first, last, age, happy) => {
+  return greet`<h1> ${greeting} --- isn't this swell? ${first} ${last} ${age} - are you happy? ${happy}</h1>`;
+}
+helloTemplate("Hello", "Evan", "Schultz", 36, false);
+```
+---
+export default FullScreenCode
+
+### Exercise - Creating HTML Templates - Start
+
+ <ReplIt src="https://repl.it/@e_schultz/HTML-with-Tagged-Templates-start?lite=true"/>
+
+---
+export default FullScreenCode
+
+### Exercise - Creating HTML Templates - Solution
+
+ <ReplIt src="https://repl.it/@e_schultz/HTML-with-Tagged-Templates-end?lite=true"/>
