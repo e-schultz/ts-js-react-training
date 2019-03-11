@@ -1,0 +1,81 @@
+import { Head, Appear, Image, withDeck } from 'mdx-deck' 
+import { FullScreenCode } from "mdx-deck/layouts";
+
+# Template for Creating a new Deck
+
+## Folder Setup
+
+* Copy folder
+* Give new name
+* Edit package.json of deck
+
+---
+export default FullScreenCode
+
+### JSON Config 
+
+```json
+{
+    "private": true,
+    "name": "empty-deck-template", // change name
+    "version": "1.0.0",
+    "scripts": {
+     // can stay the same
+    }
+  }
+```
+
+---
+export default FullScreenCode
+
+### Configure Now deployment
+
+
+Edit root now.json to include build for new deck:
+
+```json
+  { "version": 2,
+  "name": "mdx-deck-advanced",
+  "builds": [
+   // ...
+    {
+      "src": "decks/your-new-deck/package.json",
+      "use": "@now/static-build"
+    }
+  ]
+}
+```
+
+---
+export default FullScreenCode
+
+### Include in "Master Deck" if you want
+
+```js
+// /deck.js
+import intro from './intro.mdx'
+// ...
+import yourNewDeck from './decks/yourNewDeck';
+
+export { default as theme } from './theme'
+
+export default [
+    ...intro,
+ // ...
+    ...yourNewDeck
+]
+```
+
+---
+
+## Run Deck in Isolation
+
+```shell
+yarn workspace run nameYouGaveInPackage serve
+```
+
+## Run Master Deck
+
+```shell
+yarn run serve 
+```

@@ -41,6 +41,10 @@
     {
       "src": "decks/variables/package.json",
       "use": "@now/static-build"
+    },
+    {
+      "src": "decks/styles/package.json",
+      "use": "@now/static-build"
     }
   ]
 }

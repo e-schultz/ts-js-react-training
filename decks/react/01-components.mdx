@@ -1,5 +1,7 @@
 import { FullScreenCode } from "mdx-deck/layouts";
-import { LiveCode } from 'mdx-deck-live-code';
+import ReplIt from "../../components/replit";
+import CodeSandbox from "../../components/codesandbox";
+import { Head, Appear, Image, withDeck } from 'mdx-deck' 
 
 ## React Components
 
@@ -47,14 +49,9 @@ const sameElement = React.createElement(
 
 ---
 
-import { helloComponent } from './snippets/01-components'
+# Hello World Component
 
-<LiveCode
-	code={helloComponent}
-	size="large"
-	previewProps={{ style: { fontSize: '0.8em' } }}
-	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
-/>
+<CodeSandbox src="https://codesandbox.io/embed/1080oxnw33?eslint=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fhello-world.js&moduleview=1"/>
 
 ---
 
@@ -65,16 +62,9 @@ import { helloComponent } from './snippets/01-components'
 - Any number of children can be contained in the root tag
 
 ---
+# Hello World - Children
 
-import { helloManyChildren } from './snippets/01-components'
-
-<LiveCode
-	code={helloManyChildren}
-	size="large"
-	previewProps={{ style: { fontSize: '0.8em' } }}
-	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
-/>
-
+<CodeSandbox src="https://codesandbox.io/embed/8l3wmjzk82?eslint=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fhello-world.js"/>
 ---
 
 ## ES6 Component Shorthands
@@ -91,15 +81,11 @@ import { helloManyChildren } from './snippets/01-components'
 - Any code in JSX between `{ }` braces will be evaluated
 
 ---
+export default FullScreenCode
 
-import { menuList } from './snippets/01-components'
+# Menu List
 
-<LiveCode
-	code={menuList}
-	size="large"
-	previewProps={{ style: { fontSize: '0.8em' } }}
-	editorProps={{ style: { fontSize: '0.5em', background: '#001628' } }}
-/>
+<CodeSandbox src="https://codesandbox.io/embed/jzxzvml555?autoresize=0&eslint=1&fontsize=14&hidenavigation=1&moduleview=1"/>
 
 ---
 
