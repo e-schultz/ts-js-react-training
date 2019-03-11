@@ -18,16 +18,85 @@ import ReplIt from "../../components/replit";
 
 ---
 
-# Scope 
-
-> In other words, scope pertains to the variable access of a function when it is invoked and is unique to each invocation.
+> Scope is the accessibility of variables, functions, and objects in some particular part of your code during runtime. 
 
 ---
 
-### Variable Scope
+>  In other words, scope determines the visibility of variables and other resources in areas of your code.
+
+---
+
+## Variable Scope
 
 * Local or Global 
 * Local is within a function context
 * `var` is hoisted to the top of the function 
 * `let` and `const` are scoped within a block 
 
+---
+
+## Block Statements
+
+* Statements like `if`, `switch`, `for` create a block
+
+---
+
+## Block Scope
+
+* If using `let` or `const` - their scope is within that block
+
+---
+
+<CodeSurfer
+  code={require("!raw-loader!./snippets/block.snippet")}
+  theme={nightOwl}
+  lang="javascript"
+  title="Block Statements - Scope with var"
+  showNumbers
+  steps={[
+    {}, // First step should be an overview of the snippet
+    {lines: [7,9,11], notes: "These create a block"},
+    {lines: [8,10], notes: "Variables declared with var get hoisted to the top of the function scope"},
+    {lines: [4,12], notes: "Can access canVote"},
+    {range: [14,17], notes: "Can you guess the output?"},
+    {}
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  code={require("!raw-loader!./snippets/block.1.snippet")}
+  theme={nightOwl}
+  lang="javascript"
+  title="Block Statements - Scope with let"
+  showNumbers
+  steps={[
+    {}, // First step should be an overview of the snippet
+    {lines: [7,9,11], notes: "These create a block"},
+    {lines: [8,10], notes: "Variables declared with let are scoped within the block"},
+    {tokens: {
+        2: [1,2,3,4,5],
+        4: [0,1,2,3,4,5,6,7],
+        12: [1,2,3]
+    }, notes: 'access canVote on line 2, but not 8 or 9'},
+    {range: [14,17], notes: "Can you guess the output?"},
+    {}
+  ]}
+/>
+
+---
+<CodeSurfer
+  code={require("!raw-loader!./snippets/block.2.snippet")}
+  theme={nightOwl}
+  lang="javascript"
+  title="Block Statements - better control with let"
+  showNumbers
+  steps={[
+    {}, // First step should be an overview of the snippet
+    {lines: [2], notes: "declare canVote once at the top"},
+    {lines: [4,8,10,12], notes: "Can access `canVote` in the scope above"},
+    {range: [14,17], notes: "Can you guess the output?"},
+    {}
+  ]}
+/>
