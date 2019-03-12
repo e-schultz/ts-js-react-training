@@ -3,28 +3,29 @@ import { CodeSurfer } from "mdx-deck-code-surfer"
 import { FullScreenCode } from "mdx-deck/layouts";
 import nightOwl from "prism-react-renderer/themes/nightOwl"
 import ReplIt from "../../components/replit";
+import  Code  from 'mdx-code';
 
 # Promise Patterns  
 ---
 
 ## Promise Patterns - Parallel
 
-- Finish in any order
-- Promises do not depend on the success of another 
-- Only care once they all finish 
+- Finish in Any Order
+- Promises Do Not Depend on the Success of Another 
+- Only Care Once They All Finish 
 
 ---
 
 ## Promise Patterns - Waterfall
 
-- Order matters
-- Another request needs the result of a previous 
+- Order Matters
+- Another Request Needs the Result of a Previous 
 
 ---
 ## Promise Parallel - Promise.all
 
-* Waits for all promises to resolve
-* Gets passed into the handler as an array
+* Waits for All Promises to Resolve
+* Gets Passed into the Handler as an Array
 
 ```javascript
 let promiseA = someRequest("A");
@@ -39,8 +40,9 @@ Promise.all([promiseA, promiseB, promiseC]).then(results => {
 ---
 ## Promise.all - can also use destructuring
 
-* Waits for all promises to resolve
-* Gets passed into the handler as an array
+- Waits for All Promises to Resolve
+- Gets Passed into the Handler as an Array
+- *note* : May need a polyfil for some browsers 
 
 ```javascript
 let promiseA = someRequest("A");
@@ -62,9 +64,9 @@ Promise.all([promiseA, promiseB, promiseC]).then(
 
 ## Exercise Time: 
 
-* Get a game by ID
-* Get a list of Platforms 
-* Create a game object with the game name, and the platform name
+* Get a Game by ID
+* Get a List of Platforms 
+* Create a Game Object with the Game Name, and the Platform Name
 
 ```js
 let expected = {
@@ -128,3 +130,130 @@ export default FullScreenCode
 ## Flattening The Chain .... take 2 
 
 <ReplIt src="https://repl.it/@e_schultz/Promise-Waterfall-Solution-Flat-Solution-Alt?lite=true"/>
+
+---
+
+### Sequential Promises
+
+* When a Promise Does Not Rely on the Result of Another
+* Want to Run Sequentially Instead of in Parallel
+* Why? Maybe API rate limiting will complain if you fire off 500 at once.
+* Good for bulk operations where you may not care about the actual api response 
+
+---
+
+### Sequential Promises
+
+* Promise.all executes in Parallel 
+* No built in Sequential --- so lets build it.
+
+---
+export default FullScreenCode
+
+### Sequential Promises - Example
+
+<ReplIt src="https://repl.it/@e_schultz/Sequential-Promises-example?lite=true"/>
+
+---
+export default FullScreenCode
+
+### Step Series Promises - Example
+
+<ReplIt src="https://repl.it/@e_schultz/Step-Series-Promises-example-all-results?lite=true"/>
+
+---
+
+### Promisify Synchronous Values
+
+* Sometimes you may want to turn a sync value into an async one
+* Possibly you have mock data you will replace with a real API later
+* Can also be used as a way to cache a value 
+
+---
+export default FullScreenCode
+
+### Promisify Synchronous Values
+<ReplIt src="https://repl.it/@e_schultz/Promisify-Sync-Data?lite=true"/>
+
+```notes
+const GAME_DATA = {
+  1: { id: 1, name: 'God of War '},
+  2: { id: 2, name: 'Octopath Traveler'},
+  3: { id: 3, name: ' Dark Souls'},
+}
+function getGameData(id) {
+  return GAME_DATA[id] ? Promise.resolve(GAME_DATA[id]) : Promise.reject('not found')
+}
+
+getGameData(1).then(n=>{
+  console.log('found the game', n);
+}).then(null,err=>{
+  console.log('ooops', err)
+});
+
+getGameData(4).then(n=>{
+  console.log('found the game', n);
+}).then(null,err=>{
+  console.log('ooops', err)
+});
+```
+---
+
+### Caching Async Data
+
+* Promises can be reused
+* If you store a promise, and return it again - you will get the previously resolved value
+
+---
+export default FullScreenCode
+
+### Sync Cache Example
+
+<ReplIt src="https://repl.it/@e_schultz/Sync-Cache-Example?lite=true"/>
+
+---
+
+### Promise Exercise - Cache the API Response 
+
+* Check to see if a game has been requested yet
+* If so - return the cached value
+* If not - get the value and store it in the cache 
+
+---
+export default FullScreenCode
+
+### Promise Cache - Start
+
+<ReplIt src="https://repl.it/@e_schultz/Promise-Cache-Exercise-start?lite=true"/>
+
+
+---
+export default FullScreenCode
+
+### Promise Cache - Solution
+
+<ReplIt src="https://repl.it/@e_schultz/Promise-Cache-Exercise-start?lite=true"/>
+
+---
+
+### Promise Exercise - Bonus
+
+* Make a generic cache for any fetch request - regardless of Games, Platform, etc. 
+* How would you approach this?
+
+---
+### Promise Exercise - Bonus - Start 
+
+export default FullScreenCode
+
+<ReplIt src="https://repl.it/@e_schultz/Promise-Cache-Exercise-Bonus-Start?lite=true"/>
+
+---
+### Promise Exercise - Bonus - Solution
+
+## None yet - no peeking! 
+
+---
+
+# Break / Q&A 
+

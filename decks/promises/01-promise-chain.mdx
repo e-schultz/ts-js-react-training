@@ -29,12 +29,12 @@ import ReplIt from "../../components/replit";
 />
 ---
 
-### Keeping these functions simple can help identify reusable patterns
+### Keeping These Functions Simple Can Help Identify Reusable Patterns
 
 <ul style={{listStyle: 'none'}}>
 <Appear>
-    <li>Filtering by a user type</li>
-    <li>Calculating the total of a value</li>
+    <li>Filtering by a User Type</li>
+    <li>Calculating the Total of a Value</li>
 </Appear>
 </ul>
 
@@ -48,28 +48,28 @@ import ReplIt from "../../components/replit";
   steps={[
     {range: [5,8], notes: 'Extract Reusable Logic'}, 
     {range: [11,12], notes: 'Use in Promise Chain'}, 
-    {range: [15,17], notes: 'Reuse same functions in new context'}, 
+    {range: [15,17], notes: 'Reuse Same Functions in New Context'}, 
     {}
   ]}
 />
 
 ---
-## Those functions can live in another file
+## Those Functions Can Live in Another File
 
-- Easier to reuse 
-- Easier to test 
-- Test synchronously
+- Easier to Reuse 
+- Easier to Test 
+- Can Test Synchronously
 
 ---
 <CodeSurfer
   code={require("!raw-loader!./snippets/promise-chain-4.snippet")}
   theme={nightOwl}
   lang="javascript"
-  title="Can live in a shared location"
+  title="Can Live in a Shared Location"
   showNumbers
   steps={[
     {range: [1,4], notes: 'Pure, Simple, Synchronous'}, 
-    {lines: [6], notes: 'Export for reuse'}, 
+    {lines: [6], notes: 'Export for Reuse'}, 
     {}
   ]}
 />
