@@ -45,6 +45,10 @@
     {
       "src": "decks/styles/package.json",
       "use": "@now/static-build"
+    },
+    {
+      "src": "decks/typescript-interfaces/package.json",
+      "use": "@now/static-build"
     }
   ]
 }
