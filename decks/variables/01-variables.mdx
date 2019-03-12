@@ -25,14 +25,17 @@ import Code from 'mdx-code';
 export default Code 
 
 ```javascript Variable Declaration
-function example1() {
-  var firstName = "Evan";
-  console.log("Name", firstName, lastName);
-  var lastName = "Schultz";
-  console.log("Name", firstName, lastName);
-}
+(function() {
+'use strict'
+  function example1() {
+    var firstName = "Evan";
+    console.log("Name", firstName, lastName);
+    var lastName = "Schultz";
+    console.log("Name", firstName, lastName);
+  }
 
-example1();
+  example1();
+})();
 ```
 ---
 
@@ -45,17 +48,21 @@ example1();
 export default Code 
 
 ```javascript The previous Example Is Equivalent To
-function example1() {
-  var firstName;
-  firstName  = "Evan";
-  var lastName; // declaration
-  
-  console.log("lastName", lastName);
-  lastName = "Schultz"; // assignment
-  console.log(lastName);
-}
+(function() {
+  'use strict';
+  function example1() {
+    var firstName;
+    firstName = "Evan";
+    var lastName; // declaration
 
-example1();
+    console.log("lastName", lastName);
+    lastName = "Schultz"; // assignment
+    console.log(lastName);
+  }
+
+  example1();
+})();
+
 ```
 
 ---
@@ -78,21 +85,24 @@ However, be mindful of function declaration vs function assignment
 export default Code 
 
 ```javascript Function Declaration
-doFirstThing();
-doSecondThing();
-doThirdThing();
+(function() {
+  "use strict";
+  doFirstThing();
+  doSecondThing();
+  doThirdThing();
 
-function doFirstThing() {
+  function doFirstThing() {
     console.log("I am the first thing");
-}
+  }
 
-function doSecondThing() {
+  function doSecondThing() {
     console.log("I am the second thing");
-}
+  }
 
-function doThirdThing() {
+  function doThirdThing() {
     console.log("I am the third thing");
-}
+  }
+})();
 ```
 
 ---
@@ -103,21 +113,24 @@ function doThirdThing() {
 export default Code
 
 ```javascript Will This Work?
-doFirstThing();
+(function() {
+  "use strict";
+  doFirstThing();
 
-function doFirstThing() {
+  function doFirstThing() {
     console.log("I am the first thing");
     doSecondThing();
-}
+  }
 
-var doSecondThing = function() {
+  var doSecondThing = function() {
     console.log("I am the second thing");
-}
+  };
 
-
-function doThirdThing() {
+  function doThirdThing() {
     console.log("I am the third thing");
-}
+  }
+})();
+
 ```
 
 ---
@@ -125,20 +138,23 @@ function doThirdThing() {
 export default Code
 
 ```javascript Why Does This Work?
-function doFirstThing() {
+(function() {
+  "use strict";
+  function doFirstThing() {
     console.log("I am the first thing");
     doSecondThing();
-}
+  }
 
-var doSecondThing = function() {
+  var doSecondThing = function() {
     console.log("I am the second thing");
-}
+  };
 
-
-function doThirdThing() {
+  function doThirdThing() {
     console.log("I am the third thing");
-}
+  }
 
-doFirstThing();
+  doFirstThing();
+})();
+
 ```
 
