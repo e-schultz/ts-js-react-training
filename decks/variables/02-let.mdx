@@ -13,14 +13,17 @@ import Code from 'mdx-code';
 export default Code 
 
 ```javascript No Longer Valid
-function example1() {
-  let firstName = "Evan";
-  lastName = "Schultz";
-  console.log("Name", firstName, lastName);
-  let lastName;
-  console.log("Name", firstName, lastName);
-}
-example1();
+(function() {
+  "use strict";
+  function example1() {
+    let firstName = "Evan";
+    lastName = "Schultz";
+    console.log("Name", firstName, lastName);
+    let lastName;
+    console.log("Name", firstName, lastName);
+  }
+  example1();
+})();
 ```
 
 ---
