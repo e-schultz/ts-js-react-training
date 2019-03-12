@@ -1,0 +1,21 @@
+interface Person {
+  firstName: string;
+  lastName: string;
+}
+
+interface ReadonlyPerson {
+    readonly firstName: string;
+    readonly lastName: string;
+}
+
+function printFullName(obj: ReadonlyPerson) {
+  console.log(obj.firstName + " " + obj.lastName);
+  obj.firstName = "changed";
+}
+
+let evan: Person = {
+  firstName: "Evan",
+  lastName: "Schultz"
+};
+
+printFullName(evan);

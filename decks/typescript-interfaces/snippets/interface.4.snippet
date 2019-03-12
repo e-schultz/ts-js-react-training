@@ -1,0 +1,9 @@
+interface CONFIG {
+  readonly API_KEY: string;
+}
+
+const APP_CONFIG: CONFIG = {
+  API_KEY: '12456';
+}
+
+APP_CONFIG.API_KEY = 'new' // compile time error

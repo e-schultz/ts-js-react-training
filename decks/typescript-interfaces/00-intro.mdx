@@ -1,9 +1,162 @@
-
+import { Split, SplitRight } from "mdx-deck/layouts";
 import { FullScreenCode } from "mdx-deck/layouts";
-import { CodeSurfer } from "mdx-deck-code-surfer"
-import nightOwl from "prism-react-renderer/themes/nightOwl"
+import { CodeSurfer } from "mdx-deck-code-surfer";
+import nightOwl from "prism-react-renderer/themes/nightOwl";
+import ReplIt from "../../components/replit";
 
 # TypeScript - Interfaces
 
 ---
 
+# The Basics
+
+- Don't Compile to Anything in JavaScript
+- Can Be Used to Define the Shape of an Object
+- Can Be Used to Inform What a Class Needs to Implement
+- Can Define Optional Properties
+- Can Define ReadOnly Properties
+- Interfaces Can Extend Other Interfaces
+- Interfaces Can Extend Other Classes
+
+---
+
+<CodeSurfer
+  code={require("!raw-loader!./snippets/interface.snippet")}
+  theme={nightOwl}
+  lang="typescript"
+  title="Before Creating an Interface"
+  showNumbers
+  steps={[
+    {},
+    {
+      lines: [1],
+      notes: "Expects an object that at least has firstName and lastName"
+    },
+    {
+      range: [5, 9],
+      notes: "This shape is a close match, but has an extra property"
+    },
+    { lines: [11], notes: "No Complaints" },
+    {}
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  code={require("!raw-loader!./snippets/interface.1.snippet")}
+  theme={nightOwl}
+  lang="typescript"
+  title="Create the Interface"
+  showNumbers
+  steps={[
+    {}, 
+    {range: [1,4], notes: "Create an Interface"},
+    {lines: [6], notes: "Now say this method expects an object matching this interface"},
+    {range: [10,14], notes: "Evan ..... he still defines his own shape, but is a close match"},
+    {lines: [16], notes: "No Complaints"},
+  ]}
+/>
+---
+<CodeSurfer
+  code={require("!raw-loader!./snippets/interface.1.snippet")}
+  theme={nightOwl}
+  lang="typescript"
+  title="Create the Interface"
+  showNumbers
+  steps={[
+    {}, 
+    {range: [1,4], notes: "Create an Interface"},
+    {lines: [6], notes: "Now say this method expects an object matching this interface"},
+    {range: [10,14], notes: "Evan ..... he still defines his own shape, but is a close match"},
+    {lines: [16], notes: "No Complaints"},
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  code={require("!raw-loader!./snippets/interface.2.snippet")}
+  theme={nightOwl}
+  lang="typescript"
+  title="Explicitly Type the Objects"
+  showNumbers
+  steps={[
+    {}, 
+    {range: [1,4], notes: "Same Interface"},
+    {range: [10,13], notes: "Johm, he fits the mold - no problems"},
+    {range: [15,18], notes: "Evan, he doesn't like to fit into boxes - what can we do about this?"},
+  ]}
+/>
+---
+export default FullScreenCode
+
+### Lets try and fix this .....
+
+<ReplIt src="https://repl.it/@e_schultz/02-Explicit-Types?lite=true" />
+
+---
+
+## Interfaces can also define Readonly
+
+### making const, const
+
+---
+
+<CodeSurfer
+  code={require("!raw-loader!./snippets/interface.3.snippet")}
+  theme={nightOwl}
+  lang="typescript"
+  title="Readonly"
+  showNumbers
+  steps={[
+    {},
+    { range: [1, 3], notes: "Declare the Interface" },
+    { lines: [2], notes: "Set a property as readonly" },
+    { lines: [9], notes: "Will result in a compile time error" }
+  ]}
+/>
+
+---
+
+## Type Alias
+
+- Can Use Them as a Way to Create Derived Type
+- For Example - a Type That Has a Subset of Keys, Joins Types, or Sets All Properties As Readonly
+
+---
+
+<CodeSurfer
+  code={require("!raw-loader!./snippets/interface.5.snippet")}
+  theme={nightOwl}
+  lang="typescript"
+  title="Readonly - The Long Way"
+  showNumbers
+  steps={[
+    {},
+    { range: [1, 4], notes: "Declare the Initial Interface" },
+    { range: [6, 9], notes: "Repeat Yourself" },
+    { lines: [11], notes: "Let the function know we want a read only object" },
+    { lines: [13], notes: "Compile time error" }
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  code={require("!raw-loader!./snippets/interface.6.snippet")}
+  theme={nightOwl}
+  lang="typescript"
+  title="Readonly - The Easy Way"
+  showNumbers
+  steps={[
+    {},
+    { range: [1, 4], notes: "Declare the Initial Interface" },
+    { range: [6], notes: "It's good to be lazy" },
+    { lines: [8], notes: "Let the function know we want a read only object" },
+    {
+      lines: [10],
+      notes: "Compile time error - helps avoid accidental mutation"
+    }
+  ]}
+/>

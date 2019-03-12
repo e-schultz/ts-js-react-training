@@ -1,0 +1,21 @@
+interface Person {
+  firstName: string;
+  lastName: string;
+}
+
+function printFullName(obj: Person) {
+  console.log(obj.firstName + " " + obj.lastName);
+}
+
+let johnDoe: Person = {
+  firstName: "John",
+  lastName: "Doe"
+};
+
+let evan: Person = {
+  firstName: "Evan",
+  lastName: "Schultz",
+  age: 30
+};
+
+printFullName(evan);
