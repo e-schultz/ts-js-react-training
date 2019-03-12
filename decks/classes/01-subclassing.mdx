@@ -1,0 +1,80 @@
+import { Split, SplitRight } from 'mdx-deck/layouts'
+import { Head, Appear, Image, withDeck } from 'mdx-deck' 
+import { FullScreenCode } from "mdx-deck/layouts";
+import ReplIt from "../../components/replit";
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import nightOwl from "prism-react-renderer/themes/nightOwl"
+
+
+
+
+# Subclassing 
+
+<Appear>
+    <h1> Avoid It </h1>
+    <h2> But, if we must ..... </h2>
+</Appear>
+
+---
+
+## Mental Model 
+
+- I do not use Classes often in my code 
+- Usually for framework specific needs
+- Prefer to have Objects that contain data
+- Prefer to have functions that operate on data 
+- Seperate behaviour from Data
+
+```notes
+eventual todo: C# class vs ES6/TypeScript class?
+```
+
+---
+## But If We Must ....
+
+* Fat Arrow for Class Methods keeps the context of `this`
+* But what happens if we are not consistent with this?
+
+
+---
+export default FullScreenCode
+
+## Look at `sayHello () =>`
+
+<ReplIt src="https://repl.it/@e_schultz/Classes-SubClass-starting-point-sayHello?lite=true"/>
+
+```notes
+* Both methods are using fat arrow for say hello
+* What happens if we use normal methods?
+```
+---
+export default FullScreenCode
+
+## What if one isn't fat?
+
+<ReplIt src="https://repl.it/@e_schultz/Classes-SubClass-inconsistent-this-binding?lite=true"/>
+
+---
+
+export default FullScreenCode
+
+## What if we make them normal methods?
+
+<ReplIt src="https://repl.it/@e_schultz/Classes-SubClass-both-normal-but-now-this-is-lost?lite=true"/>
+
+---
+
+### Tool to Visualize and Explore 
+
+* [Visualize ES5/ES6 Class Inheritance](http://www.objectplayground.com/)
+---
+
+### Extra Reading
+
+- [JavaScript prototype-based inheritance visualized](https://github.com/rus0000/jsinheritance)
+- [Exploring ES6 - Classes](http://exploringjs.com/es6/ch_classes.html)
+- [MDN - Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+- [MDN - Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+- [What’s the Difference Between Class & Prototypal Inheritance?](https://medium.com/javascript-scene/master-the-javascript-interview-what-s-the-difference-between-class-prototypal-inheritance-e4cd0a7562e9)
+- [A guide to prototype-based class inheritance in JavaScript](https://medium.freecodecamp.org/a-guide-to-prototype-based-class-inheritance-in-javascript-84953db26df0)
+- [Demystifying ES6 Classes And Prototypal Inheritance](https://scotch.io/tutorials/demystifying-es6-classes-and-prototypal-inheritance)
