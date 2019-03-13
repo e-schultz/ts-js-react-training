@@ -1,7 +1,7 @@
 import { FullScreenCode } from "mdx-deck/layouts";
 import ReplIt from "../../components/replit";
 import CodeSandbox from "../../components/codesandbox";
-import { Head, Appear, Image, withDeck } from 'mdx-deck' 
+import { Head, Appear, Image, withDeck } from 'mdx-deck'
 import { CodeSurfer } from "mdx-deck-code-surfer";
 import nightOwl from "prism-react-renderer/themes/nightOwl";
 
@@ -31,6 +31,7 @@ export default FullScreenCode
 ## Compare and Contrast...
 
 ---
+
 <CodeSurfer
   code={require("!raw-loader!./snippets/article-layout.snippet")}
   theme={nightOwl}
@@ -44,6 +45,7 @@ export default FullScreenCode
     {}
   ]}
 />
+
 ---
 
 <CodeSurfer
@@ -59,3 +61,10 @@ export default FullScreenCode
     {}
   ]}
 />
+
+---
+
+## React components can be Props
+
+
+<CodeSandbox src="https://codesandbox.io/embed/n0vp65z930?autoresize=1&fontsize=14"/>

@@ -96,15 +96,6 @@ const Menu = ({ items }) => (
 
 ---
 
-## Benefits
-
-* "Base" styles like font, type scale, space scale are all in one place and become consistent
-* Many components will not need any additional stylesheet to be written at all
-* Can be extended easily or combined with more traditional CSS approaches
-* Minimal set up
-
----
-
 ## Drawbacks
 * Still requires additional CSS styles for more advanced CSS selection techniques
 * Learning curve involved with learning to read the terse class names and HTML
@@ -113,34 +104,9 @@ const Menu = ({ items }) => (
 
 ---
 
-## Nanostyled
+## Benefits
 
-* A library that solves specificity issue of atomic CSS libraries
-* Automatically creates props for your component to accept that make it customizable
-
-
----
-
-```javascript
-import nanostyled from 'nanostyled';
-// This example uses CSS classes from Tachyons
-import 'tachyons/css/tachyons.css';
-
-// A Button via three style props:
-const Button = nanostyled('button', {
-  color: 'white',
-  bg: 'bg-blue',
-  base: 'fw7 br3 pa2 sans-serif f4 bn input-reset',
-});
-```
-
----
-
-```javascript
-const App = () => (
-  <div>
-    <Button>Base Button</Button>
-    <Button bg="bg-yellow">Yellow Button</Button>
-  </div>
-);
-```
+* "Base" styles like font, type scale, space scale are all in one place and become consistent
+* Many components will not need any additional stylesheet to be written at all
+* Can be extended easily or combined with more traditional CSS approaches
+* Much lower degree of style bloat on long-term projects
