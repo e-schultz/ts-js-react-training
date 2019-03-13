@@ -1,6 +1,6 @@
 {
     "private": true,
-    "name": "react-thinking-in-components",
+    "name": "react-thinking-in-components-deck",
     "version": "1.0.0",
     "scripts": {
       "start": "mdx-deck index.js",

@@ -9,6 +9,10 @@
     {
       "src": "package.json",
       "use": "@now/static-build"
+    }
+    ,{
+      "src": "decks/react-thinking-in-components/package.json",
+      "use": "@now/static-build"
     },
     {
       "src": "decks/home/package.json",
