@@ -5,7 +5,11 @@ import nightOwl from "prism-react-renderer/themes/nightOwl";
 import ReplIt from "../../components/replit";
 import CodeSandbox from "../../components/codesandbox";
 
-## Props
+# Props
+
+---
+
+# Props 
 
 - Props define the 'API' of the component and how it interacts within your application
 - Props become the attributes on your component that you use to pass in data
@@ -16,7 +20,7 @@ import CodeSandbox from "../../components/codesandbox";
   code={require("raw-loader!./snippets/props.snippet")}
   theme={nightOwl}
   lang="jsx"
-  title="Prop Basics"
+  title="Props 101"
   showNumbers
   steps={[
     {},
@@ -38,21 +42,24 @@ import CodeSandbox from "../../components/codesandbox";
 - Since components may have multiple props, destructuring is a common pattern
 
 ---
-
-export default FullScreenCode
-
-```js
-// These components are identical
-const Greeting = (props) =>
-    <h1>{props.greeting}, {props.name}!</h1>
-
-const GreetingDestructured = ({greeting, name}) =>
-    <h1>{greeting}, {name}!</h1>
-```
+<CodeSurfer
+  code={require("raw-loader!./snippets/destructuring.snippet")}
+  theme={nightOwl}
+  lang="jsx"
+  title="These components are the same"
+  showNumbers
+  steps={[
+    {},
+    {lines: [1], notes: "Each function is called with a single property: `props`"}, 
+    {lines: [2], notes: "Need to access via prop.value"},
+    {lines: [4], notes: "Or make use of Destructuring"},
+    {lines: [5], notes: "And able to just use greeting and name"}
+  ]}
+/>
 
 ---
+# Props
 
-## Props
 - A prop can be anything, including a function
 - You can pass raw values or variables
 - This makes your component dynamic
@@ -68,10 +75,6 @@ export default FullScreenCode
 
 ## Static Checking with PropTypes
 - The React prop-types package allows you to check props being passed into a component
-
----
-
-export default FullScreenCode
 
 ```javascript
 Card.propTypes = {
@@ -91,7 +94,7 @@ Card.propTypes = {
 - The prop-types package also lets you specify defaults
 - Specifying defaults can help you avoid null checking
 
-```
+```javascript
 ManyGreetings.defaultProps = {
   names: []
 };
