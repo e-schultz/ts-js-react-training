@@ -1,0 +1,168 @@
+
+import { FullScreenCode, Split, SplitRight, Horizontal } from "mdx-deck/layouts";
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import nightOwl from "prism-react-renderer/themes/nightOwl"
+import { Head, Appear, Image, withDeck } from 'mdx-deck' 
+import Code from 'mdx-code';
+import  ImageSplit  from '../../components/ImageSplit';
+import  ImageSplitAlt from '../../components/ImageSplitAlt';
+import ReplIt from "../../components/replit";
+import CodeSandbox from "../../components/codesandbox";
+
+
+# Thinking In Components
+
+---
+
+<Image src="./images/thinking-in-components.jpg"/>
+
+---
+
+# Atomic Design
+
+> We're not designing pages, we're designing systems of components -- Stephen Hay
+
+[Brad Frost - Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/)
+
+---
+
+## Atomic Design Principles
+
+* Don't think about interfaces as Pages
+* Instead - stateless, dynamic abstractions,
+* Which are rendered based on the state provided
+
+---
+
+<Image src="./images/atomic-design.png" size="auto"/>
+
+---
+export default ImageSplit
+
+# Atoms 
+<Image src="./images/atoms.jpg" size="75vh"/>
+
+---
+
+export default Split
+
+# Atoms
+
+- The simplest building block
+- HTML tags
+- Not very useful on their own
+- Easily styled
+- Very reusable
+- Foundation of building a brand
+---
+export default Split 
+
+# Atoms 
+
+```html
+<Form>
+  <Label>Search</Label>
+  <Input />
+</Form>
+```
+---
+export default ImageSplit 
+
+## Molecules 
+<Image src="./images/molecule.jpg" size="75vh"/>
+
+---
+export default Split 
+
+## Molecules 
+
+- Groups of Atoms bonded together
+- Serve as backbone of design system
+- For example, a Search Form
+- Do one thing, do it well
+
+---
+export default ImageSplit
+
+## Molecules 
+
+```jsx
+<Form onSubmit={ onSubmit }>
+  <Label>Search</Label>
+  <Input type="text" value={ search } />
+
+  <Button type="submit">Search</Button>
+</Form>
+```
+---
+# Organisms
+
+<img src="./images/organism2.jpg" height="90vh"/>
+
+- Groups of molecules
+- Distinct section of an interface
+- Portable, easily modified
+
+---
+
+# Organisms
+
+```jsx
+<Header>
+  <Navigator>
+    <Brand />
+    <NavItem to="home">Home</NavItem>
+    <NavItem to="about">About</NavItem>
+    <NavItem to="blog">Blog</NavItem>
+  </Navigator>
+  <SearchForm />
+</Header>
+```
+
+
+---
+export default ImageSplitAlt
+
+<Image src="./images/ecosystem.png" size="contain"/>
+
+# Ecosystem 
+
+- What the client will see
+- Connected containers
+- Many components that make up a view
+
+---
+export default SplitRight
+
+- Break the UI into a hierarchy
+- Single Responsibility Principle
+- Think in terms of Information Architecture
+- Atoms first, Molecules second
+
+# The Proccess 
+
+## Start with a Moc
+
+---
+
+
+<Image src="./images/thinking-in-react-components.png" size="contain"/>
+
+---
+## Component Hierarchy
+
+- **FilterableProductTable**: contains the entirety of the example
+- **SearchBar**: receives all user input
+- **ProductTable**: displays and filters the data collection based on user input
+- **ProductCategoryRow**: displays a heading for each category
+- **ProductRow**: displays a row for each product
+
+---
+## Exercise: Thinking in Components
+
+Look at the following mock up and try to identify UI components.
+
+---
+
+<Image src="./images/thinking-in-react-task.png" size="contain"/>
+ 
