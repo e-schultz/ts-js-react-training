@@ -1,0 +1,56 @@
+## ES6 Component Shorthands
+
+- A "fat arrow" function (which has more sensible treatment of `this`)
+- Which is assigned to a name
+- Which is a constant rather than a variable
+
+---
+
+## JavaScript in the UI
+
+- You can use any kind of JavaScript in a component
+- Any code in JSX between `{ }` braces will be evaluated
+
+---
+
+export default FullScreenCode
+
+# Menu List
+
+<CodeSandbox src="https://codesandbox.io/embed/l7rll6j62m?autoresize=0&eslint=1&fontsize=14&hidenavigation=1&moduleview=1"/>
+
+---
+
+## Making Components Usable Anywhere
+
+- Use exports and inputs to use components anywhere
+- Part of the new-style ES6 module syntax
+- Which isn't yet supported by Node for server-side applications
+
+```js
+export default HelloWorld
+```
+
+---
+
+export default FullScreenCode
+
+```js Use Components Inside Components
+import HelloWorld from './HelloWorld'
+
+const App = () => (
+<div>
+    <h1>My First React App</h1>
+    <HelloWorld />
+</div>
+)
+
+export default App
+```
+
+---
+
+## React Conventions
+
+- Using a default export for components is a React convention
+- `HelloWorld.js` will (almost always) export `HelloWorld` and only `HelloWorld`

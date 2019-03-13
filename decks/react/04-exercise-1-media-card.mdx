@@ -1,0 +1,76 @@
+import { FullScreenCode, Split, SplitRight } from "mdx-deck/layouts";
+import ReplIt from "../../components/replit";
+import CodeSandbox from "../../components/codesandbox";
+import { Head, Appear, Image, withDeck } from 'mdx-deck'
+
+# Exercise Time
+
+---
+<Image src="https://media.giphy.com/media/fhQDRJCRCgOwU/giphy.gif"/>
+---
+
+# Create a Robot Card List
+
+* Create component(s) that display a card for a robot
+* Should account for image
+* Should have a card body 
+* Should display card text
+* Optionally - consider header, subheader, footer
+
+---
+
+## Example Data 
+
+```js
+export const robots = [
+  {
+    id: 1,
+    name: 'Leanne Graham',
+    username: 'Bret',
+    email: 'Sincere@april.biz'
+  },
+  {
+    id: 2,
+    name: 'Ervin Howell',
+    username: 'Antonette',
+    email: 'Shanna@melissa.tv'
+  }]
+```
+
+---
+export default FullScreenCode
+
+##  Reference:
+
+<CodeSandbox src="https://codesandbox.io/embed/wnmqo07r7w?codemirror=1&fontsize=14&hidenavigation=1&module=%2Fpublic%2Findex.html"/>
+
+---
+
+## Step 1 - Identify Needed Components
+
+Some possible components:
+
+- Card
+- CardImage 
+- CardHeader
+- CardBody
+
+---
+export default FullScreenCode
+
+## Starting Sandbox
+
+<CodeSandbox src="https://codesandbox.io/embed/nnmop75qo4?fontsize=14"/>
+
+---
+
+## Working Time ......
+
+---
+
+## Next Steps .....
+
+* Replace hard coded values with data
+* Render a list
+* Consider Props vs Children
+* Can we make it more composable?
