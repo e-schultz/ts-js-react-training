@@ -6,6 +6,7 @@ import ReplIt from "../../components/replit";
 import  Code  from 'mdx-code';
 
 # Promise Patterns  
+
 ---
 
 ## Promise Patterns - Parallel
@@ -22,6 +23,7 @@ import  Code  from 'mdx-code';
 - Another Request Needs the Result of a Previous 
 
 ---
+
 ## Promise Parallel - Promise.all
 
 * Waits for All Promises to Resolve
@@ -38,7 +40,7 @@ Promise.all([promiseA, promiseB, promiseC]).then(results => {
 ```
 
 ---
-## Promise.all - can also use destructuring
+## Promise.all - Can Also Use Destructuring
 
 - Waits for All Promises to Resolve
 - Gets Passed into the Handler as an Array
@@ -60,6 +62,7 @@ Promise.all([promiseA, promiseB, promiseC]).then(
 ## API Consideration 
 
 <a href="https://js-ts-training.now.sh/" target="_blank">Simple API</a>
+
 ---
 
 ## Exercise Time: 
@@ -80,14 +83,14 @@ let expected = {
 ---
 export default FullScreenCode
 
-# Promise.all the things
+# Promise.all : Start
 
 <ReplIt src="https://repl.it/@e_schultz/Promise-Parallel-Start?lite=true"/>
 
 ---
 export default FullScreenCode
 
-# Promise.all the solution
+# Promise.all :  Solution
 
 <ReplIt src="https://repl.it/@e_schultz/Promise-Parallel-Solution?lite=true"/>
 
@@ -98,14 +101,23 @@ export default FullScreenCode
 </div>
 ```
 ---
-# Promise - waterfall 
+# Promise - Waterfall 
 
-* Same API as last time
-* Maybe the Platform list is massive - and we want to get it by id
-* Instead of returning all platforms
+* Same API as Last Time
+* Get Platform by Id, Instead of All Platforms 
 * Request a Game
 * Request the Platform for that Game
-* Display similar result.
+* Display same result with platformName in the result object:
+
+```js
+let expected = {
+    id: 3,
+    name: "Dragon Quest XI: Echoes of an Elusive Age",
+    platformId: 1,
+    platformName: "PS4"
+  }
+
+```
 
 ---
 export default FullScreenCode
@@ -122,52 +134,34 @@ export default FullScreenCode
 <ReplIt src="https://repl.it/@e_schultz/Promise-Waterfall-Solution?lite=true"/>
 
 ---
+
+# Flatten Nested Promises
+
+---
+export default FullScreenCode
+
 ## Flattening The Chain .... take 1
 
 <ReplIt src="https://repl.it/@e_schultz/Promise-Waterfall-Solution-Flat-Solution?lite=true"/>
 
 ---
+export default FullScreenCode
+
 ## Flattening The Chain .... take 2 
 
 <ReplIt src="https://repl.it/@e_schultz/Promise-Waterfall-Solution-Flat-Solution-Alt?lite=true"/>
 
 ---
 
-### Sequential Promises
-
-* When a Promise Does Not Rely on the Result of Another
-* Want to Run Sequentially Instead of in Parallel
-* Why? Maybe API rate limiting will complain if you fire off 500 at once.
-* Good for bulk operations where you may not care about the actual api response 
+# Advanced Promise Patterns 
 
 ---
 
-### Sequential Promises
+## Promisify Synchronous Values
 
-* Promise.all executes in Parallel 
-* No built in Sequential --- so lets build it.
-
----
-export default FullScreenCode
-
-### Sequential Promises - Example
-
-<ReplIt src="https://repl.it/@e_schultz/Sequential-Promises-example?lite=true"/>
-
----
-export default FullScreenCode
-
-### Step Series Promises - Example
-
-<ReplIt src="https://repl.it/@e_schultz/Step-Series-Promises-example-all-results?lite=true"/>
-
----
-
-### Promisify Synchronous Values
-
-* Sometimes you may want to turn a sync value into an async one
-* Possibly you have mock data you will replace with a real API later
-* Can also be used as a way to cache a value 
+* Turn a Sync Value into an Async One
+* Useful to Mock Data That Will Be Replaced with a Real Api Later
+* Can Also Be Used as a Way to Cache a Value 
 
 ---
 export default FullScreenCode
@@ -201,8 +195,8 @@ getGameData(4).then(n=>{
 
 ### Caching Async Data
 
-* Promises can be reused
-* If you store a promise, and return it again - you will get the previously resolved value
+* Promises Can Be Reused
+* If You Store a Promise, and Return It Again - You Will Get the Previously Resolved Value
 
 ---
 export default FullScreenCode
@@ -215,9 +209,9 @@ export default FullScreenCode
 
 ### Promise Exercise - Cache the API Response 
 
-* Check to see if a game has been requested yet
-* If so - return the cached value
-* If not - get the value and store it in the cache 
+* Check to See If a Game Has Been Requested Yet
+* If so - Return the Cached Value
+* If Not - Get the Value and Store It in the Cache 
 
 ---
 export default FullScreenCode
@@ -232,14 +226,14 @@ export default FullScreenCode
 
 ### Promise Cache - Solution
 
-<ReplIt src="https://repl.it/@e_schultz/Promise-Cache-Exercise-start?lite=true"/>
+<ReplIt src="https://repl.it/@e_schultz/Promise-Cache-Exercise-solution?lite=true"/>
 
 ---
 
 ### Promise Exercise - Bonus
 
-* Make a generic cache for any fetch request - regardless of Games, Platform, etc. 
-* How would you approach this?
+* Make a Generic Cache for Any Fetch Request - Regardless of Games, Platform, Etc.
+* How Would You Approach This?
 
 ---
 ### Promise Exercise - Bonus - Start 
@@ -249,11 +243,7 @@ export default FullScreenCode
 <ReplIt src="https://repl.it/@e_schultz/Promise-Cache-Exercise-Bonus-Start?lite=true"/>
 
 ---
-### Promise Exercise - Bonus - Solution
 
-## None yet - no peeking! 
+# Break / Q&A
 
 ---
-
-# Break / Q&A 
-
