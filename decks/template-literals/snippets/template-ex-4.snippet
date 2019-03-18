@@ -1,6 +1,7 @@
 function greet(greeting, firstName, lastName, rate, hours) {
     return `${greeting} ${firstName} ${lastName}
 You worked ${hours} at a rate of $${rate}/hour.
+You earned $${(hours * rate).toFixed(2)}
 `
 };
 
