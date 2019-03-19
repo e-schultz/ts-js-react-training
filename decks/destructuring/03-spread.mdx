@@ -1,0 +1,69 @@
+import Code from 'mdx-code';
+
+## Spread
+
+* Expands the values within an array/object
+* Useful for combining or creating shallow copies
+* Useful for avoiding mutation
+
+---
+
+export default Code
+
+```js Object Spread 
+function createCar(make,model, year) {
+    return { make, model, year}
+}
+function updateYear(car,year) { 
+    return { ...car, year}
+}
+let car = createCar('Toyota','Camery','2018')
+let newCar = updateYear(car,'2019');
+console.log('car', car);
+console.log('newCar', newCar)
+```
+
+```notes
+Notice how we have not modified the initial car object,
+by usinfg the `...spread` operator - we have created a
+shallow copy of the object.
+```
+
+---
+
+export default Code
+
+```javascript Array Spread
+const vegetables = ['Carrots', 'Spinach', 'Pumpkin'];
+const meat = ['Beef', 'Chicken', 'Pork'];
+
+const food = [...vegetables, ...meat];
+console.log(food);
+
+const meatAndAlternatives = [...meat, 'Tofu'];
+console.log(meat); // Unaltered
+console.log(meatAndAlternatives);
+```
+
+---
+
+export default Code
+
+```js Accidental Mutation
+function createCar(make,model, year) {
+    return { make, model, year}
+}
+function updateYear(car,year) { 
+    car.year = year;
+    return car;
+}
+let car = createCar('Toyota','Camery','2018')
+let newCar = updateYear(car,'2019');
+console.log('car', car);
+console.log('newCar', newCar)
+```
+
+---
+
+Notice how in this case - both car, and newCar have the updated year.
+

@@ -51,11 +51,12 @@ export default Code
 
 ```javascript Accessing from arrays
 const numbers = [1, 2, 3, 4, 5];
+const one = 1;
 
 console.log(
     numbers[0], // First element
     numbers[numbers.length - 1], // Last element
-    numbers['1'], // Second element
+    numbers[one], // Second element, same as numbers[1]
     numbers.find(number => number > 3), // First element greater than 3
     numbers.filter(number => number % 2 === 0) // All even numbers
 );

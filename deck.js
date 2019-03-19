@@ -7,12 +7,14 @@ import arrays from './decks/arrays';
 import classes from './decks/classes';
 import functions from './decks/functions'
 import promises from './decks/promises';
+import destructuring from './decks/destructuring';
 
 export { default as theme } from './theme'
 
 export default [
     ...intro,
     ...variables,
+    ...destructuring,
     ...templateLiterals,
     ...functions,
     ...objects,

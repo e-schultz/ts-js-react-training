@@ -1,0 +1,59 @@
+import Code from 'mdx-code'
+
+# Destructuring with Rest and Spread
+
+---
+
+- ES2015 introduced the `...rest/...spread` operator
+- Can construct new objects/arrays while omitting properties
+- Can create new objects/arrays and merge in new properties
+- Can create shallow copies of objects 
+
+---
+
+## Destructuring Assignment
+- Shorthand assign items in an array or properties in an object to variables
+- For arrays, assignment is order-based
+- For objects, assignment uses the key names
+
+---
+export default Code
+
+```javascript Assignment with Objects
+const { roofColour } = {
+    roofColour: 'red',
+    floorColour: 'black',
+    doorColour: 'green',
+}
+console.log(roofColour)
+```
+
+---
+export default Code
+
+```javascript Assignment with Objects in Functions
+const houseColours = {
+    roofColour: 'red',
+    floorColour: 'black',
+    doorColour: 'green',
+}
+
+function getRoofColour({ roofColour }) {
+    console.log(roofColour)
+}
+
+getRoofColour(houseColours)
+```
+
+---
+
+export default Code
+
+```javascript Assignment with Arrays
+const [width, height] = [20, 40]
+console.log(width, height)
+
+// Identical to...
+const dimensions = [20, 40]
+const [width2, height2] = dimensions
+```
