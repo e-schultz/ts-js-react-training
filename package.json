@@ -1,7 +1,8 @@
 {
   "private": true,
   "workspaces": [
-    "decks/*"
+    "decks/*",
+    "examples/*"
   ],
   "scripts": {
     "start": "mdx-deck deck.js",
@@ -22,6 +23,8 @@
     "raw-loader": "1.0.0"
   },
   "dependencies": {
+    "@researchgate/react-intersection-observer": "^0.7.4",
+    "intersection-observer": "^0.5.1",
     "mdx-code": "^1.1.3",
     "mdx-deck-live-code": "^1.0.1",
     "prop-types": "^15.7.2",

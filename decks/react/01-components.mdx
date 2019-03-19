@@ -1,6 +1,7 @@
 import { FullScreenCode, Split, SplitRight } from "mdx-deck/layouts";
 import ReplIt from "../../components/replit";
 import CodeSandbox from "../../components/codesandbox";
+import Box from "../../components/Box";
 import { Head, Appear, Image, withDeck } from 'mdx-deck'
 
 ## React Components
@@ -19,7 +20,9 @@ import { Head, Appear, Image, withDeck } from 'mdx-deck'
 
 ---
 
-export default FullScreenCode
+# React JSX Example 
+
+<Box width={'75vw'}>
 
 ```javascript JSX Example
 
@@ -38,6 +41,7 @@ const sameElement = React.createElement(
 );
 ```
 
+</Box>
 ---
 
 ## What Happened?
@@ -85,14 +89,16 @@ export default Split
 
 ## Stateless - Hello World Component
 
-<CodeSandbox src="https://codesandbox.io/embed/1080oxnw33?eslint=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Findex.js&moduleview=1&highlights=4"/>
-
+<Box width={'75vw'}>
+  <CodeSandbox src="https://codesandbox.io/embed/1080oxnw33?eslint=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Findex.js&moduleview=1&highlights=4"/>
+</Box>
 ---
 
 ## Stateless - Hello World - Children
 
-<CodeSandbox src="https://codesandbox.io/embed/8l3wmjzk82?eslint=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fhello-world.js"/>
-
+<Box width={'75vw'}>
+  <CodeSandbox src="https://codesandbox.io/embed/8l3wmjzk82?eslint=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fhello-world.js"/>
+</Box>
 
 
 
