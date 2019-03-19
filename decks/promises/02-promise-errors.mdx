@@ -7,7 +7,8 @@ import ReplIt from "../../components/replit";
 ## Promise Error Handling 
 
 * doSomethingAsync().then(onSuccess,onError)
-* the `onError` will catch errors in `doSomethingAsync` not in `onSuccess`
+* the `onError` will catch errors in `doSomethingAsync` 
+* not in `onSuccess`
 
 ---
 
@@ -23,7 +24,7 @@ getData().then(function onSuccess() {
 
 ---
 
-## How Do Handle an Error If Something Breaks in `onSuccess`?
+## How To Handle an Error If Something Breaks in `onSuccess`?
 
 ```javascript
 getData().then(function onSuccess() {
@@ -42,28 +43,28 @@ getData().then(function onSuccess() {
   title="Promise Errors"
   showNumbers
   steps={[
-    { notes: "Lets look at how errors flow through" },
-    { lines: [2], notes: "Handles success or error of getData" },
+    { notes: `Let's Look at How Errors Flow Through` },
+    { lines: [2], notes: "Handles Success or Error of getData" },
     {
       tokens: {
         3: [15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
         2: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
       },
-      notes: "Handles error from the then above"
+      notes: "Handles Error from the `.then` Above"
     },
     {
       tokens: {
         4: [15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
         3: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
       },
-      notes: "Handles error from the successB above"
+      notes: "Handles Error from the successB Above"
     },
     {
       tokens: {
         2: [15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
        
       },
-      notes: "If this resolves"
+      notes: "If this resolves OR returns"
     },
     {
       tokens: { 
@@ -100,13 +101,12 @@ getData().then(function onSuccess() {
   title="Single Error Handler"
   showNumbers
   steps={[
-    { notes: "Let errors fall through" },
-    { lines: [5], notes: "Gets any errors that happen above" },
+    { notes: "Let Errors Fall Through" },
+    { lines: [5], notes: "Catches Any Errors That Happen Above" },
   ]}
 />
 
 ---
-
 <CodeSurfer
   code={require("!raw-loader!./snippets/promise-errors-3.snippet")}
   theme={nightOwl}
@@ -123,9 +123,9 @@ getData().then(function onSuccess() {
 />
 
 ---
-### When would you want to handle other than at the end?
+### When Would You Want to Handle an Error Earlier?
 
-#### If you have a fall-back value that can continue the chain
+#### If You Have a Fall-back Value That Can Continue the Chain
 
 ---
 <CodeSurfer
@@ -135,9 +135,9 @@ getData().then(function onSuccess() {
   title="Graceful Errors"
   showNumbers
   steps={[
-    { notes: "If you can gracefully recover" },
-    { lines: [3], notes: "Could return a cached value" },
-    { range: [5,6], notes: "And continue the chain with the value" },
+    { notes: "If You Can Gracefully Recover" },
+    { lines: [3], notes: "Could Return a Cached Value" },
+    { range: [5,6], notes: "And Continue the Chain with the Value" },
     {}
   ]}
 />
@@ -148,3 +148,15 @@ export default FullScreenCode
 ## Exploring Errors
 
 <ReplIt src="https://repl.it/@e_schultz/Promise-Error-Handling-start?lite=true"/>
+
+---
+
+## Promise Error Handler
+
+* Unless explicitly rejecting or throwing, returns are treated as a successful resolve
+
+---
+
+# Break / Q&A
+
+## Up Next: Promise Patterns

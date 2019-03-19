@@ -9,25 +9,58 @@ import Code from 'mdx-code';
 
 ---
 
-## What we will cover
+## What We Will Cover
 
 * What are they?
 * Promises vs Callbacks 
-* Promises Return Promises
 * Chaining Promises
 * Handling Errors
 * Promise Patterns
 
 ---
-export default Code
 
-```javascript ES6 Promises
-let something = new Promise((resolve, reject)=> {
-    resolve('a value')
+## What Is a Promise?
+
+* Represent an eventual result of an asynchronous operation 
+* The result can be a successful completion, or a failure 
+
+---
+
+## What Is a Promise? 
+
+> Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks into a function.
+
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
+
+---
+
+## Constructing a Promise 
+
+* Syntax: `new Promise(executor)`
+* executor is a function that takes a resolve, and a reject. 
+
+```javascript
+let someValue = new Promise((resolve, reject)=> {
+  resolve('Hello World')
 });
 
-something.then(value=>{
-  console.log(value);
+someValue.then(result=>{
+  console.log(result);
+  return result;
+})
+```
+
+---
+export default Code
+
+```javascript Using Promises
+let someValue = new Promise((resolve, reject)=> {
+  resolve('Hello World')
+});
+
+someValue.then(result=>{
+  console.log(result);
+  return result;
 })
 ```
 
@@ -35,7 +68,9 @@ something.then(value=>{
 ## Promises vs Callbacks
 
 JavaScript is single threaded, so we can't really ever "wait" for a result of
-a task such as an HTTP request. Our baseline solution is callbacks:
+a task such as an HTTP request. 
+
+Our baseline solution is callbacks:
 
 ```javascript
   request(url, function(error, response) {
@@ -101,19 +136,18 @@ specify and dispatch the request in one place:</p>
   code={require("!raw-loader!../../snippets/promises-1.snippet")}
   theme={nightOwl}
   lang="javascript"
-  title="Fun with Promises"
+  title="Exploring Promises"
   showNumbers
   steps={[
     {}, // First step should be an overview of the snippet
     {lines: [1], notes: "Start the request"},
-    {range: [5,7], notes: "Handle the response in another location"},
-    {range: [11,12], notes: "Have multiple handlers"},
+    {range: [5,7], notes: "Handle the Response"},
+    {range: [11,12], notes: "Have Multiple Handlers"},
     {}
   ]}
 />
 
 ---
-
 export default FullScreenCode
 
 ### Promise Exercises - even and odd
@@ -127,57 +161,3 @@ export default FullScreenCode
 ### Promise Exercises - even and odd - solution
 
 <ReplIt src="https://repl.it/@e_schultz/Simple-Promise-Solution?lite=true"/>
-
----
-
-## Remember!
-
-<Appear>
-    Promises Return Promises
-</Appear>
-
----
-
-## Lets explore that a bit more ....
-
----
-
-A key point to remember: unless your promise library is buggy, `.then()` always returns a promise. Always.
-
-```javascript
-  p1 = getDataAsync(query);
-
-  p2 = p1.then(
-    results => transformData(results));
-```
-
-`p2` is now a promise regardless of what transformData() returned. Even if
-something fails.
-
----
-
-### Why does this matter?
-
-<ul style={{listStyle: 'none'}}>
-<Appear>
-    <li> Promises Can Be Chained</li>
-    <li> Forgetting This Leads to the Deferred Anti-pattern</li>
-</Appear>
-</ul>
-
----
-
-## The deferred anti-pattern
-
-* [Bluebird explanation](https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns)
-* If a `thenable` Returns a Promise
-* We Don't Need to Construct a New Promise 
-
----
-
-export default FullScreenCode
-
-### Anti-Pattern Demo
-
-<ReplIt src="https://repl.it/@e_schultz/Promises-deferred-anti-pattern?lite=true"/>
-
