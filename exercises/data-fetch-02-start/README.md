@@ -90,6 +90,7 @@ For this practice, we only care about:
 ```
 
 ## Full API Response
+
 ```json 
 {
   "hits": [
