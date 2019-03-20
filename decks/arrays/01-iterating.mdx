@@ -1,4 +1,6 @@
 import Code from 'mdx-code';
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import nightOwl from "prism-react-renderer/themes/nightOwl"
 
 ## Iterating Arrays
 
@@ -39,6 +41,7 @@ console.log(castWithIds);
 
 * Steps over each item in the array
 * Gives you access to the current item, the index, and an accumulator
+* The accumulator is the final value that will be returned 
 * Performs an operation and returns the accumulated value
 * The accumulated value can be of any type and length, which makes reduce very flexible
 
@@ -49,7 +52,6 @@ export default Code
 ```javascript Reducing Arrays
 const numbers = [1, 2, 3, 4];
 const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue);
-
 console.log(sum);
 ```
 
