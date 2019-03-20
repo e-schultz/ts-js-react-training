@@ -6,6 +6,7 @@ import Box from "../../components/Box";
 import { Head, Appear, Image, withDeck } from 'mdx-deck'
 import { CodeSurfer } from "mdx-deck-code-surfer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
+const BRANCH_NAME = 'es-data-flow-and-state'; // tood: change before merge
 
 # React State & Data Flow
 
@@ -72,7 +73,7 @@ class App extends Component {
 ## Class Based Component 
 
 <Box width={'80vw'}>
-    <CodeSandbox src="https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/master/examples/react-basic-class-component?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fcomponents%2FHelloWorld.js"/>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-basic-class-component?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fcomponents%2FHelloWorld.js`}/>
 </Box>
 ---
 
@@ -184,7 +185,7 @@ export default FullScreenCode
 
 ### Data Down, Callbacks Up
 
-<CodeSandbox src="https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/master/examples/react-data-down-events-up?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fcomponents%2FHelloWorld.js"/>
+<CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-data-down-events-up?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fcomponents%2FHelloWorld.js`}/>
 
 ---
 
