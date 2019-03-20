@@ -5,7 +5,7 @@ These exercises are broken down into three parts.
 Feel free to continue to refactor and improve your code from the data-fetch-01-start,
 or when moving onto the other exercises use the provided starting points.
 
-This is the starting point for 03 - Fetch with User Supplied Query
+This is the starting point for [03 - Fetch with User Supplied Query](#03---fetch-with-user-supplied-query)
 
 ## 01 - Basic Fetch
 
@@ -47,6 +47,16 @@ It's never fun to stare at a blank page when fetching data. Lets add a loading i
   - **note** it may not be desirable to search on every key stroke, consider possibly using onBlur, or having a form with a submit button - up to you.
   - React uses Synthetic events, [Synthetic Event Documentation](https://reactjs.org/docs/events.html)
 - The request should be run with the new parameter
+
+## 04 - Fetch Refactoring
+
+- Can we break out the HackerNews component into smaller building blocks?
+- Can we improve the styling?
+- Can we make generic atoms for a list, and then hacker news specific ones ontop?
+- What about error handling?
+- Maybe try adding paging
+- Or sorting results
+- What other features of https://news.ycombinator.com/ could you try to build?
 
 ## API Response Notes
 

@@ -5,7 +5,7 @@ These exercises are broken down into three parts.
 Feel free to continue to refactor and improve your code from the data-fetch-01-start,
 or when moving onto the other exercises use the provided starting points.
 
-This is the starting point for 04 - Data Fetch Refactoring
+This is the starting point for [04 - Data Fetch Refactoring](#04---data-fetch-refactoring))
 
 ## 01 - Basic Fetch
 

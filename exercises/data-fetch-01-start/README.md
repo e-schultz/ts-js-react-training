@@ -5,7 +5,7 @@ These exercises are broken down into three parts.
 Feel free to continue to refactor and improve your code from the data-fetch-01-start,
 or when moving onto the other exercises use the provided starting points.
 
-This is the starting point for 01 - Basic Fetch
+This is the starting point for [01 - Basic Fetch](#01---basic-fetch)
 
 ## 01 - Basic Fetch
 
