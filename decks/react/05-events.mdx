@@ -1,0 +1,76 @@
+import { FullScreenCode, Invert } from "mdx-deck/layouts";
+import ReplIt from "../../components/replit";
+import CodeSandbox from "../../components/codesandbox";
+import { Head, Appear, Image, withDeck } from 'mdx-deck'
+import { CodeSurfer } from "mdx-deck-code-surfer";
+import nightOwl from "prism-react-renderer/themes/nightOwl";
+
+
+export default Invert 
+
+# Handling Events
+
+---
+
+## Events in React 
+- React provides APIs for dealing with many common events, called SyntheticEvents
+- Often similar to browser events, but camelCase
+- These events are cross-browser compatible
+
+---
+
+## Common React Events
+
+- `onClick`
+- `onKeyUp`
+- `onChange`
+- `onInput`
+- `onSubmit`
+
+... [and more](https://reactjs.org/docs/events.html)
+
+---
+
+## Event Handlers
+
+- Using JSX, you can attach handler functions to events
+- Event handlers will implicitly receive the event object as a parameter
+
+---
+
+```javascript
+const handleClick(event) {
+  event.preventDefault()
+  console.log('I was clicked!')
+}
+return <button type="button" onClick={handleClick}>Click Me</button>
+```
+
+---
+
+```javascript Getting Values
+const handleInput(event) {
+  console.log(`The user typed ${event.target.value}`)
+}
+return <input type="text" onInput={handleInput}>Click Me</button>
+```
+
+---
+
+## Passing other arguments to event handlers
+
+- Use an arrow function that receives the event explicitly and returns your callback
+- Add any additional parameters you need here
+- You can pass the event through, or ignore it if you don't need it
+
+---
+
+```javascript 
+  const deleteRow = (rowId, event) => {
+    console.log(`Delete ${rowId}`)
+  }
+  return rows.map((row, rowId) => {
+    ...
+    <button onClick={(event) => deleteRow(rowId, event)}>Delete Row</button>
+  })
+```

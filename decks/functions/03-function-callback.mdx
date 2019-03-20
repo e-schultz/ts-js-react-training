@@ -1,7 +1,7 @@
 import { FullScreenCode } from "mdx-deck/layouts";
 import Code from 'mdx-code';
 
-# Function Callback
+# Function Assignment
 
 - Functions can be assigned to variables
 - Functions that are assigned to variables can be invoked like you would expect
@@ -9,18 +9,18 @@ import Code from 'mdx-code';
 ---
 export default FullScreenCode
 
-## Function Assignment 
-
 ```javascript
 // here is a normal function declaration
 function myRegularFunction(a, b) {
   return a + b;
 }
 
-// here we are creating a new variable, and assigning myRegular
+// here we are creating a new variable, 
+// and assigning myRegular
 const copiedRegFunction = myRegularFunction;
 
-// assigns the RESULT (return statement) of an invoked function
+// assigns the RESULT (return statement)
+// of an invoked function
 const resultOf3Plus4 = myRegularFunction(3, 4);
 
 // invokes the myRegularFunction
@@ -29,41 +29,10 @@ copiedRegFunction(5, 10);
 
 ---
 
-## Function Callback
-
-- If we can assign a function to a variable, this means we can assign a function as an argument
-- In other words, you can pass functions to other functions
-- Parameters that are functions are often referred to as callbacks
-
----
-
-export default Code 
-
-```javascript Function Callbacks
-// accept a number, and a ballback
-function basicCallback(number, callback) {
-  // I am passing the number into the callback, and assigning the result
-  const result = callback(number);
-  // and here I return the result
-  return result;
-}
-
-// a little function that doubles a number and returns the result
-const double = (number) => number * 2;
-const triple = (number) => number * 3;
-
-const doubled = basicCallback(5, double);
-const tripled = basicCallback(6, triple);
-console.log({doubled, tripled})
-```
-
----
-
 ## Function Reference vs. Invocation
 
 - Functions are run by invoking them using `()`
 - Assigned functions can be referenced without being invoked
-
 
 ---
 
@@ -99,3 +68,34 @@ const logName = function() {
 callMyFunction(logName) // This will work
 callMyFunction(logName()) // This will not
 ```
+
+---
+
+## Function Callback
+
+- If we can assign a function to a variable, this means we can assign a function as an argument
+- In other words, you can pass functions to other functions
+- Parameters that are functions are often referred to as callbacks
+
+---
+
+export default Code 
+
+```javascript Function Callbacks
+// accept a number, and a ballback
+function basicCallback(number, callback) {
+  // I am passing the number into the callback, and assigning the result
+  const result = callback(number);
+  // and here I return the result
+  return result;
+}
+
+// a little function that doubles a number and returns the result
+const double = (number) => number * 2;
+const triple = (number) => number * 3;
+
+const doubled = basicCallback(5, double);
+const tripled = basicCallback(6, triple);
+console.log({doubled, tripled})
+```
+

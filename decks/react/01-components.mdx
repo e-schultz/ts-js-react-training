@@ -88,6 +88,28 @@ export default Split
 
 ---
 
+## Why does it matter?
+
+- React triggers page re-renders by "react"ing to data updates
+- Only stateful components can trigger rerendering
+- When a stateful component re-renders, it will also re-render all its children
+
+---
+
+## How does React know to rerender?
+- When a stateful component updates its internal state, the component is marked
+- React runs through a pristine/dirty checking process and updates all dirty components
+- React does NOT compare your old and new state values
+
+---
+
+## What does that mean?
+
+- Build React apps with mostly stateless components
+- Use stateful components higher up in the component tree to manage data flow
+
+---
+
 ## Creating a Stateless Component
 
 - Components are functions
