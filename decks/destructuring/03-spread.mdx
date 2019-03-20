@@ -1,4 +1,5 @@
 import Code from 'mdx-code';
+import { Notes } from 'mdx-deck';
 
 ## Spread
 
@@ -11,6 +12,11 @@ import Code from 'mdx-code';
 export default Code
 
 ```js Object Spread 
+/*
+    Notice how we have not modified the initial car object,
+    by usinfg the `...spread` operator - we have created a
+    shallow copy of the object.
+*/
 function createCar(make,model, year) {
     return { make, model, year}
 }
@@ -22,13 +28,6 @@ let newCar = updateYear(car,'2019');
 console.log('car', car);
 console.log('newCar', newCar)
 ```
-
-```notes
-Notice how we have not modified the initial car object,
-by usinfg the `...spread` operator - we have created a
-shallow copy of the object.
-```
-
 ---
 
 export default Code

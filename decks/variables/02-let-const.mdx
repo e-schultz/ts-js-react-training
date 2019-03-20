@@ -4,12 +4,12 @@ import { Appear, Notes } from "mdx-deck";
 import Code from 'mdx-code';
 import nightOwl from "prism-react-renderer/themes/nightOwl";
 
-# JavaScript - let
+## Variable Declarations - let
 
-- let is `block` scoped 
-- let can not be redeclared 
-- let is not hoisted 
-- can not use let before it's declared 
+- `let` is `block` scoped 
+- `let` can not be redeclared 
+- `let` is not hoisted 
+- Can not use `let` before it's declared 
 
 ---
 export default Code 
@@ -30,11 +30,11 @@ export default Code
 
 ---
 
-# JavaScript - const
+## Variable Declarations - const
 
-- follows the same block scope rules as `let`
-- can not be re-assigned after it has a value
-- do not confuse this with immutability
+- Follows the same block scope rules as `let`
+- Can not be re-assigned after it has a value
+- Do not confuse this with immutability
 
 ---
 
@@ -56,6 +56,8 @@ export default Code
 />
 
 ---
+
+## Variable Declarations - let & const
 
 * `let` & `const` do not get hoisted to the top
 * Avoids the temporal deadzone 
@@ -82,9 +84,9 @@ sumMatrix(input);
 
 ---
 
-## Whats going on?
+### Whats going on?
 
-* var is scoped to the function
+* `var` is scoped to the function
 * `var i` ends up getting redeclared in the inner loop
 
 ---

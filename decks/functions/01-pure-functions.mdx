@@ -1,6 +1,13 @@
 import Code from 'mdx-code'
+import { Invert } from "mdx-deck/layouts";
 
-## Pure Functions
+export default Invert 
+
+# Pure Functions
+
+---
+
+# Pure Functions
 
 - Minimalistic and explicit 
 - No side effects! 
@@ -29,14 +36,12 @@ import Code from 'mdx-code'
 export default Code
 
 ```javascript Pure Function
-  function add(a, b) {
-    return a + b;
-  }
-  add(1, 2); // should return 3 every time.
+function add(a, b) {
+  return a + b;
+}
+add(1, 2); // should return 3 every time.
 ```
-
 ---
-
 export default Code
 
 ```javascript Impure Function

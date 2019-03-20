@@ -1,4 +1,4 @@
-import { Split, SplitRight } from 'mdx-deck/layouts'
+import { Split, SplitRight, Invert } from 'mdx-deck/layouts'
 import { Head, Appear, Image, withDeck } from 'mdx-deck' 
 import { FullScreenCode } from "mdx-deck/layouts";
 import ReplIt from "../../components/replit";
@@ -19,18 +19,19 @@ import nightOwl from "prism-react-renderer/themes/nightOwl"
 
 ## Mental Model 
 
-- I do not use Classes often in my code 
+- Often do not need to create Classes 
 - Usually for framework specific needs
 - Prefer to have Objects that contain data
 - Prefer to have functions that operate on data 
 - Seperate behaviour from Data
+- Keep the Class hirearchy shallow
 
 ```notes
 eventual todo: C# class vs ES6/TypeScript class?
 ```
 
 ---
-## But If We Must ....
+## Understanding This and Classes
 
 * Fat Arrow for Class Methods keeps the context of `this`
 * But what happens if we are not consistent with this?
@@ -78,3 +79,8 @@ export default FullScreenCode
 - [What’s the Difference Between Class & Prototypal Inheritance?](https://medium.com/javascript-scene/master-the-javascript-interview-what-s-the-difference-between-class-prototypal-inheritance-e4cd0a7562e9)
 - [A guide to prototype-based class inheritance in JavaScript](https://medium.freecodecamp.org/a-guide-to-prototype-based-class-inheritance-in-javascript-84953db26df0)
 - [Demystifying ES6 Classes And Prototypal Inheritance](https://scotch.io/tutorials/demystifying-es6-classes-and-prototypal-inheritance)
+
+---
+export default Invert 
+
+# Break / Q&A
