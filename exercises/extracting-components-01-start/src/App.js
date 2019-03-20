@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import ProductCardX from './components/ProductCard';
 
 function ProductCard() {
   return (
@@ -34,7 +33,6 @@ class App extends Component {
       <div className="App">
         <ProductCard />
         <hr/>
-        <ProductCardX/>
       </div>
     );
   }
