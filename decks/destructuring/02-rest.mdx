@@ -1,0 +1,39 @@
+import Code from 'mdx-code';
+
+## Rest
+
+* Gathers any remaining elements in an object/array (i.e. the "rest")
+* Useful especially when dealing with unknown quantities
+
+---
+
+export default Code
+
+```javascript Object Rest
+let car = { make: 'Toyota', model: 'Camry', year: '2018'};
+const { year, ...carWithoutYear } = car;
+console.log(year);
+console.log(carWithoutYear)
+```
+
+---
+
+This is useful when are passing a number of properties into a function,
+and want to 'pluck off' a few to be used - and pass the rest down
+to another function.
+
+---
+
+export default Code
+
+```javascript Array Rest
+function getBiggest(...args) {
+    return args.sort(function(a, b){
+        return b-a
+    })[0]
+}
+
+console.log(getBiggest(10, 5));
+console.log(getBiggest(3, 3, 3));
+console.log(getBiggest(1, 2, 3, 4, 5, 6));
+```

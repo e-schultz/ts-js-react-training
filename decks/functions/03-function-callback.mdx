@@ -32,9 +32,11 @@ copiedRegFunction(5, 10);
 ## Function Callback
 
 - If we can assign a function to a variable, this means we can assign a function as an argument
+- In other words, you can pass functions to other functions
 - Parameters that are functions are often referred to as callbacks
 
 ---
+
 export default Code 
 
 ```javascript Function Callbacks
@@ -48,46 +50,52 @@ function basicCallback(number, callback) {
 
 // a little function that doubles a number and returns the result
 const double = (number) => number * 2;
-const tripple = (number) => number * 3;
+const triple = (number) => number * 3;
 
 const doubled = basicCallback(5, double);
-const trippled = basicCallback(6, tripple);
-console.log({doubled, trippled})
+const tripled = basicCallback(6, triple);
+console.log({doubled, tripled})
 ```
 
 ---
 
-# Pure Functions
+## Function Reference vs. Invocation
 
-- Minimalistic and explicit 
-- No side effects! 
-- Should have a return statement
+- Functions are run by invoking them using `()`
+- Assigned functions can be referenced without being invoked
 
----
-
-### Minimalistic 
-
-- Should be small and clear
-- Do one thing, and one thing well
-- Composable into larger operations
 
 ---
 
-### Avoid Side Effects
+export default Code
 
-- Don't access or change something that exists outside the function; 
-- Only use values passed into the function 
-- Avoid mutation of objects passed into the function 
+```javascript Function Invocation
+function logMyName(name) {
+  console.log(name)
+}
+
+const returnName = function() {
+  return 'Evan';
+}
+
+logMyName(returnName()) // This will pass "Evan" to logMyName
+logMyName(returnName) // This will pass the function itself
+```
 
 ---
 
-### Should have a return statement
+export default Code
 
-- think of a pure function like a small factory. 
-- you give it the supplies and it outputs the product. 
-- Calling with the same inputs, should result in the same result.
+```javascript Function Invocation
+function callMyFunction(f) {
+  console.log('Calling my function...')
+  f()
+}
 
-```javascript
-  const add = (a,b)=>a+b;
-  add(1,2); // should return 3 every time.
+const logName = function() {
+  console.log('Evan')
+}
+
+callMyFunction(logName) // This will work
+callMyFunction(logName()) // This will not
 ```

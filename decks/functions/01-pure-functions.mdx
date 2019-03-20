@@ -1,0 +1,69 @@
+import Code from 'mdx-code'
+
+## Pure Functions
+
+- Minimalistic and explicit 
+- No side effects! 
+- Should have a return statement
+- Doesn't modify or depend on anything outside of its scope
+
+---
+
+## Avoid Side Effects
+
+- Don't access or change something that exists outside the function; 
+- Only use values passed into the function 
+- Avoid mutation of objects passed into the function 
+
+---
+
+## Should have a return statement
+
+- Think of a pure function like a small factory.
+- You give it the supplies and it outputs the product.
+- Calling with the same inputs should result in the same result
+- Should not have any other side effects
+
+---
+
+export default Code
+
+```javascript Pure Function
+  function add(a, b) {
+    return a + b;
+  }
+  add(1, 2); // should return 3 every time.
+```
+
+---
+
+export default Code
+
+```javascript Impure Function
+let count = 0;
+
+function increaseCount() {
+  ++count
+}
+
+increaseCount()
+console.log(count)
+```
+
+---
+
+## Why use Pure Functions?
+
+- Predictable
+- Easily testable
+- Composable
+- Easy to Refactor
+- Avoid unecessary mutation 
+
+---
+
+## Pure Functions in the Real World
+
+- Not every function in your system can be pure (e.g. HTTP calls)
+- Using mostly pure functions with some impure functions keeps your code clean
+- Use pure functions by default and impure functions deliberately

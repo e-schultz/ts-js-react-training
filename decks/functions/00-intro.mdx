@@ -1,8 +1,10 @@
+import Code from 'mdx-code'
+
 # Functions
 
 ---
 
-# Parameters
+## Parameters
 
 - 0 or many items that are passed into a function for its use
 - A function defines the parameters it expects
@@ -22,13 +24,15 @@ const total = addNumbers(5, 7);
 
 ---
 
-# Parameters
+## Parameters
 
 - In ES6, you can assign default parameter values to be used when an argument is not passed in
 - You can also use the rest operator to group the parameters together as an array
 - It's important to name your parameters well to help with readability
 
 ---
+
+export default Code
 
 ```javascript
 // we can see that number2 has an assignment, = 8
@@ -50,15 +54,39 @@ function keepTheLastItem(...items) {
 keepTheLastItem(3, 1, 66, 21, 15); // this returns 15
 ```
 
+---
+
+## Destructuring Arguments
+
+- You can use destructuring to "pluck" from an object passed in as a function argument
+- This is very common in React components
 
 ---
 
-# Returns
+export default Code
 
-- A return statement is something you should have in almost all of your functions
+```javascript Assignment with Objects in Functions
+const houseColours = {
+    roofColour: 'red',
+    floorColour: 'black',
+    doorColour: 'green',
+}
+
+function getRoofColour({ roofColour }) {
+    console.log(roofColour)
+}
+
+getRoofColour(houseColours)
+```
+
+---
+
+## Returns
+
+- Most functions should have a return
 - Without a return, a function resolves to 'undefined'
-- You can be very creative about what is returned - for example, you can return another function
-- The result of a function return can be used immediately after that function has finished its business
+- You can return anything
+- The result of a function return can be used immediately
 
 ---
 
