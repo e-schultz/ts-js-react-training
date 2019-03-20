@@ -61,6 +61,10 @@
     {
       "src": "decks/destructuring/package.json",
       "use": "@now/static-build"
+    },
+    {
+      "src": "decks/literals/package.json",
+      "use": "@now/static-build"
     }
   ]
 }
