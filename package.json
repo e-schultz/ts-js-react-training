@@ -2,7 +2,8 @@
   "private": true,
   "workspaces": [
     "decks/*",
-    "examples/*"
+    "examples/*",
+    "exercises/*"
   ],
   "scripts": {
     "start": "mdx-deck deck.js",
