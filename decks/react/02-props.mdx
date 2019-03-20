@@ -1,10 +1,13 @@
-import { FullScreenCode } from "mdx-deck/layouts";
+import { FullScreenCode, Invert } from "mdx-deck/layouts";
 import { Head, Appear, Image, withDeck } from 'mdx-deck' 
 import { CodeSurfer } from "mdx-deck-code-surfer";
 import nightOwl from "prism-react-renderer/themes/nightOwl";
 import ReplIt from "../../components/replit";
 import CodeSandbox from "../../components/codesandbox";
 import Box from "../../components/Box";
+const BRANCH_NAME = 'es-data-flow-and-state'; // tood: change before merge
+
+export default Invert 
 
 # Props
 
@@ -47,7 +50,7 @@ import Box from "../../components/Box";
   code={require("raw-loader!./snippets/destructuring.snippet")}
   theme={nightOwl}
   lang="jsx"
-  title="These components are the same"
+  title="These Components Are the Same"
   showNumbers
   steps={[
     {},
@@ -59,7 +62,8 @@ import Box from "../../components/Box";
 />
 
 ---
-# Props
+
+## Props
 
 - A prop can be anything, including a function
 - You can pass raw values or variables
@@ -75,16 +79,19 @@ import Box from "../../components/Box";
 ---
 
 ## Static Checking with PropTypes
+
 - The React prop-types package allows you to check props being passed into a component
 
 ```javascript
+import PropTypes from 'prop-types'; 
+
 Card.propTypes = {
-    id: React.PropTypes.number.isRequired,
-    name: React.PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.shape({
       firstName: string,
       lastName: string
     })
-    email: React.PropTypes.string.isRequired
+    email: PropTypes.string.isRequired
 };
 ```
 
@@ -102,20 +109,105 @@ ManyGreetings.defaultProps = {
 ```
 
 ---
+export default Invert 
+
+# Rendering Lists 
+
+---
+
+## Rendering Lists
+
+- Remember - you can pass any JavaScript value or object as a value to a Prop
+- This includes Arrays 
+- You can use Array methods like `map`, `filter`, `reduce` to transform your data into components.
+
+---
+
+## Rendering Lists
+
+- `map` is used to transform one object to another 
+- Can transform data into a component 
+- Can also reduce a list of items into a Component 
+- Lists should specify a `key` attribute 
+
+---
+
+### Rendering Lists - Keys 
+
+- Keys help React identify which items have changed, are added, or are removed. 
+- Keys should be given to the elements inside the array to give the elements a stable identity.
+- If your record has an `id` - that is the most common attribute to use.
+
+
+---
+
+## Rendering Lists
+
+```jsx
+const people = [{ id: 0, firstName: "Evan", lastName: "Schultz" }];
+/* .... */
+// inside of a component
+ return (
+      <div>
+        {people.map(person => (
+            <Person 
+              key={person.id} 
+              firstName={person.firstName} 
+              lastName={person.lastName} />
+          )
+        )}
+      </div>
+    );
+```
+
+```notes
+todo: change to CodeSurfer
+```
+---
+### Rendering Lists - Example 
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-list-example?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%App.js`}/>
+</Box>
+---
+
+export default Invert 
+
+# Conditional Rendering
+
+---
+
+## Conditional Rendering -- Todo
+
+---
 
 ## Exercise
 
 ---
-export default FullScreenCode
 
-# Props - Start
+### Exercise 1 - Adding Props
 
-<CodeSandbox src="https://codesandbox.io/embed/9lnz3x7o1p?autoresize=1&fontsize=14&hidenavigation=1"/>
+* Create a component that takes two props - num1, num2
+* The component should display the equation of "num1 + num2"
+* The component should also display the result
 
 
 ---
 export default FullScreenCode
 
-# Props - Solution
+### Props - Start
+
+<CodeSandbox src="https://codesandbox.io/embed/9lnz3x7o1p?autoresize=1&fontsize=14&hidenavigation=1"/>
+
+---
+export default FullScreenCode
+
+### Props - Solution
 
 <CodeSandbox src="https://codesandbox.io/embed/4qz761yz49?fontsize=14"/>
+
+---
+
+
+
+# Break / Q&A
