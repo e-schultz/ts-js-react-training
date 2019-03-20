@@ -4,17 +4,17 @@ function Button({ children }) {
   return <button className="app-button">{children}</button>;
 }
 
-function AddToCartButtonText({text}) {
-return (<span class="app-button-text">{text}</span>)
+function AddToCartButtonText({ text }) {
+  return <span class="app-button-text">{text}</span>;
 }
-function AddToCartButtonPrice({price}) {
-    return (<span class="app-button-price">{price}</span>)
+function AddToCartButtonPrice({ price }) {
+  return <span class="app-button-price">{price}</span>;
 }
 function AddToCartButton({ text, price }) {
   return (
     <Button>
-      <AddToCartButtonText text={text}/>
-      <AddToCartButtonPrice price={price}/>
+      <AddToCartButtonText text={text} />
+      <AddToCartButtonPrice price={price} />
     </Button>
   );
 }
