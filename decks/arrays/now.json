@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "name": "rio-react-training-arrays",
+    "alias": ["rio-react-training-arrays"],
+    "github": {
+      "autoJobCancelation": true
+    },
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@now/static-build"
+      }
+    ]
+  }
