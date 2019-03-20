@@ -32,7 +32,7 @@ class App extends Component {
     return (
       <div className="App">
         <ProductCard />
-        <hr/>
+        <hr />
       </div>
     );
   }
