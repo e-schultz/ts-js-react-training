@@ -68,7 +68,6 @@ For this practice, we only care about:
 - url
 - objectID
 
-
 ```json
 {
   "hits": [
@@ -90,6 +89,7 @@ For this practice, we only care about:
 ```
 
 ## Full API Response
+
 ```json 
 {
   "hits": [
