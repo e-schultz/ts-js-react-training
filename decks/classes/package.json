@@ -1,28 +1,28 @@
 {
-    "private": true,
-    "name": "classes-deck",
-    "version": "1.0.0",
-    "scripts": {
-      "start": "mdx-deck index.js",
-      "build": "yarn run now-build",
-      "build:presentation": "mdx-deck build index.js --no-html ",
-      "build:images": "cp -r images dist/",
-      "build:assets": "cp -r snippets dist/",
-      "now-build": "yarn run build:presentation && yarn run build:images && yarn run build:assets",
-      "deploy": "now"
-    },
-    "devDependencies": {
-      "ajv": "6.8.1",
-      "mdx-deck": "1.8.2",
-      "mdx-deck-code-surfer": "0.5.5",
-      "raw-loader": "1.0.0",
-      "prism-react-renderer": "^0.1.6"
-      
-    },
-    "dependencies": {
-      "mdx-code": "^1.1.3",
-      "mdx-deck-live-code": "^1.0.1",
-      "react-syntax-highlighter": "^10.1.3"
-    }
+  "private": true,
+  "name": "classes-deck",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "mdx-deck index.js",
+    "build": "yarn run now-build",
+    "build:presentation": "mdx-deck build index.js --no-html ",
+    "build:images": "cp -r images dist/",
+    "build:assets": "cp -r snippets dist/",
+    "now-build": "yarn run build:presentation && yarn run build:images && yarn run build:assets",
+    "deploy": "now"
+  },
+  "devDependencies": {
+    "ajv": "6.8.1",
+    "mdx-deck": "1.8.2",
+    "mdx-deck-code-surfer": "0.5.5",
+    "prism-react-renderer": "^0.1.6",
+    "raw-loader": "1.0.0"
+  },
+  "dependencies": {
+    "@researchgate/react-intersection-observer": "^0.7.4",
+    "intersection-observer": "^0.5.1",
+    "mdx-code": "^1.1.3",
+    "mdx-deck-live-code": "^1.0.1",
+    "react-syntax-highlighter": "^10.1.3"
   }
-  
+}

@@ -1,6 +1,8 @@
 import { FullScreenCode, Split, SplitRight } from "mdx-deck/layouts";
 import ReplIt from "../../components/replit";
 import CodeSandbox from "../../components/codesandbox";
+import ImageSplit from "../../components/ImageSplit";
+import Box from "../../components/Box";
 import { Head, Appear, Image, withDeck } from 'mdx-deck'
 
 # Exercise Time
@@ -27,22 +29,24 @@ export const robots = [
     id: 1,
     name: 'Leanne Graham',
     username: 'Bret',
-    email: 'Sincere@april.biz'
+    email: 'Sincere@april.biz',
+    jobTitle: 'Architect & Engineer'
   },
   {
     id: 2,
     name: 'Ervin Howell',
     username: 'Antonette',
-    email: 'Shanna@melissa.tv'
+    email: 'Shanna@melissa.tv',
+    jobTitle: 'Automation Expert'
   }]
 ```
 
 ---
-export default FullScreenCode
+export default ImageSplit
 
 ##  Reference:
 
-<CodeSandbox src="https://codesandbox.io/embed/wnmqo07r7w?codemirror=1&fontsize=14&hidenavigation=1&module=%2Fpublic%2Findex.html"/>
+<Image src="./images/robot-card.png" size="contain"/>
 
 ---
 
@@ -74,3 +78,21 @@ export default FullScreenCode
 * Render a list
 * Consider Props vs Children
 * Can we make it more composable?
+
+---
+export default FullScreenCode
+
+### Solutions - Robot List - Difficult To Compose
+
+<CodeSandbox src="https://codesandbox.io/embed/8k4nrn3z3l?codemirror=1&fontsize=14"/>
+
+---
+export default FullScreenCode
+
+### Solutions - RobotCard - built up of Card Compomnents
+
+<CodeSandbox src="https://codesandbox.io/embed/88p9z8xjql?codemirror=1&fontsize=14&hidenavigation=1"/>
+
+---
+
+# Break / Q&A

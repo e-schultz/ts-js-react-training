@@ -1,12 +1,20 @@
-import { FullScreenCode, Split, SplitRight } from "mdx-deck/layouts";
+import { FullScreenCode, Split, SplitRight, Invert } from "mdx-deck/layouts";
 import ReplIt from "../../components/replit";
 import CodeSandbox from "../../components/codesandbox";
+import Box from "../../components/Box";
 import { Head, Appear, Image, withDeck } from 'mdx-deck'
 
-## React Components
+export default Invert 
+
+# React Components 
+
+---
+
+# React Components
 
 - Reusabble building blocks of the application
 - Can take inputs from parent components, called props
+- Can be Class Based, or functions 
 
 ---
 
@@ -19,7 +27,9 @@ import { Head, Appear, Image, withDeck } from 'mdx-deck'
 
 ---
 
-export default FullScreenCode
+### React JSX Example 
+
+<Box width={'75vw'}>
 
 ```javascript JSX Example
 
@@ -38,6 +48,7 @@ const sameElement = React.createElement(
 );
 ```
 
+</Box>
 ---
 
 ## What Happened?
@@ -45,6 +56,7 @@ const sameElement = React.createElement(
 - HelloWorld is the same in all cases - a function that will show text
 - JSX-to-JavaScript compilation translates `<div>...</div>` into return value
 ---
+export default Invert 
 
 # Component Types
 
@@ -85,14 +97,27 @@ export default Split
 
 ## Stateless - Hello World Component
 
-<CodeSandbox src="https://codesandbox.io/embed/1080oxnw33?eslint=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Findex.js&moduleview=1&highlights=4"/>
+```jsx
+const HelloWorld = () => <h1>Hello, World!</h1>;
+const rootElement = document.getElementById("root");
+ReactDOM.render(<HelloWorld />, rootElement);
+```
+
+---
+
+## Stateless - Hello World Component
+
+<Box width={'75vw'}>
+  <CodeSandbox src="https://codesandbox.io/embed/1080oxnw33?eslint=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Findex.js&moduleview=1&highlights=4"/>
+</Box>
 
 ---
 
 ## Stateless - Hello World - Children
 
-<CodeSandbox src="https://codesandbox.io/embed/8l3wmjzk82?eslint=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fhello-world.js"/>
-
+<Box width={'75vw'}>
+  <CodeSandbox src="https://codesandbox.io/embed/8l3wmjzk82?eslint=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fhello-world.js"/>
+</Box>
 
 
 

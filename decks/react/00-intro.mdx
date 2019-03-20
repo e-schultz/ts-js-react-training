@@ -1,5 +1,5 @@
 
-import { FullScreenCode, Split, SplitRight, Horizontal } from "mdx-deck/layouts";
+import { FullScreenCode, Split, SplitRight, Horizontal, Invert } from "mdx-deck/layouts";
 import { CodeSurfer } from "mdx-deck-code-surfer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
 import { Head, Appear, Image, withDeck } from 'mdx-deck' 
@@ -14,7 +14,7 @@ import CodeSandbox from "../../components/codesandbox";
 ---
 export default Split
 
-### What Will Be Covered?
+## What Will Be Covered?
 
 - Key Concepts
 - What Are Components 
@@ -26,9 +26,13 @@ export default Split
 - Inputs 
 
 ---
+export default Invert
 
+# Key Concepts 
 
-## Key Concepts in React
+---
+
+## Key Concepts
 
 - The UI is composed  of components
 - Components  just JavaScript functions
@@ -58,6 +62,3 @@ In React, we work with the DOM indirectly.
 - Components should be easily composable and reusable
 - Components should be divided by responsibility
 - Pieces of the system requiring the same responsibility should rely on a shared component
-
----
-

@@ -1,9 +1,16 @@
-import { FullScreenCode } from "mdx-deck/layouts";
+import { FullScreenCode, Invert } from "mdx-deck/layouts";
 import ReplIt from "../../components/replit";
 import CodeSandbox from "../../components/codesandbox";
 import { Head, Appear, Image, withDeck } from 'mdx-deck'
 import { CodeSurfer } from "mdx-deck-code-surfer";
 import nightOwl from "prism-react-renderer/themes/nightOwl";
+
+
+export default Invert 
+
+# Component Composition 
+
+---
 
 ## The "Children" Prop
 
@@ -14,7 +21,7 @@ import nightOwl from "prism-react-renderer/themes/nightOwl";
 ---
 export default FullScreenCode
 
-# Rendering Children
+## Rendering Children
 
 <CodeSandbox src="https://codesandbox.io/embed/ql21r7nq6q?autoresize=1&fontsize=14"/>
 
@@ -70,6 +77,38 @@ export default FullScreenCode
 />
 
 ---
+<CodeSurfer
+  code={require("!raw-loader!./snippets/component-as-props.snippet")}
+  theme={nightOwl}
+  lang="javascript"
+  title="Components as Props"
+  showNumbers
+  steps={[
+    {}, // This component lays out a blog article
+    {lines: [1], notes: "Food Component takes a prop `type`"},
+    {lines: [4], notes: "Since we can pass functions as a prop, and components are functions"},
+    {lines: [4], notes: "We can pass a component"},
+    {lines: [5], notes: "Or pass a string"},
+    {
+      tokens: {
+        1: [18,19,20],
+        4: [2,3,4,5,6,7,8,9,10]
+      },
+      notes: "Will render the PizzaComponent"
+    },
+     {
+      tokens: {
+        1: [18,19,20],
+        5: [2,3,4,5,6,7,8,9,10]
+      },
+      notes: "Will render text 'Potato Chips'"
+    },
+    {}
+  ]}
+/>
+
+---
+
 export default FullScreenCode
 
 ## React components can be Props
