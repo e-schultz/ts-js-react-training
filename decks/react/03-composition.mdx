@@ -75,6 +75,27 @@ export default FullScreenCode
     {}
   ]}
 />
+---
+
+## Exercise - Extracting Components
+
+* Extract the ProductCard component into smaller building blocks
+* classNames can provide a clue on where to make a component
+
+---
+<CodeSurfer
+  code={require("!raw-loader!./snippets/productcard.snippet")}
+  theme={nightOwl}
+  lang="jsx"
+  title="Extracting Components"
+  showNumbers
+  steps={[
+    {}, // This component lays out a blog article
+    {lines: [3,23], notes: 'Component for the container'},
+    {lines: [4,15], notes: 'Same className repeated'},
+    {}
+  ]}
+/>
 
 ---
 <CodeSurfer
