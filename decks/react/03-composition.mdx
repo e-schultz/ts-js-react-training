@@ -75,7 +75,52 @@ export default FullScreenCode
     {}
   ]}
 />
+---
 
+## Exercise - Extracting Components - 01
+
+* Extract the ProductCard component into smaller building blocks
+* classNames can provide a clue on where to make a component
+
+---
+<CodeSurfer
+  code={require("!raw-loader!./snippets/productcard.snippet")}
+  theme={nightOwl}
+  lang="jsx"
+  title="Extracting Components"
+  showNumbers
+  steps={[
+    {}, // This component lays out a blog article
+    {lines: [3,23], notes: 'Component for the container'},
+    {lines: [4,15], notes: 'Same className repeated'},
+    {}
+  ]}
+/>
+---
+export default FullScreenCode
+
+## Exercise - Extracting Components - 01 - Start 
+
+<CodeSandbox src="https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/master/exercises/extracting-components-01-start?codemirror=1&fontsize=14&module=%2FREADME.md"/>
+
+---
+export default FullScreenCode
+
+## Exercise - Extracting Components - 01 - Solution 
+
+<CodeSandbox src="https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/master/exercises/extracting-components-01-end?codemirror=1&fontsize=14&module=%2FREADME.md"/>
+
+---
+## Exercise - Extracting Components - Homework
+
+- Can you make parts of this more reusable?
+- Can you make a generic `Card` component that is composable?
+- Can you modify the ProductCard to accept product data as Props?
+- Be sure to bring your solutions to the Office Hours later this week
+
+
+---
+# Break / Q &A
 ---
 <CodeSurfer
   code={require("!raw-loader!./snippets/component-as-props.snippet")}
