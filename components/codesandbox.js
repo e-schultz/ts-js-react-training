@@ -1,7 +1,7 @@
 import React from "react";
 import ViewableMonitor from "./ViewableMonitor";
 
-export default function CodeSandbox({ src, allowFullScreen = true }) {
+export default function CodeSandbox({ src, allowFullScreen = true, runOnClick=1 }) {
   return (
     <ViewableMonitor>
       {isViewable =>
@@ -17,7 +17,7 @@ export default function CodeSandbox({ src, allowFullScreen = true }) {
                 overflow: "hidden"
               }}
               width="100%"
-              src={`${src}&runonclick=1&codemirror=1`}
+              src={`${src}&runonclick=${runOnClick}&codemirror=1`}
               sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
             />
           </div>
