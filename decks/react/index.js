@@ -3,8 +3,9 @@ import components from './01-components.mdx'
 import props from './02-props.mdx'
 import composition from './03-composition.mdx'
 import mediaCard from './04-exercise-1-media-card.mdx'
-import dataFlow from './05-react-state-and-data-flow.mdx';
-import lifeCycle from './06-react-life-cycle.mdx';
+import events from './05-events.mdx'
+import dataFlow from './06-react-state-and-data-flow.mdx';
+import lifeCycle from './07-react-life-cycle.mdx';
 
 export { default as theme } from '../../theme'
 
@@ -14,6 +15,7 @@ export default [
   ...props,
   ...composition,
   ...mediaCard,
+  ...events,
   ...dataFlow,
   ...lifeCycle
 ]
