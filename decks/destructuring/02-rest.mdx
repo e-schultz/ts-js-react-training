@@ -6,16 +6,23 @@ import Code from 'mdx-code';
 * Useful especially when dealing with unknown quantities
 
 ---
+### Object Rest 
 
-export default Code
+* Assign variables to properties in the object
+* Create object with remaining properties 
 
 ```javascript Object Rest
-let car = { make: 'Toyota', model: 'Camry', year: '2018'};
-const { year, ...carWithoutYear } = car;
-console.log(year);
-console.log(carWithoutYear)
+  let car = { make: 'Toyota', model: 'Camry', year: '2018'};
+  const { year, ...carWithoutYear } = car;
+  console.log(year);
+  console.log(carWithoutYear)
 ```
 
+```notes
+Apparently `rest property is not supported in the 
+node run-kit
+todo: make Repl.it embed instead?
+```
 ---
 
 This is useful when are passing a number of properties into a function,

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "array-deck",
+  "name": "arrays-deck",
   "version": "1.0.0",
   "scripts": {
     "start": "mdx-deck index.js",
