@@ -1,5 +1,5 @@
 import { FullScreenCode, Invert } from "mdx-deck/layouts";
-import { Head, Appear, Image, withDeck } from 'mdx-deck' 
+import { Head, Appear, Image, withDeck } from 'mdx-deck'
 import { CodeSurfer } from "mdx-deck-code-surfer";
 import nightOwl from "prism-react-renderer/themes/nightOwl";
 import ReplIt from "../../components/replit";
@@ -7,32 +7,32 @@ import CodeSandbox from "../../components/codesandbox";
 import Box from "../../components/Box";
 const BRANCH_NAME = 'master'; // tood: change before merge
 
-export default Invert 
+export default Invert
 
-# Rendering Lists 
+# Rendering Lists
 
 ---
 
 ## Rendering Lists
 
 - Remember - you can pass any JavaScript value or object as a value to a Prop
-- This includes Arrays 
+- This includes Arrays
 - You can use Array methods like `map`, `filter`, `reduce` to transform your data into components.
 
 ---
 
 ## Rendering Lists
 
-- `map` is used to transform one object to another 
-- Can transform data into JSX 
-- Can also reduce a list of items into a Component 
-- Lists should specify a `key` attribute 
+- `map` is used to transform one object to another
+- Can transform data into JSX
+- Can also reduce a list of items into a Component
+- Lists should specify a `key` attribute
 
 ---
 
-### Rendering Lists - Keys 
+### Rendering Lists - Keys
 
-- Keys help React identify which items have changed, are added, or are removed. 
+- Keys help React identify which items have changed, are added, or are removed.
 - Keys should be given to the elements inside the array to give the elements a stable identity.
 - If your record has an `id` - that is the most common attribute to use.
 
@@ -47,9 +47,9 @@ const people = [{ id: 0, firstName: "Evan", lastName: "Schultz" }];
  return (
       <div>
         {people.map(person => (
-            <Person 
-              key={person.id} 
-              firstName={person.firstName} 
+            <Person
+              key={person.id}
+              firstName={person.firstName}
               lastName={person.lastName} />
           )
         )}
@@ -61,20 +61,8 @@ const people = [{ id: 0, firstName: "Evan", lastName: "Schultz" }];
 todo: change to CodeSurfer
 ```
 ---
-### Rendering Lists - Example 
+### Rendering Lists - Example
 
 <Box width={'80vw'}>
     <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-list-example?codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
 </Box>
----
-
-### Rendering Lists - Exercise
-
-- TODO 
-
----
-
-export default Invert 
-
-# Q&A / Break 
-

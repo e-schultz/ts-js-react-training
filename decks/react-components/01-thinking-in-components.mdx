@@ -1,14 +1,16 @@
 
-import { FullScreenCode, Split, SplitRight, Horizontal } from "mdx-deck/layouts";
+import { FullScreenCode, Split, SplitRight, Horizontal, Invert } from "mdx-deck/layouts";
 import { CodeSurfer } from "mdx-deck-code-surfer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
-import { Head, Appear, Image, withDeck } from 'mdx-deck' 
+import { Head, Appear, Image, withDeck } from 'mdx-deck'
 import Code from 'mdx-code';
 import  ImageSplit  from '../../components/ImageSplit';
 import  ImageSplitAlt from '../../components/ImageSplitAlt';
 import ReplIt from "../../components/replit";
 import CodeSandbox from "../../components/codesandbox";
 
+
+export default Invert
 
 # Thinking In Components
 
@@ -39,7 +41,7 @@ import CodeSandbox from "../../components/codesandbox";
 ---
 export default ImageSplit
 
-# Atoms 
+# Atoms
 <Image src="./images/atoms.jpg" size="75vh"/>
 
 ---
@@ -55,9 +57,9 @@ export default Split
 - Very reusable
 - Foundation of building a brand
 ---
-export default Split 
+export default Split
 
-# Atoms 
+# Atoms
 
 ```html
 <Form>
@@ -66,15 +68,15 @@ export default Split
 </Form>
 ```
 ---
-export default ImageSplit 
+export default ImageSplit
 
-## Molecules 
+## Molecules
 <Image src="./images/molecule.jpg" size="75vh"/>
 
 ---
-export default Split 
+export default Split
 
-## Molecules 
+## Molecules
 
 - Groups of Atoms bonded together
 - Serve as backbone of design system
@@ -84,7 +86,7 @@ export default Split
 ---
 export default ImageSplit
 
-## Molecules 
+## Molecules
 
 ```jsx
 <Form onSubmit={ onSubmit }>
@@ -125,7 +127,7 @@ export default ImageSplitAlt
 
 <Image src="./images/ecosystem.png" size="contain"/>
 
-# Ecosystem 
+# Ecosystem
 
 - What the client will see
 - Connected containers
@@ -139,7 +141,7 @@ export default SplitRight
 - Think in terms of Information Architecture
 - Atoms first, Molecules second
 
-# The Proccess 
+# The Proccess
 
 ## Start with a Mock
 
@@ -165,4 +167,4 @@ Look at the following mock up and try to identify UI components.
 ---
 
 <Image src="./images/thinking-in-react-task.png" size="contain"/>
- 
+
