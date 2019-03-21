@@ -11,59 +11,7 @@
       "use": "@now/static-build"
     }
     ,{
-      "src": "decks/react-thinking-in-components/package.json",
-      "use": "@now/static-build"
-    },
-    {
-      "src": "decks/home/package.json",
-      "use": "@now/static-build"
-    },
-    {
-      "src": "decks/arrays/package.json",
-      "use": "@now/static-build"
-    },
-    {
-      "src": "decks/functions/package.json",
-      "use": "@now/static-build"
-    },
-    {
-      "src": "decks/objects/package.json",
-      "use": "@now/static-build"
-    },
-    {
-      "src": "decks/promises/package.json",
-      "use": "@now/static-build"
-    },
-    {
-      "src": "decks/react/package.json",
-      "use": "@now/static-build"
-    },
-    {
-      "src": "decks/template-literals/package.json",
-      "use": "@now/static-build"
-    },
-    {
-      "src": "decks/variables/package.json",
-      "use": "@now/static-build"
-    },
-    {
-      "src": "decks/styles/package.json",
-      "use": "@now/static-build"
-    },
-    {
-      "src": "decks/typescript-interfaces/package.json",
-      "use": "@now/static-build"
-    },
-    {
-      "src": "decks/classes/package.json",
-      "use": "@now/static-build"
-    },
-    {
-      "src": "decks/destructuring/package.json",
-      "use": "@now/static-build"
-    },
-    {
-      "src": "decks/literals/package.json",
+      "src": "decks/**/package.json",
       "use": "@now/static-build"
     }
   ]
