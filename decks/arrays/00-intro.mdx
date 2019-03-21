@@ -7,21 +7,22 @@ export default Invert
 
 ---
 
-## What we will cover
+## What We Will Cover
 
-* Array Basics
-* Iterating Arrays
-* Array Spreading/Destructuring
+- Array Basics
+- Iterating Arrays
+- Array Spreading/Destructuring
+- Light Introduction to Functional Programming
 
 ---
 
-## Arrays are
+## Arrays Are
 
-* Collections of any other type, including other arrays
-* The main interable in JavaScript
-* Always indexed with integers, starting from 0
-* Mutated by some methods, but not others
-* Truthy even when empty
+- Collections of any other type, including other arrays
+- The main interable in JavaScript
+- Always indexed with integers, starting from 0
+- Mutated by some methods, but not others
+- Truthy even when empty
 
 ---
 
@@ -44,15 +45,15 @@ console.log(fruits);
 
 ## What happened?
 
-* `push` mutates the array by adding a value to the end
-* `unshift` mutates the array by adding a value to the beginning
-* Arrays can be directly assigned values at particular instances
+- `push` mutates the array by adding a value to the end
+- `unshift` mutates the array by adding a value to the beginning
+- Arrays can be directly assigned values at particular instances
 
 ---
 
 export default Code
 
-```javascript Accessing from arrays
+```javascript Accessing from Arrays
 const numbers = [1, 2, 3, 4, 5];
 const one = 1;
 
@@ -69,15 +70,15 @@ console.log(
 
 ## What happened?
 
-* Arrays can be accessed directly by their index using bracket notation
-* We can also use array methods to search through arrays for values
-* These array methods take a function as an argument
+- Arrays can be accessed directly by their index using bracket notation
+- We can also use array methods to search through arrays for values
+- These array methods take a function as an argument
 
 ---
 
 export default Code
 
-```javascript Arrays and mutation
+```javascript Arrays and Mutation
 const numbers = [1, 2, 3, 4, 5];
 const numbersTwo = numbers;
 const numbersThree = numbers.slice(numbers);

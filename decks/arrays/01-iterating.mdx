@@ -2,21 +2,52 @@ import Code from 'mdx-code';
 import { CodeSurfer } from "mdx-deck-code-surfer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
 
-## Iterating Arrays
+# Iterating Arrays
 
 * In ES6, we mainly use array methods to iterate and transform array data
 * Many of these methods avoid mutation issues
 
 ---
 
-## Mapping
+## Array Building Blocks
 
-* Steps over each item in the array
-* Gives you access to the current item in the array and optionally the index
-* Writes whatever you return to that position in the new array
+- map
+- filter
+- reduce 
 
 ---
 
+## Map 
+
+* Used to transform from one type / shape to another 
+
+---
+
+## Map 
+
+* Steps over each item in the array
+* Gives you access to the current item in the array and optionally the index
+* Returns a new array with the transformed objects
+
+```javascript
+let numbers = [1, 2, 3, 4, 5];
+let doubled = numbers.map(number => {
+  return { number, doubled: number * 2 };
+});
+
+```
+---
+export default Code 
+
+```javascript
+let numbers = [1, 2, 3, 4, 5];
+let doubled = numbers.map(number => {
+  return { number, doubled: number * 2 };
+});
+doubled;
+```
+
+---
 export default Code
 
 ```javascript Mapping Arrays
@@ -37,12 +68,13 @@ console.log(castWithIds);
 
 ---
 
-## Reducing
+## Reduce
 
+* Common scenario: calculate a total 
+* Reduces a collection down to a single value
 * Steps over each item in the array
 * Gives you access to the current item, the index, and an accumulator
 * The accumulator is the final value that will be returned 
-* Performs an operation and returns the accumulated value
 * The accumulated value can be of any type and length, which makes reduce very flexible
 
 ---
@@ -51,10 +83,61 @@ export default Code
 
 ```javascript Reducing Arrays
 const numbers = [1, 2, 3, 4];
-const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue);
-console.log(sum);
+
+function sumWithForLoop(input) {
+    let total = 0;
+    for(let x=0;x<input.length;x++) {
+        total += input[x];
+    }
+    return total;
+}
+
+function sumWithReduce(input) {
+    return input.reduce((accumulator, currentValue) => accumulator + currentValue);
+}
+const sum1 = sumWithReduce(numbers);
+const sum2 = sumWithForLoop(numbers);
+console.log(sum1, sum2)
 ```
 
+---
+
+export default Code 
+
+```javascript Return Type Does Not Need to Match Input
+const names = ['Evan', 'Renee', 'John'];
+let characterCount = names.reduce((acc, value)=>acc += value.length,0);
+console.log(`There are ${characterCount} in the names collection`);
+```
+---
+export default Code 
+
+```javascript Exercise - Calculate the Total Cost of Items
+// Rewrite this to use `reduce` instead.
+
+const cart = [{ item: 'Eggs', cost: 2}, { item: 'Oranges', cost: 3}, { item: 'Avocado Toast', cost: 15}]
+
+let getTotalCost = (items) => {
+    let total = 0;
+    for(let x=0;x<items.length;x++) {
+        total += items[x].cost;
+    }
+    return total;
+}
+
+getTotalCost(cart);
+```
+---
+export default Code 
+
+```javascript Solution - Calculate the Total Cost of Items
+// Rewrite this to use `reduce` instead.
+
+const cart = [{ item: 'Eggs', cost: 2}, { item: 'Oranges', cost: 3}, { item: 'Avocado Toast', cost: 15}]
+let getTotalCost = (items) => items.reduce((acc,item)=>acc+=item.cost,0);
+
+getTotalCost(cart);
+```
 ---
 
 ## ForEach
