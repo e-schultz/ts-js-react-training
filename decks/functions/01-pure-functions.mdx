@@ -13,6 +13,7 @@ export default Invert
 - No side effects! 
 - Should have a return statement
 - Doesn't modify or depend on anything outside of its scope
+- Should return the same result given the same input
 
 ---
 
@@ -26,8 +27,8 @@ export default Invert
 
 ## Should have a return statement
 
-- Think of a pure function like a small factory.
-- You give it the supplies and it outputs the product.
+- Think of a pure function like a small factory
+- You give it the supplies and it outputs the product
 - Calling with the same inputs should result in the same result
 - Should not have any other side effects
 
@@ -39,7 +40,9 @@ export default Code
 function add(a, b) {
   return a + b;
 }
-add(1, 2); // should return 3 every time.
+console.log('1st call', add(1, 2)); // should return 3 every time.
+console.log('2nd call', add(1, 2));
+console.log('3rd call', add(1, 2));
 ```
 ---
 export default Code
@@ -47,12 +50,15 @@ export default Code
 ```javascript Impure Function
 let count = 0;
 
-function increaseCount() {
-  ++count
+function add(input) {
+  count+=input;
+  return count;
 }
 
-increaseCount()
-console.log(count)
+console.log(add(1));
+console.log(add(1));
+console.log(add(1));
+console.log(count);
 ```
 
 ---

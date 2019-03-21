@@ -1,19 +1,16 @@
 import Code from 'mdx-code'
-import { Invert } from "mdx-deck/layouts";
+import { Invert, Horizontal, Split } from "mdx-deck/layouts";
+import { Image } from "mdx-deck";
 
 # Functions
 
 ---
 
-## Parameters
+<Image src="./images/functions-visualized.jpg" size="85vw"/>
 
-- 0 or many items that are passed into a function for its use
-- A function defines the parameters it expects
-- The order of the parameters passed in should match the order expected by the function
-
----
-
-```javascript
+```notes
+I think this image does a better job at describing the slides we had 
+s
 function addNumbers(number1, number2) {
   return number1 + number2;
 }
@@ -22,14 +19,21 @@ function addNumbers(number1, number2) {
 // number2 recieves the value of 7
 const total = addNumbers(5, 7);
 ```
+---
+## Function Parameters
+
+- 0 or many items that are passed into a function for its use
+- A function defines the parameters it expects
+- The order of the parameters passed in should match the order expected by the function
 
 ---
 
-## Parameters
 
-- In ES6, you can assign default parameter values to be used when an argument is not passed in
-- You can also use the rest operator to group the parameters together as an array
-- It's important to name your parameters well to help with readability
+## Function - ES6 New Features 
+
+- Can assign default paramaters 
+- Can use the `...rest` operator to access additional paramaters 
+- Can use destructuring on Objects or Arrays 
 
 ---
 
@@ -57,7 +61,7 @@ keepTheLastItem(3, 1, 66, 21, 15); // this returns 15
 
 ---
 
-## Destructuring Arguments
+## Functions - Destructuring Arguments
 
 - You can use destructuring to "pluck" from an object passed in as a function argument
 - This is very common in React components
