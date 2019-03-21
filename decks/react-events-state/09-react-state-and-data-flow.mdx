@@ -8,79 +8,24 @@ import { CodeSurfer } from "mdx-deck-code-surfer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
 const BRANCH_NAME = 'master'; // tood: change before merge
 
-# React State & Data Flow
 
-* Class Based Components 
-* State
-* Unidirectional Data Flow 
-* LifeCycle
-
----
-
-# Class Based Components 
-
-* State
-* LifeCycle 
-* LifeCycle Hooks 
+# React State & Data Flow 
 
 ---
 
 # React State 
 
-* React Components Can Have Their Own Internal State
-* Components Should Not Directly Mutate Their Own State
-* Children Should Not Mutate Parent State
+* React Components can have their own internal state
+* Components should not directly mutate their state
+* Children can not modify parent state
 
-
----
-
-<CodeSurfer
-  code={require("!raw-loader!./snippets/hello-world-class.snippet")}
-  theme={nightOwl}
-  lang="jsx"
-  title="Class Based Components"
-  showNumbers
-  steps={[
-    {}, // First step should be an overview of the snippet
-    {lines: [1], notes: "Extend from React.Component"},
-    {range: [7,10], notes: "Call super with props, and bind event callback methods"},
-    {range: [18,24], notes: "React calls render, and returns JSX"},
-    {lines: [21], notes: "Can have access to state or props"},
-    {lines: [22], notes: "Call handleClick when the user clicks"},
-    {range: [12,16], notes: "Handle the click event and update the state"},
-    {lines: [15], notes: "We must use this.setState - and not mutate state directly"},
-    {}
-  ]}
-/>
-
----
-# App Uses Hello World 
-
-```jsx
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <HelloWorld/>
-      </div>
-    );
-  }
-}
-```
-
----
-
-## Class Based Component 
-
-<Box width={'80vw'}>
-    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-basic-class-component?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fcomponents%2FHelloWorld.js`}/>
-</Box>
 ---
 
 ## Unidirectional Data Flow 
 
-* Data Is Passed down via Props
-* Callbacks, or Events Are Emitted to Tell the Parent Something Has Changed
+* Data is passed down with props
+* Callbacks are passed down and invoked to notify of changes
+* Or Events are emitted
 
 ---
 
@@ -106,8 +51,8 @@ class App extends Component {
 
 ### How Can App Know What the Count Is?
 
-* Children Can Not Modify the Parent Component
-* If App Was to Have It's Own Counter - How Would It Know?
+* Children can not modify the `App` counter
+* If App wants to keep track, how will it know?
 
 ```jsx
 render() {
@@ -125,9 +70,9 @@ render() {
 
 ### How Can App Know What the Count Is?
 
-* Remember - You Can Pass Functions as Props
-* Pass a Callback That the Child
-* Child Invokes It so the Parent Knows Something Has Changed 
+* Remember: You can pass functions as props
+* Pass a Callback to `HelloWorld`
+* `HelloWorld` invokes it, `App` can respond to the change
 
 ---
 export default FullScreenCode
@@ -153,16 +98,16 @@ render() {
 
 ### Why? 
 
-* The Child Can Be Reused in Many Contexts
-* The Child Can Be Reused in Many Times on One Screen
-* Up to the Parent to Decide What to Do with the Change
+* The Child can be reused in many contexts
+* The Child can be reused more than once on the same screen
+* Parent decides what to do with the change
 
 ---
 
 ### Why? 
 
-* You Tell React When State Changes with `setState`
-* React Does Not Automatically Observe or Dirty Check for You
+* You tell React when state changes with `setState`
+* React does not automatically Observe or Dirty objects for you
 
 ---
 
@@ -180,17 +125,12 @@ render() {
     );
   }
 ```
+
 ---
+
 export default FullScreenCode
 
 ### Data Down, Callbacks Up
 
 <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-data-down-events-up?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fcomponents%2FHelloWorld.js`}/>
 
----
-
-Exercise : TODO
-
----
-
-# Break / Q&A
