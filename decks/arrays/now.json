@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "name": "js-ts-react-training",
-  "alias": ["rio-react-training"],
+  "name": "js-ts-react-training-arrays",
+  "alias": ["rio-react-training-arrays"],
   "github": {
     "autoJobCancelation": true
   },
@@ -10,10 +10,5 @@
       "src": "package.json",
       "use": "@now/static-build"
     }
-    ,{
-      "src": "decks/**/package.json",
-      "use": "@now/static-build"
-    }
-   
   ]
 }
