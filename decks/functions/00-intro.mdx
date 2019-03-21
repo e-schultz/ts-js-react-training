@@ -153,9 +153,40 @@ let goodDay = makeGreeter('Good Day');
 console.log(goodMorning('Everyone'));
 console.log(goodDay('Everyone'));
 ```
-
 ---
-export default Invert 
+## Functions Returning Functions 
 
-# Break / Q&A
+- Useful when you have a function that you want to reuse
+- But that function needs some configuration 
+
+```javascript
+function getGames(id) {
+  return fetch(`${BASE_URL}/games/${id}`)
+    .then(response=>response.json())
+}
+
+function getPlatforms(id) {
+  return fetch(`${BASE_URL}/platforms/${id}`)
+    .then(response=>response.json())
+}
+```
+---
+## Functions Returning Functions 
+
+- Useful when you have a function that you want to reuse
+- But that function needs some configuration 
+
+```javascript
+function createService(resource) {
+  return function getById(id) {
+    return fetch(`${BASE_URL}/${resource}/${id}`)
+    .then(response=>response.json())
+  }
+}
+
+let getGame = createService('games');
+let getPlatform  = createService('platform');
+
+```
+
 
