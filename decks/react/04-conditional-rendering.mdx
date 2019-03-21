@@ -9,63 +9,8 @@ const BRANCH_NAME = 'master'; // tood: change before merge
 
 export default Invert 
 
-# Rendering Lists & Conditionals
+# Conditional Rendering 
 
----
-
-## Rendering Lists
-
-- Remember - you can pass any JavaScript value or object as a value to a Prop
-- This includes Arrays 
-- You can use Array methods like `map`, `filter`, `reduce` to transform your data into components.
-
----
-
-## Rendering Lists
-
-- `map` is used to transform one object to another 
-- Can transform data into JSX 
-- Can also reduce a list of items into a Component 
-- Lists should specify a `key` attribute 
-
----
-
-### Rendering Lists - Keys 
-
-- Keys help React identify which items have changed, are added, or are removed. 
-- Keys should be given to the elements inside the array to give the elements a stable identity.
-- If your record has an `id` - that is the most common attribute to use.
-
----
-
-## Rendering Lists
-
-```jsx
-const people = [{ id: 0, firstName: "Evan", lastName: "Schultz" }];
-/* .... */
-// inside of a component
- return (
-      <div>
-        {people.map(person => (
-            <Person 
-              key={person.id} 
-              firstName={person.firstName} 
-              lastName={person.lastName} />
-          )
-        )}
-      </div>
-    );
-```
-
-```notes
-todo: change to CodeSurfer
-```
----
-### Rendering Lists - Example 
-
-<Box width={'80vw'}>
-    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-list-example?codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
-</Box>
 ---
 
 ## Conditional Rendering 
@@ -98,6 +43,7 @@ const LoggedInComponent({ isLoggedIn }) => (
 ---
 
 ## Other options
+
 - React is just JavaScript, so you can use any control flow block outside of JSX
 - JSX and React Components can be assigned to variables and used later 
 
@@ -144,3 +90,11 @@ const LoggedInComponent({ loggedInStatus }) => {
 ---
 
 ## Exercise
+
+- TODO 
+
+---
+
+export default Invert 
+
+# Q&A / Break 
