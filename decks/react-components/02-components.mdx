@@ -4,17 +4,24 @@ import CodeSandbox from "../../components/codesandbox";
 import Box from "../../components/Box";
 import { Head, Appear, Image, withDeck } from 'mdx-deck'
 
-export default Invert 
 
-# React Components 
+export default Invert
+
+## React & Component-Based Architecture
 
 ---
 
-# React Components
+## React & Component-Based Architecture
 
-- Reusabble building blocks of the application
-- Can take inputs from parent components, called props
-- Can be Class Based, or functions 
+### Components Should be
+
+- The lego-like building blocks of your system
+- Easily composable and reusable
+- Divided by responsibility
+
+```notes
+- Pieces of the system requiring the same responsibility should rely on a shared component
+```
 
 ---
 
@@ -27,7 +34,7 @@ export default Invert
 
 ---
 
-### React JSX Example 
+### React JSX Example
 
 <Box width={'75vw'}>
 
@@ -56,20 +63,21 @@ const sameElement = React.createElement(
 - HelloWorld is the same in all cases - a function that will show text
 - JSX-to-JavaScript compilation translates `<div>...</div>` into return value
 ---
-export default Invert 
+
+export default Invert
 
 # Component Types
 
 ---
 
-## Generally two types of Compomnents 
+## Generally two types of Compomnents
 
 * Stateless
 * Stateful
 
 ---
 
-export default Split 
+export default Split
 
 # Stateless
 
@@ -79,7 +87,7 @@ export default Split
 - Return dom
 
 ---
-export default Split 
+export default Split
 
 # Stateful
 
@@ -116,6 +124,7 @@ export default Split
 - Components are functions
 - Should return a single root JSX tag
 - Can contain multiple children within the root tag
+
 ---
 
 ## Stateless - Hello World Component & Children

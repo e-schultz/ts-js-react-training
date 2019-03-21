@@ -2,12 +2,14 @@
 import { FullScreenCode, Split, SplitRight, Horizontal, Invert } from "mdx-deck/layouts";
 import { CodeSurfer } from "mdx-deck-code-surfer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
-import { Head, Appear, Image, withDeck } from 'mdx-deck' 
+import { Head, Appear, Image, withDeck } from 'mdx-deck'
 import Code from 'mdx-code';
 import  ImageSplit  from '../../components/ImageSplit';
 import  ImageSplitAlt from '../../components/ImageSplitAlt';
 import ReplIt from "../../components/replit";
 import CodeSandbox from "../../components/codesandbox";
+
+export default Invert
 
 # React
 
@@ -17,22 +19,18 @@ import CodeSandbox from "../../components/codesandbox";
 
 - Key Concepts
 - JSX
-- Class vs Functional components    
-- Props 
+- Class vs Functional components
+- Props
 - Styling
 - Composing Components
-- Inputs 
+- Inputs
 
 ---
-export default Invert
 
-# Key Concepts 
-
----
 
 ## Key Concepts
 
-- The UI is composed  of components
+- The UI is made up of components
 - Components are just JavaScript functions or Classes
 - Data provided to components Component drive the UI
 - Since the app is data-driven, data should be managed in only a few places
@@ -42,38 +40,30 @@ React is different from jQuery because the source of truth is your components an
 Compare with jQuery, where the source of truth is the DOM itself, and you access it directly.
 In React, we work with the DOM indirectly.
 ```
+
 ---
 
-## Key Concepts - Unidirectional Data Flow
+## Unidirectional Data Flow
 
-- Data is passed down with Props 
-- Events or Callbacks are used to notify parent of changes  
+- React Apps are data-driven
+- Data is passed down with Props
+- Events or Callbacks are used to notify parent of changes
+- Data drives re-render
 
 ---
 
 ## React and the DOM
 
-- React handles updating the DOM for you
-- It is rare you will need to access the DOM yourself 
 - Internally, React keeps track of a "copy" called the Virtual DOM
-- React knows to wait for your components to change, then re-render where appropriate
+- React handles updating the DOM for you when it's Virtual DOM model changes
+- It is rare you will need to access the DOM yourself
 - Allows for greater speed
 
 ---
-export default Invert 
 
-## React & Component-Based Architecture
+# React Components
 
----
-
-## React & Component-Based Architecture
-
-### Components Should be
-
-- The lego-like building blocks of your system
-- Easily composable and reusable
-- Divided by responsibility
-
-```notes
-- Pieces of the system requiring the same responsibility should rely on a shared component
-```
+- Reusable building blocks of the application
+- Create them once, use them in many places
+- Can take inputs from parent components, called props
+- Can be Class Based, or functions
