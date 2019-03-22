@@ -1,0 +1,175 @@
+import { FullScreenCode, Split, SplitRight, Invert } from "mdx-deck/layouts";
+import { Head, Appear, Image, withDeck } from 'mdx-deck'
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import nightOwl from "prism-react-renderer/themes/nightOwl"
+
+import ReplIt from "../../components/replit";
+import CodeSandbox from "../../components/codesandbox";
+import ImageSplit from "../../components/ImageSplit";
+import Box from "../../components/Box";
+
+
+# React Lifecycle 
+
+---
+
+## Reacts Lifecycle Stages
+
+- Mounting
+- Updating
+- Unmounting
+
+---
+
+### Mounting - Component Inserted Into DOM
+
+- [constructor()](https://reactjs.org/docs/react-component.html#constructor)
+- [getDerivedStateFromProps](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops)
+- [render](https://reactjs.org/docs/react-component.html#render)
+- [componentDidMount](https://reactjs.org/docs/react-component.html#componentdidmount)
+
+---
+
+### Updating - State or Props change 
+
+- [getDerivedStateFromProps](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops)
+- [shouldComponentUpdate()](https://reactjs.org/docs/react-component.html#shouldcomponentupdate)
+- [render](https://reactjs.org/docs/react-component.html#render)
+- [getSnapshotBeforeUpdate](https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate)
+- [componentDidUpdate](https://reactjs.org/docs/react-component.html#componentdidupdate)
+
+---
+
+### Unmounting - Component Is Removed from DOM 
+
+- [componentWillUnmount](https://reactjs.org/docs/react-component.html#componentwillunmount)
+
+---
+
+## Commonly Used
+
+- constructor
+- componentDidMount
+- componentDidUpdate
+- shouldComponentUpdate
+- componentWillUnmount
+
+---
+
+### Commonly Used - constructor
+
+- `constructor(props)`
+- Initializing local state
+- Binding event handler methods to an instance
+
+---
+
+### Commonly Used - constructor
+
+```jsx
+export class Component extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      initialState: 'value'
+    }
+    this.eventHandler = this.eventHandler.bind(this)
+  }
+  eventHandler() { }
+}
+```
+---
+
+### Commonly Used - componentDidMount
+
+- `componentDidMount`
+- Called immediatly after component is inserted into the tree 
+- Good place to setup any subscriptions 
+- Common place to do data fetching
+
+---
+
+### Commonly Used - componentDidMount
+
+```jsx
+export class Component extends React.Component {
+  constructor(props) { /- ... */ }
+  componentDidMount() {
+    getSomeData('someData')
+    .then(result=>{
+      this.setState({
+        result: result.data
+      })
+    })
+  }
+}
+
+```
+---
+
+### Commonly Used - componentDidUpdate
+
+- `componentDidUpdate(prevProps, prevState)`
+- Is not called during initial render 
+- Is called after an update
+- Can compare previous state/props to current 
+- Can trigger updates based on change in state or props
+
+
+---
+
+### Commonly Used - componentDidUpdate
+
+```jsx
+export class Component extends React.Component {
+  constructor(props) { /- ... */ }
+  componentDidUpdate(prevProps) {
+    // only run if the query prop has changed
+    if(prevProps.query !== this.props.query) {
+      getSomeData(`someData?query=${this.props.query}`)
+      .then(result=>{
+        this.setState({
+          result: result.data
+        })
+      })
+  }
+}
+
+```
+
+---
+
+### (less) Commonly Used - shouldComponentUpdate
+
+- `shouldComponentUpdate(nextProps, nextState)`
+- Control if a component should update
+- Invoked before rendering
+- Inform React if the output is impacted by prop or state change 
+- If returns false - component will not update
+- Used for performance improvements
+
+---
+
+### (less) Commonly Used - shouldComponentUpdate
+
+> The default behavior is to re-render on every state change, and in the vast majority of cases you should rely on the default behavior.
+
+---
+
+### Commonly Used - componentWillUnmount
+
+- `componentWillUnmount()`
+- Component is being removed from the tree
+- Used to clean up any subscriptions
+
+---
+
+# Exercise
+
+- TODO
+
+---
+
+export default Invert 
+
+# Break / Q&A

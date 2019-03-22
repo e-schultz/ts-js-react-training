@@ -1,0 +1,70 @@
+import { FullScreenCode, Split, SplitRight, Invert } from "mdx-deck/layouts";
+import ReplIt from "../../components/replit";
+import CodeSandbox from "../../components/codesandbox";
+import ImageSplit from "../../components/ImageSplit";
+import Box from "../../components/Box";
+import { Head, Appear, Image, withDeck } from 'mdx-deck'
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import nightOwl from "prism-react-renderer/themes/nightOwl"
+const BRANCH_NAME = 'master'; // tood: change before merge
+
+export default Invert 
+
+# React  
+## Class Based Components 
+
+---
+
+# Class Based Compomnents
+
+* Extend from React.Component
+* Can manage internal state
+* Access to lifeCycle hooks 
+
+---
+
+<CodeSurfer
+  code={require("!raw-loader!./snippets/hello-world-class.snippet")}
+  theme={nightOwl}
+  lang="jsx"
+  title="Class Based Components"
+  showNumbers
+  steps={[
+    {}, // First step should be an overview of the snippet
+    {lines: [1], notes: "Extend from React.Component"},
+    {range: [7,10], notes: "Call super with props, and bind event callback methods"},
+    {range: [18,24], notes: "React calls render, and returns JSX"},
+    {lines: [21], notes: "Can have access to state or props"},
+    {lines: [22], notes: "Call handleClick when the user clicks"},
+    {range: [12,16], notes: "Handle the click event and update the state"},
+    {lines: [15], notes: "We must use this.setState - and not mutate state directly"},
+    {}
+  ]}
+/>
+
+---
+# App Uses Hello World 
+
+```jsx
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <HelloWorld/>
+      </div>
+    );
+  }
+}
+```
+
+---
+
+## Class Based Component 
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-basic-class-component?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fcomponents%2FHelloWorld.js`}/>
+</Box>
+
+
+
+
