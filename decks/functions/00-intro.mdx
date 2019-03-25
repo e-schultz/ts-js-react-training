@@ -9,14 +9,14 @@ import { Image } from "mdx-deck";
 <Image src="./images/functions-visualized.jpg" size="85vw"/>
 
 ```notes
-I think this image does a better job at describing the slides we had 
+I think this image does a better job at describing the slides we had
 s
 function addNumbers(number1, number2) {
   return number1 + number2;
 }
 
-// number1 recieves the value of 5
-// number2 recieves the value of 7
+// number1 receives the value of 5
+// number2 receives the value of 7
 const total = addNumbers(5, 7);
 ```
 ---
@@ -29,11 +29,11 @@ const total = addNumbers(5, 7);
 ---
 
 
-## Function - ES6 New Features 
+## Function - ES6 New Features
 
-- Can assign default paramaters 
-- Can use the `...rest` operator to access additional paramaters 
-- Can use destructuring on Objects or Arrays 
+- Can assign default parameters
+- Can use the `...rest` operator to access additional parameters
+- Can use destructuring on Objects or Arrays
 
 ---
 
@@ -92,7 +92,7 @@ getRoofColour(houseColours)
 - Without a return, a function resolves to 'undefined'
 - You can return anything
 - Functions can return functions
-- Can use destructuring assignment from returns 
+- Can use destructuring assignment from returns
 - The result of a function return can be used immediately
 
 ---
@@ -111,7 +111,7 @@ const result2 = returnTen(); // the value is undefined
 ```
 
 ---
-export default Code 
+export default Code
 
 ```javascript Returns - Object Destructuring Assignment
 function createPerson() {
@@ -126,7 +126,7 @@ let { firstName, age } = createPerson();
 console.log(`firstName: ${firstName} - age ${age}`)
 ```
 ---
-export default Code 
+export default Code
 
 ```javascript Returns - Array Destructuring Assignment
 function getFirstAndLast(array) {
@@ -138,9 +138,9 @@ let [first, last] = getFirstAndLast([1,2,3,4,5,6]);
 console.log(`first: ${first} - last ${last}`)
 ```
 ---
-export default Code 
+export default Code
 
-```javascript Returns - Returning Functions 
+```javascript Returns - Returning Functions
 function makeGreeter(greeting) {
   return function greeter(name) {
     return `${greeting} ${name}`;
@@ -154,10 +154,10 @@ console.log(goodMorning('Everyone'));
 console.log(goodDay('Everyone'));
 ```
 ---
-## Functions Returning Functions 
+## Functions Returning Functions
 
 - Useful when you have a function that you want to reuse
-- But that function needs some configuration 
+- But that function needs some configuration
 
 ```javascript
 function getGames(id) {
@@ -171,10 +171,10 @@ function getPlatforms(id) {
 }
 ```
 ---
-## Functions Returning Functions 
+## Functions Returning Functions
 
 - Useful when you have a function that you want to reuse
-- But that function needs some configuration 
+- But that function needs some configuration
 
 ```javascript
 function createService(resource) {

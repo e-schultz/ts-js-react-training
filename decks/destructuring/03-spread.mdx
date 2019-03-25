@@ -11,16 +11,16 @@ import { Notes } from 'mdx-deck';
 
 export default Code
 
-```js Object Spread 
+```js Object Spread
 /*
     Notice how we have not modified the initial car object,
-    by usinfg the `...spread` operator - we have created a
+    by using the `...spread` operator - we have created a
     shallow copy of the object.
 */
 function createCar(make,model, year) {
     return { make, model, year}
 }
-function updateYear(car,year) { 
+function updateYear(car,year) {
     return { ...car, year}
 }
 let car = createCar('Toyota','Camery','2018')
@@ -49,15 +49,15 @@ console.log(meatAndAlternatives);
 export default Code
 
 ```js Accidental Mutation
-function createCar(make,model, year) {
+function createCar(make, model, year) {
     return { make, model, year}
 }
-function updateYear(car,year) { 
+function updateYear(car,year) {
     car.year = year;
     return car;
 }
-let car = createCar('Toyota','Camery','2018')
-let newCar = updateYear(car,'2019');
+let car = createCar('Toyota', 'Camry', '2018')
+let newCar = updateYear(car, '2019');
 console.log('car', car);
 console.log('newCar', newCar)
 ```

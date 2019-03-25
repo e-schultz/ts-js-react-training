@@ -2,7 +2,7 @@ import { FullScreenCode, Invert } from "mdx-deck/layouts";
 import Code from 'mdx-code';
 
 
-export default Invert 
+export default Invert
 
 # Function Assignment
 
@@ -22,7 +22,7 @@ function myRegularFunction(a, b) {
   return a + b;
 }
 
-// here we are creating a new variable, 
+// here we are creating a new variable,
 // and assigning myRegular
 const copiedRegFunction = myRegularFunction;
 
@@ -78,7 +78,7 @@ callMyFunction(logName()) // This will not
 
 ---
 
-## Functions as Arguments / Callbacks 
+## Functions as Arguments / Callbacks
 
 - If we can assign a function to a variable, this means we can assign a function as an argument
 - In other words, you can pass functions to other functions
@@ -86,10 +86,10 @@ callMyFunction(logName()) // This will not
 
 ---
 
-export default Code 
+export default Code
 
 ```javascript Function Callbacks
-// accept a number, and a ballback
+// accept a number, and a callback
 function basicCallback(number1, number2, callback) {
   // I am passing the number into the callback, and assigning the result
   const result = callback(number1, number2);
@@ -100,11 +100,11 @@ function basicCallback(number1, number2, callback) {
 // a little function that doubles a number and returns the result
 const add = (number1, number2) => number1 + number2;
 const multiply = (number1, number2) => number1 * number2;
-const substract = (number1, number2) => number1 - number2;
+const subtract = (number1, number2) => number1 - number2;
 
 const added = basicCallback(10, 5, add);
 const multiplied = basicCallback(10, 5, multiply);
-const substracted = basicCallback(10, 5, substract);
-console.log({added, multiplied, substracted})
+const subtracted = basicCallback(10, 5, subtract);
+console.log({added, multiplied, subtracted})
 ```
 
