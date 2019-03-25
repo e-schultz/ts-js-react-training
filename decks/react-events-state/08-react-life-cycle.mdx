@@ -9,11 +9,11 @@ import ImageSplit from "../../components/ImageSplit";
 import Box from "../../components/Box";
 
 
-# React Lifecycle 
+# Component Lifecycle
 
 ---
 
-## Reacts Lifecycle Stages
+## React's Component Lifecycle Stages
 
 - Mounting
 - Updating
@@ -30,7 +30,7 @@ import Box from "../../components/Box";
 
 ---
 
-### Updating - State or Props change 
+### Updating - State or Props change
 
 - [getDerivedStateFromProps](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops)
 - [shouldComponentUpdate()](https://reactjs.org/docs/react-component.html#shouldcomponentupdate)
@@ -40,7 +40,7 @@ import Box from "../../components/Box";
 
 ---
 
-### Unmounting - Component Is Removed from DOM 
+### Unmounting - Component Is Removed from DOM
 
 - [componentWillUnmount](https://reactjs.org/docs/react-component.html#componentwillunmount)
 
@@ -83,8 +83,8 @@ export class Component extends React.Component {
 ### Commonly Used - componentDidMount
 
 - `componentDidMount`
-- Called immediatly after component is inserted into the tree 
-- Good place to setup any subscriptions 
+- Called immediatly after component is inserted into the tree
+- Good place to setup any subscriptions
 - Common place to do data fetching
 
 ---
@@ -110,9 +110,9 @@ export class Component extends React.Component {
 ### Commonly Used - componentDidUpdate
 
 - `componentDidUpdate(prevProps, prevState)`
-- Is not called during initial render 
+- Is not called during initial render
 - Is called after an update
-- Can compare previous state/props to current 
+- Can compare previous state/props to current
 - Can trigger updates based on change in state or props
 
 
@@ -144,7 +144,7 @@ export class Component extends React.Component {
 - `shouldComponentUpdate(nextProps, nextState)`
 - Control if a component should update
 - Invoked before rendering
-- Inform React if the output is impacted by prop or state change 
+- Inform React if the output is impacted by prop or state change
 - If returns false - component will not update
 - Used for performance improvements
 
@@ -170,6 +170,6 @@ export class Component extends React.Component {
 
 ---
 
-export default Invert 
+export default Invert
 
 # Break / Q&A

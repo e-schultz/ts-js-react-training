@@ -38,28 +38,21 @@ export default Invert
 
 ---
 
-## Rendering Lists
+<CodeSurfer
+  code={require("!raw-loader!./snippets/render-lists.snippet")}
+  theme={nightOwl}
+  lang="jsx"
+  title="Rendering Lists"
+  showNumbers
+  steps={[
+    {}, // This component renders from an array
+    {lines: [1,2,3,4,5], notes: "People is an array of objects"},
+    {lines: [7,9], notes: "We map the array" },
+    {lines: [10,11,12,13], notes: "And pass object properties to another component" },
+    {}
+  ]}
+/>
 
-```jsx
-const people = [{ id: 0, firstName: "Evan", lastName: "Schultz" }];
-/* .... */
-// inside of a component
- return (
-      <div>
-        {people.map(person => (
-            <Person
-              key={person.id}
-              firstName={person.firstName}
-              lastName={person.lastName} />
-          )
-        )}
-      </div>
-    );
-```
-
-```notes
-todo: change to CodeSurfer
-```
 ---
 ### Rendering Lists - Example
 
