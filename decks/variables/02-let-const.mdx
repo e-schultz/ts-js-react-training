@@ -6,13 +6,13 @@ import nightOwl from "prism-react-renderer/themes/nightOwl";
 
 ## Variable Declarations - let
 
-- `let` is `block` scoped 
-- `let` can not be redeclared 
-- `let` is not hoisted 
-- Can not use `let` before it's declared 
+- `let` is `block` scoped
+- `let` can not be redeclared
+- `let` is not hoisted
+- Can not use `let` before it's declared
 
 ---
-export default Code 
+export default Code
 
 ```javascript No Longer Valid
 (function() {
@@ -60,7 +60,7 @@ export default Code
 ## Variable Declarations - let & const
 
 * `let` & `const` do not get hoisted to the top
-* Avoids the temporal deadzone 
+* Avoids the temporal dead zone
 * Help avoid sneaky bugs
 
 ---
@@ -122,12 +122,12 @@ function run() {
     }, 100 * i);
   }
 }
-run();  
+run();
 ```
 ---
 ## What Does Block Scope Mean?
 
-* A block scope is defined by `{ brackets }` 
+* A block scope is defined by `{ brackets }`
 * Can access `let` declared in a scope above
 * Can **not** access a `let` declared in an inner scope
 
@@ -148,7 +148,7 @@ function test(lastName) {
         let fullName = firstName + ' ' + lastName;
         return fullName;
     }
-    // this can not access fullName 
+    // this can not access fullName
     // as fullName not in this scope
     return fullName;
 }
