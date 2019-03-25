@@ -13,6 +13,21 @@ import Box from "../../components/Box";
 
 ---
 
+## Component Lifecycle Methods
+- Methods accessible when extending from React.Component
+- Run at different points in the lifecycle
+- Some have access to other React Component methods, such as `setState`
+
+---
+
+## Best Practice Reminder
+- Components that use lifecycle methods or setState are considered "stateful"
+- The responsibility of a stateful component is to manage data
+- Stateful components should not have much UI (rely on "dumb" components)
+- Stateful components should be used only when needed
+
+---
+
 ## React's Component Lifecycle Stages
 
 - Mounting
@@ -83,7 +98,7 @@ export class Component extends React.Component {
 ### Commonly Used - componentDidMount
 
 - `componentDidMount`
-- Called immediatly after component is inserted into the tree
+- Called immediately after component is inserted into the tree
 - Good place to setup any subscriptions
 - Common place to do data fetching
 
@@ -103,7 +118,6 @@ export class Component extends React.Component {
     })
   }
 }
-
 ```
 ---
 
@@ -139,7 +153,7 @@ export class Component extends React.Component {
 
 ---
 
-### (less) Commonly Used - shouldComponentUpdate
+### Less Commonly Used - shouldComponentUpdate
 
 - `shouldComponentUpdate(nextProps, nextState)`
 - Control if a component should update
@@ -150,7 +164,7 @@ export class Component extends React.Component {
 
 ---
 
-### (less) Commonly Used - shouldComponentUpdate
+### Best Practice Reminder
 
 > The default behavior is to re-render on every state change, and in the vast majority of cases you should rely on the default behavior.
 
@@ -161,12 +175,6 @@ export class Component extends React.Component {
 - `componentWillUnmount()`
 - Component is being removed from the tree
 - Used to clean up any subscriptions
-
----
-
-# Exercise
-
-- TODO
 
 ---
 

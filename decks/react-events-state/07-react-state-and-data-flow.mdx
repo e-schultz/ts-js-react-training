@@ -9,19 +9,26 @@ import nightOwl from "prism-react-renderer/themes/nightOwl"
 const BRANCH_NAME = 'master'; // tood: change before merge
 
 
-# React State & Data Flow 
+# React State & Data Flow
 
 ---
 
-# React State 
+## React State
 
 * React Components can have their own internal state
-* Components should not directly mutate their state
+* Components should not directly assign their state
 * Children can not modify parent state
 
 ---
 
-## Unidirectional Data Flow 
+## Reading and Writing State
+* The value of a component's state is modified using the `setState` method
+* `setState` is only available on stateful components
+* Component state can be accessed from the `state` object (`this.state`)
+
+---
+
+## Unidirectional Data Flow
 
 * Data is passed down with props
 * Callbacks are passed down and invoked to notify of changes
@@ -45,7 +52,7 @@ const BRANCH_NAME = 'master'; // tood: change before merge
 |            +-------------------+   |
 |                                    |
 +------------------------------------+
-                                                           
+
 ```
 ---
 
@@ -59,10 +66,10 @@ render() {
     return (
       <div className="App">
         <ul>
-          <li>Hello World Count {this.state.helloWorldCount}</li>  
+          <li>Hello World Count {this.state.helloWorldCount}</li>
         </ul>
-        { /* How can App know abpout changes in HelloWorld? */ }>
-        <HelloWorld/> 
+        { /* How can App know about changes in HelloWorld? */ }>
+        <HelloWorld/>
       </div>
     );
 ```
@@ -87,16 +94,16 @@ render() {
   return (
     <div className="App">
       <ul>
-        <li>Hello World Count {this.state.helloWorldCount}</li>  
+        <li>Hello World Count {this.state.helloWorldCount}</li>
       </ul>
-      <HelloWorld onCountChange={this.handleCountChange} /> 
+      <HelloWorld onCountChange={this.handleCountChange} />
     </div>
     );
 }
 ```
 ---
 
-### Why? 
+### Why?
 
 * The Child can be reused in many contexts
 * The Child can be reused more than once on the same screen
@@ -104,21 +111,21 @@ render() {
 
 ---
 
-### Why? 
+### Why?
 
 * You tell React when state changes with `setState`
 * React does not automatically Observe or Dirty objects for you
 
 ---
 
-```jsx  
+```jsx
 /* ..... */
   render() {
     return (
       <div className="App">
       First Hello World Clicked: {this.state.helloWorldOne}<br/>
       Second Hello World Clicked: {this.state.helloWorldTwo}<br/>
-      
+
       <HelloWorld onValueChange={this.handleClickOne} />
       <HelloWorld onValueChange={this.handleClickTwo} />
       </div>
@@ -134,3 +141,36 @@ export default FullScreenCode
 
 <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-data-down-events-up?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fcomponents%2FHelloWorld.js`}/>
 
+---
+
+## setState is Asynchronous
+
+* Changes to state will not be available right away
+* setState's second argument is a callback that can be used to avoid issues with this
+
+---
+
+## Without Callback
+
+```jsx
+handleCountChange(value) {
+  this.setState({ helloWorldCount: value })
+  // This will log the old value
+  console.log(this.state.helloWorldCount)
+}
+```
+
+---
+
+
+## With Callback
+
+```jsx
+handleCountChange(value) {
+  this.setState(
+    { helloWorldCount: value },
+    // This will log the new value
+    () => { console.log(this.state.helloWorldCount) }
+  )
+}
+```
