@@ -1,0 +1,11 @@
+  const RemovableRows = ({ rows }) => {
+      const deleteRow = (rowId, event) => {
+        console.log(`Delete ${rowId}`)
+      }
+      return rows.map((row, rowId) => {
+        <Row row={row} />
+        <button onClick={
+            (event) => deleteRow(rowId, event)
+        }>Delete Row</button>
+      })
+  }

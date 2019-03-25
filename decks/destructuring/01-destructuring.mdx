@@ -7,7 +7,7 @@ import Code from 'mdx-code'
 - ES2015 introduced the `...rest/...spread` operator
 - Can construct new objects/arrays while omitting properties
 - Can create new objects/arrays and merge in new properties
-- Can create shallow copies of objects 
+- Can create shallow copies of objects
 
 ---
 
@@ -33,10 +33,6 @@ console.log(roofColour)
 export default Code
 
 ```javascript Assignment with Arrays
-const [width, height] = [20, 40]
-console.log(width, height)
-
-// Identical to...
-const dimensions = [20, 40]
-const [width2, height2] = dimensions
+let [year, month, day] = "2013-11-29".split('-')
+console.log(year, month, day)
 ```

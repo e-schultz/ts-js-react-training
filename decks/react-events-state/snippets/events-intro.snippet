@@ -1,0 +1,11 @@
+const Button = () => {
+    const handleClick = event => {
+      event.preventDefault()
+      console.log('I was clicked!')
+    }
+    return
+    <button type="button"
+        onClick={handleClick}>
+            Click Me
+    </button>
+}

@@ -6,13 +6,13 @@ import { CodeSurfer } from "mdx-deck-code-surfer";
 import nightOwl from "prism-react-renderer/themes/nightOwl";
 
 
-export default Invert 
+export default Invert
 
 # Handling Events
 
 ---
 
-## Events in React 
+## Events in React
 
 - React provides APIs for dealing with many common events, called SyntheticEvents
 - Often similar to browser events, but camelCase
@@ -39,22 +39,39 @@ export default Invert
 
 ---
 
-```javascript
-const handleClick(event) {
-  event.preventDefault()
-  console.log('I was clicked!')
-}
-return <button type="button" onClick={handleClick}>Click Me</button>
-```
+<CodeSurfer
+  code={require("!raw-loader!./snippets/events-intro.snippet")}
+  theme={nightOwl}
+  lang="jsx"
+  title="Events in React"
+  showNumbers
+  steps={[
+    {},
+    {lines: [2,3,4,5], notes: "Our event handler - we want it to run when the event triggers"},
+    {lines: [8], notes: "We attach the handler WITHOUT invoking it" },
+    {lines: [2], notes: "It will receive a prop, event" },
+    {lines: [3], notes: "It's a JavaScript event with expected methods" },
+    {lines: [4], notes: "Log when the button is clicked" },
+    {}
+  ]}
+/>
 
 ---
 
-```javascript Getting Values
-const handleInput(event) {
-  console.log(`The user typed ${event.target.value}`)
-}
-return <input type="text" onInput={handleInput}>Click Me</button>
-```
+<CodeSurfer
+  code={require("!raw-loader!./snippets/event-target.snippet")}
+  theme={nightOwl}
+  lang="jsx"
+  title="Event Values"
+  showNumbers
+  steps={[
+    {},
+    {lines: [], notes: "If we want the value of an event..."},
+    {lines: [3], notes: "We read it from the event object" },
+    {lines: [4], notes: "Then we can use it" },
+    {}
+  ]}
+/>
 
 ---
 
@@ -66,12 +83,22 @@ return <input type="text" onInput={handleInput}>Click Me</button>
 
 ---
 
-```javascript 
-  const deleteRow = (rowId, event) => {
-    console.log(`Delete ${rowId}`)
-  }
-  return rows.map((row, rowId) => {
-    ...
-    <button onClick={(event) => deleteRow(rowId, event)}>Delete Row</button>
-  })
-```
+<CodeSurfer
+  code={require("!raw-loader!./snippets/event-with-param.snippet")}
+  theme={nightOwl}
+  lang="jsx"
+  title="Events with Extra Parameters"
+  showNumbers
+  steps={[
+    {},
+    {lines: [3], notes: "We want to log the row ID when the button is clicked"},
+    {lines: [8], notes: "Use an anonymous function that returns our handler" },
+    {lines: [8], notes: "Pass the event and our extra param" },
+    {}
+  ]}
+/>
+
+---
+
+## Exercise
+
