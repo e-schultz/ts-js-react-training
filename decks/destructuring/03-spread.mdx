@@ -18,13 +18,13 @@ export default Code
     shallow copy of the object.
 */
 function createCar(make,model, year) {
-    return { make, model, year}
+    return { make, model, year }
 }
 function updateYear(car,year) {
     return { ...car, year}
 }
-let car = createCar('Toyota','Camery','2018')
-let newCar = updateYear(car,'2019');
+let car = createCar('Toyota', 'Camry','2018')
+let newCar = updateYear(car, '2019');
 console.log('car', car);
 console.log('newCar', newCar)
 ```
@@ -61,8 +61,3 @@ let newCar = updateYear(car, '2019');
 console.log('car', car);
 console.log('newCar', newCar)
 ```
-
----
-
-Notice how in this case - both car, and newCar have the updated year.
-
