@@ -1,18 +1,18 @@
 
-import { Head, Appear, Image, withDecks } from 'mdx-deck' 
+import { Head, Appear, Image, withDecks } from 'mdx-deck'
 import Code from 'mdx-code';
 import { CodeSurfer } from "mdx-deck-code-surfer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
 import { FullScreenCode, Invert } from "mdx-deck/layouts";
 import ReplIt from "../../components/replit";
 
-export default Invert 
+export default Invert
 
-# Closures 
+# Closures
 
 ---
 
-## Closures 
+## Closures
 
 > A closure is a function having access to the parent scope, even after the parent function has closed.
 
@@ -20,7 +20,7 @@ export default Invert
 
 ---
 
-### Important thing to remember 
+### Important thing to remember
 
 <Appear>
     <h3>Functions can return Functions</h3>
@@ -40,7 +40,7 @@ export default Invert
     {lines: [4,5], notes: "This function can access variables and functions in the scope above it"},
     {lines: [8], notes: "Even after the parent execution is done"},
     {range: [11,13], notes: "Captures 0 as the initial value"},
-    {range: [15,16], notes: "Captures 10 as the initial value"},
+    {range: [14,16], notes: "Captures 10 as the initial value"},
     {}
   ]}
 />
@@ -74,7 +74,7 @@ export default FullScreenCode
 
 export default FullScreenCode
 
-### Closure Exercise 1 - Create Logger - Solution 
+### Closure Exercise 1 - Create Logger - Solution
 
 <ReplIt src="https://repl.it/@e_schultz/01-Closure-Exercises-create-logger-solution?lite=true"/>
 
