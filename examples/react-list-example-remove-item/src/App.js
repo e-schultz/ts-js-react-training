@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import { people } from './people';
 
 function Block({ children }) {
   return (
@@ -25,23 +26,7 @@ function Person({ firstName, lastName, onRemove }) {
     </Block>
   );
 }
-const people = [
-  {
-    id: 0,
-    firstName: "Evan",
-    lastName: "Schultz"
-  },
-  {
-    id: 1,
-    firstName: "Renee",
-    lastName: "Blackburn"
-  },
-  {
-    id: 2,
-    firstName: "John",
-    lastName: "Doe"
-  }
-];
+
 class App extends Component {
   constructor() {
     super();

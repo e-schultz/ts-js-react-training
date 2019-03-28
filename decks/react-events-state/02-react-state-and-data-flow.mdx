@@ -1,4 +1,4 @@
-import { FullScreenCode, Split, SplitRight } from "mdx-deck/layouts";
+import { FullScreenCode, Split, SplitRight, Invert } from "mdx-deck/layouts";
 import ReplIt from "../../components/replit";
 import CodeSandbox from "../../components/codesandbox";
 import ImageSplit from "../../components/ImageSplit";
@@ -6,7 +6,7 @@ import Box from "../../components/Box";
 import { Head, Appear, Image, withDeck } from 'mdx-deck'
 import { CodeSurfer } from "mdx-deck-code-surfer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
-const BRANCH_NAME = 'master'; // tood: change before merge
+const BRANCH_NAME = 'es-m27-updates'; // tood: change before merge
 
 
 # React State & Data Flow
@@ -27,6 +27,25 @@ const BRANCH_NAME = 'master'; // tood: change before merge
 
 ---
 
+## State / Data Flow 
+
+---
+export default Invert 
+
+## Brief Intro to React Class Based Components 
+### This will be covered more in depth later today.
+
+---
+
+# React.Component 101 
+
+Class that extends from React.Component, which has:
+
+*  `state` property
+*  `render` method 
+*  `this.setState` method to modify state
+
+---
 ## Reading and Writing State
 
 * The value of a component's state is modified using the `setState` method
@@ -61,6 +80,13 @@ const BRANCH_NAME = 'master'; // tood: change before merge
 +------------------------------------+
 
 ```
+---
+
+### Example - Removing Item from List
+
+<Box style={{width: "80vw"}}>
+  <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-list-example-remove-item?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
+</Box>
 ---
 
 ### How Can App Know What the Count Is?
