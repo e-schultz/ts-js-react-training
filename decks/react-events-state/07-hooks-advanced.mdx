@@ -1,0 +1,66 @@
+import { FullScreenCode, Split, SplitRight, Invert } from "mdx-deck/layouts";
+import { Head, Appear, Image, withDeck } from 'mdx-deck'
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import nightOwl from "prism-react-renderer/themes/nightOwl"
+
+import ReplIt from "../../components/replit";
+import CodeSandbox from "../../components/codesandbox";
+import ImageSplit from "../../components/ImageSplit";
+import Box from "../../components/Box";
+const BRANCH_NAME = 'es-m27-updates';
+
+export default Invert
+
+# Hooks - Advanced
+
+## `useEffect` Hook
+- Can replace componentWillUpdate + componentDidMount
+- Can be scoped to only run when a given stateful value updates
+- Like setState, can be used multiple times in one component
+
+
+---
+
+<CodeSurfer
+  code={require("!raw-loader!./snippets/hooks-vs-classes-1.snippet")}
+  theme={nightOwl}
+  lang="jsx"
+  title="Search Component - Class"
+  showNumbers
+  steps={[
+    {}, // A component that handles a search
+    {lines: [6], notes: "User will enter a search term"},
+    {lines: [7], notes: "We will search and store results"},
+    {lines: [11], notes: "We need to get initial results for default search"},
+    {lines: [20], notes: "But we also need to get results when component updates"},
+    {lines: [12,13,14,15,16,22,23,24,25,26], notes: "Code can be refactored, but winds up duplicated"},
+    {lines: [21], notes: "A check is needed to avoid too many API calls"},
+    {}
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  code={require("!raw-loader!./snippets/hooks-vs-classes-2.snippet")}
+  theme={nightOwl}
+  lang="jsx"
+  title="Search Component - Class"
+  showNumbers
+  steps={[
+    {}, // A component that handles a search
+    {range: [3, 13], notes: "Much less code needed for the same result"},
+    {lines: [1], notes: "Import the hooks we want to use"},
+    {lines: [4,5], notes: "Create stateful variables and their setters with useState"},
+    {lines: [4], notes: "Access with searchTerm, set with setSearchTerm()"},
+    {lines: [4,5], notes: "Provide default values of 'news' and []"},
+    {lines: [7], notes: "useEffect will run when component mounts OR updates"},
+    {range: [7,12], notes: "API request in one spot"},
+    {lines: [12], notes: "This effect only runs when searchTerm changes"},
+    {}
+  ]}
+/>
+
+---
+
+# [More on Hooks](https://reactjs.org/docs/hooks-intro.html)
