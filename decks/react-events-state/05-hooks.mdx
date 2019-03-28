@@ -7,6 +7,7 @@ import ReplIt from "../../components/replit";
 import CodeSandbox from "../../components/codesandbox";
 import ImageSplit from "../../components/ImageSplit";
 import Box from "../../components/Box";
+const BRANCH_NAME = 'es-m27-updates';
 
 export default Invert
 
@@ -23,6 +24,7 @@ export default Invert
 ---
 
 ## What are Hooks?
+
 - Functions you import from React
 - Usable in any kind of component
 - Can be used multiple times per component
@@ -44,10 +46,57 @@ export default Invert
 
 ---
 
+## `useState` Hook  
+
+```jsx
+
+function InputField({label, initialValue}) {
+  const [value, setValue] = useState(initialValue);
+  
+  return (
+    <label>
+        {label}
+        <input
+          type="text"
+          value={value}
+          onChange={e => setValue(e.target.value)}
+        />
+      </label>
+  )
+}
+```
+---
+
+## Example - Forms with React.Component 
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/forms-with-classes?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fcomponents%2FHelloWorld.js`}/>
+</Box>
+
+
+---
+
+## Example - Forms with Hooks 
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/forms-with-hooks?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fcomponents%2FHelloWorld.js`}/>
+</Box>
+
+---
+
+## Example - Forms with Custom Hooks
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/forms-with-hooks-refactor?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fcomponents%2FHelloWorld.js`}/>
+</Box>
+
+---
+
 ## `useEffect` Hook
 - Can replace componentWillUpdate + componentDidMount
 - Can be scoped to only run when a given stateful value updates
 - Like setState, can be used multiple times in one component
+
 
 ---
 
