@@ -4,6 +4,7 @@ import classBased from './03-class-based-components.mdx';
 import stateExercise from './stateful-component-exercise.mdx'
 import lifeCycle from './04-react-life-cycle.mdx';
 import hooks from './06-hooks.mdx'
+import hooksAdvanced from './07-hooks-advanced.mdx'
 import dataFetch from './05-data-fetch.mdx'
 import dataFetchE from './99-data-fetch-exercises.mdx';
 
@@ -17,5 +18,6 @@ export default [
   ...lifeCycle,
   ...dataFetch,
   ...hooks,
-  ...dataFetchE
+  ...dataFetchE,
+  ...hooksAdvanced
 ]
