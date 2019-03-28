@@ -13,15 +13,22 @@ const BRANCH_NAME = 'master'; // tood: change before merge
 
 ---
 
+## What is State?
+
+* State is Data that changes over time
+
+---
+
 ## React State
 
 * React Components can have their own internal state
-* Components should not directly assign their state
+* Components should not directly mutate their state
 * Children can not modify parent state
 
 ---
 
 ## Reading and Writing State
+
 * The value of a component's state is modified using the `setState` method
 * `setState` is only available on stateful components
 * Component state can be accessed from the `state` object (`this.state`)
