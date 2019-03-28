@@ -1,0 +1,84 @@
+### How Can App Know What the Count Is?
+
+* Children can not modify the `App` counter
+* If App wants to keep track, how will it know?
+
+```jsx
+render() {
+    return (
+      <div className="App">
+        <ul>
+          <li>Hello World Count {this.state.helloWorldCount}</li>
+        </ul>
+        { /* How can App know about changes in HelloWorld? */ }>
+        <HelloWorld/>
+      </div>
+    );
+```
+---
+
+### How Can App Know What the Count Is?
+
+* Remember: You can pass functions as props
+* Pass a Callback to `HelloWorld`
+* `HelloWorld` invokes it, `App` can respond to the change
+
+---
+export default FullScreenCode
+
+### How Can App Know What the Count Is?
+
+```jsx
+handleCountChange(value) {
+  this.setState({ helloWorldCount: value });
+}
+render() {
+  return (
+    <div className="App">
+      <ul>
+        <li>Hello World Count {this.state.helloWorldCount}</li>
+      </ul>
+      <HelloWorld onCountChange={this.handleCountChange} />
+    </div>
+    );
+}
+```
+---
+
+### Why?
+
+* The Child can be reused in many contexts
+* The Child can be reused more than once on the same screen
+* Parent decides what to do with the change
+
+---
+
+### Why?
+
+* You tell React when state changes with `setState`
+* React does not automatically Observe or Dirty objects for you
+
+---
+
+```jsx
+/* ..... */
+  render() {
+    return (
+      <div className="App">
+      First Hello World Clicked: {this.state.helloWorldOne}<br/>
+      Second Hello World Clicked: {this.state.helloWorldTwo}<br/>
+
+      <HelloWorld onValueChange={this.handleClickOne} />
+      <HelloWorld onValueChange={this.handleClickTwo} />
+      </div>
+    );
+  }
+```
+
+---
+
+export default FullScreenCode
+
+### Data Down, Callbacks Up
+
+<CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-data-down-events-up?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fcomponents%2FHelloWorld.js`}/>

@@ -65,14 +65,14 @@ Class that extends from React.Component, which has:
 ```
 +------------------------------------+
 |                                    |
-| Parent                             |
+| App                                |
 |            Props        Callback   |
 |              |             ^       |
 |              |             |       |
 |              |             |       |
 |              ˇ             |       |
 |            +-------------------+   |
-|            |Child              |   |
+|            | Person            |   |
 |            |                   |   |
 |            |                   |   |
 |            +-------------------+   |
@@ -87,92 +87,46 @@ Class that extends from React.Component, which has:
 <Box style={{width: "80vw"}}>
   <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-list-example-remove-item?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
 </Box>
----
-
-### How Can App Know What the Count Is?
-
-* Children can not modify the `App` counter
-* If App wants to keep track, how will it know?
-
-```jsx
-render() {
-    return (
-      <div className="App">
-        <ul>
-          <li>Hello World Count {this.state.helloWorldCount}</li>
-        </ul>
-        { /* How can App know about changes in HelloWorld? */ }>
-        <HelloWorld/>
-      </div>
-    );
-```
----
-
-### How Can App Know What the Count Is?
-
-* Remember: You can pass functions as props
-* Pass a Callback to `HelloWorld`
-* `HelloWorld` invokes it, `App` can respond to the change
-
----
-export default FullScreenCode
-
-### How Can App Know What the Count Is?
-
-```jsx
-handleCountChange(value) {
-  this.setState({ helloWorldCount: value });
-}
-render() {
-  return (
-    <div className="App">
-      <ul>
-        <li>Hello World Count {this.state.helloWorldCount}</li>
-      </ul>
-      <HelloWorld onCountChange={this.handleCountChange} />
-    </div>
-    );
-}
-```
----
-
-### Why?
-
-* The Child can be reused in many contexts
-* The Child can be reused more than once on the same screen
-* Parent decides what to do with the change
 
 ---
 
-### Why?
+### Why should the Parent handle the change?
 
-* You tell React when state changes with `setState`
-* React does not automatically Observe or Dirty objects for you
+* The child notifies that we want to be done.
+* The parent controls how it is done.
+* The parent provided the data - so it controls how it is updated
+
+---
+### Example - Use confirm to control if the item is removed
+
+<Box style={{width: "80vw"}}>
+  <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-list-example-remove-item?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
+</Box>
 
 ---
 
-```jsx
-/* ..... */
-  render() {
-    return (
-      <div className="App">
-      First Hello World Clicked: {this.state.helloWorldOne}<br/>
-      Second Hello World Clicked: {this.state.helloWorldTwo}<br/>
+### Exercise - Add "Remove" functionality to the Robot List 
 
-      <HelloWorld onValueChange={this.handleClickOne} />
-      <HelloWorld onValueChange={this.handleClickTwo} />
-      </div>
-    );
-  }
-```
+* Modify the Robot Card / List
+* Add a Remove Button to the Robot Card
+* Add a callback prop 
+* Modify the parent to remove the Robot once the button is clicked
 
 ---
 
-export default FullScreenCode
+### Exercise - Robot List Remove - Start 
 
-### Data Down, Callbacks Up
+<Box style={{width: "80vw"}}>
+  <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/exercises//events-robbot-list-remove-robot-start?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
+</Box>
 
-<CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-data-down-events-up?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fcomponents%2FHelloWorld.js`}/>
+---
+
+### Exercise - Robot List Remove - Solution 
+
+<Box style={{width: "80vw"}}>
+  <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/exercises//events-robbot-list-remove-robot-end?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
+</Box>
 
 ---
 
