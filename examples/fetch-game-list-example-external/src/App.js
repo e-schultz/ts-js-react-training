@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
 import "./App.css";
+import { getGames } from "./services/games-service";
 const BASE_URL = "https://js-ts-training.now.sh";
 
 function Block({ children }) {
@@ -38,14 +38,12 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    fetch(`${BASE_URL}/games`)
-      .then(response => response.json())
-      .then(result => {
-        this.setState(state => ({
-          games: result,
-          isLoading: false
-        }));
-      });
+    getGames().then(result => {
+      this.setState(state => ({
+        games: result,
+        isLoading: false
+      }));
+    });
   }
   render() {
     return (

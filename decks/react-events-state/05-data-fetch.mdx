@@ -17,17 +17,62 @@ export default Invert
 ---
 
 * Common to use the `componentDidMount` lifecycle hook to request data
-* The `service` or logic for making the request can live in another file
-* This can be imported and reused in many places 
 * The data fetching typically lives in a `container` component, that then passes the information down
 
 ---
+
 ## Basic Data Fetch Example
 
 <Box width={'80vw'}>
     <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/fetch-game-list-example?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
 </Box>
 
+---
 
+## Not all logic needs to live in the component
 
+* Can extract functionality to other files 
+* Import them where needed
+
+---
+
+## Data Fetch - External Service
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/fetch-game-list-example-external?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
+</Box>
+
+---
+
+## Data Fetch Exercise 
+
+* Replace mock data with real data
+* Get a list of games that include the platform name
+* Once games are loading
+* Add a loading state
+* Display loading place holder
+* Display games once ready 
+
+```json
+[{
+    id: 1,
+    game: 'Some Game',
+    platformName: 'PS4'
+}]
+```
+---
+
+### Data Fetch Exercise - Game and Platfrom - Start
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/exercises/data-fetch-game-and-platform-start?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
+</Box>
+
+---
+
+### Data Fetch Exercise - Game and Platfrom - Solution
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/exercises/data-fetch-game-and-platform-end?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
+</Box>
 

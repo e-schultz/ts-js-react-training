@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-
 import "./App.css";
-const BASE_URL = "https://js-ts-training.now.sh";
-
+import { getGameDetailList } from "./services/games-service";
 function Block({ children }) {
   return (
     <div
@@ -20,41 +18,37 @@ function Block({ children }) {
   );
 }
 
-function GameCard({ name }) {
-  return <Block>{name}</Block>;
+function GameCard({ children }) {
+  return <Block>{children}</Block>;
 }
 
 function GameList({ games }) {
-  return games.map(({ id, name }) => {
-    return <GameCard key={id} name={name} />;
+  return games.map(({ id, name, platformName }) => {
+    return (
+      <GameCard key={id}>
+        {name} - {platformName}
+      </GameCard>
+    );
   });
 }
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      isLoading: true,
       games: []
     };
   }
   componentDidMount() {
-    fetch(`${BASE_URL}/games`)
-      .then(response => response.json())
-      .then(result => {
-        this.setState(state => ({
-          games: result,
-          isLoading: false
-        }));
-      });
+    getGameDetailList().then(result => {
+      this.setState(state => ({
+        games: result
+      }));
+    });
   }
   render() {
     return (
       <div className="App">
-        {!this.state.isLoading ? (
-          <GameList games={this.state.games} />
-        ) : (
-          <h1>Loading</h1>
-        )}
+        <GameList games={this.state.games} />
       </div>
     );
   }
