@@ -1,0 +1,33 @@
+import { FullScreenCode, Split, SplitRight, Invert } from "mdx-deck/layouts";
+import { Head, Appear, Image, withDeck } from 'mdx-deck'
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import nightOwl from "prism-react-renderer/themes/nightOwl"
+
+import ReplIt from "../../components/replit";
+import CodeSandbox from "../../components/codesandbox";
+import ImageSplit from "../../components/ImageSplit";
+import Box from "../../components/Box";
+const BRANCH_NAME = 'master'; // tood: change before merge
+
+
+export default Invert 
+
+# Data Fetching
+
+---
+
+* Common to use the `componentDidMount` lifecycle hook to request data
+* The `service` or logic for making the request can live in another file
+* This can be imported and reused in many places 
+* The data fetching typically lives in a `container` component, that then passes the information down
+
+---
+## Basic Data Fetch Example
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/fetch-game-list-example?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
+</Box>
+
+
+
+

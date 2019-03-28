@@ -7,10 +7,9 @@ class HackerNewsSearch extends React.Component {
     super(props);
     this.state = {
       results: [],
-      isLoading: false,
-      query: 'react'
+      isLoading: false
     };
-    this.handleSearch = this.handleSearch.bind(this);
+   
   }
   componentDidMount() {
     this.query();
@@ -18,23 +17,25 @@ class HackerNewsSearch extends React.Component {
 
   query() {
     this.setState({ isLoading: true });
-    fetch(`${API}query=${this.state.query}`)
+    fetch(`${API}query=${this.props.query}`)
       .then(result => result.json())
       .then(({ hits }) => {
         this.setState({ results: hits, isLoading: false });
       });
   }
-  handleSearch(event) {
-    console.log('hi');
-    this.setState({ query: event.target.value }, () => {
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.query !== this.props.query)  {
       this.query();
-    });
+    }
   }
+  
   render() {
-    let { results, isLoading, query } = this.state;
+    let { results, isLoading } = this.state;
+    let { query } = this.props.query;
     return (
       <section>
-        <input onBlur={this.handleSearch} defaultValue={query} />
+       
         {isLoading ? (
           <div>...... please wait while searching for {query} </div>
         ) : (

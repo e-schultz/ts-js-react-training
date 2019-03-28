@@ -1,0 +1,93 @@
+import { FullScreenCode, Split, SplitRight, Invert } from "mdx-deck/layouts";
+import { Head, Appear, Image, withDeck } from 'mdx-deck'
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import nightOwl from "prism-react-renderer/themes/nightOwl"
+
+import ReplIt from "../../components/replit";
+import CodeSandbox from "../../components/codesandbox";
+import ImageSplit from "../../components/ImageSplit";
+import Box from "../../components/Box";
+const BRANCH_NAME = 'master'; // tood: change before merge
+
+export default Invert
+
+# Hooks
+
+---
+
+## Hooks
+
+- A brand-new feature in React
+- Allows you to create stateful components without classes
+- Replaces setState and lifecycle methods
+
+---
+
+## What are Hooks?
+
+- Functions you import from React
+- Usable in any kind of component
+- Can be used multiple times per component
+
+---
+
+## Why use Hooks?
+
+- Avoids issues with JavaScript classes
+- Tends to require less code
+- Helps avoid replication
+
+---
+
+## `useState` Hook
+
+- A function that designates a regular variable as stateful and provides a setter function to update it
+- Replaces setState
+
+---
+
+## `useState` Hook  
+
+```jsx
+
+function InputField({label, initialValue}) {
+  const [value, setValue] = useState(initialValue);
+  
+  return (
+    <label>
+        {label}
+        <input
+          type="text"
+          value={value}
+          onChange={e => setValue(e.target.value)}
+        />
+      </label>
+  )
+}
+```
+---
+
+## Example - Forms with React.Component 
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/forms-with-classes?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
+</Box>
+
+
+---
+
+## Example - Forms with Hooks 
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/forms-with-hooks?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
+</Box>
+
+---
+
+## Example - Forms with Custom Hooks
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/forms-with-hooks-refactor?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
+</Box>
+
+
