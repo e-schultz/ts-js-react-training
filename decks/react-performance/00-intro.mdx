@@ -1,0 +1,84 @@
+
+import { FullScreenCode, Invert } from "mdx-deck/layouts";
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import nightOwl from "prism-react-renderer/themes/nightOwl"
+import { Image } from "mdx-deck"
+
+export default Invert 
+
+# React Performance
+
+---
+
+## Render Default Behaviour 
+
+* A component will re-render every time
+* This does not update the DOM  
+* This updates / generates the Virtual DOM
+* React will then diff the VDOM to the DOM 
+
+---
+
+## Under the Hood 
+
+React uses an O(n) algorithm based on two assumptions
+
+* Two elements of different types will produce different trees.
+* Developers can hint which child elements may be stable across different renders with a key prop.
+
+---
+
+## React Diffing Basics 
+
+* If the root element type changes - react will tear down and rebuild the tree
+
+```jsx
+<div>
+  <Child/>
+</div>
+
+<span>
+  <Child/>
+</span>
+```
+
+---
+
+## Diff of Same Element Type
+
+* React will see that only `className` has changed
+* It will modify that - instead of recreating the DOM
+
+```jsx
+<div className="before" title="stuff" />
+
+<div className="after" title="stuff" />
+```
+
+---
+
+## Controlling Updates - shouldComponentUpdate
+
+* Can implement `shouldComponentUpdate`
+* If it returns true - render will run on it, and it's children
+* If it returns false - will not render, or render it's children
+
+---
+
+## Controlling Updates - Immutability
+
+* If using Immutable patterns, can use `shouldComponentUpdate` for some quick gains
+* Can check if the reference of the object / state has changed, and not do a shallow compare
+
+
+```jsx
+// ...
+shouldComponentUpdate(prevProp) {
+  return this,props.complexProp !== prevProp.complexProp
+}
+
+```
+
+---
+
+<Image src="https://reactjs.org/static/should-component-update-5ee1bdf4779af06072a17b7a0654f6db-9a3ff.png" size="contain"/>
