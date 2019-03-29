@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": ,
+  "name": "react-state-deck",
   "version": "1.0.0",
   "scripts": {
     "start": "mdx-deck index.js",

@@ -54,6 +54,43 @@ Class that extends from React.Component, which has:
 
 ---
 
+## Setting State 
+
+`setState` can be called in two ways:
+
+* By providing an object 
+
+```jsx
+this.setState({
+  items: [1,2,3]
+})
+```
+
+---
+
+## Setting State 
+
+`setState` can be called in two ways:
+
+* By providing a updater method 
+
+```jsx
+this.setState((state)=>({
+ items: state.items.map(n=>n*2)
+}))
+```
+
+---
+
+## When to use the updater?
+
+* If the your next state depends on the current state
+* React will provide the current state at the time it is being applied
+* When not using the updated, `this.state` will refer to the state at the time setState was callled
+* [React setState documentation for deeper dive](https://reactjs.org/docs/react-component.html#setstate)
+
+---
+
 ## Unidirectional Data Flow
 
 * Data is passed down with props
