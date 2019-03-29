@@ -10,9 +10,9 @@ class App extends Component {
     this.state = { robots };
   }
   removeRobot(event, id) {
-    this.setState({
-      robots: this.state.robots.filter(robot=>robot.id !== id)
-    })
+    this.setState(state => ({
+      robots: state.robots.filter(robot => robot.id !== id)
+    }));
   }
   render() {
     return (
