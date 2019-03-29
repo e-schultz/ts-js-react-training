@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { people } from './people';
+import { people } from "./people";
 
 function Block({ children }) {
   return (
@@ -32,12 +32,12 @@ class App extends Component {
     super();
     this.state = {
       people
-    }
+    };
   }
   removePerson(id) {
-    this.setState({
-      people: this.state.people.filter(n=>n.id !== id)
-    })
+    this.setState(state => ({
+      people: state.people.filter(n => n.id !== id)
+    }));
   }
   render() {
     return (
@@ -48,7 +48,7 @@ class App extends Component {
               key={person.id}
               firstName={person.firstName}
               lastName={person.lastName}
-              onRemove={()=>this.removePerson(person.id)}
+              onRemove={() => this.removePerson(person.id)}
             />
           );
         })}
