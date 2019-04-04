@@ -1,8 +1,29 @@
 import Code from 'mdx-code';
 import { CodeSurfer } from "mdx-deck-code-surfer"
+import { Invert } from "mdx-deck/layouts";
 import nightOwl from "prism-react-renderer/themes/nightOwl"
 
+export default Invert 
+
 # Iterating Arrays
+
+---
+
+# Array Methods
+
+* In ES6, we mainly use array methods to iterate and transform array data
+* Array methods accept a function as a callback 
+* The function is operated on every item in the collection
+
+---
+
+# Methods 
+
+* filter 
+* map 
+* reduce
+* find
+* first 
 
 ---
 
@@ -18,17 +39,20 @@ import nightOwl from "prism-react-renderer/themes/nightOwl"
 export default Code
 
 ```javascript Array.find
-const numbers = [1, 2, 3, 4, 5]
+const tasks = [
+  { id: 104, complete: true, priority: "high", title: "Complete Slides" },
+  { id: 105, complete: false, priority: "medium", title: "Finish Testing" },
+  { id: 106, complete: true, priority: "medium", title: "Update Docs" },
+  { id: 107, complete: false, priority: "low", title: "Refactor API" }];
 
-const overThree = numbers.find(number => number > 3)
-const equalsTwo = numbers.find(number => number === 2)
-
-console.log(overThree);
+const task = tasks.find((currentTask) => currentTask.id === 104)
+console.log(task);
 ```
 
 ---
 
 ## Array.filter
+
 - Accepts a function as an argument
 - This function MUST return a boolean
 - Returns a new array with every item that evaluated to true when the function was run
@@ -36,14 +60,18 @@ console.log(overThree);
 
 ---
 
+
 export default Code
 
 ```javascript Array.filter
-const numbers = [1, 2, 3, 4, 5];
+const tasks = [
+  { id: 104, complete: true, priority: "high", title: "Complete Slides" },
+  { id: 105, complete: false, priority: "medium", title: "Finish Testing" },
+  { id: 106, complete: true, priority: "medium", title: "Update Docs" },
+  { id: 107, complete: false, priority: "low", title: "Refactor API" }];
 
-const evenNumbers = numbers.filter(number => number % 2 === 0)
-
-console.log(evenNumbers);
+const completedTasks = tasks.filter((currentTask) => currentTask.complete === true)
+console.log(completedTasks);
 ```
 
 ---
@@ -75,7 +103,7 @@ console.log(onlyFullNames);
 
 export default Code
 
-```javascript Transform to Objects
+```javascript Transform to values
 let numbers = [1, 2, 3, 4, 5];
 
 let doubled = numbers.map(number => {
@@ -85,6 +113,38 @@ let doubled = numbers.map(number => {
 console.log(doubled);
 ```
 
+---
+
+export default Code 
+
+```javascript Transform objects 
+const PRIORITY_MAP = {
+  "high": 2,
+  "medium": 1, 
+  "low": 0
+}
+
+const tasks = [
+  { id: 104, complete: true, priority: "high", title: "Complete Slides", assignedTo: { firstName: "John", lastName: "Doe"} },
+  { id: 105, complete: false, priority: "medium", title: "Finish Testing" ,assignedTo: { firstName: "Jane", lastName: "Doe"} },
+  { id: 106, complete: true, priority: "medium", title: "Update Docs", assignedTo: { firstName: "Evan", lastName: "Schultz"} } ,
+  { id: 107, complete: false, priority: "low", title: "Refactor API", assignedTo: { firstName: "Evan", lastName: "Schultz"} }];
+
+
+let taskSummary = tasks.map(task=>{
+  const { id, complete, priority, title, assignedTo } = task;
+  return {
+    id,
+    complete,
+    priority,
+    prioritySort: PRIORITY_MAP[priority],
+    title,
+    assignedTo: `${assignedTo.firstName} ${assignedTo.lastName}`
+  }
+});
+
+console.log(taskSummary)
+```
 ---
 
 export default Code
@@ -128,7 +188,7 @@ console.log(castWithIds);
 
 export default Code
 
-```javascript Mapping Arrays
+```javascript Chaining Array Methods
 
 const leia = { firstName: 'Leia', lastName: 'Organa', forceSensitive: true };
 const luke = { firstName: 'Luke', lastName: 'Skywalker', forceSensitive: true };
@@ -145,6 +205,35 @@ const padawans =
 console.log(padawans);
 ```
 
+---
+
+export default Code 
+
+```javascript Chaining Arrays 
+const PRIORITY_MAP = {
+  "high": 2,
+  "medium": 1, 
+  "low": 0
+}
+
+const tasks = [
+  { id: 104, complete: true, priority: "high", title: "Complete Slides", assignedTo: { firstName: "John", lastName: "Doe"} },
+  { id: 105, complete: false, priority: "medium", title: "Finish Testing" ,assignedTo: { firstName: "Jane", lastName: "Doe"} },
+  { id: 106, complete: true, priority: "medium", title: "Update Docs", assignedTo: { firstName: "Evan", lastName: "Schultz"} } ,
+  { id: 107, complete: false, priority: "low", title: "Refactor API", assignedTo: { firstName: "Evan", lastName: "Schultz"} }];
+
+let getFullName = (task) => ({ ...task, assignedTo: `${task.assignedTo.firstName} ${task.assignedTo.lastName}` })
+let getPrioritySort = (task) => ({...task, prioritySort: PRIORITY_MAP[tasks.priority]});
+let isComplete = (task) => task.complete;
+
+let result = tasks
+  .map((task)=>getFullName(task))
+  .map(task=>getPrioritySort(task))
+  .filter(task=>isComplete(task))
+  .sort((a,b) =>  a.prioritySort <= b.prioritySort)
+  console.log(result);
+
+```
 ---
 
 ## Reduce
