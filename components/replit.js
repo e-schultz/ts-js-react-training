@@ -1,7 +1,11 @@
 import React from 'react';
+import ViewableMonitor from "./ViewableMonitor";
 
 export default function ReplIt({src, allowFullScreen=true}) {
+
   return (
+    <ViewableMonitor>
+      { isViewable => isViewable ? (
     <div style={{ height: "75vh", display: "block" }}>
       <iframe
         height="100%"
@@ -13,6 +17,10 @@ export default function ReplIt({src, allowFullScreen=true}) {
         allowFullScreen={allowFullScreen}
         sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
       />
-    </div>
+    </div>) : (
+          "I am still hiding"
+        )
+    }
+    </ViewableMonitor>
   );
 }
