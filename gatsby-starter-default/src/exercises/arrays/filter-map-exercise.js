@@ -8,7 +8,7 @@ import CodeBlock from "../../components/code-block"
 ---- DO NOT EDIT BELOW THIS LINE ----
 Just ensure that your final answer is assigned to the `result` variable declared above
 */
-const FilterMapExercise = ({ result, nextPage, prevPage, solution }) => (
+const FilterMapExercise = ({ result, nextPage, prevPage, solution, ...props }) => (
   /* Do Not Edit */
   <Layout>
     <h1>Exercise</h1>
