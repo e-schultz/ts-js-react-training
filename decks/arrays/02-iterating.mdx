@@ -276,20 +276,18 @@ console.log(doubled);
 export default Code
 
 ```javascript Chaining Array Methods
-
-const leia = { firstName: 'Leia', lastName: 'Organa', forceSensitive: true };
-const luke = { firstName: 'Luke', lastName: 'Skywalker', forceSensitive: true };
-const han = { firstName: 'Han', lastName: 'Solo', forceSensitive: false };
+const leia = { firstName: "Leia", lastName: "Organa", forceSensitive: true };
+const luke = { firstName: "Luke", lastName: "Skywalker", forceSensitive: true };
+const han = { firstName: "Han", lastName: "Solo", forceSensitive: false };
 
 const cast = [leia, luke, han];
 
-const padawans =
-    cast
-        .filter(person => Boolean(person.forceSensitive))
-        .map(person => `${person.firstName} ${person.lastName} can be a jedi!`)
-
+const padawans = cast
+  .filter(person => Boolean(person.forceSensitive))
+  .map(person => `${person.firstName} ${person.lastName} can be a jedi!`);
 
 console.log(padawans);
+
 ```
 
 ---
