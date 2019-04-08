@@ -1,0 +1,60 @@
+import Code from 'mdx-code';
+import { Invert } from "mdx-deck/layouts";
+
+export default Code
+
+```javascript Array Modification & Mutation
+const fruits = [];
+
+fruits.push('Apples');
+
+fruits.unshift('Oranges');
+
+fruits[2] = 'Bananas';
+console.log(fruits);
+
+moreFruits = fruits.push('Watermelon');
+
+console.log({ fruits, moreFruits })
+```
+
+---
+
+
+export default Code
+
+```javascript Safely operating
+const numbers = [1, 2, 3, 4, 5];
+const numbersTwo = numbers;
+const numbersThree = numbers.slice(numbers);
+
+numbers.push(6);
+
+console.log({ numbers, numbersTwo, numbersThree });
+
+const numbersFour = [...numbers].push(10);
+console.log({ numbers, numbersFour })
+```
+
+---
+
+
+## What happened?
+
+- Arrays cannot be copied through assignment
+- `push` mutates `numbers`, which is the same as `numbers2`
+- `Array.slice` with no indexes creates a copy of the array, so it is not modified
+- Spreading the array into a new array creates a copy, so it is not modified
+
+
+---
+
+```javascript Accessing single array elements
+const numbers = [1, 2, 3, 4, 5];
+const index = 1;
+
+console.log(
+    numbers[index], // access with a variable
+    numbers[index + 1], // access with an expression
+);
+```
