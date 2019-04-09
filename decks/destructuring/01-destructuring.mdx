@@ -1,4 +1,5 @@
 import Code from 'mdx-code'
+import { Invert } from "mdx-deck/layouts";
 
 # Destructuring with Rest and Spread
 
@@ -20,12 +21,14 @@ import Code from 'mdx-code'
 export default Code
 
 ```javascript Assignment with Objects
-const { roofColour } = {
-    roofColour: 'red',
-    floorColour: 'black',
-    doorColour: 'green',
-}
-console.log(roofColour)
+const colors = {
+  red: "#FF0000",
+  blue: "#0000FF",
+  green: "#00FF00"
+};
+
+const { red, blue, green } = colors;
+console.log(red, blue, green)
 ```
 
 ---
