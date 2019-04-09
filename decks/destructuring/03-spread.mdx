@@ -1,5 +1,6 @@
 import Code from 'mdx-code';
 import { Notes } from 'mdx-deck';
+import { Invert } from "mdx-deck/layouts";
 
 ## Spread
 
@@ -9,6 +10,13 @@ import { Notes } from 'mdx-deck';
 
 ---
 
+## Object Spread 
+
+* Similar to Object.assign
+* Order matters 
+* Updated properties come after the `...spread`
+
+---
 export default Code
 
 ```js Object Spread
@@ -17,16 +25,17 @@ export default Code
     by using the `...spread` operator - we have created a
     shallow copy of the object.
 */
-function createCar(make,model, year) {
-    return { make, model, year }
+function createTask(id, title, priority, complete) {
+    return { id, complete, priority, title }
 }
-function updateYear(car,year) {
-    return { ...car, year}
+
+function updatePriority(task,priority) {
+    return { ...task, priority}
 }
-let car = createCar('Toyota', 'Camry','2018')
-let newCar = updateYear(car, '2019');
-console.log('car', car);
-console.log('newCar', newCar)
+let task = createTask(104, 'Complete Slides', 'low', false)
+let updatedTask = updatePriority(task, 'high');
+console.log('task', updatedTask);
+console.log('updatedTask', updatedTask)
 ```
 ---
 
@@ -45,19 +54,34 @@ console.log(meatAndAlternatives);
 ```
 
 ---
+export default Invert 
 
+## NOTE: These are Shallow Copies 
+
+---
+
+## What is a shallow copy? 
+
+* Copies the values of an Object to a new Object
+* If the value is an Array, or Object - the reference is copied
+
+
+---
 export default Code
 
 ```js Accidental Mutation
-function createCar(make, model, year) {
-    return { make, model, year}
+function createTask(id, title, priority, complete, firstName, lastName) {
+    return { id, complete, priority, title, assignedTo: { firstName, lastName } }
 }
-function updateYear(car,year) {
-    car.year = year;
-    return car;
+
+function updatePriority(task,priority) {
+    return { ...task, priority}
 }
-let car = createCar('Toyota', 'Camry', '2018')
-let newCar = updateYear(car, '2019');
-console.log('car', car);
-console.log('newCar', newCar)
+let task = createTask(104, 'Complete Slides', 'low', false)
+let updatedTask = updatePriority(task, 'high');
+
+updatedTask.assignedTo.firstName = 'John'
+
+console.log('task', updatedTask);
+console.log('updatedTask', updatedTask);
 ```
