@@ -1,5 +1,5 @@
 {
-  "name": "events-robbot-list-remove-robot-end",
+  "name": "events-robot-list-remove-robot-start",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
