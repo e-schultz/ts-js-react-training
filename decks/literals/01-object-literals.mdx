@@ -1,4 +1,113 @@
 import { FullScreenCode } from "mdx-deck/layouts";
+import Code from 'mdx-code';
+
+# JavaScript Objects
+
+---
+
+# Object - Basics 
+
+* Key / Value Pair 
+* Value can be any type - including other objects, arrays, functions, etc
+* Keys can be added / removed after an Object has been created
+* Can access keys dynamically 
+
+---
+
+export default Code 
+
+```javascript
+const task = {
+  id: 104,
+  complete: true,
+  priority: "high",
+  title: "Complete Slides",
+  assignedTo: {
+    firstName: 'Evan',
+    lastName: 'Schultz'
+  }
+};
+```
+
+---
+
+# Objects - Property Access 
+
+* `obj.title`
+* `obj['title']`
+* `obj[variable]`
+
+---
+
+export default Code 
+
+```javascript
+const task = {
+  id: 104,
+  complete: true,
+  priority: "high",
+  title: "Complete Slides",
+  assignedTo: {
+    firstName: 'Evan',
+    lastName: 'Schultz'
+  }
+};
+
+function getProperty(prop, obj) {
+  return obj[prop]
+};
+
+console.log(task.complete);
+console.log(task['title']);
+console.log(getProperty('priority',task))
+```
+
+---
+
+### Objects - List Property Keys 
+
+* Object.keys()
+* `for(let prop in obj)`
+
+---
+
+export default Code 
+
+```javascript Object - Listing Properties 
+const task = {
+  id: 104,
+  complete: true,
+  priority: "high",
+  title: "Complete Slides" };
+  
+// use Object.keys
+// use for.in
+```
+
+---
+
+export default Code 
+
+```javascript Object - Listing Properties 
+const task = {
+  id: 104,
+  complete: true,
+  priority: "high",
+  title: "Complete Slides" };
+  
+let keys = Object.keys(task);
+
+for(let i =0;i<keys.length;i++) {
+  let key = keys[i];
+  console.log(`task[${key}] = ${task[key]}`)
+}
+
+for(let key in task) {
+ console.log(`task[${key}] = ${task[key]}`)
+}
+
+```
+---
 
 # Object Literals
 
@@ -29,7 +138,7 @@ function createCar(make, model, year) {
 ## Shorthand
 
 ```javascript
-function createComputer(make, model, year) {
+function createCar(make, model, year) {
     return {
         make,
         model,
