@@ -3,7 +3,10 @@ import { FullScreenCode } from "mdx-deck/layouts";
 import { CodeSurfer } from "mdx-deck-code-surfer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
 import ReplIt from "../../components/replit";
+import CodeSandbox from "../../components/codesandbox"
+import Box from "../../components/Box";
 import Code from 'mdx-code';
+const BRANCH_NAME = "master";
 
 # Promises
 
@@ -115,7 +118,7 @@ queryTheDataBase(query)
 ```
 ---
 
-# We have larger problems
+# Larger Problems
 
 - Hard to Decompose
 - Specify Task and Callback at the Same Time 
@@ -148,16 +151,21 @@ specify and dispatch the request in one place:</p>
 />
 
 ---
-export default FullScreenCode
 
 ### Promise Exercises - even and odd
 
-<ReplIt src="https://repl.it/@e_schultz/Simple-Promise-start?lite=true"/>
+<Box style={{width: "80vw"}}>
+  <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/exercises/promise-even-odd-start?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fexercise-01.js`} runOnClick={0}/>
+</Box>
+
+
+
 
 ---
 
-export default FullScreenCode
-
 ### Promise Exercises - even and odd - solution
 
-<ReplIt src="https://repl.it/@e_schultz/Simple-Promise-Solution?lite=true"/>
+<Box style={{width: "80vw"}}>
+  <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/exercises/promise-even-odd-end?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fexercise-01.js`} runOnClick={0} />
+</Box>
+
