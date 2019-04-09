@@ -1,9 +1,4 @@
-# Extracting Components - 01 - End
+# React State - Solution
 
-A number of smaller components got broken down inside of `components/ProductCard`
-
-## Homework
-
-- Can you make parts of this more reusable?
-- Can you make a generic `Card` component that is composable?
-- Can you modify the ProductCard to accept product data as Props?
+  1. Implement an onInput handler to console.log the value as the user types
+  2. Implement the onClick handler to display alert with `Hello, {name}!`
