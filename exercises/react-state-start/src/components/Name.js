@@ -7,7 +7,7 @@ const NameInput = ({ onInput, inputValue }) => {
   const handleInput = event => {
     console.log(event.target.value)
   }
-  return <input type="text" onInput={handleInput} value={inputValue} />
+  return <input type="text" onInput={handleInput} defaultValue={inputValue} />
 }
 
 const Greeting = ({ name }) => <h1>Hello, {name}!</h1>

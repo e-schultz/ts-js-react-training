@@ -108,7 +108,7 @@ export class Component extends React.Component {
 
 ```jsx
 export class Component extends React.Component {
-  constructor(props) { /- ... */ }
+  constructor(props) { /* ... */ }
   componentDidMount() {
     getSomeData('someData')
     .then(result=>{
@@ -136,7 +136,7 @@ export class Component extends React.Component {
 
 ```jsx
 export class Component extends React.Component {
-  constructor(props) { /- ... */ }
+  constructor(props) { /* ... */ }
   componentDidUpdate(prevProps) {
     // only run if the query prop has changed
     if(prevProps.query !== this.props.query) {
