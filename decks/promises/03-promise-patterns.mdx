@@ -3,7 +3,10 @@ import { CodeSurfer } from "mdx-deck-code-surfer"
 import { FullScreenCode, Invert } from "mdx-deck/layouts";
 import nightOwl from "prism-react-renderer/themes/nightOwl"
 import ReplIt from "../../components/replit";
+import CodeSandbox from "../../components/codesandbox";
+import Box from "../../components/Box";
 import  Code  from 'mdx-code';
+const BRANCH_NAME = "es-ex-promise-game-all-codepen"
 
 # Promise Patterns  
 
@@ -83,18 +86,23 @@ let expected = {
 ---
 export default FullScreenCode
 
-# Promise.all : Start
+# Promise.all :  Start
 
-<ReplIt src="https://repl.it/@e_schultz/Promise-Parallel-Start?lite=true"/>
-
+<Box style={{width: "80vw"}}>
+  <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/exercises/promise-all-end?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fexercise-01.js`} runOnClick={0} />
+</Box>
 ---
-export default FullScreenCode
 
 # Promise.all :  Solution
 
-<ReplIt src="https://repl.it/@e_schultz/Promise-Parallel-Solution?lite=true"/>
+<Box style={{width: "80vw"}}>
+  <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/exercises/promise-all-end?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fexercise-01.js`} runOnClick={0} />
+</Box>
+
 
 ```notes
+<ReplIt src="https://repl.it/@e_schultz/Promise-Parallel-Solution?lite=true"/>
+
 <div style={{height: '80vh', display: 'block'}}>
     <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Promise-Parallel-Solution?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
     </iframe>
