@@ -3,13 +3,10 @@
 const BASE_URL = "https://js-ts-training.now.sh";
 
 let getPlatforms = () => {
-  return fetch(`${BASE_URL}/platforms`)
-    .then(result => result.json())
-    
+  return fetch(`${BASE_URL}/platforms`).then(result => result.json());
 };
 let getGameById = id => {
-  return fetch(`${BASE_URL}/games/${id}`)
-    .then(result => result.json())
+  return fetch(`${BASE_URL}/games/${id}`).then(result => result.json());
 };
 
 const getGameDetail = id => {

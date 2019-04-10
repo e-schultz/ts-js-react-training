@@ -1,6 +1,7 @@
 import React from "react";
 import ReactJson from "react-json-view";
 import { Hook, Console, Decode } from "console-feed";
+import serializeError from "serialize-error";
 
 import "../styles.css";
 
@@ -17,14 +18,22 @@ class App extends React.Component {
     Hook(window.console, log => {
       this.setState(({ logs }) => ({ logs: [...logs, Decode(log)] }));
     });
-    console.log('Fetching Game')
-    let { getGameDetail } = await import("../exercise-01");
-    getGameDetail(1).then(game => {
-      console.log('game result', game)
-      this.setState(() => ({
-        game
-      }));
-    });
+
+    try {
+      let { getGameDetail } = await import("../exercise-01");
+      getGameDetail(1)
+        .then(game => {
+          console.log("game result", game);
+          this.setState(() => ({
+            game
+          }));
+        })
+        .then(null, err => {
+          console.error(serializeError(err));
+        });
+    } catch (err) {
+      console.error(serializeError(err));
+    }
   }
 
   render() {
