@@ -1,12 +1,14 @@
 {
-  "name": "array-map",
+  "name": "promise-all-start",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "console-feed": "^2.8.6",
     "react": "16.8.3",
     "react-dom": "16.8.3",
+    "react-json-view": "^1.19.1",
     "react-scripts": "2.1.8"
   },
   "devDependencies": {
@@ -18,5 +20,10 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
