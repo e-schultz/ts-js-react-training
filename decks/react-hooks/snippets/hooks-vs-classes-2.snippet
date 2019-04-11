@@ -1,0 +1,13 @@
+import React, { useState, useEffect } from 'react'
+
+const SearchComponent = () => {
+    const [searchTerm, setSearchTerm] = useState('news')
+    const [result, setResult] = useState([])
+
+    useEffect(() => {
+        searchSomeData(searchTerm)
+              .then(result => {
+                setResult(result.data)
+              })
+    }, [searchTerm])
+}
