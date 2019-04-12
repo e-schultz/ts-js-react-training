@@ -2,36 +2,23 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import "./styles.css";
+// - create constructor
+// - set initial state
+// - update render to display value from state
+// - create input, value set to state
+// - create event handler 
+// - bind onChange 
+// - use setState in event handler
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "Jane Doe"
-    };
-  }
-
-  handleInput(value) {
-    this.setState(state => {
-      return {
-        name: value
-      };
-    });
-  }
-
   render() {
     return (
       <section>
-        <h1>Hello Class - my name is {this.state.name}</h1>
-        <p>
-          <input
-            value={this.state.name}
-            onChange={evt => this.handleInput(evt.target.value)}
-          />
-        </p>
+        <h1>Class Component</h1>
       </section>
     );
   }
 }
+
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
