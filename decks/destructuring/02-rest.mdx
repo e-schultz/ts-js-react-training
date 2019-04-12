@@ -1,4 +1,5 @@
 import Code from 'mdx-code';
+import CodeSandbox from '../../components/codesandbox';
 
 ## Rest
 
@@ -14,25 +15,18 @@ import Code from 'mdx-code';
 
 ---
 
+# Object Rest Assignment 
 
-```javascript Object Rest
-  let car = { make: 'Toyota', model: 'Camry', year: '2018'};
-  const { year, ...carWithoutYear } = car;
-  console.log(year);
-  console.log(carWithoutYear)
-```
+<CodeSandbox src="https://codesandbox.io/embed/vn20p36o7l?codemirror=1&fontsize=14&module=%2Fsrc%2Findex.js" runOnClick={0}/>
+`
 
 ```notes
-Apparently `rest property is not supported in the
-node run-kit
-```
----
-
 This is useful when are passing a number of properties into a function,
 and want to 'pluck off' a few to be used - and pass the rest down
 to another function.
-
+```
 ---
+
 
 export default Code
 
