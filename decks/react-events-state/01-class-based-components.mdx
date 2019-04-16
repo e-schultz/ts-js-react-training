@@ -6,7 +6,7 @@ import Box from "../../components/Box";
 import { Head, Appear, Image, withDeck } from 'mdx-deck'
 import { CodeSurfer } from "mdx-deck-code-surfer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
-const BRANCH_NAME = 'es-100-content-re-order-event-state-flow'; // tood: change before merge
+const BRANCH_NAME = 'master'; // tood: change before merge
 
 export default Invert
 
@@ -24,7 +24,71 @@ export default Invert
 ---
 
 ## Best Practice Reminder
+
 Stateful class components should be used when you need them, not by default
+
+---
+
+# React.Component 101 
+
+Class that extends from React.Component, which has:
+
+*  `state` property
+*  `render` method 
+*  `this.setState` method to modify state
+
+---
+
+## Reading and Writing State
+
+* The value of a component's state is modified using the `setState` method
+* `setState` is only available on stateful components
+* Component state can be accessed from the `state` object (`this.state`)
+
+---
+
+## Setting State 
+
+`setState` can be called in two ways:
+
+* By providing an object 
+
+```jsx
+this.setState({
+  items: [1,2,3]
+})
+```
+
+---
+
+## Setting State 
+
+`setState` can be called in two ways:
+
+* By providing a updater method 
+
+```jsx
+this.setState((state)=>({
+ items: state.items.map(n=>n*2)
+}))
+```
+
+---
+
+## When to use the updater?
+
+* If the your next state depends on the current state
+* React will provide the current state at the time it is being applied
+* When not using the updated, `this.state` will refer to the state at the time setState was callled
+* [React setState documentation for deeper dive](https://reactjs.org/docs/react-component.html#setstate)
+
+---
+
+## Class Based Component - Hello World Counter
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-basic-class-component?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fcomponents%2FHelloWorld.js`} runOnClick={0} />
+</Box>
 
 ---
 
@@ -32,7 +96,7 @@ Stateful class components should be used when you need them, not by default
   code={require("!raw-loader!./snippets/hello-world-class.snippet")}
   theme={nightOwl}
   lang="jsx"
-  title="Class Based Components"
+  title="Class Based Components - Review"
   showNumbers
   steps={[
     {}, // First step should be an overview of the snippet
@@ -49,11 +113,34 @@ Stateful class components should be used when you need them, not by default
 
 ---
 
-## Class Based Component
+## setState is Asynchronous
 
-<Box width={'80vw'}>
-    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-basic-class-component?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Fcomponents%2FHelloWorldCls.js`}/>
-</Box>
+* Changes to state will not be available right away
+* setState's second argument is a callback that can be used to avoid issues with this
 
+---
 
+## Without Callback
+
+```jsx
+handleCountChange(value) {
+  this.setState({ helloWorldCount: value })
+  // This will log the old value
+  console.log(this.state.helloWorldCount)
+}
+```
+
+---
+
+## With Callback
+
+```jsx
+handleCountChange(value) {
+  this.setState(
+    { helloWorldCount: value },
+    // This will log the new value
+    () => { console.log(this.state.helloWorldCount) }
+  )
+}
+```
 

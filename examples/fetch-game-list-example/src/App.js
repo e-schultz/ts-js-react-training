@@ -12,7 +12,7 @@ function Block({ children }) {
         height: "1rem",
         padding: "1rem",
         margin: "1rem",
-        width: "50%"
+        width: "75%"
       }}
     >
       {children}
