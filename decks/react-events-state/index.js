@@ -12,9 +12,7 @@ export { default as theme } from '../../theme'
 export default [
   ...classBased,
   ...events,
-  ...dataFlow,  
   ...stateExercise,
-  ...lifeCycle,
-  ...dataFetch,
-  ...dataFetchE
+  ...dataFlow,  
+  ...lifeCycle
 ]

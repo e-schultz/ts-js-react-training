@@ -9,7 +9,7 @@ import nightOwl from "prism-react-renderer/themes/nightOwl"
 const BRANCH_NAME = 'master'; // tood: change before merge
 
 
-# React State & Data Flow
+# React State Change & Data Flow
 
 ---
 
@@ -19,75 +19,11 @@ const BRANCH_NAME = 'master'; // tood: change before merge
 
 ---
 
-## React State
+## recap: React State
 
 * React Components can have their own internal state
 * Components should not directly mutate their state
 * Children can not modify parent state
-
----
-
-## State / Data Flow 
-
----
-export default Invert 
-
-## Brief Intro to React Class Based Components 
-### This will be covered more in depth later today.
-
----
-
-# React.Component 101 
-
-Class that extends from React.Component, which has:
-
-*  `state` property
-*  `render` method 
-*  `this.setState` method to modify state
-
----
-## Reading and Writing State
-
-* The value of a component's state is modified using the `setState` method
-* `setState` is only available on stateful components
-* Component state can be accessed from the `state` object (`this.state`)
-
----
-
-## Setting State 
-
-`setState` can be called in two ways:
-
-* By providing an object 
-
-```jsx
-this.setState({
-  items: [1,2,3]
-})
-```
-
----
-
-## Setting State 
-
-`setState` can be called in two ways:
-
-* By providing a updater method 
-
-```jsx
-this.setState((state)=>({
- items: state.items.map(n=>n*2)
-}))
-```
-
----
-
-## When to use the updater?
-
-* If the your next state depends on the current state
-* React will provide the current state at the time it is being applied
-* When not using the updated, `this.state` will refer to the state at the time setState was callled
-* [React setState documentation for deeper dive](https://reactjs.org/docs/react-component.html#setstate)
 
 ---
 
@@ -134,6 +70,7 @@ this.setState((state)=>({
 * The parent provided the data - so it controls how it is updated
 
 ---
+
 ### Example - Use confirm to control if the item is removed
 
 <Box style={{width: "80vw"}}>
@@ -164,37 +101,3 @@ this.setState((state)=>({
 <Box style={{width: "80vw"}}>
   <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/exercises//events-robot-list-remove-robot-end?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
 </Box>
-
----
-
-## setState is Asynchronous
-
-* Changes to state will not be available right away
-* setState's second argument is a callback that can be used to avoid issues with this
-
----
-
-## Without Callback
-
-```jsx
-handleCountChange(value) {
-  this.setState({ helloWorldCount: value })
-  // This will log the old value
-  console.log(this.state.helloWorldCount)
-}
-```
-
----
-
-
-## With Callback
-
-```jsx
-handleCountChange(value) {
-  this.setState(
-    { helloWorldCount: value },
-    // This will log the new value
-    () => { console.log(this.state.helloWorldCount) }
-  )
-}
-```
