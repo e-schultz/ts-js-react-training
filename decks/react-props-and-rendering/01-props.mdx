@@ -9,7 +9,7 @@ const BRANCH_NAME = 'master'; // todo: change before merge
 
 export default Invert
 
-# Props
+# React - Props
 
 ---
 
@@ -19,6 +19,7 @@ export default Invert
 - Props become the attributes on your component that you use to pass in data
 
 ---
+
 <CodeSurfer
   code={require("!!raw-loader!./snippets/props.snippet")}
   theme={nightOwl}
@@ -72,7 +73,7 @@ export default Invert
 
 ---
 
-## Passing Prop Data
+## Example: Passing Prop Data
 
 <Box width={'75vw'}>
   <CodeSandbox src="https://codesandbox.io/embed/3kv214881q?fontsize=14&hidenavigation=1"/>
@@ -122,12 +123,13 @@ ManyGreetings.defaultProps = {
 
 ---
 
-### Exercise 1 - Adding Props
+### Exercise: Adding Props
 
 * Create a component that takes two props - num1, num2
 * The component should display the equation of "num1 + num2"
 * The component should also display the result
-
+* Use  `prop-types` package to ensure the props are numbers
+* Use `prop-types` to set the default value to 0
 
 ---
 export default FullScreenCode
