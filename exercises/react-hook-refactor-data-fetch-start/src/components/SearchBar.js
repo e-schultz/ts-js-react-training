@@ -1,5 +1,8 @@
 import React from "react";
 
+// Refactor the SearchBar component to use Hooks instead
+// of being a component that extends from React.Component
+
 export class SearchBar extends React.Component {
   constructor(props) {
     super(props) 
