@@ -7,12 +7,93 @@ import ReplIt from "../../components/replit";
 import CodeSandbox from "../../components/codesandbox";
 import ImageSplit from "../../components/ImageSplit";
 import Box from "../../components/Box";
+import Code from 'mdx-code';
 const BRANCH_NAME = 'master'; // tood: change before merge
 
 export default Invert
 
-# useReducer
+# React Hooks - useReducer
 
 ---
 
-* TODO 
+## useReducer 
+
+* Useful for more complex state management 
+* `useReducer` takes in a reducer function `(state, action) => newState`
+* returns current state, and a dispatch function 
+
+---
+
+## useReducer - dispatch 
+
+* Dispatch will invoke the reducer, passing in the current state, and the provided action
+* General convention is for the action to be a JSON object with a `type` property
+* Based on the action type - update the state accordingly 
+
+```jsx
+function Example() {
+  let [state, dispatch] = useReducer(reducerFn, INITIAL_STATE);
+  return (
+    <button onClick={dispatch({type: 'SOME_ACTION', otherProperties})}
+  )
+}
+```
+
+---
+
+## recap: Array.reduce 
+
+* Iterates over a collection
+* Results in a new value 
+* Consider `action` as an array of actions 
+
+---
+
+export default Code 
+
+```javascript Example: Reduce to Manage a Counter
+let actions = [
+  { type: "increment" }, { type: "increment" },  { type: "decrement" }
+];
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
+}
+
+const INITIAL_STATE = { count: 0 }
+
+let state = actions.reduce(reducer, INITIAL_STATE)
+console.log(state);
+
+```
+
+---
+
+## Example: Counter with useReducer
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-hooks-useReducer-counter?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FAppComplete.js`}/>
+</Box>
+
+---
+
+## Exercise: Robot List Management - Start
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/exercises/react-hooks-useReducer-start?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FREADME.md`}/>
+</Box>
+
+---
+
+## Exercise: Robot List Management - Solution
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/exercises/react-hooks-useReducer-end?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Findex.js`}/>
+</Box>
