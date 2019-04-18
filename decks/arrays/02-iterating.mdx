@@ -200,7 +200,7 @@ let taskSummary = tasks.map(task=>{
     priority,
     prioritySort: PRIORITY_MAP[priority],
     title,
-    assignedTo: `${assignedTo.firstName} ${assignedTo.lastName}`
+    assignedTo
   }
 });
 
@@ -307,16 +307,24 @@ const tasks = [
   { id: 106, complete: true, priority: "medium", title: "Update Docs", assignedTo: { firstName: "Evan", lastName: "Schultz"} } ,
   { id: 107, complete: false, priority: "low", title: "Refactor API", assignedTo: { firstName: "Evan", lastName: "Schultz"} }];
 
-let getFullName = (task) => ({ ...task, assignedTo: `${task.assignedTo.firstName} ${task.assignedTo.lastName}` })
-let getPrioritySort = (task) => ({...task, prioritySort: PRIORITY_MAP[tasks.priority]});
-let isComplete = (task) => task.complete;
+let getFullName = task => ({
+  ...task,
+  assignedTo: `${task.assignedTo.firstName} ${task.assignedTo.lastName}`
+});
+
+let getPrioritySort = task => ({
+  ...task,
+  prioritySort: PRIORITY_MAP[tasks.priority]
+});
+
+let isComplete = task => task.complete;
 
 let result = tasks
-  .map((task)=>getFullName(task))
-  .map(task=>getPrioritySort(task))
-  .filter(task=>isComplete(task))
-  .sort((a,b) =>  a.prioritySort <= b.prioritySort)
-  console.log(result);
+  .map(task => getFullName(task))
+  .map(task => getPrioritySort(task))
+  .filter(task => isComplete(task))
+  .sort((a, b) => a.prioritySort <= b.prioritySort);
+console.log(result);
 
 ```
 ---
