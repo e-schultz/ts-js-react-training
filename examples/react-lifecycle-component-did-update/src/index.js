@@ -29,13 +29,13 @@ class App extends React.Component {
   render() {
     return (
       <section className="section">
-        <div classNameName="App container">
+        <div className="App container">
           <h1 className="title">componentDidUpdate Example</h1>
-          <div class="columns">
-            <div class="column is-three-fifths">
+          <div className="columns">
+            <div className="column is-three-fifths">
               <Notes />
             </div>
-            <div class="column ">
+            <div className="column ">
               <input
                 className="input"
                 type="text"
