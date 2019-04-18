@@ -1,9 +1,9 @@
-import Code from 'mdx-code';
-import { CodeSurfer } from "mdx-deck-code-surfer"
+import Code from "mdx-code";
+import { CodeSurfer } from "mdx-deck-code-surfer";
 import { Invert } from "mdx-deck/layouts";
-import nightOwl from "prism-react-renderer/themes/nightOwl"
+import nightOwl from "prism-react-renderer/themes/nightOwl";
 
-export default Invert 
+export default Invert;
 
 # Iterating Arrays
 
@@ -11,18 +11,18 @@ export default Invert
 
 # Array Methods
 
-* Used to iterate and transform array data
-* Array methods accept a function as a callback 
-* The function is operated on every item in the collection
+- Used to iterate and transform array data
+- Array methods accept a function as a callback
+- The function is operated on every item in the collection
 
 ---
 
-# Methods 
+# Methods
 
-* find
-* filter 
-* map 
-* reduce
+- find
+- filter
+- map
+- reduce
 
 ---
 
@@ -35,31 +35,32 @@ export default Invert
 
 ---
 
-export default Code
+export default Code;
 
 ```javascript Example: Array.find - Find Task by Id
 const tasks = [
   { id: 104, complete: true, priority: "high", title: "Complete Slides" },
   { id: 105, complete: false, priority: "medium", title: "Finish Testing" },
   { id: 106, complete: true, priority: "medium", title: "Update Docs" },
-  { id: 107, complete: false, priority: "low", title: "Refactor API" }];
+  { id: 107, complete: false, priority: "low", title: "Refactor API" }
+];
 
 // TODO: Implement Find
-
 ```
 
 ---
 
-export default Code
+export default Code;
 
 ```javascript Example: Array.find - Find Task by Id
 const tasks = [
   { id: 104, complete: true, priority: "high", title: "Complete Slides" },
   { id: 105, complete: false, priority: "medium", title: "Finish Testing" },
   { id: 106, complete: true, priority: "medium", title: "Update Docs" },
-  { id: 107, complete: false, priority: "low", title: "Refactor API" }];
+  { id: 107, complete: false, priority: "low", title: "Refactor API" }
+];
 
-const task = tasks.find((currentTask) => currentTask.id === 104)
+const task = tasks.find(currentTask => currentTask.id === 104);
 console.log(task);
 ```
 
@@ -74,46 +75,51 @@ console.log(task);
 
 ---
 
-export default Code
+export default Code;
 
 ```javascript Example: Array.filter - Get Completed Tasks
 const tasks = [
   { id: 104, complete: true, priority: "high", title: "Complete Slides" },
   { id: 105, complete: false, priority: "medium", title: "Finish Testing" },
   { id: 106, complete: true, priority: "medium", title: "Update Docs" },
-  { id: 107, complete: false, priority: "low", title: "Refactor API" }];
+  { id: 107, complete: false, priority: "low", title: "Refactor API" }
+];
 
 // implement filter
-
 ```
 
 ---
 
-export default Code
+export default Code;
 
 ```javascript Example: Array.filter - Get Completed Tasks
 const tasks = [
   { id: 104, complete: true, priority: "high", title: "Complete Slides" },
   { id: 105, complete: false, priority: "medium", title: "Finish Testing" },
   { id: 106, complete: true, priority: "medium", title: "Update Docs" },
-  { id: 107, complete: false, priority: "low", title: "Refactor API" }];
+  { id: 107, complete: false, priority: "low", title: "Refactor API" }
+];
 
-const completedTasks = tasks.filter((currentTask) => currentTask.complete === true)
+const completedTasks = tasks.filter(
+  currentTask => currentTask.complete === true
+);
 console.log(completedTasks);
 ```
 
 ---
 
-export default Code
+export default Code;
 
 ```javascript Example: Array.filter - Filter People Without Full Names
 const people = [
-    { firstName: '', lastName: 'Smith' },
-    { firstName: 'Ivan', lastName: '' },
-    { firstName: 'Taro', lastName: 'Yamada' }
-]
+  { firstName: "", lastName: "Smith" },
+  { firstName: "Ivan", lastName: "" },
+  { firstName: "Taro", lastName: "Yamada" }
+];
 
-const onlyFullNames = people.filter(person => Boolean(person.firstName && person.lastName))
+const onlyFullNames = people.filter(person =>
+  Boolean(person.firstName && person.lastName)
+);
 
 console.log(onlyFullNames);
 ```
@@ -122,102 +128,145 @@ console.log(onlyFullNames);
 
 ## Map
 
-* Used to transform from one type / shape to another
-* Does not mutate the original array
-* Returns a new array
-* Very useful for transforming API data
+- Used to transform from one type / shape to another
+- Does not mutate the original array
+- Returns a new array
+- Very useful for transforming API data
 
 ---
 
-export default Code
+export default Code;
 
 ```javascript Example: Double the Numbers
 let numbers = [1, 2, 3, 4, 5];
 
 // implement numbers.map
-
 ```
 
 ---
 
-export default Code
+export default Code;
 
 ```javascript Example: Double the Numbers
 let numbers = [1, 2, 3, 4, 5];
 
-let result = numbers.map((currentNumber)=>currentNumber * 2);
+let result = numbers.map(currentNumber => currentNumber * 2);
 console.log(result);
-
 ```
 
 ---
 
-export default Code 
+export default Code;
 
 ```javascript Transform objects - Transform Priority to Get a Sort Order
 const PRIORITY_MAP = {
-  "high": 2,
-  "medium": 1, 
-  "low": 0
-}
+  high: 2,
+  medium: 1,
+  low: 0
+};
 
 const tasks = [
-  { id: 104, complete: true, priority: "high", title: "Complete Slides", assignedTo: { firstName: "John", lastName: "Doe"} },
-  { id: 105, complete: false, priority: "medium", title: "Finish Testing" ,assignedTo: { firstName: "Jane", lastName: "Doe"} },
-  { id: 106, complete: true, priority: "medium", title: "Update Docs", assignedTo: { firstName: "Evan", lastName: "Schultz"} } ,
-  { id: 107, complete: false, priority: "low", title: "Refactor API", assignedTo: { firstName: "Evan", lastName: "Schultz"} }];
-
+  {
+    id: 104,
+    complete: true,
+    priority: "high",
+    title: "Complete Slides",
+    assignedTo: { firstName: "John", lastName: "Doe" }
+  },
+  {
+    id: 105,
+    complete: false,
+    priority: "medium",
+    title: "Finish Testing",
+    assignedTo: { firstName: "Jane", lastName: "Doe" }
+  },
+  {
+    id: 106,
+    complete: true,
+    priority: "medium",
+    title: "Update Docs",
+    assignedTo: { firstName: "Evan", lastName: "Schultz" }
+  },
+  {
+    id: 107,
+    complete: false,
+    priority: "low",
+    title: "Refactor API",
+    assignedTo: { firstName: "Evan", lastName: "Schultz" }
+  }
+];
 
 // implement map
 
-let taskSummary = tasks.map(task=>{ return task });
+let taskSummary = tasks.map(task => {
+  return task;
+});
 
-console.log(taskSummary)
+console.log(taskSummary);
 ```
+
 ---
 
-export default Code 
+export default Code;
 
 ```javascript Transform objects - Transform Priority to Get a Sort Order
 const PRIORITY_MAP = {
-  "high": 2,
-  "medium": 1, 
-  "low": 0
-}
+  high: 2,
+  medium: 1,
+  low: 0
+};
 
 const tasks = [
-  { id: 104, complete: true, priority: "high", title: "Complete Slides", assignedTo: { firstName: "John", lastName: "Doe"} },
-  { id: 105, complete: false, priority: "medium", title: "Finish Testing" ,assignedTo: { firstName: "Jane", lastName: "Doe"} },
-  { id: 106, complete: true, priority: "medium", title: "Update Docs", assignedTo: { firstName: "Evan", lastName: "Schultz"} } ,
-  { id: 107, complete: false, priority: "low", title: "Refactor API", assignedTo: { firstName: "Evan", lastName: "Schultz"} }];
-
-
-let taskSummary = tasks.map(task=>{
-  const { id, complete, priority, title, assignedTo } = task;
-  return {
-    id,
-    complete,
-    priority,
-    prioritySort: PRIORITY_MAP[priority],
-    title,
-    assignedTo
+  {
+    id: 104,
+    complete: true,
+    priority: "high",
+    title: "Complete Slides",
+    assignedTo: { firstName: "John", lastName: "Doe" }
+  },
+  {
+    id: 105,
+    complete: false,
+    priority: "medium",
+    title: "Finish Testing",
+    assignedTo: { firstName: "Jane", lastName: "Doe" }
+  },
+  {
+    id: 106,
+    complete: true,
+    priority: "medium",
+    title: "Update Docs",
+    assignedTo: { firstName: "Evan", lastName: "Schultz" }
+  },
+  {
+    id: 107,
+    complete: false,
+    priority: "low",
+    title: "Refactor API",
+    assignedTo: { firstName: "Evan", lastName: "Schultz" }
   }
+];
+
+let taskSummary = tasks.map(task => {
+  return {
+    ...task,
+    prioritySort: PRIORITY_MAP[task.priority]
+  };
 });
 
-console.log(taskSummary)
+console.log(taskSummary);
 ```
 
 ---
 
-export default Code
+export default Code;
 
 ```javascript Exercise - Mapping Arrays
-
 // - Create an array containing the first names omly
-// - Create an array that adds an `id` property, the id can be the index 
-const leia = { firstName: 'Leia', lastName: 'Organa' };
-const luke = { firstName: 'Luke', lastName: 'Skywalker' };
-const han = { firstName: 'Han', lastName: 'Solo' };
+// - Create an array that adds an `id` property, the id can be the index
+const leia = { firstName: "Leia", lastName: "Organa" };
+const luke = { firstName: "Luke", lastName: "Skywalker" };
+const han = { firstName: "Han", lastName: "Solo" };
 
 const cast = [leia, luke, han];
 
@@ -229,22 +278,22 @@ console.log(cast);
 console.log(castFirstNames);
 console.log(castWithIds);
 ```
+
 ---
 
-export default Code
+export default Code;
 
 ```javascript Exercise - Mapping Arrays - Solution
-
 // - Create an array containing the first names omly
-// - Create an array that adds an `id` property, the id can be the index 
-const leia = { firstName: 'Leia', lastName: 'Organa' };
-const luke = { firstName: 'Luke', lastName: 'Skywalker' };
-const han = { firstName: 'Han', lastName: 'Solo' };
+// - Create an array that adds an `id` property, the id can be the index
+const leia = { firstName: "Leia", lastName: "Organa" };
+const luke = { firstName: "Luke", lastName: "Skywalker" };
+const han = { firstName: "Han", lastName: "Solo" };
 
 const cast = [leia, luke, han];
 
 const castFirstNames = cast.map(castMember => castMember.firstName);
-const castWithIds = cast.map((castMember, i) => ({...castMember, id: i }));
+const castWithIds = cast.map((castMember, i) => ({ ...castMember, id: i }));
 
 console.log(cast);
 console.log(castFirstNames);
@@ -253,7 +302,7 @@ console.log(castWithIds);
 
 ---
 
-export default Code
+export default Code;
 
 ```javascript Iterators with Empty Arrays
 let numbers = [];
@@ -273,7 +322,7 @@ console.log(doubled);
 
 ---
 
-export default Code
+export default Code;
 
 ```javascript Chaining Array Methods
 const leia = { firstName: "Leia", lastName: "Organa", forceSensitive: true };
@@ -287,25 +336,49 @@ const padawans = cast
   .map(person => `${person.firstName} ${person.lastName} can be a jedi!`);
 
 console.log(padawans);
-
 ```
 
 ---
 
-export default Code 
+export default Code;
 
-```javascript Chaining Arrays 
+```javascript Chaining Arrays
 const PRIORITY_MAP = {
-  "high": 2,
-  "medium": 1, 
-  "low": 0
-}
+  high: 2,
+  medium: 1,
+  low: 0
+};
 
 const tasks = [
-  { id: 104, complete: true, priority: "high", title: "Complete Slides", assignedTo: { firstName: "John", lastName: "Doe"} },
-  { id: 105, complete: false, priority: "medium", title: "Finish Testing" ,assignedTo: { firstName: "Jane", lastName: "Doe"} },
-  { id: 106, complete: true, priority: "medium", title: "Update Docs", assignedTo: { firstName: "Evan", lastName: "Schultz"} } ,
-  { id: 107, complete: false, priority: "low", title: "Refactor API", assignedTo: { firstName: "Evan", lastName: "Schultz"} }];
+  {
+    id: 104,
+    complete: true,
+    priority: "high",
+    title: "Complete Slides",
+    assignedTo: { firstName: "John", lastName: "Doe" }
+  },
+  {
+    id: 105,
+    complete: false,
+    priority: "medium",
+    title: "Finish Testing",
+    assignedTo: { firstName: "Jane", lastName: "Doe" }
+  },
+  {
+    id: 106,
+    complete: true,
+    priority: "medium",
+    title: "Update Docs",
+    assignedTo: { firstName: "Evan", lastName: "Schultz" }
+  },
+  {
+    id: 107,
+    complete: false,
+    priority: "low",
+    title: "Refactor API",
+    assignedTo: { firstName: "Evan", lastName: "Schultz" }
+  }
+];
 
 let getFullName = task => ({
   ...task,
@@ -323,103 +396,158 @@ let result = tasks
   .map(task => getFullName(task))
   .map(task => getPrioritySort(task))
   .filter(task => isComplete(task))
-  .sort((a, b) => a.prioritySort <= b.prioritySort);
-console.log(result);
+  .sort((a, b) => a.prioritySort - b.prioritySort);
 
+console.log(result);
 ```
+
 ---
 
 ## Reduce
 
-* Common scenario: calculate a total
-* Reduces a collection down to a single value
-* Steps over each item in the array
-* Gives you access to the current item, the index, and an accumulator
-* The accumulator is the final value that will be returned
-* The accumulated value can be of any type and length, which makes reduce very flexible
+- Common scenario: calculate a total
+- Reduces a collection down to a single value
+- Steps over each item in the array
+- Gives you access to the current item, the index, and an accumulator
+- The accumulator is the final value that will be returned
+- The accumulated value can be of any type and length, which makes reduce very flexible
 
 ---
 
-export default Code
+export default Code;
 
 ```javascript Reducing Arrays
 const numbers = [1, 2, 3, 4];
 
 function sumWithForLoop(input) {
-    let total = 0;
-    for(let x=0;x<input.length;x++) {
-        total += input[x];
-    }
-    return total;
+  let total = 0;
+  for (let x = 0; x < input.length; x++) {
+    total += input[x];
+  }
+  return total;
 }
 
 function sumWithReduce(input) {
-    return input.reduce((accumulator, currentValue) => accumulator + currentValue);
+  return input.reduce(
+    (accumulator, currentValue) => accumulator + currentValue
+  );
 }
 const sum1 = sumWithReduce(numbers);
 const sum2 = sumWithForLoop(numbers);
-console.log(sum1, sum2)
+console.log(sum1, sum2);
 ```
 
 ---
 
-export default Code
+export default Code;
 
-```javascript Return Type Does Not Need to Match Input
-const names = ['Evan', 'Renee', 'John'];
-let characterCount = names.reduce((acc, value)=>acc += value.length,0);
+```javascript Return Type Does Not Need to Match the Input Type
+const names = ["Evan", "Renee", "John"];
+let characterCount = names.reduce((acc, value) => (acc += value.length), 0);
 console.log(`There are ${characterCount} in the names collection`);
 ```
+
 ---
-export default Code
+
+export default Code;
 
 ```javascript Exercise - Calculate the Total Cost of Items
 // Rewrite this to use `map` and `reduce`
 
-const cart = [{ item: 'Eggs', cost: 2}, { item: 'Oranges', cost: 3}, { item: 'Avocado Toast', cost: 15}]
+const cart = [
+  { item: "Eggs", cost: 2 },
+  { item: "Oranges", cost: 3 },
+  { item: "Avocado Toast", cost: 15 }
+];
 
-let getTotalCost = (items) => {
-    let total = 0;
-    for(let x = 0; x < items.length; x++) {
-        total += items[x].cost;
-    }
-    return total;
-}
+let getTotalCost = items => {
+  let total = 0;
+  for (let x = 0; x < items.length; x++) {
+    total += items[x].cost;
+  }
+  return total;
+};
 
 getTotalCost(cart);
 ```
+
 ---
-export default Code
+
+export default Code;
 
 ```javascript Solution - Calculate the Total Cost of Items
-
-
-const cart = [{ item: 'Eggs', cost: 2}, { item: 'Oranges', cost: 3}, { item: 'Avocado Toast', cost: 15}]
-let getTotalCost = (items) => items
-    .map(item => item.cost)
-    .reduce((sum, cost) => sum + cost, 0)
+const cart = [
+  { item: "Eggs", cost: 2 },
+  { item: "Oranges", cost: 3 },
+  { item: "Avocado Toast", cost: 15 }
+];
+let getTotalCost = items =>
+  items.map(item => item.cost).reduce((sum, cost) => sum + cost, 0);
 
 getTotalCost(cart);
 ```
+
+---
+
+## Reduce - Convert Collection of Actions to Manage State / Logic
+
+- Changes in a system can be modled as a collection of actions
+- Reducing over the collection can produce a new application state
+- Core concept of how libaries like redux work
+
+---
+
+export default Code;
+
+```javascript Todo Management with Reducer 
+let actions = [
+  { type: "ADD_TODO", todo: { id: 1, text: "Todo 1", complete: false } },
+  { type: "ADD_TODO", todo: { id: 2, text: "Todo 2", complete: false } },
+  { type: "ADD_TODO", todo: { id: 3, text: "Todo 3", complete: false } },
+  { type: "TOGGLE_TODO", id: 3 },
+  { type: "TOGGLE_TODO", id: 2 },
+  { type: "UPDATE_TEXT", id: 2, text: "Updated Text" }
+];
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "ADD_TODO":
+      return [...state, action.todo];
+    case "TOGGLE_TODO":
+      return state.map(todo =>
+        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+      );
+    case "UPDATE_TEXT":
+      return state.map(todo =>
+        todo.id === action.id ? { ...todo, text: action.text } : todo
+      );
+    default:
+      return state;
+  }
+};
+
+let state = actions.reduce(reducer,[]);
+console.log(state);
+```
+
 ---
 
 ## ForEach
 
-* Steps over each item in the array
-* Has no return value, but executes a block of code for each item in the array
-* Suitable for performing an operation, but use `map` if you're transforming data
+- Steps over each item in the array
+- Has no return value, but executes a block of code for each item in the array
+- Suitable for performing an operation, but use `map` if you're transforming data
 
 ---
 
-export default Code
+export default Code;
 
 ```javascript ForEach Arrays
-
 function logItem(item) {
-    console.log(item);
+  console.log(item);
 }
 
-const items = ['Cat', 'Hat', 'Chat', 'Chapeau'];
+const items = ["Cat", "Hat", "Chat", "Chapeau"];
 
 items.forEach(item => logItem(item));
 ```
