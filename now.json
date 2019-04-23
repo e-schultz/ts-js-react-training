@@ -7,10 +7,6 @@
   },
   "builds": [
     {
-      "src": "package.json",
-      "use": "@now/static-build"
-    }
-    ,{
       "src": "decks/**/package.json",
       "use": "@now/static-build"
     }

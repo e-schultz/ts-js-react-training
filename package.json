@@ -7,6 +7,7 @@
   ],
   "scripts": {
     "start": "mdx-deck deck.js",
+    "build:decks": "yarn workspace arrays-deck build && yarn workspace classes-deck build && yarn workspace destructuring-deck build && yarn workspace functions-deck build && yarn workspace home-deck build && yarn workspace literals-deck build && yarn workspace objects-deck build && yarn workspace promises-deck build && yarn workspace react-components-deck build && yarn workspace react-data-fetching-deck build && yarn workspace react-state-deck build && yarn workspace react-hooks-deck build && yarn workspace react-performance-deck build && yarn workspace react-props-deck build && yarn workspace template-deck build && yarn workspace variables-deck build",
     "build": "yarn run now-build",
     "build:presentation": "mdx-deck build deck.js --no-html",
     "build:images": "cp -r images dist/",

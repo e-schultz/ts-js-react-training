@@ -1,7 +1,8 @@
 import Code from "mdx-code";
 import { CodeSurfer } from "mdx-deck-code-surfer";
-import { Invert } from "mdx-deck/layouts";
+import { Invert, FullScreenCode } from "mdx-deck/layouts";
 import nightOwl from "prism-react-renderer/themes/nightOwl";
+import ReplIt from "../../components/ReplIt"
 
 export default Invert;
 
@@ -155,107 +156,11 @@ console.log(result);
 ```
 
 ---
+export default FullScreenCode
 
-export default Code;
+## Arrays - Map - Transform Data Example Start
 
-```javascript Transform objects - Transform Priority to Get a Sort Order
-const PRIORITY_MAP = {
-  high: 2,
-  medium: 1,
-  low: 0
-};
-
-const tasks = [
-  {
-    id: 104,
-    complete: true,
-    priority: "high",
-    title: "Complete Slides",
-    assignedTo: { firstName: "John", lastName: "Doe" }
-  },
-  {
-    id: 105,
-    complete: false,
-    priority: "medium",
-    title: "Finish Testing",
-    assignedTo: { firstName: "Jane", lastName: "Doe" }
-  },
-  {
-    id: 106,
-    complete: true,
-    priority: "medium",
-    title: "Update Docs",
-    assignedTo: { firstName: "Evan", lastName: "Schultz" }
-  },
-  {
-    id: 107,
-    complete: false,
-    priority: "low",
-    title: "Refactor API",
-    assignedTo: { firstName: "Evan", lastName: "Schultz" }
-  }
-];
-
-// implement map
-
-let taskSummary = tasks.map(task => {
-  return task;
-});
-
-console.log(taskSummary);
-```
-
----
-
-export default Code;
-
-```javascript Transform objects - Transform Priority to Get a Sort Order
-const PRIORITY_MAP = {
-  high: 2,
-  medium: 1,
-  low: 0
-};
-
-const tasks = [
-  {
-    id: 104,
-    complete: true,
-    priority: "high",
-    title: "Complete Slides",
-    assignedTo: { firstName: "John", lastName: "Doe" }
-  },
-  {
-    id: 105,
-    complete: false,
-    priority: "medium",
-    title: "Finish Testing",
-    assignedTo: { firstName: "Jane", lastName: "Doe" }
-  },
-  {
-    id: 106,
-    complete: true,
-    priority: "medium",
-    title: "Update Docs",
-    assignedTo: { firstName: "Evan", lastName: "Schultz" }
-  },
-  {
-    id: 107,
-    complete: false,
-    priority: "low",
-    title: "Refactor API",
-    assignedTo: { firstName: "Evan", lastName: "Schultz" }
-  }
-];
-
-let taskSummary = tasks.map(task => {
-  return {
-    ...task,
-    prioritySort: PRIORITY_MAP[task.priority]
-  };
-});
-
-console.log(taskSummary);
-```
+<ReplIt src="https://repl.it/@e_schultz/Arrays-Map-to-Transform-example?lite=true"/>
 
 ---
 
@@ -316,15 +221,28 @@ console.log(doubled);
 
 ---
 
-## Chaining array methods
+## Chaining Array Methods
 
 - Array methods that return arrays can be chained together
 
 ---
+export default FullScreenCode
 
-export default Code;
+## Chaining Arrays - Example 
 
-```javascript Chaining Array Methods
+<ReplIt src="https://repl.it/@e_schultz/Arrays-Chaining-Arrays?lite=true"/>
+
+---
+export default FullScreenCode;
+
+## Chaining Arrays - Exercise - Start
+
+<ReplIt src="https://repl.it/@e_schultz/Arrays-Chaining-Arrays-Ex-start?lite=true"/>
+
+---
+export default Code 
+
+```javascript Chaining Array Methods Solution 
 const leia = { firstName: "Leia", lastName: "Organa", forceSensitive: true };
 const luke = { firstName: "Luke", lastName: "Skywalker", forceSensitive: true };
 const han = { firstName: "Han", lastName: "Solo", forceSensitive: false };
@@ -336,69 +254,6 @@ const padawans = cast
   .map(person => `${person.firstName} ${person.lastName} can be a jedi!`);
 
 console.log(padawans);
-```
-
----
-
-export default Code;
-
-```javascript Chaining Arrays
-const PRIORITY_MAP = {
-  high: 2,
-  medium: 1,
-  low: 0
-};
-
-const tasks = [
-  {
-    id: 104,
-    complete: true,
-    priority: "high",
-    title: "Complete Slides",
-    assignedTo: { firstName: "John", lastName: "Doe" }
-  },
-  {
-    id: 105,
-    complete: false,
-    priority: "medium",
-    title: "Finish Testing",
-    assignedTo: { firstName: "Jane", lastName: "Doe" }
-  },
-  {
-    id: 106,
-    complete: true,
-    priority: "medium",
-    title: "Update Docs",
-    assignedTo: { firstName: "Evan", lastName: "Schultz" }
-  },
-  {
-    id: 107,
-    complete: false,
-    priority: "low",
-    title: "Refactor API",
-    assignedTo: { firstName: "Evan", lastName: "Schultz" }
-  }
-];
-
-let getFullName = task => ({
-  ...task,
-  assignedTo: `${task.assignedTo.firstName} ${task.assignedTo.lastName}`
-});
-
-let getPrioritySort = task => ({
-  ...task,
-  prioritySort: PRIORITY_MAP[tasks.priority]
-});
-
-let isComplete = task => task.complete;
-
-let result = tasks
-  .map(task => getFullName(task))
-  .map(task => getPrioritySort(task))
-  .filter(task => isComplete(task))
-  .sort((a, b) => a.prioritySort - b.prioritySort);
-
-console.log(result);
 ```
 
 ---
