@@ -7,7 +7,7 @@ import ReplIt from "../../components/ReplIt";
 import CodeSandbox from "../../components/CodeSandbox";
 import ImageSplit from "../../components/ImageSplit";
 import Box from "../../components/Box";
-const BRANCH_NAME = 'master'; // tood: change before merge
+const BRANCH_NAME = 'es-april-22-update'; // tood: change before merge
 
 export default Invert
 
@@ -16,10 +16,28 @@ export default Invert
 ---
 
 ## `useEffect` Hook
+
 - Can replace componentWillUpdate + componentDidMount
-- Can be scoped to only run when a given stateful value updates
+- Used to manage side effects, such as DOM updates, API calls
+- Can specify what values the effect relies on, and only update when they change
 - Like setState, can be used multiple times in one component
 
+
+---
+
+## `useEffect` - Specifying Data Dependencies
+
+- useEffect by default will run on every render
+- If you specify an empty array - it will only run the unitial render 
+- If you specify the values it depends on in the array - it will run when those values change
+
+---
+
+## `useEffect` - Specifying Data Dependencies - Example 
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-hooks-useEffect-01?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2Findex.js`}/>
+</Box>
 
 ---
 
@@ -62,6 +80,22 @@ export default Invert
     {}
   ]}
 />
+
+---
+
+### Exercise: Refactor Data Search to use `useEffect` - Start
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/exercises/react-hook-refactor-data-fetch-use-effect-start?autoresize=1&codemirror=1&fontsize=14&module=%2FREADME.md`}/>
+</Box>
+
+---
+
+### Exercise: Refactor Data Search to use `useEffect` - Solution
+
+<Box width={'80vw'}>
+    <CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/exercises/react-hook-refactor-data-fetch-use-effect-end?autoresize=1&codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
+</Box>
 
 ---
 
