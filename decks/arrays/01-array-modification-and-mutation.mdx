@@ -4,11 +4,13 @@ import { Invert } from "mdx-deck/layouts";
 export default Code
 
 ```javascript Array Modification & Mutation
-const fruits = ['Peaches', 'Pears'];
+const fruits = [];
 
-fruits.push('Apples'); // Add item to end of array
-fruits.unshift('Oranges'); // Add item to start of array
-fruits[4] = 'Bananas'; // Add item using an index
+fruits.push('Apples');
+
+fruits.unshift('Oranges');
+
+fruits[2] = 'Bananas';
 console.log(fruits);
 
 moreFruits = fruits.push('Watermelon');
@@ -21,17 +23,16 @@ console.log({ fruits, moreFruits })
 
 export default Code
 
-```javascript Safely Operating
-// Slice - The slice() method returns a shallow copy of a portion of an array into a new array object 
+```javascript Safely operating
 const numbers = [1, 2, 3, 4, 5];
 const numbersTwo = numbers;
-const numbersThree = numbers.slice(3);
+const numbersThree = numbers.slice(numbers);
 
 numbers.push(6);
 
 console.log({ numbers, numbersTwo, numbersThree });
 
-const numbersFour = [...numbers, 11].push(10);
+const numbersFour = [...numbers].push(10);
 console.log({ numbers, numbersFour })
 ```
 
