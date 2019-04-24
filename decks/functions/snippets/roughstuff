@@ -1,6 +1,6 @@
 import Code from 'mdx-code';	
 import { FullScreenCode } from "mdx-deck/layouts";	
-import ReplIt from "../../components/ReplIt";
+import ReplIt from "../../components/replit";
 	
     
 # What `this` Context?	
