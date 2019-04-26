@@ -15,7 +15,7 @@ function RobotCard({ robot, onRemove }) {
         <CardText>{robot.username}</CardText>
       </CardBody>
       <footer>
-          <button onClick={()=>onRemove(robot)}>Remove</button>
+          <button onClick={()=>onRemove()}>Remove</button>
       </footer>
     </Card>
   );

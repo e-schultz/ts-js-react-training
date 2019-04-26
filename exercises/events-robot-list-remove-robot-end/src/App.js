@@ -9,7 +9,7 @@ class App extends Component {
     super();
     this.state = { robots };
   }
-  removeRobot(event, id) {
+  removeRobot(id) {
     this.setState(state => ({
       robots: state.robots.filter(robot => robot.id !== id)
     }));
@@ -23,7 +23,7 @@ class App extends Component {
               <RobotCard
                 robot={robot}
                 key={robot.id}
-                onRemove={event => this.removeRobot(event, robot.id)}
+                onRemove={() => this.removeRobot(robot.id)}
               />
             );
           })}
