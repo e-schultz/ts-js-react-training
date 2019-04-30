@@ -5,10 +5,10 @@ function Button({ children }) {
 }
 
 function AddToCartButtonText({ text }) {
-  return <span class="app-button-text">{text}</span>;
+  return <span className="app-button-text">{text}</span>;
 }
 function AddToCartButtonPrice({ price }) {
-  return <span class="app-button-price">{price}</span>;
+  return <span className="app-button-price">{price}</span>;
 }
 function AddToCartButton({ text, price }) {
   return (

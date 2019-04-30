@@ -30,8 +30,8 @@ function ProductCard() {
         <p className="app-text">all three serums</p>
       </a>
       <button className="app-button">
-        <span class="app-button-text">Add To Bag</span>
-        <span class="app-button-price">$85</span>
+        <span className="app-button-text">Add To Bag</span>
+        <span className="app-button-price">$85</span>
       </button>
     </div>
   );
