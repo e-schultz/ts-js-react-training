@@ -8,7 +8,7 @@
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-json-view": "^1.19.1",
-    "react-scripts": "2.1.8",
+    "react-scripts": "3.0.0",
     "serialize-error": "^4.1.0"
   },
   "devDependencies": {
