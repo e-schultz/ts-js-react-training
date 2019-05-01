@@ -40,15 +40,21 @@ const total = addNumbers(5, 7);
 export default Code
 
 ```javascript
-// we can see that number2 has an assignment, = 8
-// this assignment is only applied if a second argument isn't passed in
-function addNumbers(number1, number2 = 8) {
-  return number1 + number2;
+// Unless we specify a value for complete, it will default to false
+function createTask(id, title, priority, complete = false)    {
+    return {
+        id,
+        title,
+        priority,
+        complete
+    }
 }
 
-// number1 gets the value of 5
-// Without a second argument, number2 is set to 8
-const total = addNumbers(5); // resolves to 13
+const task1 = createTask(1, 'New Task','high');
+const task2 = createTask(2,'Completed Task','low',true);
+
+console.log(task1);
+console.log(task2);
 
 // we can also use the spread operator (...) in the parameter definition
 // this will take all arguments passed in and put them into a single array
@@ -70,18 +76,19 @@ keepTheLastItem(3, 1, 66, 21, 15); // this returns 15
 
 export default Code
 
-```javascript Assignment with Objects in Functions
-const houseColours = {
-    roofColour: 'red',
-    floorColour: 'black',
-    doorColour: 'green',
+```javascript Functions - Destructuring Arguments
+const person = {
+    firstName: 'Evan',
+    lastName: 'Schultz',
+    age: 36,
+    city: 'Toronto'
 }
 
-function getRoofColour({ roofColour }) {
-    console.log(roofColour)
+function getFullName({ firstName, lastName }) {
+    return `${firstName} ${lastName}`
 }
 
-getRoofColour(houseColours)
+getFullName(person)
 ```
 
 ---
@@ -111,6 +118,7 @@ const result2 = returnTen(); // the value is undefined
 ```
 
 ---
+
 export default Code
 
 ```javascript Returns - Object Destructuring Assignment
@@ -126,6 +134,7 @@ let { firstName, age } = createPerson();
 console.log(`firstName: ${firstName} - age ${age}`)
 ```
 ---
+
 export default Code
 
 ```javascript Returns - Array Destructuring Assignment
@@ -154,6 +163,7 @@ console.log(goodMorning('Everyone'));
 console.log(goodDay('Everyone'));
 ```
 ---
+
 ## Functions Returning Functions
 
 - Useful when you have a function that you want to reuse
@@ -170,7 +180,9 @@ function getPlatforms(id) {
     .then(response=>response.json())
 }
 ```
+
 ---
+
 ## Functions Returning Functions
 
 - Useful when you have a function that you want to reuse

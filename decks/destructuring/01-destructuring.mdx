@@ -22,14 +22,15 @@ import { Invert } from "mdx-deck/layouts";
 export default Code
 
 ```javascript Assignment with Objects
-const colors = {
-  red: "#FF0000",
-  blue: "#0000FF",
-  green: "#00FF00"
-};
+const task = {
+  id: 0,
+  title: "New Task",
+  priority: "high", 
+  complete: false, 
+}
 
-const { red, blue, green } = colors;
-console.log(red, blue, green)
+const { id, title, priority } = task;
+console.log(id, title, priority);
 ```
 
 ---

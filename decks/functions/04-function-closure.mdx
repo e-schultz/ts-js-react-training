@@ -51,18 +51,36 @@ export default Invert
 ```
 
 ---
+
+export default Code 
+
+```javascript Closure 
+
+function outer(iniitalValue = 0) {
+  let count = iniitalValue;
+  return function c() {
+    return ++count;
+  };
+  return c;
+}
+
+let count = outer(0);
+console.log(count()); 
+console.log(count()); 
+
+let count2 = outer(10);
+console.log(count2()); 
+console.log(count2()); 
+```
+
+---
 export default FullScreenCode
 
 ### Closures - Counter Example
 
 <ReplIt src="https://repl.it/@e_schultz/Exploring-Closures?lite=true"/>
 
-<!--
-<div style={{height: '80vh', display: 'block'}}>
-    <iframe height="100%" style={{height: '100%'}} width="100%" src="https://repl.it/@e_schultz/Exploring-Closures?lite=true" scrolling="no" frameBorder="no"  allowFullScreen={true} sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
-    </iframe>
-</div>
--->
+
 ---
 export default FullScreenCode
 
