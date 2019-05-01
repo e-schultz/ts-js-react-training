@@ -164,9 +164,9 @@ const RobotForm = ({ robot, onSubmit }) => {
             </figure>
           </div>
           <div className="media-content">
-            <div class="control">
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 type="text"
                 placeholder="Text input"
                 value={editRobot.name}
@@ -179,9 +179,9 @@ const RobotForm = ({ robot, onSubmit }) => {
               />
             </div>
 
-            <div class="control">
+            <div className="control">
               <input
-                class="input"
+                className="input"
                 type="text"
                 placeholder="Text input"
                 value={editRobot.username}
