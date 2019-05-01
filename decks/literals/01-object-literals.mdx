@@ -121,31 +121,34 @@ for(let key in task) {
 
 ---
 
-## The Old Way
+export default Code 
 
-```javascript
-function createCar(make, model, year) {
+```javascript Object Literals - Old Way
+function createTask(id, title, priority, complete) {
     return {
-        make: make,
-        model: model,
-        year: year
+        id: id,
+        title: title,
+        priority: priority,
+        complete: complete
     }
 }
+createTask(0, 'New Task','high', false);
 ```
 
 ---
 
-## Shorthand
+export default Code 
 
-```javascript
-function createCar(make, model, year) {
+```javascript Object Literals - Short Hand
+function createTask(id, title, priority, complete) {
     return {
-        make,
-        model,
-        year,
+        id,
+        title,
+        priority,
+        complete
     }
 }
 
-console.log(createCar('Toyota','Camry','2018'))
-// { make: 'Toyota', model: 'Camry', year: '2018'}
+createTask(0, 'New Task','high', false);
+// Object {complete: false, id: 0, priority: "high", title: "New Task"}
 ```

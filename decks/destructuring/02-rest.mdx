@@ -1,21 +1,21 @@
-import Code from 'mdx-code';
-import CodeSandbox from '../../components/CodeSandbox';
+import Code from "mdx-code";
+import CodeSandbox from "../../components/CodeSandbox";
 
 ## Rest
 
-* Gathers any remaining elements in an object/array (i.e. the "rest")
-* Useful especially when dealing with unknown quantities
+- Gathers any remaining elements in an object/array (i.e. the "rest")
+- Useful especially when dealing with unknown quantities
 
 ---
 
 ## Object Rest
 
-* Assign variables to properties in the object
-* Create object with remaining properties
+- Assign variables to properties in the object
+- Create object with remaining properties
 
 ---
 
-# Object Rest Assignment 
+# Object Rest Assignment
 
 <CodeSandbox src="https://codesandbox.io/embed/vn20p36o7l?codemirror=1&fontsize=14&module=%2Fsrc%2Findex.js" runOnClick={0}/>
 `
@@ -25,16 +25,29 @@ This is useful when are passing a number of properties into a function,
 and want to 'pluck off' a few to be used - and pass the rest down
 to another function.
 ```
+
 ---
 
+export default Code;
 
-export default Code
+```javascript Arrays - ...rest assignment
+let numbers = [1, 2, 3, 4, 5];
+let [first, second, ...rest] = numbers;
+console.log(`Initial numbers unmodified:`, numbers);
+console.log(`first:`, first);
+console.log(`second:`, second);
+console.log(`rest:`, rest);
+```
 
-```javascript Array Rest
+---
+
+export default Code; 
+
+```javascript Array - Treat function arguments as an array
 function getBiggest(...args) {
-    return args.sort(function(a, b){
-        return b-a
-    })[0]
+  return args.sort(function(a, b) {
+    return b - a;
+  })[0];
 }
 
 console.log(getBiggest(10, 5));
