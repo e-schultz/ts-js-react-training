@@ -8,6 +8,7 @@ import CardContent from "./lib/components/CardContent";
 import CardaMediaContent from "./lib/components/CardMediaContent";
 import CardFooter from "./lib/components/CardFooter";
 import CardFooterItem from "./lib/components/CardFooterItem";
+import SelectList from "./lib/components/SelectList";
 
 const departments = [
   {
@@ -187,51 +188,31 @@ const RobotForm = ({ robot, onSubmit }) => {
             />
           </div>
         </CardaMediaContent>
-        <span className="select">
-          <select
-            value={editRobot.departmentId}
-            onChange={({ target: { value } }) =>
-              setRobot(state => ({
-                ...state,
-                departmentId: +value,
-                jobTitleId: -1
-              }))
-            }
-          >
-            <option value={-1}>Select One</option>
-            {departments.map(department => {
-              return (
-                <option key={department.id} value={department.id}>
-                  {department.text}
-                </option>
-              );
-            })}
-          </select>
-        </span>
-        <span className="select">
-          <select
-            value={editRobot.jobTitleId}
-            onChange={({ target: { value } }) =>
-              setRobot(state => ({
-                ...state,
-                jobTitleId: +value
-              }))
-            }
-          >
-            <option value={-1}>Select One</option>
-            {jobTitles
-              .filter(
-                ({ departmentId }) => departmentId === editRobot.departmentId
-              )
-              .map(jobTitle => {
-                return (
-                  <option key={jobTitle.id} value={jobTitle.id}>
-                    {jobTitle.text}
-                  </option>
-                );
-              })}
-          </select>
-        </span>
+        <SelectList
+          options={departments}
+          value={editRobot.departmentId}
+          onChange={({ target: { value } }) =>
+            setRobot(state => ({
+              ...state,
+              departmentId: +value,
+              jobTitleId: -1
+            }))
+          }
+        />
+
+        <SelectList
+          options={jobTitles.filter(
+            ({ departmentId }) => departmentId === editRobot.departmentId
+          )}
+          value={editRobot.jobTitleId}
+          value={editRobot.jobTitleId}
+          onChange={({ target: { value } }) =>
+            setRobot(state => ({
+              ...state,
+              jobTitleId: +value
+            }))
+          }
+        />
       </CardContent>
       <CardFooter>
         <CardFooterItem>
@@ -324,23 +305,11 @@ function App() {
         <section className="container">
           <div className="field has-addons">
             <p className="control">
-              <span className="select">
-                <select
-                  value={selectedDepartmentId}
-                  onChange={event =>
-                    setSelectedDepartmentId(+event.target.value)
-                  }
-                >
-                  <option value={-1}>All</option>
-                  {departments.map(department => {
-                    return (
-                      <option key={department.id} value={department.id}>
-                        {department.text}
-                      </option>
-                    );
-                  })}
-                </select>
-              </span>
+              <SelectList
+                options={departments}
+                value={selectedDepartmentId}
+                onChange={event => setSelectedDepartmentId(+event.target.value)}
+              />
             </p>
             <p className="control is-expanded">
               <input
