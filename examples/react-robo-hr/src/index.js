@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "bulma/css/bulma.css";
 
+import Card from "./lib/components/Card";
+import CardImage from "./lib/components/CardImage";
+import CardContent from "./lib/components/CardContent";
+import CardaMediaContent from "./lib/components/CardMediaContent";
+import CardFooter from "./lib/components/CardFooter";
+import CardFooterItem from "./lib/components/CardFooterItem";
+
 const departments = [
   {
     id: 0,
@@ -414,62 +421,40 @@ function App() {
                 })
                 .map(robot => {
                   return (
-                    <div className="card">
-                      <div className="card-image">
-                        <figure className="image is-4by3">
-                          <img
-                            src={`https://robohash.org/${
-                              robot.id
-                            }?size=1280x960`}
-                            alt="Placeholder image"
-                          />
-                        </figure>
-                      </div>
-                      <div className="card-content">
-                        <div className="media">
-                          <div className="media-left">
-                            <figure className="image is-48x48">
-                              <img
-                                src={`https://robohash.org/${
-                                  robot.id
-                                }?size=96x96`}
-                                alt="Placeholder image"
-                              />
-                            </figure>
-                          </div>
-                          <div className="media-content">
-                            <p className="title is-4">{robot.name}</p>
-                            <p className="subtitle is-6">@{robot.username}</p>
-                          </div>
-                        </div>
-
-                        <div className="content">
-                          {robot.department} - {robot.jobTitle}
-                        </div>
-                      </div>
-                      <footer className="card-footer">
-                        <p className="card-footer-item">
+                    <Card>
+                      <CardImage
+                        src={`https://robohash.org/${robot.id}?size=1280x960`}
+                      />
+                      <CardContent>
+                        <CardaMediaContent
+                          src={`https://robohash.org/${robot.id}?size=96x96`}
+                        >
+                          <p className="title is-4">{robot.name}</p>
+                          <p className="subtitle is-6">@{robot.username}</p>
+                        </CardaMediaContent>
+                        {robot.department} - {robot.jobTitle}
+                      </CardContent>
+                      <CardFooter>
+                        <CardFooterItem>
                           <button
                             className="button is-fullwidth is-primary"
                             onClick={() => setSelectedRobot(robot)}
                           >
                             Edit
                           </button>
-                        </p>
-                        <p href="#" className="card-footer-item">
-                          {" "}
+                        </CardFooterItem>
+                        <CardFooterItem>
                           <button className="button is-fullwidth is-normal">
                             Activate
                           </button>
-                        </p>
-                        <p href="#" className="card-footer-item">
-                          {" "}
+                        </CardFooterItem>
+                        <CardFooterItem>
                           <button className="button is-fullwidth is-warning">
                             Deactivate
                           </button>
-                        </p>
-                      </footer>
-                    </div>
+                        </CardFooterItem>
+                      </CardFooter>
+                    </Card>
                   );
                 })}
             </div>
@@ -481,9 +466,11 @@ function App() {
                     setSelectedRobot(null);
                     if (action.type !== "CANCEL") {
                       setRobots(state => {
-                        return state.map(r=>{
-                          return r.id !== selectedRobot.id ? r : {...action.robot}
-                        })
+                        return state.map(r => {
+                          return r.id !== selectedRobot.id
+                            ? r
+                            : { ...action.robot };
+                        });
                       });
                     }
                   }}
