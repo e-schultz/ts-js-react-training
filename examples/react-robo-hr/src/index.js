@@ -151,108 +151,90 @@ const INITIAL_ROBOTS = [
 const RobotForm = ({ robot, onSubmit }) => {
   const [editRobot, setRobot] = useState({ ...robot });
   return (
-    <div className="card" style={{ position: "fixed" }}>
-      <div className="card-image">
-        <figure className="image is-4by3">
-          <img
-            src={`https://robohash.org/${robot.id}?size=1280x960`}
-            alt="Placeholder image"
-          />
-        </figure>
-      </div>
-      <div className="card-content">
-        <div className="media">
-          <div className="media-left">
-            <figure className="image is-48x48">
-              <img
-                src={`https://robohash.org/${robot.id}?size=96x96`}
-                alt="Placeholder image"
-              />
-            </figure>
-          </div>
-          <div className="media-content">
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                placeholder="Text input"
-                value={editRobot.name}
-                onChange={({ target: { value } }) =>
-                  setRobot(state => ({
-                    ...state,
-                    name: value
-                  }))
-                }
-              />
-            </div>
-
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                placeholder="Text input"
-                value={editRobot.username}
-                onChange={({ target: { value } }) =>
-                  setRobot(state => ({
-                    ...state,
-                    username: value
-                  }))
-                }
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="content">
-          <span className="select">
-            <select
-              value={editRobot.departmentId}
+    <Card>
+      <CardImage src={`https://robohash.org/${editRobot.id}?size=1280x960`} />
+      <CardContent>
+        <CardaMediaContent
+          src={`https://robohash.org/${editRobot.id}?size=96x96`}
+        >
+          <div className="control">
+            <input
+              className="input"
+              type="text"
+              placeholder="Text input"
+              value={editRobot.name}
               onChange={({ target: { value } }) =>
                 setRobot(state => ({
                   ...state,
-                  departmentId: +value,
-                  jobTitleId: -1
+                  name: value
                 }))
               }
-            >
-              <option value={-1}>Select One</option>
-              {departments.map(department => {
+            />
+          </div>
+
+          <div className="control">
+            <input
+              className="input"
+              type="text"
+              placeholder="Text input"
+              value={editRobot.username}
+              onChange={({ target: { value } }) =>
+                setRobot(state => ({
+                  ...state,
+                  username: value
+                }))
+              }
+            />
+          </div>
+        </CardaMediaContent>
+        <span className="select">
+          <select
+            value={editRobot.departmentId}
+            onChange={({ target: { value } }) =>
+              setRobot(state => ({
+                ...state,
+                departmentId: +value,
+                jobTitleId: -1
+              }))
+            }
+          >
+            <option value={-1}>Select One</option>
+            {departments.map(department => {
+              return (
+                <option key={department.id} value={department.id}>
+                  {department.text}
+                </option>
+              );
+            })}
+          </select>
+        </span>
+        <span className="select">
+          <select
+            value={editRobot.jobTitleId}
+            onChange={({ target: { value } }) =>
+              setRobot(state => ({
+                ...state,
+                jobTitleId: +value
+              }))
+            }
+          >
+            <option value={-1}>Select One</option>
+            {jobTitles
+              .filter(
+                ({ departmentId }) => departmentId === editRobot.departmentId
+              )
+              .map(jobTitle => {
                 return (
-                  <option key={department.id} value={department.id}>
-                    {department.text}
+                  <option key={jobTitle.id} value={jobTitle.id}>
+                    {jobTitle.text}
                   </option>
                 );
               })}
-            </select>
-          </span>
-          <span className="select">
-            <select
-              value={editRobot.jobTitleId}
-              onChange={({ target: { value } }) =>
-                setRobot(state => ({
-                  ...state,
-                  jobTitleId: +value
-                }))
-              }
-            >
-              <option value={-1}>Select One</option>
-              {jobTitles
-                .filter(
-                  ({ departmentId }) => departmentId === editRobot.departmentId
-                )
-                .map(jobTitle => {
-                  return (
-                    <option key={jobTitle.id} value={jobTitle.id}>
-                      {jobTitle.text}
-                    </option>
-                  );
-                })}
-            </select>
-          </span>
-        </div>
-      </div>
-      <footer className="card-footer">
-        <p className="card-footer-item">
+          </select>
+        </span>
+      </CardContent>
+      <CardFooter>
+        <CardFooterItem>
           <button
             className="button is-fullwidth is-primary"
             onClick={() => {
@@ -261,9 +243,8 @@ const RobotForm = ({ robot, onSubmit }) => {
           >
             Save
           </button>
-        </p>
-        <p href="#" className="card-footer-item">
-          {" "}
+        </CardFooterItem>
+        <CardFooterItem>
           <button
             className="button is-fullwidth is-normal"
             onClick={() => {
@@ -272,9 +253,9 @@ const RobotForm = ({ robot, onSubmit }) => {
           >
             Cancel
           </button>
-        </p>
-      </footer>
-    </div>
+        </CardFooterItem>
+      </CardFooter>
+    </Card>
   );
 };
 function App() {
