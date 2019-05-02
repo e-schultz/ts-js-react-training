@@ -14,7 +14,9 @@ const robotReducer = (state, action) => {
   switch (action.type) {
     case "SAVE":
       return state.map(robot => {
-        return robot.id !== action.robot.id ? robot : { ...action.robot };
+        return robot.id !== action.robot.id
+          ? robot
+          : robotBuilder(action.robot);
       });
     default:
       return state;
