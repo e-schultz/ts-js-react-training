@@ -1,8 +1,10 @@
 import React, { useReducer } from "react";
 import ReactDOM from "react-dom";
 import { Router } from "@reach/router";
-import "bulma/css/bulma.css";
+// import "bulma/css/bulma.css";
 // import "@mdi/font/css/materialdesignicons.css"
+
+import "./theme.scss"
 import SiteHeader from "./lib/components/SiteHeader";
 import Container from "./lib/components/Container";
 
