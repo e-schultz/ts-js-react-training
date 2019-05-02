@@ -2,8 +2,13 @@ import React, { useState } from "react";
 
 import SelectList from "../../../lib/components/SelectList";
 
-const RobotSearchBar = ({departments, selectedDepartmentId, searchTerm, onDepartmentSelect, onSearchTermChange}) => {
- 
+const RobotSearchBar = ({
+  departments,
+  selectedDepartmentId,
+  searchTerm,
+  onDepartmentSelect,
+  onSearchTermChange
+}) => {
   return (
     <div className="field has-addons">
       <p className="control">
@@ -23,9 +28,6 @@ const RobotSearchBar = ({departments, selectedDepartmentId, searchTerm, onDepart
           onChange={event => onSearchTermChange(event.target.value)}
         />
       </p>
-      {/*<p className="control">
-<a className="button">Search</a>
-</p>*/}
     </div>
   );
 };
