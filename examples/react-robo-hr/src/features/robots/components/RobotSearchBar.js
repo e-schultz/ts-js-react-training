@@ -16,7 +16,9 @@ const RobotSearchBar = ({
           options={departments}
           value={selectedDepartmentId}
           onChange={event => onDepartmentSelect(+event.target.value)}
-        />
+        >
+        <option value={-1}>All</option>
+        </SelectList>
       </p>
 
       <p className="control is-expanded">

@@ -11,8 +11,6 @@ import InputField from "../../../lib/components/InputField";
 
 // TODO: have departments and jobTitles be provided from parent
 
-
-
 const RobotForm = ({ robot, onSubmit, departments, jobTitles }) => {
   const [editRobot, setRobot] = useState({ ...robot });
   return (
@@ -55,7 +53,9 @@ const RobotForm = ({ robot, onSubmit, departments, jobTitles }) => {
               jobTitleId: -1
             }))
           }
-        />
+        >
+          <option value={-1}>Select One</option>
+        </SelectList>
 
         <SelectList
           options={jobTitles.filter(
@@ -68,7 +68,9 @@ const RobotForm = ({ robot, onSubmit, departments, jobTitles }) => {
               jobTitleId: +value
             }))
           }
-        />
+        >
+          <option value={-1}>Select One</option>
+        </SelectList>
       </CardContent>
       <CardFooter>
         <CardFooterItem>
