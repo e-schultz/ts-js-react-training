@@ -10,6 +10,7 @@ import Section from "../../../lib/components/Section";
 import Column from "../../../lib/components/Column";
 import Columns from "../../../lib/components/Columns";
 import RobotForm from "../components/RobotForm";
+import RobotSearchBar from "../components/RobotSearchBar";
 
 import { departments, jobTitles, INITIAL_ROBOTS } from "../../../data";
 
@@ -20,28 +21,14 @@ const RobotSearch = () => {
   let [robots, setRobots] = useState(INITIAL_ROBOTS);
   return (
     <Section>
-      <div className="field has-addons">
-        <p className="control">
-          <SelectList
-            options={departments}
-            value={selectedDepartmentId}
-            onChange={event => setSelectedDepartmentId(+event.target.value)}
-          />
-        </p>
+      <RobotSearchBar
+        departments={departments}
+        selectedDepartmentId={selectedDepartmentId}
+        searchTerm={searchTerm}
+        onDepartmentSelect={setSelectedDepartmentId}
+        onSearchTermChange={setSearchTerm}
+      />
 
-        <p className="control is-expanded">
-          <input
-            className="input"
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-            onChange={event => setSearchTerm(event.target.value)}
-          />
-        </p>
-        {/*<p className="control">
-      <a className="button">Search</a>
-</p>*/}
-      </div>
       <Columns>
         <Column size={1 / 3}>
           {robots
