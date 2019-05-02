@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import ReactDOM from "react-dom";
 import { Router } from "@reach/router";
 import "bulma/css/bulma.css";
-
+// import "@mdi/font/css/materialdesignicons.css"
 import SiteHeader from "./lib/components/SiteHeader";
 import Container from "./lib/components/Container";
 
@@ -16,13 +16,21 @@ const robotReducer = (state, action) => {
       // We want to pluck off only the properties that make up a robot
       // not the derived values, or anything else that may have accidently
       // ended up in the action
-      let { id, name, username, email, jobTitleId } = action.robot;
+      let { id, name, username, email, jobTitleId, active } = action.robot;
       return state.map(robot => {
         return robot.id !== action.robot.id
           ? robot
-          : { id, name, username, email, jobTitleId };
+          : { id, name, username, email, jobTitleId, active };
       });
     }
+    case "ACTIVATE":
+      return state.map(robot =>
+        robot.id !== action.id ? robot : { ...robot, active: true }
+      );
+    case "DEACTIVATE":
+      return state.map(robot =>
+        robot.id !== action.id ? robot : { ...robot, active: false }
+      );
     default:
       return state;
   }
