@@ -11,9 +11,9 @@ import InputField from "../../../lib/components/InputField";
 
 // TODO: have departments and jobTitles be provided from parent
 
-import { departments, jobTitles } from "../../../data";
 
-const RobotForm = ({ robot, onSubmit }) => {
+
+const RobotForm = ({ robot, onSubmit, departments, jobTitles }) => {
   const [editRobot, setRobot] = useState({ ...robot });
   return (
     <Card>
