@@ -16,144 +16,7 @@ import Column from "./lib/components/Column";
 import Columns from "./lib/components/Columns";
 import InputField from "./lib/components/InputField";
 import Input from "./lib/components/Input";
-const departments = [
-  {
-    id: 0,
-    text: "Technology"
-  },
-  {
-    id: 1,
-    text: "Sales"
-  },
-  {
-    id: 2,
-    text: "Delivery"
-  }
-];
-const jobTitles = [
-  {
-    id: 0,
-    departmentId: 0,
-    text: `Application Development Director`
-  },
-  {
-    id: 1,
-    departmentId: 0,
-    text: `Chief Technology Officer`
-  },
-  {
-    id: 2,
-    departmentId: 0,
-    text: `Information Technology Director`
-  },
-  {
-    id: 3,
-    departmentId: 1,
-    text: "District Sales Manager"
-  },
-  {
-    id: 4,
-    departmentId: 1,
-    text: "Regional Sales Manager"
-  },
-  {
-    id: 5,
-    departmentId: 1,
-    text: "Territory Sales Manager"
-  },
-  {
-    id: 6,
-    departmentId: 2,
-    text: "Applications Developer"
-  },
-  {
-    id: 7,
-    departmentId: 2,
-    text: "Junior Software Developer"
-  },
-  {
-    id: 8,
-    departmentId: 2,
-    text: "Computer Systems Security Analyst"
-  },
-  {
-    id: 9,
-    departmentId: 2,
-    text: "Embedded Systems Software Developer"
-  }
-];
-const INITIAL_ROBOTS = [
-  {
-    id: 1,
-    name: "Leanne Grahamss",
-    username: "Bret",
-    email: "Sincere@april.biz",
-    jobTitleId: 1
-  },
-  {
-    id: 2,
-    name: "Ervin Howell",
-    username: "Antonette",
-    email: "Shanna@melissa.tv",
-    jobTitleId: 2
-  },
-  {
-    id: 3,
-    name: "Clementine Bauch",
-    username: "Samantha",
-    email: "Nathan@yesenia.net",
-    jobTitleId: 3
-  },
-  {
-    id: 4,
-    name: "Patricia Lebsack",
-    username: "Karianne",
-    email: "Julianne.OConner@kory.org",
-    jobTitleId: 4
-  },
-  {
-    id: 5,
-    name: "Chelsey Dietrich",
-    username: "Kamren",
-    email: "Lucio_Hettinger@annie.ca",
-    jobTitleId: 5
-  },
-  {
-    id: 6,
-    name: "Mrs. Dennis Schulist",
-    username: "Leopoldo_Corkery",
-    email: "Karley_Dach@jasper.info",
-    jobTitleId: 6
-  },
-  {
-    id: 7,
-    name: "Kurtis Weissnat",
-    username: "Elwyn.Skiles",
-    email: "Telly.Hoeger@billy.biz",
-    jobTitleId: 7
-  },
-  {
-    id: 8,
-    name: "Nicholas Runolfsdottir V",
-    username: "Maxime_Nienow",
-    email: "Sherwood@rosamond.me",
-    jobTitleId: 8
-  },
-  {
-    id: 9,
-    name: "Glenna Reichert",
-    username: "Delphine",
-    email: "Chaim_McDermott@dana.io",
-    jobTitleId: 9
-  },
-  {
-    id: 10,
-    name: "Clementina DuBuque",
-    username: "Moriah.Stanton",
-    email: "Rey.Padberg@karina.biz",
-    jobTitleId: 0
-  }
-];
+import { departments, jobTitles, INITIAL_ROBOTS } from './data';
 
 const RobotForm = ({ robot, onSubmit }) => {
   const [editRobot, setRobot] = useState({ ...robot });
@@ -166,7 +29,7 @@ const RobotForm = ({ robot, onSubmit }) => {
         >
           <InputField
             type="text"
-            placeholder="Text input"
+            placeholder="Robot Name"
             value={editRobot.name}
             onChange={({ target: { value } }) =>
               setRobot(state => ({
@@ -176,8 +39,8 @@ const RobotForm = ({ robot, onSubmit }) => {
             }
           />
 
-          <InputField 
-            placeholder="Text input"
+          <InputField
+            placeholder="UserName"
             value={editRobot.username}
             onChange={({ target: { value } }) =>
               setRobot(state => ({
@@ -204,7 +67,6 @@ const RobotForm = ({ robot, onSubmit }) => {
             ({ departmentId }) => departmentId === editRobot.departmentId
           )}
           value={editRobot.jobTitleId}
-          
           onChange={({ target: { value } }) =>
             setRobot(state => ({
               ...state,
@@ -267,9 +129,9 @@ function App() {
                 onChange={event => setSearchTerm(event.target.value)}
               />
             </p>
-            <p className="control">
+            {/*<p className="control">
               <a className="button">Search</a>
-            </p>
+  </p>*/}
           </div>
           <Columns>
             <Column size={1 / 3}>
