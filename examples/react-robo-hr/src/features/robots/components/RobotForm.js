@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Card from "../../../lib/components/Card";
 import CardImage from "../../../lib/components/CardImage";
 import CardContent from "../../../lib/components/CardContent";
-import CardaMediaContent from "../../../lib/components/CardMediaContent";
+import CardMediaContent from "../../../lib/components/CardMediaContent";
 import CardFooter from "../../../lib/components/CardFooter";
 import CardFooterItem from "../../../lib/components/CardFooterItem";
 import SelectList from "../../../lib/components/SelectList";
@@ -18,7 +18,7 @@ const RobotForm = ({ robot, onSubmit }) => {
     <Card>
       <CardImage src={`https://robohash.org/${editRobot.id}?size=1280x960`} />
       <CardContent>
-        <CardaMediaContent
+        <CardMediaContent
           src={`https://robohash.org/${editRobot.id}?size=96x96`}
         >
           <InputField
@@ -43,7 +43,7 @@ const RobotForm = ({ robot, onSubmit }) => {
               }))
             }
           />
-        </CardaMediaContent>
+        </CardMediaContent>
         <SelectList
           options={departments}
           value={editRobot.departmentId}
