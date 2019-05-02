@@ -1,6 +1,6 @@
 import React from "react";
 
-const Columns = ({children}) => (<div class="columns">{children}</div>);
+const Columns = ({children}) => (<div className="columns">{children}</div>);
 
 Columns.displayName = "Columns";
 

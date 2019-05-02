@@ -67,6 +67,7 @@ const RobotSearch = ({ departments, robots, robotDispatch, jobTitles }) => {
               jobTitles={jobTitles}
               onSubmit={action => {
                 setSelectedRobot(null);
+                console.log(action);
                 robotDispatch(action);
               }}
             />
