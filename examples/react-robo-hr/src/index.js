@@ -12,7 +12,10 @@ import SelectList from "./lib/components/SelectList";
 import SiteHeader from "./lib/components/SiteHeader";
 import Container from "./lib/components/Container";
 import Section from "./lib/components/Section";
-
+import Column from "./lib/components/Column";
+import Columns from "./lib/components/Columns";
+import InputField from "./lib/components/InputField";
+import Input from "./lib/components/Input";
 const departments = [
   {
     id: 0,
@@ -161,35 +164,28 @@ const RobotForm = ({ robot, onSubmit }) => {
         <CardaMediaContent
           src={`https://robohash.org/${editRobot.id}?size=96x96`}
         >
-          <div className="control">
-            <input
-              className="input"
-              type="text"
-              placeholder="Text input"
-              value={editRobot.name}
-              onChange={({ target: { value } }) =>
-                setRobot(state => ({
-                  ...state,
-                  name: value
-                }))
-              }
-            />
-          </div>
+          <InputField
+            type="text"
+            placeholder="Text input"
+            value={editRobot.name}
+            onChange={({ target: { value } }) =>
+              setRobot(state => ({
+                ...state,
+                name: value
+              }))
+            }
+          />
 
-          <div className="control">
-            <input
-              className="input"
-              type="text"
-              placeholder="Text input"
-              value={editRobot.username}
-              onChange={({ target: { value } }) =>
-                setRobot(state => ({
-                  ...state,
-                  username: value
-                }))
-              }
-            />
-          </div>
+          <InputField 
+            placeholder="Text input"
+            value={editRobot.username}
+            onChange={({ target: { value } }) =>
+              setRobot(state => ({
+                ...state,
+                username: value
+              }))
+            }
+          />
         </CardaMediaContent>
         <SelectList
           options={departments}
@@ -208,7 +204,7 @@ const RobotForm = ({ robot, onSubmit }) => {
             ({ departmentId }) => departmentId === editRobot.departmentId
           )}
           value={editRobot.jobTitleId}
-          value={editRobot.jobTitleId}
+          
           onChange={({ target: { value } }) =>
             setRobot(state => ({
               ...state,
@@ -261,6 +257,7 @@ function App() {
                 onChange={event => setSelectedDepartmentId(+event.target.value)}
               />
             </p>
+
             <p className="control is-expanded">
               <input
                 className="input"
@@ -274,8 +271,8 @@ function App() {
               <a className="button">Search</a>
             </p>
           </div>
-          <div className="columns">
-            <div className="column is-one-third">
+          <Columns>
+            <Column size={1 / 3}>
               {robots
                 .map(robot => {
                   let jobTitle = jobTitles.find(
@@ -357,8 +354,8 @@ function App() {
                     </Card>
                   );
                 })}
-            </div>
-            <div className="column is-one-third">
+            </Column>
+            <Column size={1 / 3}>
               {!selectedRobot ? null : (
                 <RobotForm
                   robot={selectedRobot}
@@ -376,8 +373,8 @@ function App() {
                   }}
                 />
               )}
-            </div>
-          </div>
+            </Column>
+          </Columns>
         </Section>
       </Container>
     </>
