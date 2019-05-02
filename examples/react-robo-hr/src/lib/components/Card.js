@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ children, ...props }) => <div className="card">{children}</div>;
+const Card = ({ children, ...props }) => <div className="card" {...props}>{children}</div>;
 
 Card.displayName = "Card";
 

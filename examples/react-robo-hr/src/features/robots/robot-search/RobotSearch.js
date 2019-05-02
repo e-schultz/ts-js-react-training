@@ -6,7 +6,6 @@ import RobotForm from "../components/RobotForm";
 import RobotSearchBar from "../components/RobotSearchBar";
 import RobotSearchCard from "../components/RobotSearchCard";
 
-
 const createSearchFilter = searchTerm => robot => {
   if (typeof searchTerm === "undefined" || searchTerm.trim().length === 0) {
     return true;
@@ -31,10 +30,10 @@ const RobotSearch = ({ departments, robots, robotDispatch, jobTitles }) => {
   let [selectedDepartmentId, setSelectedDepartmentId] = useState(-1);
   let [searchTerm, setSearchTerm] = useState("");
   let [selectedRobot, setSelectedRobot] = useState(null);
-  
+
   let robotSearchFilter = createSearchFilter(searchTerm);
   let departmentFilter = createDepartmentFilter(selectedDepartmentId);
-  
+
   return (
     <Section>
       <RobotSearchBar
@@ -55,6 +54,12 @@ const RobotSearch = ({ departments, robots, robotDispatch, jobTitles }) => {
                 <RobotSearchCard
                   robot={robot}
                   onEdit={() => setSelectedRobot(robot)}
+                  onActivate={() => {
+                    robotDispatch({ type: "ACTIVATE", id: robot.id });
+                  }}
+                  onDeactivate={() =>
+                    robotDispatch({ type: "DEACTIVATE", id: robot.id })
+                  }
                 />
               );
             })}

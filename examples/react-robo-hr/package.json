@@ -5,6 +5,9 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@mdi/font": "^3.6.95",
+    "@mdi/js": "^3.6.95",
+    "@mdi/react": "^1.1.0",
     "@reach/router": "^1.2.1",
     "bulma": "^0.7.4",
     "classnames": "^2.2.6",
