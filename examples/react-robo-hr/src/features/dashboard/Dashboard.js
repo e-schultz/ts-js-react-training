@@ -16,25 +16,22 @@ const groupBy = prop => collection => {
   }, {});
 };
 
-const groupByDepartment = groupBy('department');
+const groupByDepartment = groupBy("department");
 
 const Dashboard = ({ robots }) => {
   const robotsByDepartment = groupByDepartment(robots);
-  
-  
+
   return (
-    <Section>    
-        <ul>
-          {Object.keys(robotsByDepartment).map(n=>{
-            return (<li>
+    <Section>
+      <ul>
+        {Object.keys(robotsByDepartment).map(n => {
+          return (
+            <li>
               {n} - {robotsByDepartment[n].length / robots.length}
-            </li>)
-          })}
-        </ul>
-      
-        <ul>
-          {robots.map(n=>(<li>{n.name}</li>))}
-        </ul>
+            </li>
+          );
+        })}
+      </ul>
     </Section>
   );
 };
