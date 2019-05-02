@@ -7,14 +7,16 @@ import SiteHeader from "./lib/components/SiteHeader";
 import Container from "./lib/components/Container";
 
 import RobotSearch from "./features/robots/robot-search/RobotSearch";
+import Dashboard from "./features/dashboard/Dashboard";
 
 function App() {
   return (
     <>
       <SiteHeader />
       <Container>
-        <Router>
-          <RobotSearch path="/" />
+        <Router primary={false}>
+          <Dashboard path="/"/>
+          <RobotSearch path="/robots" />
         </Router>
       </Container>
     </>

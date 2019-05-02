@@ -1,10 +1,10 @@
 import React from "react";
-
+import { Link } from "@reach/router";
 // TODO: Don't think this is the right home for this - meant as a 'use-once' kind of thing 
 // find a better place for it later.
 
 const SiteHeader = () => (
-<nav className="navbar" role="navigation" aria-label="main navigation">
+<nav className="navbar is-fixed-top" role="navigation" aria-label="main navigation">
        {/* <div className="navbar-brand">
           <a className="navbar-item" href="https://bulma.io">
             <img
@@ -29,9 +29,11 @@ const SiteHeader = () => (
 
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
-            <a className="navbar-item">Home</a>
+            
+            <Link to="/" className="navbar-item">Dashboard</Link>
+            
 
-            <a className="navbar-item">Documentation</a>
+            <Link to="/robots" className="navbar-item">Robots</Link>
 
             <div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link">More</a>
