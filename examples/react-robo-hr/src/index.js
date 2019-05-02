@@ -12,12 +12,17 @@ import { departments, jobTitles, INITIAL_ROBOTS } from "./data";
 
 const robotReducer = (state, action) => {
   switch (action.type) {
-    case "SAVE":
+    case "SAVE": {
+      // We want to pluck off only the properties that make up a robot
+      // not the derived values, or anything else that may have accidently
+      // ended up in the action
+      let { id, name, username, email, jobTitleId } = action.robot;
       return state.map(robot => {
         return robot.id !== action.robot.id
           ? robot
-          : robotBuilder(action.robot);
+          : { id, name, username, email, jobTitleId };
       });
+    }
     default:
       return state;
   }
@@ -38,11 +43,9 @@ const robotFactory = (departments, jobTitles) => robot => {
 };
 const robotBuilder = robotFactory(departments, jobTitles);
 function App() {
-  let [robots, robotDispatch] = useReducer(
-    robotReducer,
-    INITIAL_ROBOTS.map(robotBuilder)
-  );
+  let [robotParts, robotDispatch] = useReducer(robotReducer, INITIAL_ROBOTS);
 
+  let robots = robotParts.map(robotBuilder);
   return (
     <>
       <SiteHeader />
