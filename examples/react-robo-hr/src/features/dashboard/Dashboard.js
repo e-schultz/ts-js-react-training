@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Section from "../../lib/components/Section";
-
+import PieChart from "react-minimal-pie-chart";
+import palette from "google-palette";
+import Column from "../../lib/components/Column";
+import Columns from "../../lib/components/Columns";
+const pipe = (...fns) => x => fns.reduce((v, f) => f(v), x);
 const groupBy = prop => collection => {
   /*
   Even though we generally want to avoid mutation,
@@ -16,22 +20,117 @@ const groupBy = prop => collection => {
   }, {});
 };
 
+const filterBy = pred => collection => collection.filter(pred);
+const filterByActive = filterBy(robot => robot.active === true);
+const filterByInactive = filterBy(robot => robot.active === false);
+
 const groupByDepartment = groupBy("department");
 
+const mapToPieData = data => {
+  const keys = Object.keys(data);
+  const colors = palette("tol-rainbow", 9).reverse();
+
+  return keys.map((key, index) => {
+    return {
+      title: key,
+      value: data[key].length,
+      color: `#${colors[index]}`
+    };
+  });
+};
+
+const generatePieData = pipe(
+  groupByDepartment,
+  mapToPieData
+);
+const totalActiveByDepartment = pipe(
+  filterByActive,
+  generatePieData
+);
+const totalInActiveByDepartment = pipe(
+  filterByInactive,
+  generatePieData
+);
+
 const Dashboard = ({ robots }) => {
-  const robotsByDepartment = groupByDepartment(robots);
+  const [display, setDisplay] = useState("robotsByDepartment");
+  const data = {
+    robotsByDepartment: generatePieData(robots),
+    activeByDepartment: totalActiveByDepartment(robots),
+    inActiveByDepartment: totalInActiveByDepartment(robots)
+  };
 
   return (
     <Section>
-      <ul>
-        {Object.keys(robotsByDepartment).map(n => {
-          return (
-            <li>
-              {n} - {robotsByDepartment[n].length / robots.length}
-            </li>
-          );
-        })}
-      </ul>
+      <button onClick={() => setDisplay("robotsByDepartment")}>
+        robotsByDepartment
+      </button>
+      <button onClick={() => setDisplay("activeByDepartment")}>
+        activeByDepartment
+      </button>
+      <button onClick={() => setDisplay("inActiveByDepartment")}>
+        inActiveByDepartment
+      </button>
+      <Columns>
+        <Column size={1 / 3}>
+          {" "}
+          <PieChart
+            data={data.robotsByDepartment}
+            
+            label={props => {
+              const { percentage, title } = props.data[props.dataIndex];
+              return `${title} - ${percentage.toFixed(2)}%`
+            }}
+            style={{ width: "90%"}}
+            
+            labelStyle={{
+              fontSize: "3px",
+              fontFamily: "sans-serif",
+              fill: '#121212'
+            }}
+            labelPosition={70}
+            animate
+          />
+        </Column>
+        <Column size={1 / 3}>
+          {" "}
+          <PieChart
+            data={data.activeByDepartment}
+            label={props => {
+              const { percentage, title } = props.data[props.dataIndex];
+              return `${title} - ${percentage.toFixed(2)}%`
+            }}
+            style={{ width: "90%", margin: "auto" }}
+            
+            labelStyle={{
+              fontSize: "3px",
+              fontFamily: "sans-serif",
+              fill: '#121212'
+            }}
+            labelPosition={70}
+            animate
+          />
+        </Column>
+        <Column size={1 / 3}>
+          {" "}
+          <PieChart
+            data={data.inActiveByDepartment}
+            label={props => {
+              const { percentage, title } = props.data[props.dataIndex];
+              return `${title} - ${percentage.toFixed(2)}%`
+            }}
+            style={{ width: "90%", margin: "auto" }}
+            
+            labelStyle={{
+              fontSize: "3px",
+              fontFamily: "sans-serif",
+              fill: '#121212'
+            }}
+            labelPosition={70}
+            animate
+          />
+        </Column>
+      </Columns>
     </Section>
   );
 };
