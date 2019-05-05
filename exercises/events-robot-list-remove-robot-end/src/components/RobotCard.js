@@ -15,7 +15,21 @@ function RobotCard({ robot, onRemove }) {
         <CardText>{robot.username}</CardText>
       </CardBody>
       <footer>
-          <button onClick={()=>onRemove()}>Remove</button>
+        {/*
+
+Recall in App.js, we are passing down onRemove like:
+
+  <RobotCard
+    robot={robot}
+    key={robot.id}
+    onRemove={() => this.removeRobot(robot.id)}
+  />
+
+The function being passed down already knows the robot id, so all we have to
+do is call the function, and we do not need to provide the id here.
+
+  */}
+        <button onClick={() => onRemove()}>Remove</button>
       </footer>
     </Card>
   );
