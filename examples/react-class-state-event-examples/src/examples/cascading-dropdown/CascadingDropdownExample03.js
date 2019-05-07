@@ -32,29 +32,27 @@ class CascadingDropdownExample extends React.Component {
     );
     return (
       <section>
-        <select
+        <SelectList
+          items={this.state.platforms}
           value={this.state.selectedPlatformId}
           onChange={this.onSelectedPlatformChange}
-        >
-          <option value={-1}>All</option>
-          {this.state.platforms.map(({ id, name }) => (
-            <option value={id} key={id}>
-              {name}
-            </option>
-          ))}
-        </select>
+        />
 
-        <select
+        <SelectList
+          items={filteredGames}
           value={this.state.selectedGameId}
           onChange={this.onSelectedGameChange}
-        >
-          <option value={-1}>All</option>
-          {filteredGames.map(({ id, name }) => (
-            <option value={id} key={id}>
-              {name}
-            </option>
-          ))}
-        </select>
+        />
+
+        {filteredGames.map(game => (
+          <Block
+            borderColor={
+              game.id === this.state.selectedGameId ? "red" : "black"
+            }
+          >
+            {game.name}
+          </Block>
+        ))}
       </section>
     );
   }
