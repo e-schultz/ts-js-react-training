@@ -336,38 +336,11 @@ getTotalCost(cart);
 
 ---
 
-export default Code;
+export default FullScreenCode;
 
-```javascript Todo Management with Reducer 
-let actions = [
-  { type: "ADD_TODO", todo: { id: 1, text: "Todo 1", complete: false } },
-  { type: "ADD_TODO", todo: { id: 2, text: "Todo 2", complete: false } },
-  { type: "ADD_TODO", todo: { id: 3, text: "Todo 3", complete: false } },
-  { type: "TOGGLE_TODO", id: 3 },
-  { type: "TOGGLE_TODO", id: 2 },
-  { type: "UPDATE_TEXT", id: 2, text: "Updated Text" }
-];
+## Reduce - State Management
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "ADD_TODO":
-      return [...state, action.todo];
-    case "TOGGLE_TODO":
-      return state.map(todo =>
-        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-      );
-    case "UPDATE_TEXT":
-      return state.map(todo =>
-        todo.id === action.id ? { ...todo, text: action.text } : todo
-      );
-    default:
-      return state;
-  }
-};
-
-let state = actions.reduce(reducer,[]);
-console.log(state);
-```
+<CodeSandbox src="https://codesandbox.io/embed/8o39or0n0?codemirror=1&fontsize=14&module=%2Fsrc%2Findex.js" runOnClick={0}/>
 
 ---
 
