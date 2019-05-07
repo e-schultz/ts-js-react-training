@@ -3,6 +3,7 @@ import { CodeSurfer } from "mdx-deck-code-surfer";
 import { Invert, FullScreenCode } from "mdx-deck/layouts";
 import nightOwl from "prism-react-renderer/themes/nightOwl";
 import ReplIt from "../../components/ReplIt"
+import CodeSandbox from "../../components/CodeSandbox"
 
 export default Invert;
 
@@ -269,28 +270,11 @@ console.log(padawans);
 
 ---
 
-export default Code;
+export default FullScreenCode
 
-```javascript Reducing Arrays
-const numbers = [1, 2, 3, 4];
+## Arrays - Reduce 
 
-function sumWithForLoop(input) {
-  let total = 0;
-  for (let x = 0; x < input.length; x++) {
-    total += input[x];
-  }
-  return total;
-}
-
-function sumWithReduce(input) {
-  return input.reduce(
-    (accumulator, currentValue) => accumulator + currentValue
-  );
-}
-const sum1 = sumWithReduce(numbers);
-const sum2 = sumWithForLoop(numbers);
-console.log(sum1, sum2);
-```
+<CodeSandbox src={`https://codesandbox.io/embed/q7pj104wmq?codemirror=1&fontsize=14&moduleview=1`} runOnClick={0}/>
 
 ---
 
