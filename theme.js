@@ -16,11 +16,11 @@ export default {
   // add a custom font
   // font: 'Laila, Roboto, sans-serif',
   // custom colors
-  // colors: {
-    // text: '#fff',
-    // background: 'black',
-    // link: '#da0',
-  // },
+   colors: {
+     text: '#eff3f9',
+    background: '#011627',
+    link: '#82AAFF',
+   },
   prism: {
     style: atomDark,
     languages: {

@@ -1,60 +1,31 @@
 import React from "react";
 
-class NameForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: ""
-    };
-  }
-
-  handleSubmit(evt) {
-    evt.preventDefault();
-
-    this.props.onNameChange(this.state.value);
-
-    this.setState({
-      value: ""
-    });
-  }
-
-  setName(value) {
-    this.setState({
-      value: value
-    });
-  }
-  render() {
-    return (
-      <form onSubmit={evt => this.handleSubmit(evt)}>
-        <h1>Hello there, please enter a name:</h1>
-        <input
-          value={this.state.value}
-          onChange={evt => this.setName(evt.target.value)}
-        />
-        <hr />
-        <button type="submit" disabled={this.state.value.length === 0}>
-          Submit the Name: {this.state.value}
-        </button>
-        <br />
-      </form>
-    );
-  }
-}
 
 class InputHandler extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayName: ""
+      displayName: "",
+      fieldValue: ""
     };
   }
 
-  updateName(name) {
+  updateFieldValue(evt) {
+    let fieldValue = evt.target.value;
     this.setState({
-      displayName: name
+      fieldValue
     });
   }
 
+  updateDisplayName() {
+    
+    this.setState((state) => {
+      return {
+        displayName: state.fieldValue,
+        fieldValue: ''
+      }
+    });
+  }
   clearName() {
     this.setState({ displayName: "" });
   }
@@ -71,8 +42,12 @@ class InputHandler extends React.Component {
             Clear Name
           </button>
         </div>
-
-        <NameForm onNameChange={name => this.updateName(name)} />
+        <input value={this.state.fieldValue} onChange={event => this.updateFieldValue(event)}/>
+        <button
+            type="button"
+            disabled={this.state.fieldValue.length === 0}
+            onClick={evt => this.updateDisplayName()}
+          >Set Name</button>
       </section>
     );
   }

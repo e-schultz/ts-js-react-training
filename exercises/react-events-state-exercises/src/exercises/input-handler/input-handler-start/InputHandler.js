@@ -2,62 +2,62 @@ import React from "react";
 /*
 Instructions:
 
-- Implement NameForm to have an Input field that updates the this.state.value
-- On NameForm - disable the button if there is no name entered (string length of zero)
-- On NameForm - clear/set the value to an empty string after submit
-- Implement InputHandler.updateName to set the `displayName` to the submitted value of the NameForm
-- Add a button to InputHandler that will clear the `displayName` if the user clicks it
-- Have the button be disabled if there is no value for `displayName`
+Update the InputHandler so that:
+
+- The input field sets it's value to the state.fieldValue
+- Add an onChange handler so as the user types - the fieldValue gets updated
+- When the user clicks on "Set Name"
+  - it sets the displayName to what was entered in the field
+  - it clears the fieldValue 
+
+- Extra:
+
+  - Have the "Clear Name" button be disabled until there is a display value
+  - Have the "Set Name" button be disabled if there is no inout value
+  -
 
 */
-class NameForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: ""
-    };
-  }
-
-  handleSubmit(evt) {
-    evt.preventDefault();
-
-    this.props.onNameChange(this.state.value);
-  }
-
-  render() {
-    return (
-      <form onSubmit={evt => this.handleSubmit(evt)}>
-        <h1>Hello there, please enter a name:</h1>
-        <div>
-          Replace this div with an input that will update the state value as the
-          user enters a name.
-        </div>
-        <hr />
-        <button type="submit">Submit the Name: {this.state.value}</button>
-        <br />
-      </form>
-    );
-  }
-}
-
 class InputHandler extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayName: ""
+      displayName: "",
+      fieldValue: ""
     };
   }
 
-  updateName(name) {}
+  /* add an event handler for onChange for the inut field */
+
+  updateDisplayName = () => {
+    
+    this.setState((state) => {
+      // return a new state object seting the displayName to the field value
+     return state;
+    });
+  }
+  
+  clearDisplayName() {
+    
+  }
 
   render() {
     return (
       <section>
         <div>
           <h1>Hello {this.state.displayName}!</h1>
+          {/* attach an event handler so when the user clicks the button, display name is reset */}
+          <button
+            type="button"
+          >
+            Clear Name
+          </button>
         </div>
-
-        <NameForm onNameChange={name => this.updateName(name)} />
+        {/* bind value to the state.fieldValue, and setup an onChange handler */}
+        <input />
+        <button
+            type="button"
+            onClick={evt => this.updateDisplayName()}
+          >Set Name</button>
       </section>
     );
   }
