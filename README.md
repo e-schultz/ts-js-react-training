@@ -63,11 +63,11 @@ If you would like to view a running example of the exercises / examples without 
 
 For example, if you wanted to see  this example running / able to edit and make change on: 
 
-https://github.com/e-schultz/ts-js-react-training/tree/master/examples/react-list-example 
+[https://github.com/e-schultz/ts-js-react-training/tree/master/examples/react-list-example](https://github.com/e-schultz/ts-js-react-training/tree/master/examples/react-list-example)
 
 The URL for CodeSandbox would be: 
 
-https://codesandbox.io/s/github/e-schultz/ts-js-react-training/tree/master/examples/react-list-example
+[https://codesandbox.io/s/github/e-schultz/ts-js-react-training/tree/master/examples/react-list-example](https://codesandbox.io/s/github/e-schultz/ts-js-react-training/tree/master/examples/react-list-example)
 
 Tthe pattern is `https://codesandbox.io/s/github/(user name)/(repo)/tree/(branch name - typically master)/(path)`
 
