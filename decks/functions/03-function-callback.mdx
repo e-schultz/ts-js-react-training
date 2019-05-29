@@ -108,3 +108,54 @@ const subtracted = basicCallback(10, 5, subtract);
 console.log({added, multiplied, subtracted})
 ```
 
+---
+
+## Exercise - Function Assignment and Callback 
+
+* Implement changeCase 
+* Assign a function to a variable called transformer 
+* if toUpper is true - assign toUpperCase, otherwise toLowerCase
+* Call the `transform` function, passing in the assigned transformer, and the text
+
+---
+
+export default Code 
+
+```javascript Exercise - Function Assignment and Callback 
+let toUpperCase = (text) => text.toUpperCase();
+let toLowerCase = (text) => text.toLowerCase();
+
+let transform = (transformer, text) => transformer(text);
+
+let changeCase = (toUpper, text) => {
+  let transformer; // assign to correct function 
+  return transform; // passs in transformer and text
+}
+
+
+console.log(transform(toLowerCase,'hEllO wOrLd'));
+
+console.log(changeCase(true, 'hElLo WoRld'));
+console.log(changeCase(false, 'hElLo WoRld'));
+
+```
+
+---
+export default Code 
+
+```javascript Solution - Function Assignment and Callback 
+let toUpperCase = (text) => text.toUpperCase();
+let toLowerCase = (text) => text.toLowerCase();
+
+let transform = (transformer, text) => transformer(text);
+
+let changeCase = (toUpper, text) => {
+  let transformer = toUpper ? toUpperCase : toLowerCase; 
+  return transform(transformer, text)
+}
+
+
+console.log(changeCase(true, 'hElLo WoRld'));
+console.log(changeCase(false, 'hElLo WoRld'));
+
+```
