@@ -64,40 +64,6 @@ let p2 = p1
 ```
 ---
 
-### Why does this matter?
-
-<ul style={{listStyle: 'none'}}>
-<Appear>
-    <li> Promises Can Be Chained</li>
-    <li> Forgetting This Leads to the Deferred Anti-pattern</li>
-</Appear>
-</ul>
-
----
-
-## The deferred anti-pattern
-
-* [Bluebird explanation](https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns)
-* If a `thenable` Returns a Promise
-* We Don't Need to Construct a New Promise 
-
----
-
-export default FullScreenCode
-
-### Anti-Pattern Demo
-
-<ReplIt src="https://repl.it/@e_schultz/Promises-deferred-anti-pattern?lite=true"/>
-
----
-
-## Promise Chain Recap
-
-- A `Promise` returns a `Promise`
-- Once inside of a `.then` - the return value is turned into a promise, if it isn't already
-- You can chain as many `.then` as you need 
-
----
 <CodeSurfer
   code={require("!raw-loader!./snippets/promise-chain.snippet")}
   theme={nightOwl}
