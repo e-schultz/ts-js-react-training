@@ -1,4 +1,4 @@
-import Code from 'mdx-code'
+import Code from "mdx-code";
 import { Invert, Horizontal, Split } from "mdx-deck/layouts";
 import { Image } from "mdx-deck";
 
@@ -6,7 +6,7 @@ import { Image } from "mdx-deck";
 
 ---
 
-<Image src="./images/functions-visualized.jpg" size="85vw"/>
+<Image src="./images/functions-visualized.jpg" size="85vw" />
 
 ```notes
 I think this image does a better job at describing the slides we had
@@ -19,7 +19,9 @@ function addNumbers(number1, number2) {
 // number2 receives the value of 7
 const total = addNumbers(5, 7);
 ```
+
 ---
+
 ## Function Parameters
 
 - 0 or many items that are passed into a function for its use
@@ -27,7 +29,6 @@ const total = addNumbers(5, 7);
 - The order of the parameters passed in should match the order expected by the function
 
 ---
-
 
 ## Function - ES6 New Features
 
@@ -37,32 +38,38 @@ const total = addNumbers(5, 7);
 
 ---
 
-export default Code
+export default Code;
 
 ```javascript
 // Unless we specify a value for complete, it will default to false
-function createTask(id, title, priority, complete = false)    {
-    return {
-        id,
-        title,
-        priority,
-        complete
-    }
+function createTask(id, title, priority, complete = false) {
+  return {
+    id,
+    title,
+    priority,
+    complete
+  };
 }
 
-const task1 = createTask(1, 'New Task','high');
-const task2 = createTask(2,'Completed Task','low',true);
+const task1 = createTask(1, "New Task", "high");
+const task2 = createTask(2, "Completed Task", "low", true);
 
 console.log(task1);
 console.log(task2);
+```
 
+---
+
+export default Code;
+
+```javascript
 // we can also use the spread operator (...) in the parameter definition
 // this will take all arguments passed in and put them into a single array
-function keepTheLastItem(...items) {
-  return items[items.length - 1];
+function logMessage(message, ...rest) {
+  console.log(`${message}`, ...rest);
 }
 
-keepTheLastItem(3, 1, 66, 21, 15); // this returns 15
+logMessage("Looking at the ...rest", 1, true, { firstName: "Evan" }, [1, 2]);
 ```
 
 ---
@@ -74,21 +81,21 @@ keepTheLastItem(3, 1, 66, 21, 15); // this returns 15
 
 ---
 
-export default Code
+export default Code;
 
 ```javascript Functions - Destructuring Arguments
 const person = {
-    firstName: 'Evan',
-    lastName: 'Schultz',
-    age: 36,
-    city: 'Toronto'
-}
+  firstName: "Evan",
+  lastName: "Schultz",
+  age: 36,
+  city: "Toronto"
+};
 
 function getFullName({ firstName, lastName }) {
-    return `${firstName} ${lastName}`
+  return `${firstName} ${lastName}`;
 }
 
-getFullName(person)
+console.log(getFullName(person));
 ```
 
 ---
@@ -119,49 +126,54 @@ const result2 = returnTen(); // the value is undefined
 
 ---
 
-export default Code
+export default Code;
 
 ```javascript Returns - Object Destructuring Assignment
 function createPerson() {
   return {
-    firstName: 'Evan',
-    lastName: 'Schultz',
+    firstName: "Evan",
+    lastName: "Schultz",
     age: 30
-  }
+  };
 }
 
 let { firstName, age } = createPerson();
-console.log(`firstName: ${firstName} - age ${age}`)
+console.log(`firstName: ${firstName} - age ${age}`);
 ```
+
 ---
 
-export default Code
+export default Code;
 
 ```javascript Returns - Array Destructuring Assignment
-function getFirstAndLast(array) {
-  return [array[0], array[array.length-1]];
+function getMinMax(array) {
+  let sorted =  array.sort((num1,num2)=>  num1-num2);
+  return [sorted[0], sorted[sorted.length-1]];
 }
 
-let [first, last] = getFirstAndLast([1,2,3,4,5,6]);
+let [min, max] = getMinMax([10, 12, 1, 2, 3, 4, 5, 6]);
 
-console.log(`first: ${first} - last ${last}`)
+console.log(`min: ${min} - max ${max}`);
 ```
+
 ---
-export default Code
+
+export default Code;
 
 ```javascript Returns - Returning Functions
 function makeGreeter(greeting) {
   return function greeter(name) {
     return `${greeting} ${name}`;
-  }
+  };
 }
 
-let goodMorning = makeGreeter('Good Morning');
-let goodDay = makeGreeter('Good Day');
+let goodMorning = makeGreeter("Good Morning");
+let goodDay = makeGreeter("Good Day");
 
-console.log(goodMorning('Everyone'));
-console.log(goodDay('Everyone'));
+console.log(goodMorning("Everyone"));
+console.log(goodDay("Everyone"));
 ```
+
 ---
 
 ## Functions Returning Functions
@@ -171,13 +183,11 @@ console.log(goodDay('Everyone'));
 
 ```javascript
 function getGames(id) {
-  return fetch(`${BASE_URL}/games/${id}`)
-    .then(response=>response.json())
+  return fetch(`${BASE_URL}/games/${id}`).then(response => response.json());
 }
 
 function getPlatforms(id) {
-  return fetch(`${BASE_URL}/platforms/${id}`)
-    .then(response=>response.json())
+  return fetch(`${BASE_URL}/platforms/${id}`).then(response => response.json());
 }
 ```
 
@@ -191,14 +201,12 @@ function getPlatforms(id) {
 ```javascript
 function createService(resource) {
   return function getById(id) {
-    return fetch(`${BASE_URL}/${resource}/${id}`)
-    .then(response=>response.json())
-  }
+    return fetch(`${BASE_URL}/${resource}/${id}`).then(response =>
+      response.json()
+    );
+  };
 }
 
-let getGame = createService('games');
-let getPlatform  = createService('platform');
-
+let getGame = createService("games");
+let getPlatform = createService("platform");
 ```
-
-
