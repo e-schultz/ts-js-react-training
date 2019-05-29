@@ -70,3 +70,38 @@ console.log(makePerson('Evan','Schultz'));
 ```
 
 
+---
+
+## Exercise : Convert createTask into an Arrow function with an implicit return
+
+---
+
+export default Code
+
+```javascript Exercise : Convert to an Arrow Function with an Implicit Return
+
+function createTask(id, title, firstName, lastName) {
+  return { 
+    id, title, assignedTo: { firstName, lastName }
+  }
+}
+
+createTask(1,'Complete Exercise', 'Jane',' Doe');
+
+```
+
+---
+
+export default Code
+
+```javascript Exercise : Convert to an Arrow Function with an Implicit Return
+
+let createTask = (id, title, firstName, lastName) => ({
+  id,
+  title,
+  assignedTo: { firstName, lastName }
+});
+
+
+createTask(1,'Complete Exercise', 'Jane',' Doe');
+```
