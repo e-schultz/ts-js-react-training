@@ -16,33 +16,57 @@ export default Invert
 - Can have implicit return
 ---
 
-## Single Line Can Have Implicit Return
+## Arrow Function vs Function Declaration
 
 ---
 
+export default Code 
+
 ```javascript
-function addTwo(number1, number2) {
-  return number1 + number2;
-}
+// function addTwo(number1, number2) {
+//  return number1 + number2;
+// }
+
 // explicit return
 const addTwo = (number1, number2) => {
     return number1 + number2;
 }
-// implicit return
-const addTwo = (number1, number2) => number1 + number2;
+
+addTwo(1,2)
 ```
 
 ---
+
+export default Code
+
+```javascript Single-line Arrow Functions Can Have Implicit Returns 
+
+// function addTwo(number1, number2) {
+//  return number1 + number2;
+// }
+
+// implicit return
+const addTwo = (number1, number2) => number1 + number2;
+addTwo(1,2);
+```
+
+---
+
 ### If Returning an Object - Wrap In `()`
 
-```javascript
-const makePerson = (firstName, lastName) => {
-    return { firstName, lastName }
-}
+---
+
+export default Code 
+
+```javascript Implicit Return of Objects
+// const makePerson = (firstName, lastName) => {
+//    return { firstName, lastName }
+// }
 
 // implicit return of an object needs to be wrapped in ()
-const makePerson = (firstName, lastName) => 
-    ({ firstName, lastName })
+const makePerson = (firstName, lastName) =>  ({ firstName, lastName })
+
+console.log(makePerson('Evan','Schultz'));
 ```
 
 
