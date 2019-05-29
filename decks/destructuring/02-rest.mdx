@@ -34,16 +34,15 @@ export default Code;
 let numbers = [1, 2, 3, 4, 5];
 let [first, second, ...rest] = numbers;
 console.log(`Initial numbers unmodified:`, numbers);
-console.log(`first:`, first);
-console.log(`second:`, second);
-console.log(`rest:`, rest);
+console.log({first, second, rest});
 ```
 
----
+```notes
 
+We cover arguments in another spot with a similar example
 export default Code; 
 
-```javascript Array - Treat function arguments as an array
+javascript Array - Treat function arguments as an array
 function getBiggest(...args) {
   return args.sort(function(a, b) {
     return b - a;
@@ -53,4 +52,5 @@ function getBiggest(...args) {
 console.log(getBiggest(10, 5));
 console.log(getBiggest(3, 3, 3));
 console.log(getBiggest(1, 2, 3, 4, 5, 6));
+
 ```

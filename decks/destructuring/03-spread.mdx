@@ -67,6 +67,7 @@ export default Invert
 
 
 ---
+
 export default Code
 
 ```js Accidental Mutation
@@ -77,11 +78,66 @@ function createTask(id, title, priority, complete, firstName, lastName) {
 function updatePriority(task,priority) {
     return { ...task, priority}
 }
-let task = createTask(104, 'Complete Slides', 'low', false)
+let task = createTask(104, 'Complete Slides', 'low', false, 'James', 'Smith')
 let updatedTask = updatePriority(task, 'high');
 
 updatedTask.assignedTo.firstName = 'John'
 
-console.log('task', task);
-console.log('updatedTask', updatedTask);
+console.log(`task.asignedTo.firstName:  ${task.assignedTo.firstName}`);
+console.log(`updatedTask.asignedTo.firstName:  ${updatedTask.assignedTo.firstName}`);
+```
+
+---
+
+## Exercise : Update updatePriority to also shallow copy assignedTo 
+
+---
+
+export default Code 
+
+```js Accidental Mutation Exercise - Shallow Copy assignedTo - Start
+
+function createTask(id, title, priority, complete, firstName, lastName) {
+    return { id, complete, priority, title, assignedTo: { firstName, lastName } }
+}
+
+function updatePriority(task,priority) {
+    return { ...task,  priority}
+}
+
+let task = createTask(104, 'Complete Slides', 'low', false, 'James', 'Smith')
+let updatedTask = updatePriority(task, 'high');
+
+updatedTask.assignedTo.firstName = 'John'
+
+
+console.assert(task.assignedTo === updatedTask.assignedTo, `assignedTo is still pointing to the same object`);
+
+console.log(`task.asignedTo.firstName:  ${task.assignedTo.firstName}`);
+console.log(`updatedTask.asignedTo.firstName:  ${updatedTask.assignedTo.firstName}`);
+```
+
+---
+
+export default Code 
+
+```js Accidental Mutation Exercise - Shallow Copy assignedTo - Solution
+
+function createTask(id, title, priority, complete, firstName, lastName) {
+    return { id, complete, priority, title, assignedTo: { firstName, lastName } }
+}
+
+function updatePriority(task,priority) {
+    return { ...task, assignedTo: {...task.assignedTo}, priority}
+}
+let task = createTask(104, 'Complete Slides', 'low', false, 'James', 'Smith')
+let updatedTask = updatePriority(task, 'high');
+
+updatedTask.assignedTo.firstName = 'John'
+
+console.assert(task.assignedTo !== updatedTask.assignedTo, `assignedTo is still pointing to the same object`);
+
+console.log(`task.asignedTo.firstName:  ${task.assignedTo.firstName}`);
+console.log(`updatedTask.asignedTo.firstName:  ${updatedTask.assignedTo.firstName}`);
+
 ```
