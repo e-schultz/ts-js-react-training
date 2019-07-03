@@ -320,9 +320,8 @@ const cart = [
   { item: "Oranges", cost: 3 },
   { item: "Avocado Toast", cost: 15 }
 ];
-let getTotalCost = items =>
-  items.map(item => item.cost).reduce((sum, cost) => sum + cost, 0);
-
+let getTotalCost = items => items.reduce((sum, cartItem) => sum + cartItem.cost, 0);
+  
 getTotalCost(cart);
 ```
 
