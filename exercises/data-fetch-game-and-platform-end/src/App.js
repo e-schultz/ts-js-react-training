@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import "./App.css";
 import { getGameDetailList } from "./services/games-service";
+
 function Block({ children }) {
   return (
     <div
+      className="block"
       style={{
-        border: "2px solid black",
-        display: "block",
         height: "1rem",
         padding: "1rem",
-        margin: "1rem",
         width: "75%"
       }}
     >
@@ -31,7 +30,7 @@ function GameList({ games }) {
     );
   });
 }
-const IsLoading = () => <h1>Loading .... please wait</h1>
+const IsLoading = () => <h1>Loading</h1>
 
 class App extends Component {
   constructor() {
@@ -50,7 +49,7 @@ class App extends Component {
     });
   }
   render() {
-    let display = this.state.isLoading ? <IsLoading/> :  <GameList games={this.state.games} />
+    let display = this.state.isLoading ? <IsLoading/> : <GameList games={this.state.games} />
     return (
       <div className="App">
         {display}

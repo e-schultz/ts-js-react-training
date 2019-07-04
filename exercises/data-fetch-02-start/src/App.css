@@ -23,6 +23,19 @@
   color: #61dafb;
 }
 
+li {
+  text-align: left;
+  padding: 0.25rem 0;
+}
+
+a {
+  transition: background-color 0.3s ease-in;
+}
+
+a:hover {
+  background-color: #f4f4f4;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
