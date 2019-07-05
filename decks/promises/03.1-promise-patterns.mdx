@@ -6,6 +6,7 @@ import ReplIt from "../../components/ReplIt";
 import CodeSandbox from "../../components/CodeSandbox";
 import Box from "../../components/Box";
 import  Code  from 'mdx-code';
+/* keeping track of some old content */
 const BRANCH_NAME = "master"
 
 # Promise Patterns  
@@ -160,14 +161,53 @@ export default FullScreenCode
 
 ---
 
-# Promise Patterns 
-## Caching Data
+# Advanced Promise Patterns 
+
+---
+
+## Promisify Synchronous Values
+
+* Turn a Sync Value into an Async One
+* Useful to Mock Data That Will Be Replaced with a Real Api Later
+* Can Also Be Used as a Way to Cache a Value 
+
+---
+export default FullScreenCode
+
+### Promisify Synchronous Values
+
+<ReplIt src="https://repl.it/@e_schultz/Promisify-Sync-Data?lite=true"/>
+
+```notes
+const GAME_DATA = {
+  1: { id: 1, name: 'God of War '},
+  2: { id: 2, name: 'Octopath Traveler'},
+  3: { id: 3, name: ' Dark Souls'},
+}
+function getGameData(id) {
+  return GAME_DATA[id] ? Promise.resolve(GAME_DATA[id]) : Promise.reject('not found')
+}
+
+getGameData(1).then(n=>{
+  console.log('found the game', n);
+}).then(null,err=>{
+  console.log('ooops', err)
+});
+
+getGameData(4).then(n=>{
+  console.log('found the game', n);
+}).then(null,err=>{
+  console.log('ooops', err)
+});
+```
+---
+
+### Caching Async Data
 
 * Promises Can Be Reused
 * If You Store a Promise, and Return It Again - You Will Get the Previously Resolved Value
 
 ---
-
 export default FullScreenCode
 
 ### Sync Cache Example
@@ -191,7 +231,6 @@ export default FullScreenCode
 
 
 ---
-
 export default FullScreenCode
 
 ### Promise Cache - Solution
@@ -213,7 +252,6 @@ export default FullScreenCode
 <ReplIt src="https://repl.it/@e_schultz/Promise-Cache-Exercise-Bonus-Start?lite=true"/>
 
 ---
-
 export default Invert 
 
 # Break / Q&A

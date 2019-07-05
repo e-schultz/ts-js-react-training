@@ -42,18 +42,9 @@ const BRANCH_NAME = "master";
 * Syntax: `new Promise(executor)`
 * executor is a function that takes a resolve, and a reject. 
 
-```javascript
-let someValue = new Promise((resolve, reject)=> {
-  resolve('Hello World')
-});
-
-someValue.then(result=>{
-  console.log(result);
-  return result;
-})
-```
 
 ---
+
 export default Code
 
 ```javascript Using Promises
@@ -68,6 +59,7 @@ someValue.then(result=>{
 ```
 
 ---
+
 ## Promises vs Callbacks
 
 JavaScript is single threaded, so we can't really ever "wait" for a result of
@@ -131,9 +123,6 @@ specify and dispatch the request in one place:</p>
 
 ---
 
-> Promises allow us to specify and dispatch the request in one place:
-
----
 
 <CodeSurfer
   code={require("!raw-loader!../../snippets/promises-1.snippet")}
