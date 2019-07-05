@@ -1,18 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
 import { getGameDetailList } from "./services/games-service";
+
 function Block({ children }) {
   return (
-    <div
-      style={{
-        border: "2px solid black",
-        display: "block",
-        height: "1rem",
-        padding: "1rem",
-        margin: "1rem",
-        width: "75%"
-      }}
-    >
+    <div className="block">
       {children}
     </div>
   );
