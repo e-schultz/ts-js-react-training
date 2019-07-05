@@ -40,6 +40,9 @@
 .block {
   margin: 0.5rem;
   border: 2px solid black;
+  height: 1rem;
+  padding: 1rem;
+  width: 75%;
   transition:
     color 0.3s ease-in-out,
     box-shadow 0.3s ease-in-out,

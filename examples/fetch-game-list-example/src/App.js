@@ -5,14 +5,7 @@ const BASE_URL = "https://js-ts-training.now.sh";
 
 function Block({ children }) {
   return (
-    <div
-      className="block"
-      style={{
-        height: "1rem",
-        padding: "1rem",
-        width: "75%"
-      }}
-    >
+    <div className="block">
       {children}
     </div>
   );

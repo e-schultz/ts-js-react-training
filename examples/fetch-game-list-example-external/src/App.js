@@ -1,18 +1,12 @@
 import React, { Component } from "react";
 
 import "./App.css";
+import { getGames } from "./services/games-service";
 const BASE_URL = "https://js-ts-training.now.sh";
 
 function Block({ children }) {
   return (
-    <div
-      className="block"
-      style={{
-        height: "1rem",
-        padding: "1rem",
-        width: "75%"
-      }}
-    >
+    <div className="block">
       {children}
     </div>
   );
@@ -36,14 +30,12 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    fetch(`${BASE_URL}/games`)
-      .then(response => response.json())
-      .then(result => {
-        this.setState(state => ({
-          games: result,
-          isLoading: false
-        }));
-      });
+    getGames().then(result => {
+      this.setState(state => ({
+        games: result,
+        isLoading: false
+      }));
+    });
   }
   render() {
     return (

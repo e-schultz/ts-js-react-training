@@ -4,14 +4,7 @@ import { getGameDetailList } from "./services/games-service";
 
 function Block({ children }) {
   return (
-    <div
-      className="block"
-      style={{
-        height: "1rem",
-        padding: "1rem",
-        width: "75%"
-      }}
-    >
+    <div className="block">
       {children}
     </div>
   );
