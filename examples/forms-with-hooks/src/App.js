@@ -13,7 +13,9 @@ export function NameForm(props) {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Frirst Name:
+        <span>
+          First Name:
+        </span>
         <input
           type="text"
           value={firstName}
@@ -21,7 +23,9 @@ export function NameForm(props) {
         />
       </label>
       <label>
-        Last Name:
+        <span>
+          Last Name:
+        </span>
         <input
           type="text"
           value={lastName}

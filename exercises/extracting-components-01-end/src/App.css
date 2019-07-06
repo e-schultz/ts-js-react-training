@@ -1,8 +1,21 @@
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .app-product-card {
   width: 320px;
   padding: 1rem;
   display: block;
+  border: 1px solid #e6e6e6;
+  transition: box-shadow 0.3s ease-in-out;
 }
+.app-product-card:hover {
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
 .app-media {
   margin-bottom: 1rem;
   display: block;
@@ -26,6 +39,7 @@
   color: #000;
   text-decoration: none;
   display: block;
+  margin-bottom: 0.5rem;
 }
 
 .app-block-link:link {
@@ -56,7 +70,6 @@
 
 .app-button {
   border-color: currentcolor;
-  transition: color 0.15s ease-in, border-color 0.15s ease-in;
   font-size: 0.875rem;
   text-transform: uppercase;
   padding-top: 0.5rem;
@@ -70,6 +83,12 @@
   display: flex;
   border-style: solid;
   border-width: 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in;
+}
+
+.app-button:hover {
+  background-color: #f4f4f4;
 }
 
 .app-button-text {

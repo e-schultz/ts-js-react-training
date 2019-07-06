@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import HackerNewsSearch from "./components/HackerNewsSearch";
 import SearchBar from "./components/SearchBar";
+import './App.css';
 
 class App extends Component {
   constructor() {

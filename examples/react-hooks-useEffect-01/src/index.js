@@ -22,15 +22,25 @@ function ExampleOne() {
   });
 
   return (
-    <div>
-      <p>You clicked Button 1: {count} times</p>
-      <p>You clicked Button 2: {count2} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Button 1 - Click Me
-      </button>
-      <button onClick={() => setCount2(count2 + 1)}>
-        Button 2 - Click me
-      </button>
+    <div className="container">
+      <div className="demo-box">
+        <p> Button 1 Counter </p>
+        <div className="box">
+          {count}
+        </div>
+        <button onClick={() => setCount(count + 1)}>
+          Button 1 - Click Me
+        </button>
+      </div>
+      <div className="demo-box">
+        <p> Button 2 Counter </p>
+        <div className="box">
+          {count2}
+        </div>
+        <button onClick={() => setCount2(count2 + 1)}>
+          Button 2 - Click me
+        </button>
+      </div>
     </div>
   );
 }

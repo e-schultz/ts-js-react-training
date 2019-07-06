@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -21,6 +19,48 @@
 
 .App-link {
   color: #61dafb;
+}
+
+form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 75%
+}
+
+input[type="text"] {
+  margin-left: 1rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+input[type="submit"] {
+  margin-top: 0.25rem;
+  background-color: #e6e6e6;
+  border: 1px solid #999;
+  padding: 0.535rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: #757575;
+  color: #f4f4f4;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+label span {
+  width: 30%;
 }
 
 @keyframes App-logo-spin {
