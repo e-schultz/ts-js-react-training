@@ -2,5 +2,37 @@
   font-family: sans-serif;
   text-align: center;
   margin: auto;
-  width: 50%;
+  width: 75%;
+}
+
+table {
+  width: 100%;
+}
+
+th, td {
+  padding: 0.5rem 0;
+}
+
+thead {
+  text-align: right;
+}
+
+thead tr th:first-child {
+  text-align: left;
+}
+
+tbody {
+  text-align: right;
+}
+
+tbody tr td:first-child {
+  text-align: left;
+}
+
+tfoot {
+  text-align: right;
+}
+
+tfoot tr td:nth-child(2) {
+  font-weight: 600;
 }

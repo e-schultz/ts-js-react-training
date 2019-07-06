@@ -25,7 +25,9 @@ class NameForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          First Name :
+          <span>
+            First Name:
+          </span>
           <input
             type="text"
             value={this.state.firstName}
@@ -33,7 +35,9 @@ class NameForm extends React.Component {
           />
         </label>
         <label>
-          Last Name Name :
+          <span>
+            Last Name:
+          </span>
           <input
             type="text"
             value={this.state.lastName}

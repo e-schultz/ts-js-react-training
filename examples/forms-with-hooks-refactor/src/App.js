@@ -27,14 +27,18 @@ export function NameForm(props) {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Frirst Name:
+        <span>
+          First Name:
+        </span>
         <input
           type="text"
           {...firstNameInput}
         />
       </label>
       <label>
-        Last Name:
+        <span>
+          Last Name:
+        </span>
         <input
           type="text"
          {...lastNameInput}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import HackerNewsSearch from "./components/HackerNewsSearch";
 import HackerNewsSearch from "./components/HackerNewsSearchCustomHook";
 import SearchBar from "./components/SearchBar";
+import './App.css';
 
 function App() {
   let [query, setQuery] = useState('react');

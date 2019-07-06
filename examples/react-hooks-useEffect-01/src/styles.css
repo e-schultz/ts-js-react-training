@@ -1,4 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   font-family: sans-serif;
+}
+
+.demo-box {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.demo-box p {
   text-align: center;
+}
+
+.box {
+  border: 1px solid #999;
+  height: 175px;
+  width: 100%;
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
+  background-color: #e6e6e6;
+  border: 1px solid #999;
+  padding: 0.535rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #757575;
+  color: #f4f4f4;
 }

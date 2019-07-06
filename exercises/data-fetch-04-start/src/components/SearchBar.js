@@ -20,7 +20,7 @@ export class SearchBar extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <div style={{ width: "100%", borderBottom: "1px solid black", padding: "1rem 1.25rem" }}>
+        <div style={{ width: "100%", borderBottom: "1px solid #e6e6e6", padding: "1rem 1.25rem" }}>
           <input value={this.state.query} onChange={event => this.setQuery(event.target.value)} />
           <button type="submit">Search</button>
         </div>
