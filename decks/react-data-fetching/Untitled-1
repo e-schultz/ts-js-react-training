@@ -1,0 +1,57 @@
+something that is on my radar depending on how things are going with the typescale app, 
+
+is Jen wants a simple app for people to nominate people for badges - got some details on it yesterday. 
+
+The first MVP could simple - a react form that just posts to a google sheet or something (I want something a little more robust than a Google Form for the submission part).
+
+But the short version is
+
+* select a badge you want to nominate someone for, each badge has a few fields to fill out like
+
+* Nominee Name:
+* Department:
+* Nominee Manger Name:
+
+Please tell us in detail why you are nominating this team member for this badge and include specific details on how they demonstrated Innovation as outlined in the badge description:
+Nominator Name:
+
+* Department:
+
+
+Looks like some fields are common across all, others are unique to the badge - for example the client referral badge also has
+
+* Client Referred:
+* Date Client Project Signed:
+
+most badges just need to be verified, but there are two that after submitted - have a comity  
+
+I could see the initial version having the badge/questions in a JSON file (can be hardcoded for now)
+
+but something like ...
+
+```
+const badges = [{
+    badgeCode: 'BLOOD_DONOR',
+    badgeName: 'Blood Donor',
+    description: 'This badge is awarded to any Rangle employee who donates blood as part of Rangle Blood Drive events throughout the year.  This is a one-time award and the Rangle employee must be employed with Rangle to receive this badge.',
+    fields: [{
+        type: 'TextField',
+        label: 'Full Name',
+    },/* .... */,
+    {
+        type: 'DateField',
+        label: 'Blood Donation Date'
+    }]
+}]
+```
+
+so someone would select the badge, then fill out the fields, hit submit - and could post to like a google sheet, or a netlifly form or something.
+
+Longer term (non-MVP)
+
+* Be able to pull data from BambooHR for things like department, manager, list of employees, etc
+* The 'Admin' UI - so it's not just a google sheet 
+* Notifications, etc 
+* UI to add / edit badges - upload images, change fields, etc - instead of having it be hardcoded JSON
+
+I'm going to review what Jen gave me a bit more, and see if I can do a bit of a breakdown / backlog - but is this an intenral tool that you'd be interested in helping out with in a bit?
