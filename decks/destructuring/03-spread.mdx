@@ -111,7 +111,7 @@ let updatedTask = updatePriority(task, 'high');
 updatedTask.assignedTo.firstName = 'John'
 
 
-console.assert(task.assignedTo === updatedTask.assignedTo, `assignedTo is still pointing to the same object`);
+console.assert(task.assignedTo !== updatedTask.assignedTo, `assignedTo is still pointing to the same object`);
 
 console.log(`task.asignedTo.firstName:  ${task.assignedTo.firstName}`);
 console.log(`updatedTask.asignedTo.firstName:  ${updatedTask.assignedTo.firstName}`);
