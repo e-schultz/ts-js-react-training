@@ -4,6 +4,8 @@ import { CodeSurfer } from "mdx-deck-code-surfer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
 import { FullScreenCode, Invert } from "mdx-deck/layouts";
 import ReplIt from "../../components/ReplIt";
+import CodeSandbox from "../../components/CodeSandbox";
+import Box from "../../components/Box";
 
 export default Invert 
 
@@ -50,24 +52,6 @@ export default Invert
 ---
 
 <CodeSurfer
-  code={require("!raw-loader!./snippets/block.snippet")}
-  theme={nightOwl}
-  lang="javascript"
-  title="Block Statements - Scope With var"
-  showNumbers
-  steps={[
-    {}, // First step should be an overview of the snippet
-    {lines: [7,9,11], notes: "These create a block"},
-    {lines: [8,10], notes: "Variables declared with var get hoisted to the top of the function scope"},
-    {lines: [4,12], notes: "Can access canVote"},
-    {range: [14,17], notes: "Can you guess the output?"},
-    {}
-  ]}
-/>
-
----
-
-<CodeSurfer
   code={require("!raw-loader!./snippets/block.1.snippet")}
   theme={nightOwl}
   lang="javascript"
@@ -88,17 +72,9 @@ export default Invert
 />
 
 ---
-<CodeSurfer
-  code={require("!raw-loader!./snippets/block.2.snippet")}
-  theme={nightOwl}
-  lang="javascript"
-  title="Block Statements - Better Control With let"
-  showNumbers
-  steps={[
-    {}, // First step should be an overview of the snippet
-    {lines: [2], notes: "declare canVote once at the top"},
-    {lines: [4,8,10,12], notes: "Can access `canVote` in the scope above"},
-    {range: [14,17], notes: "Can you guess the output?"},
-    {}
-  ]}
-/>
+
+# let & Block Scope 
+
+<Box style={{width: "75vw"}}>
+  <CodeSandbox src='https://codesandbox.io/embed/interesting-currying-revpp?codemirror=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Findex.js' runOnClick={0}/>
+</Box>
