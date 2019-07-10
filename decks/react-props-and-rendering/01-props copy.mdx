@@ -86,33 +86,6 @@ rendering lists yet, or conditional rendering
 ```
 ---
 
-### Exercise: Adding Props
-
-* Create a component that takes two props - num1, num2
-* The component should display the equation of "num1 + num2"
-* The component should also display the result
-
----
-
-export default FullScreenCode
-
-### Props - Start
-
-<CodeSandbox src="https://codesandbox.io/embed/9lnz3x7o1p?autoresize=1&fontsize=14&hidenavigation=1"/>
-
----
-export default FullScreenCode
-
-### Props - Solution
-
-<CodeSandbox src="https://codesandbox.io/embed/4qz761yz49?fontsize=14"/>
-
----
-
-# Break / Q&A
-
----
-
 ## Static Checking with PropTypes
 
 - The React prop-types package allows you to check props being passed into a component
@@ -120,7 +93,6 @@ export default FullScreenCode
 - You will instead receive warnings in the console
 
 ---
-
 export default FullScreenCode
 
 ```javascript
@@ -151,3 +123,29 @@ ManyGreetings.defaultProps = {
 ```
 
 ---
+
+### Exercise: Adding Props
+
+* Create a component that takes two props - num1, num2
+* The component should display the equation of "num1 + num2"
+* The component should also display the result
+* Use  `prop-types` package to ensure the props are numbers
+* Use `prop-types` to set the default value to 0
+
+---
+export default FullScreenCode
+
+### Props - Start
+
+<CodeSandbox src="https://codesandbox.io/embed/9lnz3x7o1p?autoresize=1&fontsize=14&hidenavigation=1"/>
+
+---
+export default FullScreenCode
+
+### Props - Solution
+
+<CodeSandbox src="https://codesandbox.io/embed/4qz761yz49?fontsize=14"/>
+
+---
+
+# Break / Q&A
