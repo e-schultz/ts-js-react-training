@@ -18,7 +18,6 @@ class InputHandler extends React.Component {
   }
 
   updateDisplayName() {
-    
     this.setState((state) => {
       return {
         displayName: state.fieldValue,
@@ -44,10 +43,12 @@ class InputHandler extends React.Component {
         </div>
         <input value={this.state.fieldValue} onChange={event => this.updateFieldValue(event)}/>
         <button
-            type="button"
-            disabled={this.state.fieldValue.length === 0}
-            onClick={evt => this.updateDisplayName()}
-          >Set Name</button>
+          type="button"
+          disabled={this.state.fieldValue.length === 0}
+          onClick={evt => this.updateDisplayName()}
+        >
+          Set Name
+        </button>
       </section>
     );
   }
