@@ -8,7 +8,13 @@ function SearchBar({ initialQuery, onSearch }) {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{ width: "100%", borderBottom: "1px solid #e6e6e6", padding: "1rem 1.25rem" }}>
+      <div
+        style={{
+          width: "100%",
+          borderBottom: "1px solid #e6e6e6",
+          padding: "1rem 1.25rem"
+        }}
+      >
         <input value={query} onChange={event => setQuery(event.target.value)} />
         <button type="submit">Search</button>
       </div>
