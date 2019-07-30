@@ -1,36 +1,17 @@
-* {
-  box-sizing: border-box;
-}
-
 .App {
   font-family: sans-serif;
-}
-
-.demo-box {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.demo-box p {
   text-align: center;
 }
 
-.box {
-  border: 1px solid #999;
-  height: 175px;
-  width: 100%;
-  font-size: 5rem;
+.box-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
 }
 
-.container {
-  display: flex;
-  justify-content: space-around;
+.box {
+  border: 1px solid #666;
+  font-size: 5rem;
+  padding: 2rem 3rem;
 }
 
 button {
@@ -42,7 +23,6 @@ button {
   transition:
     background-color 0.3s ease-in-out,
     color 0.3s ease-in-out;
-  width: 100%;
 }
 
 button:hover {

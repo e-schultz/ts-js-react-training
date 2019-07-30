@@ -22,23 +22,23 @@ function ExampleOne() {
   });
 
   return (
-    <div className="container">
-      <div className="demo-box">
-        <p> Button 1 Counter </p>
+    <div className="box-container">
+      <div>
+        <h3 className="title"> Box 1 </h3>
         <div className="box">
           {count}
         </div>
         <button onClick={() => setCount(count + 1)}>
-          Button 1 - Click Me
+          Increment Box 1 Counter
         </button>
       </div>
-      <div className="demo-box">
-        <p> Button 2 Counter </p>
+      <div>
+        <h3 className="title"> Box 2 </h3>
         <div className="box">
           {count2}
         </div>
         <button onClick={() => setCount2(count2 + 1)}>
-          Button 2 - Click me
+          Increment Box 2 Counter
         </button>
       </div>
     </div>
