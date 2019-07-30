@@ -3,26 +3,14 @@ import "./App.css";
 import { people } from "./people";
 
 function Block({ children }) {
-  return (
-    <div
-      style={{
-        border: "2px solid black",
-        display: "block",
-        height: "1rem",
-        padding: "1rem",
-        margin: "1rem",
-        width: "75%"
-      }}
-    >
-      {children}
-    </div>
-  );
+  return <div className="block">{children}</div>;
 }
+
 function Person({ firstName, lastName, onRemove }) {
   return (
     <Block>
       {firstName} {lastName}
-      <button onClick={() => onRemove()}>Remove</button>
+      <button title="Remove Item" onClick={() => onRemove()}> X </button>
     </Block>
   );
 }
