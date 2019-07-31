@@ -2,11 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 
 function Block({ children }) {
-  return (
-    <div className="block">
-      {children}
-    </div>
-  );
+  return <div className="block">{children}</div>;
 }
 function Person({ firstName, lastName }) {
   return (
@@ -18,36 +14,35 @@ function Person({ firstName, lastName }) {
 const people = [
   {
     id: 0,
-    firstName: "Evan",
-    lastName: "Schultz"
+    firstName: "Cadence",
+    lastName: "Branch"
   },
   {
     id: 1,
-    firstName: "Renee",
-    lastName: "Blackburn"
+    firstName: "Ffion",
+    lastName: "Reynolds"
   },
   {
     id: 2,
-    firstName: "John",
-    lastName: "Doe"
+    firstName: "Martine",
+    lastName: "Knox"
   }
 ];
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        {people.map(person => {
-          return (
-            <Person
-              key={person.id}
-              firstName={person.firstName}
-              lastName={person.lastName}
-            />
-          );
-        })}
-      </div>
-    );
-  }
+
+function APp() {
+  return (
+    <div className="App">
+      {people.map(person => {
+        return (
+          <Person
+            key={person.id}
+            firstName={person.firstName}
+            lastName={person.lastName}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
 export default App;
