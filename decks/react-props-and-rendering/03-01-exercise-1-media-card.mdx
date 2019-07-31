@@ -4,6 +4,7 @@ import CodeSandbox from "../../components/CodeSandbox";
 import ImageSplit from "../../components/ImageSplit";
 import Box from "../../components/Box";
 import { Head, Appear, Image, withDeck } from 'mdx-deck'
+const BRANCH_NAME = 'es-misc-aug-cleanup'
 
 export default Invert 
 
@@ -24,7 +25,7 @@ export default Invert
 export default FullScreenCode
 
 ```js
-export const robots = [
+export const ROBOT_LIST = [
   {
     id: 1,
     name: 'Leanne Graham',
@@ -60,6 +61,7 @@ Some possible components:
 - CardBody
 
 ---
+
 export default FullScreenCode
 
 ## Exercise: Robot Card List - Start
@@ -85,6 +87,7 @@ export default FullScreenCode
 ### Solutions - Robot List - Difficult To Compose
 
 <CodeSandbox src="https://codesandbox.io/embed/8k4nrn3z3l?codemirror=1&fontsize=14"/>
+
 
 ---
 export default FullScreenCode
