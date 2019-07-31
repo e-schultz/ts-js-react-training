@@ -1,7 +1,4 @@
-.App {
-  height: 100%;
-  width: 100%;
-  text-align: center;
+.block-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,12 +7,11 @@
 .block {
   margin: 0.5rem;
   border: 2px solid black;
+  height: 1rem;
   padding: 1rem;
   width: 75%;
   transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
     border 0.3s ease-in-out;
-  display: flex;
-  justify-content: space-between;
 }
 
 .block:hover {
@@ -30,17 +26,4 @@
 
 .block:last-child {
   margin-bottom: 2rem;
-}
-
-button {
-  font-weight: 700;
-  color: #ff0000;
-  border: 2px solid #ff0000;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-button:hover {
-  color: #fff;
-  background-color: #ff0000;
 }

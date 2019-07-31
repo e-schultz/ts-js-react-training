@@ -30,12 +30,12 @@ class App extends React.Component {
     return (
       <section className="section">
         <div className="App container">
-          <h1 className="title">componentDidUpdate Example</h1>
+          <h1 className="title text-center">componentDidUpdate Example</h1>
           <div className="columns">
             <div className="column is-three-fifths">
               <Notes />
             </div>
-            <div className="column ">
+            <div className="column text-center">
               <input
                 className="input"
                 type="text"

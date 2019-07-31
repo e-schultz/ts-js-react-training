@@ -20,7 +20,7 @@ function Notes() {
         <li>render</li>
       </ul>
       <p>are called for every keystroke.</p>
-      <p>What actually gets rendered?</p>
+      <h3 className="text-center">What actually gets rendered?</h3>
       <p>
         Open up the Chrome Dev Tools, and enable Paint Flashing. This will flash
         sections of the screen that are updated. Notice how even though render

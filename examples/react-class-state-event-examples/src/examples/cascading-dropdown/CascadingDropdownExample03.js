@@ -1,4 +1,5 @@
 import React from "react";
+import "./../../App.css";
 import { PLATFORMS, GAMES } from "../../data";
 
 class CascadingDropdownExample extends React.Component {
@@ -43,16 +44,17 @@ class CascadingDropdownExample extends React.Component {
           value={this.state.selectedGameId}
           onChange={this.onSelectedGameChange}
         />
-
-        {filteredGames.map(game => (
-          <Block
-            borderColor={
-              game.id === this.state.selectedGameId ? "red" : "black"
-            }
-          >
-            {game.name}
-          </Block>
-        ))}
+        <div className="block-container">
+          {filteredGames.map(game => (
+            <Block
+              borderColor={
+                game.id === this.state.selectedGameId ? "red" : "black"
+              }
+            >
+              {game.name}
+            </Block>
+          ))}
+        </div>
       </section>
     );
   }
@@ -81,12 +83,11 @@ class CascadingDropdownExample extends React.Component {
 function Block({ borderColor = "black", children }) {
   return (
     <div
+      className="block"
       style={{
-        border: `2px solid ${borderColor}`,
-        display: "block",
+        borderColor: `${borderColor}`,
         height: "1rem",
         padding: "1rem",
-        margin: "1rem",
         width: "75%"
       }}
     >

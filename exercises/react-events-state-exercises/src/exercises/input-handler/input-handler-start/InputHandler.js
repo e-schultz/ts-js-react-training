@@ -29,7 +29,6 @@ class InputHandler extends React.Component {
   /* add an event handler for onChange for the inut field */
 
   updateDisplayName = () => {
-    
     this.setState((state) => {
       // return a new state object seting the displayName to the field value
      return state;
@@ -55,9 +54,11 @@ class InputHandler extends React.Component {
         {/* bind value to the state.fieldValue, and setup an onChange handler */}
         <input />
         <button
-            type="button"
-            onClick={evt => this.updateDisplayName()}
-          >Set Name</button>
+          type="button"
+          onClick={evt => this.updateDisplayName()}
+        >
+          Set Name
+        </button>
       </section>
     );
   }

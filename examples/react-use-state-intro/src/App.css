@@ -19,6 +19,8 @@ button:hover {
 }
 
 input {
-  padding: 0.5rem;
+  border: 1px solid #999;
+  border-right: 0;
+  padding: 0.54rem;
   font-size: 1rem;
 }
