@@ -29,7 +29,7 @@ const people = [
   }
 ];
 
-function APp() {
+function App() {
   return (
     <div className="App">
       {people.map(person => {
