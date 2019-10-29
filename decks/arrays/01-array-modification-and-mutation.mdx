@@ -1,43 +1,22 @@
-import Code from 'mdx-code';
-import { Invert } from "mdx-deck/layouts";
+import Code from "mdx-code";
+import { Invert, FullScreenCode } from "mdx-deck/layouts";
+import ReplIt from "../../components/ReplIt";
 
-export default Code
+export default FullScreenCode;
 
-```javascript Array Modification & Mutation
-const fruits = ['Peaches', 'Pears'];
+### Array Modification & Mutation
 
-fruits.push('Apples'); // Add item to end of array
-fruits.unshift('Oranges'); // Add item to start of array
-fruits[4] = 'Bananas'; // Add item using an index
-console.log(fruits);
-
-moreFruits = fruits.push('Watermelon');
-
-console.log({ fruits, moreFruits })
-```
+<ReplIt src="https://repl.it/@e_schultz/Arrays-modification-and-mutation?lite=true" />
 
 ---
 
+export default FullScreenCode;
 
-export default Code
+### Arrays - Safely Operating
 
-```javascript Safely Operating
-// Slice - The slice() method returns a shallow copy of a portion of an array into a new array object 
-const numbers = [1, 2, 3, 4, 5];
-const numbersTwo = numbers;
-const numbersThree = numbers.slice(3);
-
-numbers.push(6);
-
-console.log({ numbers, numbersTwo, numbersThree });
-
-const numbersFour = [...numbers, 11];
-numbersFour.push(10);
-console.log({ numbers, numbersFour })
-```
+<ReplIt src="https://repl.it/@e_schultz/Arrays-Safely-Operating?lite=true" />
 
 ---
-
 
 ## What happened?
 
@@ -46,17 +25,16 @@ console.log({ numbers, numbersFour })
 - `Array.slice` with no indexes creates a copy of the array, so it is not modified
 - Spreading the array into a new array creates a copy, so it is not modified
 
-
 ---
 
-export default Code 
+export default Code;
 
 ```javascript Accessing single array elements
 const numbers = [1, 2, 3, 4, 5];
 const index = 1;
 
 console.log(
-    numbers[index], // access with a variable
-    numbers[index + 1], // access with an expression
+  numbers[index], // access with a variable
+  numbers[index + 1] // access with an expression
 );
 ```
