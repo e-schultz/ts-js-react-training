@@ -19,32 +19,31 @@ import {
 } from "react-router-dom";
 
 import "bulma/css/bulma.css";
+import "./styles.css";
 
 import PropExample from "./examples/props-examples";
+import PropVar from "./examples/props-variables";
 function App() {
   return (
     <Router>
       <Section>
-        <Columns>
-          <Column isSize="1/4">
+        <Columns isMobile>
+          <Column isSize="1/3">
             <Menu>
               <MenuLabel>React Props Example</MenuLabel>
               <MenuList>
                 <li>
                   <NavLink activeClassName="is-active" to="/props-example">
-                    Props Example
+                    Props and Destructuring
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink activeClassName="is-active" to="/props-var">
+                    Props and Variables
                   </NavLink>
                 </li>
               </MenuList>
-              <MenuLabel>Exeercise</MenuLabel>
-              <MenuList>
-                <li>
-                  <MenuLink>TBC</MenuLink>
-                </li>
-                <li>
-                  <MenuLink isActive>Manage Your Team</MenuLink>
-                </li>
-              </MenuList>
+
               <MenuLabel>Exercises</MenuLabel>
               <MenuList>
                 <li>
@@ -60,6 +59,9 @@ function App() {
               </Route>
               <Route exact path="/props-example">
                 <PropExample />
+              </Route>
+              <Route exact path="/props-var">
+                <PropVar />
               </Route>
             </Switch>
           </Container>
