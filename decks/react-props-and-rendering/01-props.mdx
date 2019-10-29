@@ -1,13 +1,13 @@
-import { FullScreenCode, Invert } from "mdx-deck/layouts";
-import { Head, Appear, Image, withDeck } from "mdx-deck";
-import { CodeSurfer } from "mdx-deck-code-surfer";
-import nightOwl from "prism-react-renderer/themes/nightOwl";
-import ReplIt from "../../components/ReplIt";
-import CodeSandbox from "../../components/CodeSandbox";
-import Box from "../../components/Box";
-const BRANCH_NAME = "nov-updates-misc-tweaks"; // todo: change before merge
+import { FullScreenCode, Invert } from "mdx-deck/layouts"
+import { Head, Appear, Image, withDeck } from "mdx-deck"
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import nightOwl from "prism-react-renderer/themes/nightOwl"
+import ReplIt from "../../components/ReplIt"
+import CodeSandbox from "../../components/CodeSandbox"
+import Box from "../../components/Box"
+const BRANCH_NAME = "es-nov-updates-misc-tweaks" // todo: change before merge
 
-export default Invert;
+export default Invert
 
 # React - Props
 
@@ -69,6 +69,15 @@ export default Invert;
 
 ---
 
+<Box style={{ width: "80vw" }}>
+  <CodeSandbox
+    src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/exercises/react-props-exercises?autoresize=1&fontsize=14&initialpath=%2Fprops-example&module=%2Fsrc%2Fexamples%2Fprops-examples.js`}
+    runOnClick={0}
+  />
+</Box>
+
+---
+
 ## Props
 
 - A prop can be anything, including a function
@@ -76,8 +85,6 @@ export default Invert;
 - This makes your component dynamic
 
 ---
-
-export default FullScreenCode;
 
 ## Example: Passing Prop Data
 
@@ -98,7 +105,7 @@ rendering lists yet, or conditional rendering
 
 ---
 
-export default FullScreenCode;
+export default FullScreenCode
 
 ```javascript
 import PropTypes from 'prop-types';
@@ -124,7 +131,7 @@ Card.propTypes = {
 ```javascript
 ManyGreetings.defaultProps = {
   names: []
-};
+}
 ```
 
 ---
@@ -139,7 +146,7 @@ ManyGreetings.defaultProps = {
 
 ---
 
-export default FullScreenCode;
+export default FullScreenCode
 
 ### Props - Start
 
@@ -147,7 +154,7 @@ export default FullScreenCode;
 
 ---
 
-export default FullScreenCode;
+export default FullScreenCode
 
 ### Props - Solution
 
