@@ -14,8 +14,6 @@ const GreetingDestructured = ({ greeting, name }) => (
   </h1>
 );
 
-const scope = { Greeting, GreetingDestructured };
-
 export default function PropsExample() {
   return (
     <div>

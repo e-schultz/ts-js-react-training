@@ -23,6 +23,9 @@ import "./styles.css";
 
 import PropExample from "./examples/props-examples";
 import PropVar from "./examples/props-variables";
+import PropsIntroExerciseStart from "./exercises/props-intro-start/props-intro-start";
+import PropsIntroExerciseEnd from "./exercises/props-intro-end/props-intro-end";
+import Test from "./exercises/state-and-events/add-to-cart";
 function App() {
   return (
     <Router>
@@ -47,7 +50,25 @@ function App() {
               <MenuLabel>Exercises</MenuLabel>
               <MenuList>
                 <li>
-                  <MenuLink>TBC</MenuLink>
+                  <NavLink
+                    activeClassName="is-active"
+                    to="/props-exercise-01-start"
+                  >
+                    Props Intro - Start
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    activeClassName="is-active"
+                    to="/props-exercise-01-end"
+                  >
+                    Props Intro - Solution
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink activeClassName="is-active" to="/state-and-events">
+                    Test
+                  </NavLink>
                 </li>
               </MenuList>
             </Menu>
@@ -62,6 +83,15 @@ function App() {
               </Route>
               <Route exact path="/props-var">
                 <PropVar />
+              </Route>
+              <Route exact path="/props-exercise-01-start">
+                <PropsIntroExerciseStart />
+              </Route>
+              <Route exact path="/props-exercise-01-end">
+                <PropsIntroExerciseEnd />
+              </Route>
+              <Route exact path="/state-and-events">
+                <Test />
               </Route>
             </Switch>
           </Container>
