@@ -1,7 +1,29 @@
 # Function Context
+
 ---
 
 ## What will be covered
 
-* Context & Scope
-* `this`
+- Context & Scope
+- `this`
+
+---
+
+export default FullScreenCode
+
+## Example - Changing the context of `this`
+
+<ReplIt src="https://repl.it/@e_schultz/03-Exploring-Context-of-This-class-and-binding-context?lite=true" />
+
+```notes
+can also walk through something like:
+let bob = {
+  firstName: 'bob',
+  lastName: 'uncle'
+}
+bob.sayHello = evan.sayHello;//.bind(renee)
+bob.sayHello()
+and the output with and without `bind`
+```
+
+---

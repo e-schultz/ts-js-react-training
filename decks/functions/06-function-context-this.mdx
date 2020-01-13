@@ -1,84 +1,67 @@
-import Code from 'mdx-code';	
-import { FullScreenCode, Invert } from "mdx-deck/layouts";	
-import ReplIt from "../../components/ReplIt";
+import Code from "mdx-code"
+import { FullScreenCode, Invert } from "mdx-deck/layouts"
+import ReplIt from "../../components/ReplIt"
 
-export default Invert 
+export default Invert
 
-# What `this` Context?	
-
----
-## `this` gets confusing 	
-
-* `this` has been the source of many errors	
-* `this` context can change 	
-* `this` is not what you are used to in C#	
+# What `this` Context?
 
 ---
 
-> Context is always the value of the `this` keyword which is a reference to the object that “owns” the currently executing code.	
+## `this` gets confusing
+
+- `this` has been the source of many errors
+- `this` context can change
+- `this` is not what you are used to in C#
 
 ---
 
-## A simple way of thinking about it ....	
-
-* `owner.method();`	
-* The thing that is left of the `.` is the context owner 	
-* If it is just `method()` - it is unbound, and the context is global	
-* Unless it is a arrow function `() =>` - and `this` is the function it's called in	
-
-```notes	
-this is a useful lie ....	
-```	
----
-
-# Let's explore this with some examples ...	
-
----
-export default FullScreenCode	
-
-## Example - `this` on an object	
-
-<ReplIt src="https://repl.it/@e_schultz/01-Exploring-Context-of-This?lite=true"/>	
-
-
-```notes	
-* Go through things like 	
-- let hello = evan.sayHello;	
-- hello();	
-* - passing evan.sayHello into a call back 	
-* - making a new object and assigning hello to it	
-* - exploring bind	
-```	
+> Context is always the value of the `this` keyword which is a reference to the object that “owns” the currently executing code.
 
 ---
 
-export default FullScreenCode	
+## A simple way of thinking about it ....
 
-## Example - `this` on an class	
+- `owner.method();`
+- The thing that is left of the `.` is the context owner
+- If it is just `method()` - it is unbound, and the context is global
+- Unless it is a arrow function `() =>` - and `this` is the function it's called in
 
-<ReplIt src="https://repl.it/@e_schultz/02-Exploring-Context-of-This-class?lite=true"/>	
-
----
-
-export default FullScreenCode	
-
-## Example - Changing the context of `this`	
-
-<ReplIt src="https://repl.it/@e_schultz/03-Exploring-Context-of-This-class-and-binding-context?lite=true"/>	
-
-```notes	
-can also walk through something like:	
-let bob = {	
-  firstName: 'bob',	
-  lastName: 'uncle'	
-}	
-bob.sayHello = evan.sayHello;//.bind(renee)	
-bob.sayHello()	
-and the output with and without `bind`	
-```	
+```notes
+this is a useful lie ....
+```
 
 ---
 
-export default Invert 
+# Let's explore this with some examples ...
+
+---
+
+export default FullScreenCode
+
+## Example - `this` on an object
+
+<ReplIt src="https://repl.it/@e_schultz/01-Exploring-Context-of-This?lite=true" />
+
+```notes
+* Go through things like
+- let hello = evan.sayHello;
+- hello();
+* - passing evan.sayHello into a call back
+* - making a new object and assigning hello to it
+* - exploring bind
+```
+
+---
+
+export default FullScreenCode
+
+## Example - `this` on an class
+
+<ReplIt src="https://repl.it/@e_schultz/02-Exploring-Context-of-This-class?lite=true" />
+
+---
+
+export default Invert
 
 # Break / Q&A
