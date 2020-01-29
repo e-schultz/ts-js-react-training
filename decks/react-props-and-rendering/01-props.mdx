@@ -1,22 +1,47 @@
 import { FullScreenCode, Invert } from "mdx-deck/layouts";
-import { Head, Appear, Image, withDeck } from 'mdx-deck'
+import { Head, Appear, Image, withDeck } from "mdx-deck";
 import { CodeSurfer } from "mdx-deck-code-surfer";
 import nightOwl from "prism-react-renderer/themes/nightOwl";
 import ReplIt from "../../components/ReplIt";
 import CodeSandbox from "../../components/CodeSandbox";
 import Box from "../../components/Box";
-const BRANCH_NAME = 'master'; // todo: change before merge
+const BRANCH_NAME = "master"; // todo: change before merge
 
-export default Invert
+export default Invert;
 
 # React - Props
 
 ---
 
+- How do we get data into components?
+- How do we let components communicate?
+- How do we make components reusable?
+
+---
+
 # Props
 
-- Props define the 'API' of the component and how it interacts within your application
+---
+
+# Props
+
+- Define the API of the component
+- The data it expects so it can render
+- Can also pass down callbacks to help components communicate
 - Props become the attributes on your component that you use to pass in data
+
+---
+
+export default FullScreenCode;
+
+## Example: Passing Prop Data
+
+<CodeSandbox src="https://codesandbox.io/embed/3kv214881q?fontsize=14&hidenavigation=1" />
+
+```notes
+Changed example to not use a loop yet, as we haven't covered
+rendering lists yet, or conditional rendering
+```
 
 ---
 
@@ -24,7 +49,7 @@ export default Invert
   code={require("!!raw-loader!./snippets/props.snippet")}
   theme={nightOwl}
   lang="jsx"
-  title="Props 101"
+  title="Props Recap"
   showNumbers
   steps={[
     {},
@@ -48,18 +73,22 @@ export default Invert
 - You can destructure props in the component method
 
 ---
+
 <CodeSurfer
   code={require("raw-loader!./snippets/destructuring.snippet")}
   theme={nightOwl}
   lang="jsx"
-  title="These Components Are the Same"
+  title="Props Recap - Destructuring"
   showNumbers
   steps={[
     {},
-    {lines: [1], notes: "Each function is called with a single property: `props`"},
-    {lines: [2], notes: "Need to access via prop.value"},
-    {lines: [4], notes: "Or make use of Destructuring"},
-    {lines: [5], notes: "And able to just use greeting and name"}
+    {
+      lines: [1],
+      notes: "Each function is called with a single property: `props`"
+    },
+    { lines: [2], notes: "Need to access via prop.value" },
+    { lines: [4], notes: "Or make use of Destructuring" },
+    { lines: [5], notes: "And able to just use greeting and name" }
   ]}
 />
 
@@ -73,19 +102,6 @@ export default Invert
 
 ---
 
-export default FullScreenCode
-
-## Example: Passing Prop Data
-
-<CodeSandbox src="https://codesandbox.io/embed/3kv214881q?fontsize=14&hidenavigation=1"/>
-
-
-```notes
-Changed example to not use a loop yet, as we haven't covered
-rendering lists yet, or conditional rendering
-```
----
-
 ## Static Checking with PropTypes
 
 - The React prop-types package allows you to check props being passed into a component
@@ -93,7 +109,8 @@ rendering lists yet, or conditional rendering
 - You will instead receive warnings in the console
 
 ---
-export default FullScreenCode
+
+export default FullScreenCode;
 
 ```javascript
 import PropTypes from 'prop-types';
@@ -126,25 +143,27 @@ ManyGreetings.defaultProps = {
 
 ### Exercise: Adding Props
 
-* Create a component that takes two props - num1, num2
-* The component should display the equation of "num1 + num2"
-* The component should also display the result
-* Use  `prop-types` package to ensure the props are numbers
-* Use `prop-types` to set the default value to 0
+- Create a component that takes two props - num1, num2
+- The component should display the equation of "num1 + num2"
+- The component should also display the result
+- Use `prop-types` package to ensure the props are numbers
+- Use `prop-types` to set the default value to 0
 
 ---
-export default FullScreenCode
+
+export default FullScreenCode;
 
 ### Props - Start
 
-<CodeSandbox src="https://codesandbox.io/embed/9lnz3x7o1p?autoresize=1&fontsize=14&hidenavigation=1"/>
+<CodeSandbox src="https://codesandbox.io/embed/9lnz3x7o1p?autoresize=1&fontsize=14&hidenavigation=1" />
 
 ---
-export default FullScreenCode
+
+export default FullScreenCode;
 
 ### Props - Solution
 
-<CodeSandbox src="https://codesandbox.io/embed/4qz761yz49?fontsize=14"/>
+<CodeSandbox src="https://codesandbox.io/embed/4qz761yz49?fontsize=14" />
 
 ---
 
