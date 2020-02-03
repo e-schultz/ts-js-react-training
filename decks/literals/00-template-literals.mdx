@@ -1,8 +1,8 @@
 import { FullScreenCode } from "mdx-deck/layouts";
 import { Appear, Notes } from "mdx-deck";
-import { CodeSurfer } from "mdx-deck-code-surfer"
-import nightOwl from "prism-react-renderer/themes/nightOwl"
-import Code from 'mdx-code';
+import { CodeSurfer } from "mdx-deck-code-surfer";
+import nightOwl from "prism-react-renderer/themes/nightOwl";
+import Code from "mdx-code";
 import ReplIt from "../../components/ReplIt";
 
 # Template Literals
@@ -24,6 +24,7 @@ import ReplIt from "../../components/ReplIt";
 - Easier to concat strings
 
 ---
+
 <CodeSurfer
   code={require("!raw-loader!./snippets/template-ex-1.snippet")}
   theme={nightOwl}
@@ -32,12 +33,13 @@ import ReplIt from "../../components/ReplIt";
   showNumbers
   steps={[
     {}, // First step should be an overview of the snippet
-    {lines: [2], notes: "Joining strings the old way"},
+    { lines: [2], notes: "Joining strings the old way" },
     {}
   ]}
 />
 
 ---
+
 <CodeSurfer
   code={require("!raw-loader!./snippets/template-ex-2.snippet")}
   theme={nightOwl}
@@ -46,11 +48,13 @@ import ReplIt from "../../components/ReplIt";
   showNumbers
   steps={[
     {}, // First step should be an overview of the snippet
-    {lines: [2], notes: "`${var} gets replaced"},
+    { lines: [2], notes: "`${var} gets replaced" },
     {}
   ]}
 />
+
 ---
+
 <CodeSurfer
   code={require("!raw-loader!./snippets/template-ex-3.snippet")}
   theme={nightOwl}
@@ -59,10 +63,15 @@ import ReplIt from "../../components/ReplIt";
   showNumbers
   steps={[
     {},
-    {range: [2,4], notes: "Becomes multi-line, no more need to escape or new lines"},
+    {
+      range: [2, 4],
+      notes: "Becomes multi-line, no more need to escape or new lines"
+    }
   ]}
 />
+
 ---
+
 <CodeSurfer
   code={require("!raw-loader!./snippets/template-ex-4.snippet")}
   theme={nightOwl}
@@ -71,7 +80,9 @@ import ReplIt from "../../components/ReplIt";
   showNumbers
   steps={[
     {},
-    { tokens: { 4: [1,2,3,4,5,6,7,8,9,10,11,12] }, notes: "Able to evaluate expressions, or execute code" }
+    {
+      tokens: { 4: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] },
+      notes: "Able to evaluate expressions, or execute code"
+    }
   ]}
 />
-

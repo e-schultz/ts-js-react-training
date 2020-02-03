@@ -1,20 +1,21 @@
 import { FullScreenCode } from "mdx-deck/layouts";
-import Code from 'mdx-code';
+import Code from "mdx-code";
+import ReplIt from "../../components/ReplIt";
 
 # JavaScript Objects
 
 ---
 
-# Object - Basics 
+# Object - Basics
 
-* Key / Value Pair 
-* Value can be any type - including other objects, arrays, functions, etc
-* Keys can be added / removed after an Object has been created
-* Can access keys dynamically 
+- Key / Value Pair
+- Value can be any type - including other objects, arrays, functions, etc
+- Keys can be added / removed after an Object has been created
+- Can access keys dynamically
 
 ---
 
-export default Code 
+export default Code;
 
 ```javascript
 const task = {
@@ -23,23 +24,23 @@ const task = {
   priority: "high",
   title: "Complete Slides",
   assignedTo: {
-    firstName: 'Evan',
-    lastName: 'Schultz'
+    firstName: "Evan",
+    lastName: "Schultz"
   }
 };
 ```
 
 ---
 
-# Objects - Property Access 
+# Objects - Property Access
 
-* `obj.title`
-* `obj['title']`
-* `obj[variable]`
+- `obj.title`
+- `obj['title']`
+- `obj[variable]`
 
 ---
 
-export default Code 
+export default Code;
 
 ```javascript
 const task = {
@@ -48,65 +49,67 @@ const task = {
   priority: "high",
   title: "Complete Slides",
   assignedTo: {
-    firstName: 'Evan',
-    lastName: 'Schultz'
+    firstName: "Evan",
+    lastName: "Schultz"
   }
 };
 
 function getProperty(prop, obj) {
-  return obj[prop]
-};
+  return obj[prop];
+}
 
 console.log(task.complete);
-console.log(task['title']);
-console.log(getProperty('priority',task))
+console.log(task["title"]);
+console.log(getProperty("priority", task));
 ```
 
 ---
 
-### Objects - List Property Keys 
+### Objects - List Property Keys
 
-* Object.keys()
-* `for(let prop in obj)`
+- Object.keys()
+- `for(let prop in obj)`
 
 ---
 
-export default Code 
+export default Code;
 
-```javascript Object - Listing Properties 
+```javascript Object - Listing Properties
 const task = {
   id: 104,
   complete: true,
   priority: "high",
-  title: "Complete Slides" };
-  
+  title: "Complete Slides"
+};
+
 // use Object.keys
 // use for.in
 ```
 
 ---
 
-export default Code 
+export default Code;
 
-```javascript Object - Listing Properties 
+```javascript Object - Listing Properties
 const task = {
   id: 104,
   complete: true,
   priority: "high",
-  title: "Complete Slides" };
-  
+  title: "Complete Slides"
+};
+
 let keys = Object.keys(task);
 
-for(let i =0;i<keys.length;i++) {
+for (let i = 0; i < keys.length; i++) {
   let key = keys[i];
-  console.log(`task[${key}] = ${task[key]}`)
+  console.log(`task[${key}] = ${task[key]}`);
 }
 
-for(let key in task) {
- console.log(`task[${key}] = ${task[key]}`)
+for (let key in task) {
+  console.log(`task[${key}] = ${task[key]}`);
 }
-
 ```
+
 ---
 
 # Object Literals
@@ -115,40 +118,40 @@ for(let key in task) {
 
 ## What are they?
 
-- Key name becomes property name
+- Variable name becomes property name
 - Short hand for creating objects
 - Can use computed key names
 
 ---
 
-export default Code 
+export default Code;
 
 ```javascript Object Literals - Old Way
 function createTask(id, title, priority, complete) {
-    return {
-        id: id,
-        title: title,
-        priority: priority,
-        complete: complete
-    }
+  return {
+    id: id,
+    title: title,
+    priority: priority,
+    complete: complete
+  };
 }
-createTask(0, 'New Task','high', false);
+createTask(0, "New Task", "high", false);
 ```
 
 ---
 
-export default Code 
+export default Code;
 
 ```javascript Object Literals - Short Hand
-function createTask(id, title, priority, complete) {
-    return {
-        id,
-        title,
-        priority,
-        complete
-    }
+function createTask(id, title, priority, complete, keyName, value) {
+  return {
+    id: id,
+    title: title,
+    priority: priority,
+    complete: complete,
+    [keyName]: value
+  };
 }
-
-createTask(0, 'New Task','high', false);
+createTask(0, "New Task", "high", false, "archive", false);
 // Object {complete: false, id: 0, priority: "high", title: "New Task"}
 ```
