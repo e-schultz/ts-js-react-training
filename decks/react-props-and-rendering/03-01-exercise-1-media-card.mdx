@@ -3,51 +3,53 @@ import ReplIt from "../../components/ReplIt";
 import CodeSandbox from "../../components/CodeSandbox";
 import ImageSplit from "../../components/ImageSplit";
 import Box from "../../components/Box";
-import { Head, Appear, Image, withDeck } from 'mdx-deck'
-const BRANCH_NAME = 'es-misc-aug-cleanup'
+import { Head, Appear, Image, withDeck } from "mdx-deck";
+const BRANCH_NAME = "master";
 
-export default Invert 
+export default Invert;
 
-# Exercise - Robot Card List
-
----
-
-# Create a Robot Card List
-
-* Create component(s) that display a card for a robot
-* Should account for image
-* Should have a card body
-* Should display card text
-* Optionally - consider header, subheader, footer
+# Exercise - Robot Card
 
 ---
 
-export default FullScreenCode
+# Create a Robot Card
+
+- Create component(s) that display a card for a robot
+- Should account for image
+- Should have a card body
+- Should display card text
+- Optionally - consider header, subheader, footer
+
+---
+
+export default FullScreenCode;
 
 ```js
 export const ROBOT_LIST = [
   {
     id: 1,
-    name: 'Leanne Graham',
-    username: 'Bret',
-    email: 'Sincere@april.biz',
-    jobTitle: 'Architect & Engineer'
+    name: "Leanne Graham",
+    username: "Bret",
+    email: "Sincere@april.biz",
+    jobTitle: "Architect & Engineer"
   },
   {
     id: 2,
-    name: 'Ervin Howell',
-    username: 'Antonette',
-    email: 'Shanna@melissa.tv',
-    jobTitle: 'Automation Expert'
-  }]
+    name: "Ervin Howell",
+    username: "Antonette",
+    email: "Shanna@melissa.tv",
+    jobTitle: "Automation Expert"
+  }
+];
 ```
 
 ---
-export default ImageSplit
 
-##  Reference:
+export default ImageSplit;
 
-<Image src="./images/robot-card.png" size="contain"/>
+## Reference:
+
+<Image src="./images/robot-card.png" size="contain" />
 
 ---
 
@@ -59,14 +61,18 @@ Some possible components:
 - CardImage
 - CardHeader
 - CardBody
+- CardFooter - etc --- upto you
 
 ---
 
-export default FullScreenCode
+export default FullScreenCode;
 
-## Exercise: Robot Card List - Start
+## Exercise: Robot Card - Start
 
-<CodeSandbox src="https://codesandbox.io/embed/nnmop75qo4?fontsize=14"/>
+<CodeSandbox
+  src="https://codesandbox.io/embed/nnmop75qo4?fontsize=14"
+  runOnClick={0}
+/>
 
 ---
 
@@ -76,25 +82,31 @@ export default FullScreenCode
 
 ## Next Steps .....
 
-* Replace hard coded values with data
-* Render a list
-* Consider Props vs Children
-* Can we make it more composable?
+- Replace hard coded values with data
+- Consider Props vs Children
+- Can we make it more composable?
 
 ---
-export default FullScreenCode
 
-### Solutions - Robot List - Difficult To Compose
+export default FullScreenCode;
 
-<CodeSandbox src="https://codesandbox.io/embed/8k4nrn3z3l?codemirror=1&fontsize=14"/>
+### Solutions - Robot - Difficult To Reuse
 
+<CodeSandbox
+  src="https://codesandbox.io/embed/8k4nrn3z3l?codemirror=1&fontsize=14"
+  runOnClick={0}
+/>
 
 ---
-export default FullScreenCode
+
+export default FullScreenCode;
 
 ### Solutions - RobotCard - built up of Card Components
 
-<CodeSandbox src="https://codesandbox.io/embed/88p9z8xjql?codemirror=1&fontsize=14&hidenavigation=1"/>
+<CodeSandbox
+  src="https://codesandbox.io/embed/88p9z8xjql?codemirror=1&fontsize=14&hidenavigation=1"
+  runOnClick={0}
+/>
 
 ---
 
