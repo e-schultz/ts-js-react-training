@@ -1,13 +1,13 @@
 import { FullScreenCode, Invert } from "mdx-deck/layouts";
-import { Head, Appear, Image, withDeck } from 'mdx-deck'
+import { Head, Appear, Image, withDeck } from "mdx-deck";
 import { CodeSurfer } from "mdx-deck-code-surfer";
 import nightOwl from "prism-react-renderer/themes/nightOwl";
 import ReplIt from "../../components/ReplIt";
 import CodeSandbox from "../../components/CodeSandbox";
 import Box from "../../components/Box";
-const BRANCH_NAME = 'master'; // tood: change before merge
+const BRANCH_NAME = "master"; // tood: change before merge
 
-export default Invert
+export default Invert;
 
 # Rendering Lists
 
@@ -46,20 +46,46 @@ export default Invert
   showNumbers
   steps={[
     {}, // This component renders from an array
-    {lines: [1,2,3,4,5], notes: "People is an array of objects"},
-    {lines: [7,9], notes: "We map the array" },
-    {lines: [10,11,12,13], notes: "And pass object properties to another component" },
+    { lines: [1, 2, 3, 4, 5], notes: "People is an array of objects" },
+    { lines: [7, 9], notes: "We map the array" },
+    {
+      lines: [10, 11, 12, 13],
+      notes: "And pass object properties to another component"
+    },
     {}
   ]}
 />
 
 ---
 
-export default FullScreenCode
+export default FullScreenCode;
 
 ### Rendering Lists - Example
 
-<CodeSandbox src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-list-example?codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}/>
+<CodeSandbox
+  src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/${BRANCH_NAME}/examples/react-list-example?codemirror=1&fontsize=14&module=%2Fsrc%2FApp.js`}
+/>
 
+---
 
+export default FullScreenCode;
 
+### Exercise - RobotCard List - Start
+
+<CodeSandbox
+  src="https://codesandbox.io/embed/10x-list-robots-alternative-solution-2-4tvro?fontsize=14&hidenavigation=1&theme=dark"
+  runOnClick={0}
+/>
+
+---
+
+export default FullScreenCode;
+
+### Exercise - RobotCard List - Solution
+
+<CodeSandbox
+  src="https://codesandbox.io/embed/10x-robot-list-v2-start-cgfv4?fontsize=14&hidenavigation=1&theme=dark"
+  runOnClick={0}
+/>
+
+---
