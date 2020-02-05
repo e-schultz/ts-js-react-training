@@ -110,19 +110,31 @@ console.log(completedTasks);
 
 ---
 
-export default FullScreenCode;
-
 ## Exercise - Find & Filter
 
 - Implement jobTitles.find to get the department name
 - Implement filter to remove robots that are retired
+- extra: filter the list to remove all inactive robots
 
 ---
+
+export default FullScreenCode;
 
 ## Exercise - Find & Filter
 
 <CodeSandbox
   src="https://codesandbox.io/embed/hidden-leftpad-xezhd?fontsize=14&hidenavigation=1&module=%2Fsrc%2Frobot-factory.js&theme=dark"
+  runOnClick={0}
+/>
+
+---
+
+export default FullScreenCode;
+
+## Exercise - Find & Filter - Solution
+
+<CodeSandbox
+  src="https://codesandbox.io/embed/robot-find-and-filter-n2jdn?fontsize=14&hidenavigation=1&module=%2Fsrc%2Frobot-factory.js&theme=dark"
   runOnClick={0}
 />
 
@@ -160,66 +172,25 @@ console.log(result);
 
 export default FullScreenCode;
 
-## Arrays - Map - Transform Data Example Start
+## Arrays - Map - Transform Data Example
 
 <ReplIt src="https://repl.it/@e_schultz/Arrays-Map-to-Transform-example?lite=true" />
 
 ---
 
-export default Code;
+export default FullScreenCode;
 
-```javascript Exercise - Mapping Arrays
-// - Create an array containing the first names omly
-// - Create an array that adds an `id` property, the id can be the index
-const leia = { firstName: "Leia", lastName: "Organa" };
-const luke = { firstName: "Luke", lastName: "Skywalker" };
-const han = { firstName: "Han", lastName: "Solo" };
+## Exercise - Arrays - Map - Start
 
-const cast = [leia, luke, han];
-
-// implement the map functions
-const castFirstNames = cast.map();
-const castWithIds = cast.map();
-
-console.log(cast);
-console.log(castFirstNames);
-console.log(castWithIds);
-```
+<ReplIt src="https://repl.it/@e_schultz/Arrays-Map-ex-start?lite=true" />
 
 ---
 
-export default Code;
+export default FullScreenCode;
 
-```javascript Exercise - Mapping Arrays - Solution
-// - Create an array containing the first names omly
-// - Create an array that adds an `id` property, the id can be the index
-const leia = { firstName: "Leia", lastName: "Organa" };
-const luke = { firstName: "Luke", lastName: "Skywalker" };
-const han = { firstName: "Han", lastName: "Solo" };
+## Exercise - Arrays - Map - Solution
 
-const cast = [leia, luke, han];
-
-const castFirstNames = cast.map(castMember => castMember.firstName);
-const castWithIds = cast.map((castMember, i) => ({ ...castMember, id: i }));
-
-console.log(cast);
-console.log(castFirstNames);
-console.log(castWithIds);
-```
-
----
-
-export default Code;
-
-```javascript Iterators with Empty Arrays
-let numbers = [];
-
-let doubled = numbers.map(number => {
-  return { number, doubled: number * 2 };
-});
-
-console.log(doubled);
-```
+<ReplIt src="https://repl.it/@e_schultz/Arrays-Map-ex-sln?lite=true" />
 
 ---
 
