@@ -1,7 +1,11 @@
 import React from "react";
 import ViewableMonitor from "./ViewableMonitor";
 
-export default function CodeSandbox({ src, allowFullScreen = true, runOnClick=1 }) {
+export default function CodeSandbox({
+  src,
+  allowFullScreen = true,
+  runOnClick = 0
+}) {
   return (
     <ViewableMonitor>
       {isViewable =>
