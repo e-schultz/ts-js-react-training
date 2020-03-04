@@ -12,15 +12,11 @@ This is the starting point for [02 - Fetch with Loading Indicator](02---fetch-wi
 In the `HackerNewsSearch` component:
 
 - set an initial state property called `results` that is an empty array.
-  - **note** it is common to do this.state = .... in the constructor.
-  - this is the only time it is ok to directly mutate the state,
-  - any other time - use this.setState({})
-- implement the `componentDidMount` lifecycle method
 - Use fetch to query Hackers News for react,
   - the url will be: [https://hn.algolia.com/api/v1/search?query=react](https://hn.algolia.com/api/v1/search?query=react)
 - Once fetch resolves:
   - update the component state with the results
-  - Implement the render method to display the list of results, see notes on the API response format below.
+  - Implement the return to display the list of results, see notes on the API response format below.
 - The list should display the title - and be a link to the article.
 - When rendering a list of components, you should specify a key attribute.
   You can use objectID as the value for the key. Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity: React Docs for more details
@@ -68,7 +64,6 @@ For this practice, we only care about:
 - url
 - objectID
 
-
 ```json
 {
   "hits": [
@@ -91,7 +86,7 @@ For this practice, we only care about:
 
 ## Full API Response
 
-```json 
+```json
 {
   "hits": [
     {
