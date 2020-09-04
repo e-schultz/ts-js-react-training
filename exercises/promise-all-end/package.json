@@ -5,7 +5,7 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
-    "console-feed": "^2.8.6",
+    "console-feed": "^2.8.10",
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-json-view": "^1.19.1",
